@@ -1,0 +1,254 @@
+import type { Dict } from "../types";
+
+export const dict: Dict = {
+  nav: {
+    home: "Home",
+    fleet: "Fleet",
+    cars: "Cars",
+    scooters: "Scooters",
+    atvQuad: "ATV & Quad",
+    buggy: "Buggy",
+    motorbike: "Motorbike",
+    locations: "Locations",
+    pricing: "Pricing",
+    insurance: "Insurance",
+    faq: "FAQ",
+    guides: "Guides",
+    about: "About",
+    contact: "Contact",
+    book: "Book now",
+    bookNow: "Book now",
+    whatsapp: "WhatsApp",
+    call: "Call us",
+    menu: "Menu",
+  },
+  common: {
+    perDay: "/ day",
+    from: "from",
+    week: "week",
+    days: "days",
+    seats: "seats",
+    doors: "doors",
+    transmission: "Transmission",
+    fuel: "Fuel",
+    automatic: "Automatic",
+    manual: "Manual",
+    gasoline: "Petrol",
+    diesel: "Diesel",
+    hybrid: "Hybrid",
+    electric: "Electric",
+    seeDetails: "See details",
+    viewAll: "View all",
+    backToFleet: "Back to fleet",
+    available: "Available now",
+    free: "Free",
+    yes: "Yes",
+    no: "No",
+    readMore: "Read more",
+    readArticle: "Read article",
+    relatedArticles: "Related articles",
+    relatedVehicles: "Related vehicles",
+    breadcrumb: "Breadcrumb",
+  },
+  hero: {
+    eyebrow: "Naxos · since 2018 · owner-operated",
+    title: "Rent a car, scooter, ATV or buggy on Naxos",
+    subtitle:
+      "Free delivery to Naxos Airport (JNX), the port and your hotel. Transparent prices, zero hidden fees, owner-operated by Marios & Ria.",
+    ctaPrimary: "Browse the fleet",
+    ctaSecondary: "Book on WhatsApp",
+    badge1: "Free airport & port delivery",
+    badge2: "Unlimited kilometres",
+    badge3: "2nd driver free",
+    badge4: "Baby seat included",
+  },
+  why: {
+    title: "Why renters on Naxos pick us",
+    subtitle: "Real owners. Real fleet. Zero surprises at pickup.",
+    items: [
+      {
+        title: "Free door-to-door delivery",
+        body:
+          "We hand the keys over wherever you want — JNX airport, the port, your hotel in Chora, Agios Prokopios, Agia Anna, Plaka, Mikri Vigla, Apollonas or anywhere on Naxos.",
+      },
+      {
+        title: "Transparent prices, no hidden fees",
+        body:
+          "Every price you see includes unlimited kilometres, basic CDW, taxes, baby seat and a second driver. No surprise add-ons.",
+      },
+      {
+        title: "Owner-operated, not a call centre",
+        body:
+          "You speak directly with Marios or Ria. WhatsApp answered in minutes, not days. Hundreds of 5-star Google reviews back it up.",
+      },
+      {
+        title: "Cars, scooters, ATVs and buggies",
+        body:
+          "One operator for the whole family — small automatic for Chora parking, a 4×4 for Mount Zas, a buggy for Alyko, a Vespa for the beach run.",
+      },
+    ],
+  },
+  fleetTeaser: {
+    title: "Built for every Naxos itinerary",
+    cars: "Cars",
+    scooters: "Scooters",
+    atvQuad: "ATV & Quad",
+    buggy: "Buggy",
+  },
+  delivery: {
+    title: "Free delivery, anywhere on Naxos",
+    subtitle:
+      "We meet you at JNX airport, Naxos port or your accommodation. Most pickups happen in under 5 minutes.",
+    points: [
+      "Naxos Airport JNX (meet & greet)",
+      "Naxos Port (2-min walk to office)",
+      "Chora, Agios Prokopios, Agia Anna",
+      "Plaka, Mikri Vigla, Stelida, Kastraki",
+      "Apollonas, Filoti, Apeiranthos, Chalki",
+    ],
+  },
+  reviews: {
+    title: "What our renters say",
+    subtitle: "Verified Google reviews",
+    google: "from Google reviews",
+  },
+  faqTeaser: {
+    title: "Frequently asked questions",
+    subtitle: "Honest answers, updated for the new 2026 Greek traffic code.",
+    cta: "See all answers",
+  },
+  footer: {
+    rights: "All rights reserved.",
+    description:
+      "Owner-operated car, scooter, ATV and buggy rental on Naxos. Free delivery to airport, port and hotel.",
+    fleet: "Fleet",
+    company: "Company",
+    legal: "Legal",
+    languages: "Languages",
+    contact: "Contact",
+    explore: "Explore Naxos",
+  },
+  fleetHub: {
+    title: "Our Naxos fleet",
+    subtitle:
+      "Cars, scooters, ATVs and buggies — fully insured, regularly serviced, ready at JNX, the port or your hotel.",
+    categoryCars: "Cars — from compact to 7-seater & 4×4",
+    categoryScooters: "Scooters — 50cc to 200cc & Vespa",
+    categoryAtv: "ATV & Quad — 150cc to 800cc",
+    categoryBuggy: "Buggy — Polaris RZR 2 & 4 seat",
+    categoryMoto: "Motorbike — touring & adventure",
+  },
+  pricing: {
+    title: "Transparent pricing",
+    subtitle:
+      "Indicative daily rates including unlimited kilometres, basic CDW, taxes, baby seat, second driver and roadside assistance. Final quote on WhatsApp or in the booking engine.",
+    shoulder: "Shoulder",
+    high: "High season",
+    weekly: "Weekly",
+    note:
+      "Shoulder season covers May, early June, late September and October. High season covers mid-June through mid-September. Weekly rates apply on 7+ day rentals.",
+  },
+  insurance: {
+    title: "Insurance & coverage",
+    subtitle:
+      "Every vehicle ships with basic CDW. Upgrade at pickup or in advance — no pressure, no upsell.",
+    levelsTitle: "Coverage levels",
+    levels: [
+      {
+        name: "Basic CDW (included)",
+        excess: "€800 deposit · €600 excess",
+        body: "Standard collision damage waiver. Tyres, undercarriage, windscreen and personal items not covered.",
+      },
+      {
+        name: "Full CDW",
+        excess: "€300 deposit · €150 excess",
+        body: "Reduced excess plus tyres and windscreen. Recommended for the Chalki–Apeiranthos mountain loop.",
+      },
+      {
+        name: "Zero Excess",
+        excess: "€0 excess · €100 deposit",
+        body: "Full peace of mind including tyres, windscreen, undercarriage and roadside replacement.",
+      },
+    ],
+    includedTitle: "What's always included",
+    included: [
+      "Unlimited kilometres",
+      "Theft protection (TPI)",
+      "Third-party liability",
+      "24/7 roadside assistance",
+      "Free second driver",
+      "Free baby seat / booster",
+      "VAT and Greek road taxes",
+    ],
+    notCoveredTitle: "What's never covered",
+    notCovered: [
+      "Driving under the influence",
+      "Driving without a valid licence (or IDP where required)",
+      "Off-road driving with a non-4×4 vehicle",
+      "Taking the vehicle on a ferry without written permission",
+    ],
+  },
+  faqHub: {
+    title: "Naxos car rental FAQ",
+    subtitle: "30+ honest answers to the questions every Naxos visitor asks.",
+  },
+  guidesHub: {
+    title: "Naxos road-trip guides",
+    subtitle:
+      "Updated for the 2026 Greek Traffic Code (30 km/h urban, 110 km/h expressway, 130 km/h motorway).",
+  },
+  locationsHub: {
+    title: "Pickup locations on Naxos",
+    subtitle: "Free delivery to every village, beach and port on the island.",
+  },
+  about: {
+    title: "Owner-operated since 2018",
+    subtitle: "Marios & Ria. One office in Chora. One promise: no hidden fees.",
+    body:
+      "Fast Motor Rental Naxos is a small, family-run business. We don't outsource pickups, we don't sell on a third-party contract, and we answer WhatsApp ourselves. Every car, scooter, ATV and buggy in our fleet is owned and maintained in-house. We meet you at JNX, the port or your hotel — for free — and we hand you the keys with a clear contract, a transparent damage protocol and a phone number that actually picks up.",
+  },
+  contact: {
+    title: "Contact us",
+    subtitle: "WhatsApp is the fastest way. We answer within minutes during the season.",
+    phoneLabel: "Phone",
+    emailLabel: "Email",
+    whatsappLabel: "WhatsApp",
+    addressLabel: "Address",
+    hoursLabel: "Hours",
+  },
+  book: {
+    title: "Complete your booking",
+    subtitle:
+      "You'll be handed off to our secure booking engine to choose dates, insurance and add-ons. Prefer to talk to a human? WhatsApp us and we'll quote you in minutes.",
+    continue: "Continue to booking",
+    talkToHuman: "Talk to Marios or Ria on WhatsApp",
+  },
+  whatsAppFab: {
+    label: "Chat on WhatsApp",
+    message: "Hi! I'm planning a trip to Naxos and would like a quick rental quote.",
+  },
+  toc: "On this page",
+  cta: {
+    bookCar: "Book this vehicle",
+    whatsappQuote: "WhatsApp quote",
+    callNow: "Call now",
+    seeFleet: "See the full fleet",
+  },
+  theme: {
+    light: "Light theme",
+    dark: "Dark theme",
+    system: "System theme",
+    toggleLabel: "Toggle colour theme",
+  },
+  a11y: {
+    skipToContent: "Skip to main content",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+  },
+  trust: {
+    delivery: "Free airport, port & hotel delivery",
+    unlimited: "Unlimited kilometres included",
+    transparent: "Transparent prices, no hidden fees",
+    owner: "Owner-operated since 2018",
+  },
+};
