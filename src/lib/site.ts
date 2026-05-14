@@ -40,7 +40,15 @@ export const SITE = {
     tripadvisor: "https://www.tripadvisor.com/",
   },
   rating: { value: 4.9, count: 187 },
+  flags: {
+    touristasEnabled: true,
+    cookieBannerEnabled: true,
+  },
 } as const;
+
+export function viberUrl(): string {
+  return `viber://chat/?number=%2B${SITE.whatsapp}`;
+}
 
 export const LOCALES = ["en", "el", "it", "fr", "de"] as const;
 export type Locale = (typeof LOCALES)[number];

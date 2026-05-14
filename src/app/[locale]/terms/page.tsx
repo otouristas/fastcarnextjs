@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, graph } from "@/lib/schema";
+import { LegalPageShell } from "@/components/legal/LegalPageShell";
+import { TermsAndCancellation } from "@/components/legal/TermsAndCancellation";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -18,41 +18,31 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
   const dict = await getDict(locale);
 
   return (
-    <>
-      <JsonLd data={graph([
-        breadcrumbSchema([
-          { name: dict.nav.home, url: `${SITE.domain}${localePath(locale)}` },
-          { name: "Terms", url: `${SITE.domain}${localePath(locale, "terms")}` },
-        ]),
-      ])} />
+    <LegalPageShell
+      locale={locale}
+      dict={dict}
+      slug="terms"
+      title={dict.legal.termsTitle}
+      subtitle={dict.legal.termsSubtitle}
+    >
+      <TermsAndCancellation locale={locale} dict={dict} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: "Terms" },
-          ]} />
-          <h1 className="mt-5 text-4xl font-extrabold text-[var(--ink)] dark:text-white">Terms &amp; conditions</h1>
-        </div>
-      </section>
-
-      <section className="bg-background">
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8 prose prose-neutral max-w-none text-[var(--ink)] dark:prose-invert dark:text-white">
-          <p className="text-muted-foreground">This page summarises the key terms of the rental contract for {SITE.brand}. The full contract is provided in Greek at pickup, with a sworn English translation available on request.</p>
-          <h2>Driver requirements</h2>
-          <p>Minimum age 21, valid licence held for at least 1 year. SUVs and the buggy require minimum age 23.</p>
-          <h2>Insurance</h2>
-          <p>Basic CDW is included. Full and Zero Excess upgrades are optional. Tyres, undercarriage and windscreen are not covered by Basic.</p>
-          <h2>Cancellation</h2>
-          <p>Free cancellation up to 24 hours before pickup. After that, the first day is retained as a no-show fee.</p>
-          <h2>Off-road / ferry</h2>
-          <p>Driving the vehicle off paved roads (except the Suzuki Jimny and the Polaris buggy) is not permitted. The vehicle may not leave Naxos by ferry without our written permission.</p>
-          <h2>Damage protocol</h2>
-          <p>The vehicle is photographed at pickup and at return. New damage is logged with photos and the customer is charged according to their insurance level.</p>
-          <h2>Contact</h2>
-          <p>Questions: <a href={`mailto:${SITE.email}`} className="text-[var(--sea)] hover:underline">{SITE.email}</a> or WhatsApp {SITE.phones[0]}.</p>
-        </div>
-      </section>
-    </>
+      <div className="mt-12 rounded-3xl border border-border bg-[var(--sea-soft)]/40 p-6 text-sm text-[var(--ink)] dark:bg-white/5 dark:text-white">
+        <p>
+          {dict.contact.subtitle} —{" "}
+          <a className="font-semibold text-[var(--sea)] hover:underline" href={`mailto:${SITE.email}`}>
+            {SITE.email}
+          </a>{" "}
+          ·{" "}
+          <Link className="font-semibold text-[var(--sea)] hover:underline" href={localePath(locale, "privacy")}>
+            {dict.legal.privacyTitle}
+          </Link>{" "}
+          ·{" "}
+          <Link className="font-semibold text-[var(--sea)] hover:underline" href={localePath(locale, "cookies")}>
+            {dict.legal.cookiesTitle}
+          </Link>
+        </p>
+      </div>
+    </LegalPageShell>
   );
 }

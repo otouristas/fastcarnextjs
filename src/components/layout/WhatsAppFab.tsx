@@ -1,5 +1,5 @@
 import { whatsappUrl } from "@/lib/whatsapp";
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export function WhatsAppFab({ label, message }: { label: string; message: string }) {
   return (
@@ -8,9 +8,9 @@ export function WhatsAppFab({ label, message }: { label: string; message: string
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl ring-4 ring-white/30 hover:scale-105 transition-transform"
+      className="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full drop-shadow-2xl transition-transform hover:scale-105"
     >
-      <MessageCircle className="h-7 w-7" />
+      <WhatsAppIcon className="h-14 w-14" />
       <span className="sr-only">{label}</span>
     </a>
   );

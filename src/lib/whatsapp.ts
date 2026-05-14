@@ -1,9 +1,11 @@
 import { SITE } from "./site";
 
+// Canonical WhatsApp web URL pattern (works on both web & mobile, hands off to the app when installed).
+// Matches https://api.whatsapp.com/send/?phone=306948820568&text=...&type=phone_number&app_absent=0
 export function whatsappUrl(message?: string): string {
-  const base = `https://wa.me/${SITE.whatsapp}`;
-  if (!message) return base;
-  return `${base}?text=${encodeURIComponent(message)}`;
+  const params = new URLSearchParams({ phone: SITE.whatsapp, type: "phone_number", app_absent: "0" });
+  if (message) params.set("text", message);
+  return `https://api.whatsapp.com/send/?${params.toString()}`;
 }
 
 export function whatsappVehicleMessage(vehicleName: string, locale: string): string {

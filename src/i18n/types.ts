@@ -55,4 +55,37 @@ export interface Dict {
   theme: { light: string; dark: string; system: string; toggleLabel: string };
   a11y: { skipToContent: string; openMenu: string; closeMenu: string };
   trust: { delivery: string; unlimited: string; transparent: string; owner: string };
+  legal: {
+    termsTitle: string; termsSubtitle: string;
+    cancellationTitle: string; cancellationSubtitle: string;
+    privacyTitle: string; privacySubtitle: string;
+    gdprTitle: string; gdprSubtitle: string;
+    cookiesTitle: string; cookiesSubtitle: string;
+    lastUpdated: string;
+  };
+  cookie: {
+    title: string; body: string; accept: string; reject: string; settings: string; ariaLabel: string;
+  };
+  ai: {
+    trigger: string; title: string; subtitle: string; greeting: string;
+    placeholder: string; send: string; reset: string; suggestions: string[];
+    poweredBy: string; minimize: string; close: string;
+  };
+  fleetFilter: {
+    title: string; clearAll: string; results: string; result: string;
+    type: string; transmission: string; seats: string; licence: string;
+    priceRange: string; fourByFourOnly: string; bestFor: string;
+    sort: string; sortRecommended: string; sortPriceAsc: string; sortPriceDesc: string; sortLargest: string;
+    any: string; openDrawer: string; closeDrawer: string;
+    licenceB: string; licenceMoto: string;
+    bestForOptions: { couples: string; families: string; adventure: string; mountains: string; beaches: string; offroad: string; style: string };
+    emptyTitle: string; emptyBody: string; emptyCta: string;
+  };
+  naxos: {
+    pageTitle: string; pageSubtitle: string;
+    quickFactsTitle: string; historyTitle: string; geographyTitle: string;
+    economyTitle: string; beachesTitle: string; galleryTitle: string;
+    referencesTitle: string; sourcedFrom: string;
+    bestVehicleFor: string; readMoreAbout: string;
+  };
 }

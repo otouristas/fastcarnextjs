@@ -39,6 +39,12 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-sea: var(--sea);
+  --color-sea-2: var(--sea-2);
+  --color-sand: var(--sand);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -217,5 +223,53 @@
       radial-gradient(50% 70% at 8% 10%, rgba(255, 159, 28, 0.14), transparent 58%),
       radial-gradient(44% 64% at 92% 18%, rgba(0, 166, 200, 0.16), transparent 58%),
       linear-gradient(180deg, #102b3d 0%, #173448 48%, #102b3d 100%);
+  }
+
+  /* Ken-Burns slow zoom-out for hero imagery (inspired by bestrrentals reference) */
+  @keyframes kenburns {
+    0% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+  }
+  .animate-kenburns {
+    animation: kenburns 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: transform;
+  }
+
+  /* Scroll-cue bounce */
+  @keyframes scrollCue {
+    0%, 20%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
+    40% { transform: translateY(6px); opacity: 1; }
+  }
+  .animate-scroll-cue { animation: scrollCue 2.4s ease-in-out infinite; }
+
+  /* Soft float for marquee accents */
+  @keyframes softFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animate-float { animation: softFloat 6s ease-in-out infinite; }
+
+  /* Reveal-in (used on server-rendered sections — runs once on mount) */
+  @keyframes revealUp {
+    0% { opacity: 0; transform: translateY(18px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .reveal-up { animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+  /* Diagonal accent block (Featured Vehicles backdrop) */
+  .diagonal-accent {
+    position: absolute;
+    inset: 0 auto 0 auto;
+    right: -8%;
+    top: 0;
+    bottom: 0;
+    width: 38%;
+    background: color-mix(in srgb, var(--sea-soft) 70%, transparent);
+    transform: skewX(-9deg);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .dark .diagonal-accent {
+    background: color-mix(in srgb, var(--ink-3) 55%, transparent);
   }
 }

@@ -5,6 +5,7 @@ import { getDict } from "@/i18n/dictionaries";
 import { buildMetadata } from "@/lib/seo";
 import { LOCATIONS, LOCATIONS_BY_SLUG } from "@/content/locations";
 import { VEHICLES } from "@/content/fleet";
+import { recommendForLocation } from "@/lib/vehicleRecommender";
 import { FAQS } from "@/content/faqs";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
@@ -12,7 +13,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqPageSchema, graph, locationPlaceSchema } from "@/lib/schema";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { ArrowRight, MapPin, Clock, Check, MessageCircle, Plane, Anchor, Mountain, Sparkles } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Check, Plane, Anchor, Mountain, Sparkles } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
@@ -59,7 +61,7 @@ export default async function LocationPage({ params }: { params: Promise<{ local
   if (!isLocale(locale) || !loc) notFound();
   const dict = await getDict(locale);
   const nearby = LOCATIONS.filter((l) => l.slug !== loc.slug).slice(0, 6);
-  const vehicles = VEHICLES.filter((v) => loc.nearbyVehicles.includes(v.category)).slice(0, 4);
+  const recommended = recommendForLocation(loc.slug, VEHICLES, 3);
   const faqs = (TYPE_FAQ_SLUGS[loc.type] || [])
     .map((s) => FAQS.find((f) => f.slug === s))
     .filter((f): f is (typeof FAQS)[number] => Boolean(f));
@@ -106,7 +108,7 @@ export default async function LocationPage({ params }: { params: Promise<{ local
                   {dict.nav.bookNow} <ArrowRight className="h-4 w-4" />
                 </a>
                 <a href={whatsappUrl(dict.whatsAppFab.message)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-6 py-3 text-sm font-bold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white">
-                  <MessageCircle className="h-4 w-4 text-[#25D366]" /> {dict.cta.whatsappQuote}
+                  <WhatsAppIcon className="h-5 w-5" /> {dict.cta.whatsappQuote}
                 </a>
               </div>
             </div>
@@ -160,12 +162,21 @@ export default async function LocationPage({ params }: { params: Promise<{ local
         </div>
       </section>
 
-      {vehicles.length > 0 && (
+      {recommended.length > 0 && (
         <section className="bg-sand dark:bg-[var(--background)]">
           <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-extrabold text-[var(--ink)] dark:text-white">{dict.common.relatedVehicles}</h2>
-            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {vehicles.map((v) => <VehicleCard key={v.slug} vehicle={v} locale={locale} dict={dict} />)}
+            <h2 className="text-2xl font-extrabold text-[var(--ink)] dark:text-white sm:text-3xl">
+              {dict.naxos.bestVehicleFor} {loc.shortName}
+            </h2>
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {recommended.map(({ vehicle, reason }) => (
+                <div key={vehicle.slug} className="relative">
+                  <span className="absolute -top-3 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[var(--sea)] px-3 py-1 text-[11px] font-bold text-white shadow">
+                    {reason[locale]}
+                  </span>
+                  <VehicleCard vehicle={vehicle} locale={locale} dict={dict} />
+                </div>
+              ))}
             </div>
           </div>
         </section>

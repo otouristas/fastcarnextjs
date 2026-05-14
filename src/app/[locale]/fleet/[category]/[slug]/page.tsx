@@ -13,11 +13,13 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph, vehicleSchema, faqPageSchema } from "@/lib/schema";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
+import { TermsAndCancellation } from "@/components/legal/TermsAndCancellation";
 import { whatsappUrl, whatsappVehicleMessage } from "@/lib/whatsapp";
 import {
-  ArrowRight, Check, Users, Fuel, Gauge, DoorOpen, MessageCircle, Wallet,
+  ArrowRight, Check, Users, Fuel, Gauge, DoorOpen, Wallet,
   Sparkles, Star, Phone, ShieldCheck, MapPin, BadgeCheck, CalendarDays,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 /* -------------------------------------------------------------------------- */
 /* Localised UI labels (only used here so we don't bloat the global dict)     */
@@ -155,15 +157,16 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
             {/* Image */}
             <div className="lg:col-span-7">
               <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem] shadow-[0_30px_80px_-30px_rgba(15,37,51,0.45)] island-card">
-                <Image
-                  src={v.image}
-                  alt={v.name[locale]}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover"
-                  unoptimized
-                />
+                <div className="absolute inset-0 animate-kenburns">
+                  <Image
+                    src={v.image}
+                    alt={v.name[locale]}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(15,37,51,0.55)] via-transparent to-transparent p-5">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md">
@@ -243,7 +246,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-3 py-3 text-sm font-bold text-foreground shadow-sm hover:border-[var(--sea-2)] hover:text-[var(--sea)] dark:bg-white/10"
                       >
-                        <MessageCircle className="h-4 w-4 text-[#25D366]" /> {dict.nav.whatsapp}
+                        <WhatsAppIcon className="h-5 w-5" /> {dict.nav.whatsapp}
                       </a>
                       <a
                         href={`tel:${SITE.phones[0]}`}
@@ -417,6 +420,26 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
               </ul>
             </div>
           </aside>
+        </div>
+      </section>
+
+      {/* Rental terms & cancellation */}
+      <section className="bg-background border-t border-border/70">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <details className="group">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-2xl border border-border/60 bg-card p-5 shadow-sm transition-colors hover:border-[var(--sea-2)]">
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="h-5 w-5 shrink-0 text-[var(--brand-2)]" />
+                <span className="text-base font-bold text-foreground">{dict.legal.termsTitle} &amp; {dict.legal.cancellationTitle}</span>
+              </div>
+              <span className="text-muted-foreground transition-transform group-open:rotate-180">
+                <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5"><path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" /></svg>
+              </span>
+            </summary>
+            <div className="mt-6">
+              <TermsAndCancellation locale={locale} dict={dict} />
+            </div>
+          </details>
         </div>
       </section>
 

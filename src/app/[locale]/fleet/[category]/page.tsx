@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { vehiclesByCategory } from "@/content/fleet";
-import { VehicleCard } from "@/components/fleet/VehicleCard";
+import { vehiclesByCategory, VEHICLES } from "@/content/fleet";
+import { FleetBrowser } from "@/components/fleet/FleetBrowser";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph, faqPageSchema } from "@/lib/schema";
@@ -131,19 +131,8 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      <section className="bg-sand dark:bg-[var(--background)]">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--sea)]">{dict.common.available}</p>
-              <h2 className="mt-2 text-3xl font-extrabold text-[var(--ink)] dark:text-white">{navLabels[cat]}</h2>
-            </div>
-            <p className="max-w-xl text-sm leading-6 text-muted-foreground">{dict.delivery.subtitle}</p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {vehicles.map((v) => <VehicleCard key={v.slug} vehicle={v} locale={locale} dict={dict} />)}
-          </div>
-        </div>
+      <section className="bg-sand dark:bg-[var(--background)] border-t border-border/70">
+        <FleetBrowser vehicles={VEHICLES} locale={locale} dict={dict} initialCategory={cat} />
       </section>
 
       <ContextualFaq faqs={faqs} locale={locale} dict={dict} title={dict.faqTeaser.title} subtitle={categoryDetails.faqIntro} />

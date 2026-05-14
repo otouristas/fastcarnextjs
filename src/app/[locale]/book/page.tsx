@@ -6,7 +6,8 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -44,7 +45,7 @@ export default async function BookPage({ params }: { params: Promise<{ locale: s
               {dict.book.continue} <ArrowRight className="h-4 w-4" />
             </a>
             <a href={whatsappUrl(dict.whatsAppFab.message)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-6 py-3 text-sm font-bold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white">
-              <MessageCircle className="h-4 w-4 text-[#25D366]" /> {dict.book.talkToHuman}
+              <WhatsAppIcon className="h-5 w-5" /> {dict.book.talkToHuman}
             </a>
           </div>
         </div>
