@@ -4,29 +4,26 @@ const ls = (en: string, el?: string, it?: string, fr?: string, de?: string) => (
   en, el: el ?? en, it: it ?? en, fr: fr ?? en, de: de ?? en,
 });
 
-const HERO = (q: string) =>
-  `https://images.unsplash.com/photo-${q}?w=1600&auto=format&fit=crop`;
-
 export const GUIDES: Guide[] = [
   {
     slug: "do-you-need-a-car-in-naxos",
     title: ls(
-      "Do you need a car in Naxos? An honest 2026 answer",
+      "Do you need a car in Naxos? An honest 2026 guide",
       "Χρειάζεσαι αυτοκίνητο στη Νάξο; Μια ειλικρινής απάντηση",
       "Serve l'auto a Naxos? Una risposta onesta",
       "Faut-il une voiture à Naxos ? Une réponse honnête",
       "Brauche ich auf Naxos ein Auto? Eine ehrliche Antwort",
     ),
     excerpt: ls(
-      "Buses cover the obvious. Renting a car (or scooter, or ATV) covers everything else — and Naxos has a lot of everything else.",
+      "Buses cover the obvious beaches. Renting a car, scooter or ATV covers everything else — and Naxos has a lot of everything else.",
       "Τα λεωφορεία καλύπτουν τα προφανή. Η ενοικίαση καλύπτει όλα τα υπόλοιπα.",
       "Gli autobus coprono l'ovvio. Il noleggio copre tutto il resto.",
       "Les bus couvrent l'essentiel. La location couvre tout le reste.",
       "Busse decken das Offensichtliche. Mietwagen den Rest.",
     ),
-    hero: HERO("1611348586804-61bf6c080437"),
+    hero: "/images/naxos/landscape.jpg",
     publishedAt: "2026-01-15",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 8,
     related: ["driving-in-naxos", "naxos-road-trip-itinerary", "naxos-airport-jnx-guide"],
     faqRefs: ["do-i-need-car-naxos", "automatic-availability", "best-time-to-rent"],
@@ -34,7 +31,7 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("The short answer", "Σύντομη απάντηση", "Risposta breve", "Réponse courte", "Kurze Antwort"),
         body: ls(
-          "If you're staying in Chora and you're happy spending most of your time at the closest beaches (Agios Georgios, Agios Prokopios, Agia Anna), you can absolutely do it without a car. Public buses are reliable, taxis are reasonable, and the old town itself is car-free. Once you start asking questions like 'how do we get to Apeiranthos for lunch?' or 'can we drive to Alyko for sunset?' the answer changes. Without a vehicle the bus schedule controls your day; with one, the island opens up to a 5- to 10-fold increase in what you can see.",
+          "If you're staying in Chora and you're genuinely happy spending your whole trip at Agios Georgios, Agios Prokopios and Agia Anna, you can survive without a vehicle. The old town is car-free, buses run hourly to the nearest beaches in summer, and taxis are easy to find at the port. The moment you ask a question like 'how do we get to Apeiranthos for lunch?' or 'can we drive down to Alyko for sunset?' the calculus flips completely. Without a vehicle the bus timetable runs your holiday; with one, Naxos opens up roughly five-fold — 30 km of coastline, marble-paved mountain villages, a Venetian castle, cedar forests and the tallest peak in the Cyclades are all within 90 minutes of Chora on roads you can drive in a standard hire car.",
           "Αν μένετε στη Χώρα και αρκείστε στις κοντινές παραλίες, μπορείτε χωρίς αυτοκίνητο. Για εσωτερικά χωριά και απομακρυσμένες παραλίες, η ενοικίαση είναι απαραίτητη.",
           "Se resti a Chora e ti bastano le spiagge vicine, puoi fare a meno dell'auto. Per villaggi interni e spiagge lontane è essenziale.",
           "Si tu restes à Chora et que les plages proches te suffisent, pas besoin de voiture. Sinon, c'est essentiel.",
@@ -42,9 +39,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("What buses can and can't do", "Τι μπορούν και τι όχι τα λεωφορεία", "Cosa fanno e non fanno gli autobus", "Ce que font et ne font pas les bus", "Was Busse können und nicht"),
+        heading: ls("What the bus network can and can't do", "Τι μπορούν και τι όχι τα λεωφορεία", "Cosa fanno e non fanno gli autobus", "Ce que font et ne font pas les bus", "Was Busse können und nicht"),
         body: ls(
-          "KTEL Naxos runs hourly buses from Chora to Agios Prokopios, Agia Anna and Plaka in summer; less frequent service to Apollonas, Apeiranthos and Filoti (3–4 times a day). Last bus back from the inland villages is typically late afternoon. Buses don't go anywhere near Mikri Vigla, Alyko, Pyrgaki or any of the small chapels. Schedules are reduced sharply outside July–August.",
+          "KTEL Naxos runs reliable hourly buses from Chora's port to Agios Prokopios, Agia Anna and Plaka throughout July and August. There are 3–4 daily services to Apollonas, Apeiranthos and Filoti, with the last bus back from inland villages typically leaving at 4–5 pm. Buses do not reach Mikri Vigla, Alyko, Pyrgaki, Kastraki, Glyfada, or the dozens of small chapels and coves that make Naxos special. Off-season (May–June, September–October) services thin dramatically — some routes drop to twice daily. If any of those places are on your list, a rental is not a luxury; it's simply how you get there.",
           "Το ΚΤΕΛ Νάξου εκτελεί τακτικά δρομολόγια προς τις κύριες παραλίες, λιγότερα προς εσωτερικά χωριά. Δεν εξυπηρετεί απομακρυσμένες παραλίες όπως η Μικρή Βίγλα και το Αλυκό.",
           "KTEL Naxos copre le spiagge principali e i villaggi interni con frequenza ridotta. Mikri Vigla e Alyko non sono raggiunti.",
           "KTEL Naxos dessert les plages principales et l'intérieur en fréquence réduite. Mikri Vigla et Alyko non desservis.",
@@ -54,7 +51,7 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("When a scooter beats a car", "Πότε το μηχανάκι κερδίζει το αυτοκίνητο", "Quando lo scooter batte l'auto", "Quand le scooter bat la voiture", "Wann der Roller das Auto schlägt"),
         body: ls(
-          "Two adults, no luggage, one base for the whole trip — a 50cc or 125cc scooter beats a car for cost, parking and freedom. You'll spend €30–40/day instead of €60+, and you'll never circle Chora looking for a spot. The trade-offs: weather (pouring rain isn't fun), wind (Naxos is famously breezy), and distance (Apollonas on a 50cc is a long, slow ride).",
+          "Two adults, light carry-on bags, a sunny week with no mountain-village nights planned — a 125cc scooter beats a small car on almost every metric. You'll pay €35–45/day instead of €60+, park anywhere for free, and filter through Chora's narrow lanes with zero stress. The honest trade-offs: Naxos is famously windy (the Aegean meltemi can make riding genuinely unpleasant in August), driving to Apollonas on a 50cc takes nearly two hours, and wet-weather grip on island roads is poor. If even one of those scenarios is likely, step up to a car. We can advise over WhatsApp on which option fits your exact itinerary — message us before you book.",
           "Δύο ενήλικες, μία βάση, χωρίς αποσκευές — μηχανάκι κερδίζει σε κόστος και ευελιξία.",
           "Due adulti, una base, niente bagagli — lo scooter batte l'auto per costi e libertà.",
           "Deux adultes, une base, sans bagage — le scooter bat la voiture en coût et liberté.",
@@ -64,7 +61,7 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("ATVs, buggies and the adventure factor", "ATV, buggies και ο παράγοντας περιπέτεια", "ATV, buggy e il fattore avventura", "ATV, buggys et le côté aventure", "ATV, Buggys und der Abenteuerfaktor"),
         body: ls(
-          "If your trip has an 'experience day' where Alyko, Mikri Vigla or Pyrgaki appear in the plan, an ATV or a Polaris buggy turns those days into the highlight of the holiday. They're slower, louder, and absolutely worth the extra €30/day if you've got the right itinerary.",
+          "If your trip includes even one day at Alyko's cedar beach, the Alyko dunes, Mikri Vigla's kite beach or the painted abandoned hotel south of Pyrgaki, a Polaris buggy or a CFMoto ATV turns those hours into the highlight of the holiday. The unpaved tracks in Alyko and south of Mikri Vigla are not accessible to standard hire cars under our contract (or any reputable rental's contract — they're rough, soft sand in places). The buggy handles all of it with ease and costs only €30–40 more per day than a small car. Most guests who try a buggy day say they wish they'd booked two.",
           "Αν το πρόγραμμά σας περιλαμβάνει Αλυκό, Μικρή Βίγλα ή Πυργάκι, ένα ATV ή buggy κάνει την ημέρα αξέχαστη.",
           "Se l'itinerario tocca Alyko, Mikri Vigla o Pyrgaki, ATV o buggy rendono la giornata indimenticabile.",
           "Si Alyko, Mikri Vigla ou Pyrgaki sont prévus, ATV ou buggy rendent la journée mémorable.",
@@ -72,9 +69,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Our honest recommendation", "Η ειλικρινής σύστασή μας", "Il nostro consiglio onesto", "Notre recommandation honnête", "Unsere ehrliche Empfehlung"),
+        heading: ls("Our honest recommendation by trip type", "Η ειλικρινής σύστασή μας", "Il nostro consiglio onesto", "Notre recommandation honnête", "Unsere ehrliche Empfehlung"),
         body: ls(
-          "For most visitors staying 4+ nights: rent something for the entire stay (car if you have luggage and kids, scooter if you're a couple travelling light). For shorter stays: rent for 2–3 days within the trip, do all the inland exploration in those days, and leave the beach days for buses or walking. We hold the same rate whether you book 2 days or 7 — there is no penalty for short rentals.",
+          "Couple travelling light, 4–7 nights: scooter or small car for the whole stay. Family with kids and luggage: a 5-seat car (Suzuki Baleno, Seat Arona or Peugeot 208) from day one. Solo or couple wanting the full island in 5 days: a small car plus one day of buggy rental — costs about the same as a buggy for the week and gives you everything. Short stay (2–3 nights): rent for the middle 2 days, use taxis for arrivals and departures. We hold the same daily rate whether you book 2 days or 10 — there's no penalty or premium for short rentals. Check our live fleet and prices, then WhatsApp us with your dates and we'll confirm availability within the hour.",
           "Για επισκέπτες 4+ ημερών: ενοικίαση για όλη την παραμονή. Για 2–3 μέρες: επικεντρωθείτε στις εσωτερικές διαδρομές.",
           "Per soggiorni di 4+ notti: noleggia per tutto il tempo. Per 2–3 giorni: concentrati sull'entroterra.",
           "Pour 4 nuits + : louez pour tout le séjour. Pour 2-3 jours : concentrez-vous sur l'arrière-pays.",
@@ -86,30 +83,30 @@ export const GUIDES: Guide[] = [
   {
     slug: "driving-in-naxos",
     title: ls(
-      "Driving in Naxos: roads, rules and the new 2026 traffic code",
+      "Driving in Naxos: roads, rules and the 2026 traffic code",
       "Οδήγηση στη Νάξο: δρόμοι, κανόνες και ο νέος ΚΟΚ 2026",
       "Guidare a Naxos: strade, regole e il nuovo Codice 2026",
       "Conduire à Naxos : routes, règles et nouveau Code 2026",
       "Auto fahren auf Naxos: Straßen, Regeln und neue StVO 2026",
     ),
     excerpt: ls(
-      "Most travel blogs still quote pre-2026 limits. Here's what actually applies on Naxos roads in 2026.",
+      "Most travel blogs still quote pre-2026 speed limits. Here's what actually applies on Naxos roads today — and what catches tourists off guard.",
       "Τα περισσότερα blogs ακόμα γράφουν παλιά όρια. Εδώ είναι τι ισχύει το 2026.",
       "Molti blog citano ancora i limiti vecchi. Ecco cosa vale nel 2026.",
       "La plupart des blogs citent les anciennes limites. Voici 2026.",
       "Viele Blogs nennen noch alte Limits. Hier ist 2026.",
     ),
-    hero: HERO("1568772585407-9361f9bf3a87"),
+    hero: "/images/naxos/chora.jpg",
     publishedAt: "2026-02-04",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 9,
     related: ["new-greek-traffic-code-2026", "idp-greece-rules", "parking-in-naxos"],
     faqRefs: ["driving-difficulty", "speed-limits-2026", "alcohol-limit", "child-seats"],
     sections: [
       {
-        heading: ls("New 2026 speed limits", "Νέα όρια ταχύτητας 2026", "Nuovi limiti 2026", "Nouvelles limites 2026", "Neue Tempolimits 2026"),
+        heading: ls("New 2026 speed limits — what changed", "Νέα όρια ταχύτητας 2026", "Nuovi limiti 2026", "Nouvelles limites 2026", "Neue Tempolimits 2026"),
         body: ls(
-          "Effective 1 January 2026 the Greek Road Traffic Code (voted 13 June 2025) reduced urban speed limits from 50 km/h to 30 km/h island-wide, and adjusted the rest: 90 km/h on rural roads, 110 on expressways, 130 on motorways. Greece is now the second EU country (after Spain) to adopt the 30 km/h urban limit. On Naxos this practically means: every Chora street is 30, every village is 30, the only places you'll hit 70+ are the main coastal road and the climb to Apollonas.",
+          "Greece's new Road Traffic Code (voted 13 June 2025, in force 1 January 2026) dropped the urban speed limit from 50 km/h to 30 km/h across all islands, including Naxos — making Greece the second EU member state after Spain to adopt the 30 km/h urban standard. In practice this means every street in Chora, every village square, every approach to Chalki or Filoti is a 30 zone. Outside built-up areas the limits are: 90 km/h on rural roads, 110 km/h on expressways, 130 km/h on motorways (none on Naxos). The only stretches on Naxos where you'll reach 70+ km/h are the main coastal road from Agios Prokopios south toward Pyrgaki, and the long straight north to Apollonas after the first set of bends above Engares.",
           "Από 1/1/2026: 30 εντός πόλης, 90 αγροτικά, 110 ταχείας, 130 αυτοκινητοδρόμου.",
           "Dall'1/1/2026: 30 città, 90 extraurbane, 110 superstrade, 130 autostrade.",
           "Au 1/1/2026 : 30 ville, 90 hors agglo, 110 voie rapide, 130 autoroute.",
@@ -117,9 +114,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Roads on Naxos — the practical map", "Οι δρόμοι της Νάξου — πρακτικός χάρτης", "Strade di Naxos — la mappa pratica", "Routes à Naxos — la carte pratique", "Naxos Straßen — die praktische Karte"),
+        heading: ls("Roads on Naxos — a practical map", "Οι δρόμοι της Νάξου — πρακτικός χάρτης", "Strade di Naxos — la mappa pratica", "Routes à Naxos — la carte pratique", "Naxos Straßen — die praktische Karte"),
         body: ls(
-          "The west-coast road (Chora → Agios Prokopios → Plaka → Mikri Vigla → Pyrgaki) is paved, fast and well-marked. The Filoti–Apeiranthos mountain road is paved with switchbacks; expect 25–30 km/h average. The road to Apollonas via Koronos is paved, narrow in places, and a one-hour drive end-to-end. Unpaved tracks exist around Alyko, the dunes south of Mikri Vigla, and approaching the small chapels — these are off-limits for non-4×4 cars under our contract.",
+          "The west-coast road (Chora → Agios Prokopios → Agia Anna → Plaka → Mikri Vigla → Pyrgaki) is fully paved, well-signed and fast — fine in any small car. The Tragea mountain road (Galanado → Chalki → Filoti → Apeiranthos) is also paved but narrow, with switchbacks averaging 25–30 km/h; allow 45 minutes one-way. The climb to Apollonas via Koronos is paved, single-lane in places, and takes the better part of an hour each way — beautiful, but not for the first day on the island. The tracks around Alyko, south of Mikri Vigla and approaching the small coastal chapels are unpaved soft-sand routes. These are off-limits for non-4×4 vehicles under our rental contract, and for good reason — we pull out guests on these tracks every summer.",
           "Ο δυτικός δρόμος είναι ασφαλτοστρωμένος. Το βουνό Φιλώτι–Απείρανθος έχει στροφές. Ο Απόλλωνας μέσω Κορώνου είναι μια ώρα.",
           "La strada costiera ovest è asfaltata. Filoti–Apeiranthos ha tornanti. Apollonas via Koronos un'ora.",
           "La côte ouest est asphaltée. Filoti–Apeiranthos en lacets. Apollonas via Koronos en une heure.",
@@ -127,9 +124,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Drink-driving and seatbelts", "Αλκοόλ και ζώνες", "Alcol e cinture", "Alcool et ceintures", "Alkohol und Gurte"),
+        heading: ls("Alcohol limits and seatbelts", "Αλκοόλ και ζώνες", "Alcol e cinture", "Alcool et ceintures", "Alkohol und Gurte"),
         body: ls(
-          "Greek alcohol limit is 0.05% blood alcohol for normal drivers, 0.02% for drivers under 2 years experience and motorcyclists. Police checks happen often on Naxos in summer. Seatbelts are mandatory for every occupant. Children under 12 (or shorter than 1.35 m) cannot sit in the front seat.",
+          "Greece sets the blood alcohol limit at 0.05% for most drivers — lower than the UK and the same as most of mainland Europe. Drivers with fewer than two years of experience and all motorcyclists face a stricter limit of 0.02%. Police checkpoints are common on Naxos on summer evenings, particularly on the road between Chora and Agios Prokopios. Seatbelts are mandatory for every occupant, front and rear. Children under 12 years old, or shorter than 1.35 m, may not sit in the front seat regardless of whether a booster seat is fitted.",
           "0.05% αλκοόλ, 0.02% για νέους και μοτοσικλετιστές. Ζώνες υποχρεωτικές. Παιδιά κάτω 12 ετών όχι στη θέση συνοδηγού.",
           "0,05% alcol, 0,02% neopatentati e motociclisti.",
           "0,05% alcool, 0,02% jeunes conducteurs et motards.",
@@ -137,9 +134,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Driving at night — the local warning", "Νυχτερινή οδήγηση — η ντόπια προειδοποίηση", "Guida notturna — l'avviso locale", "Conduite de nuit — l'alerte locale", "Nachtfahren — der lokale Hinweis"),
+        heading: ls("Night driving — the local warning", "Νυχτερινή οδήγηση — η ντόπια προειδοποίηση", "Guida notturna — l'avviso locale", "Conduite de nuit — l'alerte locale", "Nachtfahren — der lokale Hinweis"),
         body: ls(
-          "Most rural roads on Naxos have no street lighting. Goats, scooters without lights, and unmarked junctions are common after sunset. Avoid driving the inland roads at night during your first day on the island. If you must, double the gap you'd normally keep.",
+          "Rural roads on Naxos have no street lighting at all. Goats, cats, scooters without working lights, and unmarked T-junctions are common hazards after dark. The risk is highest on the Chalki–Filoti–Apeiranthos road and on any route north of Engares. Our firm recommendation: do not attempt inland driving on your first night on the island. If you must drive after dark, double the following distance you'd normally keep and keep your high beams on between villages.",
           "Οι αγροτικοί δρόμοι δεν έχουν φωτισμό. Αποφύγετε νυχτερινή οδήγηση την πρώτη μέρα.",
           "Strade rurali senza illuminazione. Evita di guidare la prima notte.",
           "Routes rurales non éclairées. Évite la conduite la première nuit.",
@@ -147,9 +144,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Common mistakes tourists make", "Συνήθη λάθη των τουριστών", "Errori frequenti dei turisti", "Erreurs courantes des touristes", "Häufige Touristenfehler"),
+        heading: ls("The five mistakes tourists make every summer", "Συνήθη λάθη των τουριστών", "Errori frequenti dei turisti", "Erreurs courantes des touristes", "Häufige Touristenfehler"),
         body: ls(
-          "Driving into pedestrian zones in Chora (don't, they're enforced and the Old Town is car-free), trying to take a non-4×4 onto the Alyko track (you will get stuck), and parking on the harbour pavement (towed regularly). Stick to marked spots and you'll never have a problem.",
+          "1. Driving into Chora's pedestrian zone — the old town is fully car-free and actively enforced; fines are issued daily in peak season. 2. Taking a standard car onto the Alyko soft-sand track — high centre of gravity and rear-wheel spin get guests stuck every week. 3. Parking on the harbour quayside — vehicles are towed regularly, typically within 20 minutes. 4. Assuming Google Maps knows about road closures — the app routes you through villages where the road is actually blocked by a festival or market. 5. Underestimating the wind — a 50cc scooter at 90 km/h into a full August meltemi is not safe. Our team is available by WhatsApp or phone every day to answer any route questions before you set off.",
           "Είσοδος σε πεζόδρομους, off-road με μη 4×4, παρκάρισμα σε πεζοδρόμια — αποφύγετε.",
           "Zone pedonali, off-road senza 4×4, sosta sui marciapiedi — da evitare.",
           "Zones piétonnes, hors-piste sans 4×4, stationnement sur trottoirs — à éviter.",
@@ -161,29 +158,29 @@ export const GUIDES: Guide[] = [
   {
     slug: "naxos-road-trip-itinerary",
     title: ls(
-      "The 5-day Naxos road trip itinerary",
+      "The ultimate 5-day Naxos road trip itinerary (2026)",
       "Πρόγραμμα 5 ημερών οδικά στη Νάξο",
       "Itinerario di 5 giorni in auto a Naxos",
       "Itinéraire road trip Naxos en 5 jours",
       "Naxos Roadtrip in 5 Tagen",
     ),
     excerpt: ls(
-      "Beach days, mountain villages, sunset drives — five days that make a Naxos rental pay for itself.",
+      "Five days that make a Naxos rental pay for itself many times over: beach days, marble mountain villages, a Kouros statue, cedar forests, and the best sunset on the Aegean.",
       "Παραλίες, ορεινά χωριά, διαδρομές ηλιοβασιλέματος.",
       "Spiagge, villaggi montani, tramonti.",
       "Plages, villages, couchers de soleil.",
       "Strände, Bergdörfer, Sonnenuntergänge.",
     ),
-    hero: HERO("1611348586804-61bf6c080437"),
+    hero: "/images/naxos/gallery/naxos-aerial.jpg",
     publishedAt: "2026-02-12",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 11,
     related: ["naxos-mountain-villages-by-car", "best-beaches-by-car-naxos", "do-you-need-a-car-in-naxos"],
     sections: [
       {
-        heading: ls("Day 1 — Chora, port, west-coast beaches", "Ημέρα 1 — Χώρα, λιμάνι, δυτική ακτή", "Giorno 1 — Chora, porto, costa ovest", "Jour 1 — Chora, port, côte ouest", "Tag 1 — Chora, Hafen, Westküste"),
+        heading: ls("Day 1 — Chora, the Portara and the west-coast beaches", "Ημέρα 1 — Χώρα, λιμάνι, δυτική ακτή", "Giorno 1 — Chora, porto, costa ovest", "Jour 1 — Chora, port, côte ouest", "Tag 1 — Chora, Hafen, Westküste"),
         body: ls(
-          "Pick up the car at the port. Drive 5 km to Agios Prokopios, swim, eat at one of the beachfront tavernas. Continue 3 km south to Plaka — the long, less developed beach. Sunset back at Chora's Portara on foot.",
+          "Pick up the car at the port — we'll be waiting with your name on a sign, paperwork takes five minutes. Drive 5 km south on the main road to Agios Prokopios: wide white sand, organised beach bars, shallow entry ideal for kids. Lunch at one of the beachfront tavernas (Kavouri is a local favourite). Continue 3 km further south to Plaka — longer, less developed, peaceful naturist section at the south end. Return to Chora by late afternoon, park at the port car park (free, 5-minute walk to the old town) and watch the sun drop behind the Portara — the unfinished temple of Apollo, 2,500 years old, facing due west. It is the best free sunset on the Aegean.",
           "Παραλαβή στο λιμάνι, Άγιος Προκόπιος, Πλάκα, ηλιοβασίλεμα στην Πορτάρα.",
           "Ritiro al porto, Agios Prokopios, Plaka, tramonto alla Portara.",
           "Retrait au port, Agios Prokopios, Plaka, coucher de soleil à Portara.",
@@ -191,9 +188,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Day 2 — The Tragea loop (Chalki–Filoti–Apeiranthos)", "Ημέρα 2 — Η Τραγαία (Χαλκί–Φιλώτι–Απείρανθος)", "Giorno 2 — Il giro di Tragea", "Jour 2 — La boucle de Tragea", "Tag 2 — Die Tragea-Schleife"),
+        heading: ls("Day 2 — The Tragea loop: Chalki, Filoti, Apeiranthos", "Ημέρα 2 — Η Τραγαία (Χαλκί–Φιλώτι–Απείρανθος)", "Giorno 2 — Il giro di Tragea", "Jour 2 — La boucle de Tragea", "Tag 2 — Die Tragea-Schleife"),
         body: ls(
-          "The marquee Naxos drive. Chalki for kitron tasting at Vallindras, Filoti for souvlaki under the plane trees, Apeiranthos for marble streets and the museum. Allow 7+ hours including stops.",
+          "The marquee Naxos drive — allow the full day. Leave Chora by 9:30 am and drive 16 km to Chalki through the Tragea olive plain, the largest in the Cyclades. Stop at Vallindras Distillery for a free kitron tasting — the Naxos citrus liqueur has been made here since 1896. Continue 9 km to Filoti, the largest mountain village: lunch under the plane trees in the main square (try the souvlaki at Babis, prices honest and portions huge). After lunch, 5 km further to Apeiranthos at 600 m altitude — marble-paved streets, Venetian towers, five small museums, and balcony tavernas with sweeping views over the eastern coast. Allow at least 2 hours here. Return via the same road or loop through Moni for a slightly different descent.",
           "Η εμβληματική διαδρομή — Χαλκί, Φιλώτι, Απείρανθος. 7+ ώρες με στάσεις.",
           "Il giro iconico — Chalki, Filoti, Apeiranthos. 7+ ore con soste.",
           "La boucle iconique — Chalki, Filoti, Apeiranthos. 7+ h avec arrêts.",
@@ -201,9 +198,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Day 3 — Mikri Vigla & Alyko adventure day", "Ημέρα 3 — Μικρή Βίγλα & Αλυκό", "Giorno 3 — Mikri Vigla e Alyko", "Jour 3 — Mikri Vigla et Alyko", "Tag 3 — Mikri Vigla & Alyko"),
+        heading: ls("Day 3 — Mikri Vigla and Alyko (buggy day)", "Ημέρα 3 — Μικρή Βίγλα & Αλυκό", "Giorno 3 — Mikri Vigla e Alyko", "Jour 3 — Mikri Vigla et Alyko", "Tag 3 — Mikri Vigla & Alyko"),
         body: ls(
-          "Switch to a buggy for the day if you can. Mikri Vigla for windsurfing or just the wind, then push south to Alyko's cedar forest and the painted abandoned hotel. Sunset at Pyrgaki.",
+          "If you've pre-booked a buggy for today, this is the best day of the trip. If not, the car still gets you to the paved sections. Drive 17 km south to Mikri Vigla — two beaches separated by a rocky headland, one sheltered and calm, the other one of the world's premier kitesurf locations. Swim, watch the kiters, have coffee at the beach bar. Then push 6 km further south to Alyko: a cedar-scented forest tumbling down to three wild beaches. Walk through the woods to find the famous painted abandoned hotel — every surface an open-air mural, entirely unofficial and entirely breathtaking. Finish the day at Pyrgaki for one of the island's most private sunset spots. Reserve the buggy in advance — it books out fast.",
           "Αλλάξτε σε buggy. Μικρή Βίγλα, Αλυκό, ηλιοβασίλεμα στο Πυργάκι.",
           "Passa al buggy. Mikri Vigla, Alyko, tramonto a Pyrgaki.",
           "Passe au buggy. Mikri Vigla, Alyko, coucher de soleil à Pyrgaki.",
@@ -211,9 +208,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Day 4 — Apollonas and the Kouros", "Ημέρα 4 — Απόλλωνας και Κούρος", "Giorno 4 — Apollonas e il Kouros", "Jour 4 — Apollonas et le Kouros", "Tag 4 — Apollonas und der Kouros"),
+        heading: ls("Day 4 — Apollonas and the Kouros of the north", "Ημέρα 4 — Απόλλωνας και Κούρος", "Giorno 4 — Apollonas e il Kouros", "Jour 4 — Apollonas et le Kouros", "Tag 4 — Apollonas und der Kouros"),
         body: ls(
-          "An hour's drive over the mountains to Apollonas, the unfinished giant Kouros statue, and a slow seafood lunch at the harbour. Return via Lionas if you want to add a quiet beach swim.",
+          "The most ambitious drive on the island — roughly an hour from Chora via Engares and Koronos, through villages so small the road narrows to the width of the car. The payoff: the Kouros of Apollonas, a 10.5-metre unfinished marble giant carved in the 7th century BC, lying in an ancient quarry above the village. It takes 10 minutes to visit and is one of the most quietly magnificent things in the Cyclades. Afterwards, seafood lunch at the small harbour of Apollonas — grilled octopus and fried squid, tables at the waterline. Return via Lionas if you want a quick, private swim on the east coast before heading back.",
           "Διαδρομή μιας ώρας. Κούρος, μεσημεριανό, επιστροφή μέσω Λιώνα.",
           "Un'ora di guida. Kouros, pranzo, ritorno via Lionas.",
           "Une heure de route. Kouros, déjeuner, retour par Lionas.",
@@ -221,9 +218,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Day 5 — slow morning, return", "Ημέρα 5 — αργό πρωινό, επιστροφή", "Giorno 5 — mattina lenta, restituzione", "Jour 5 — matin tranquille, retour", "Tag 5 — gemächlicher Morgen, Rückgabe"),
+        heading: ls("Day 5 — slow morning, return the car", "Ημέρα 5 — αργό πρωινό, επιστροφή", "Giorno 5 — mattina lenta, restituzione", "Jour 5 — matin tranquille, retour", "Tag 5 — gemächlicher Morgen, Rückgabe"),
         body: ls(
-          "Last swim at Agia Anna or Agios Prokopios, drop the car at the port (or airport — same price), board the ferry. We'll meet you wherever and whenever.",
+          "One last swim at Agia Anna or Agios Prokopios. If you're catching an afternoon ferry, drop the car at the port — we'll take it from you dockside in under five minutes, so you can go straight to the departure hall. Flying out of JNX? Same service at the airport, no extra charge. We track your boat or flight and schedule the handover around your departure, not around our office hours. Send us your ferry or flight number on WhatsApp the evening before.",
           "Τελευταίο μπάνιο, παράδοση οχήματος σε λιμάνι ή αεροδρόμιο.",
           "Ultimo bagno, restituzione al porto o aeroporto.",
           "Dernière baignade, restitution au port ou aéroport.",
@@ -235,29 +232,29 @@ export const GUIDES: Guide[] = [
   {
     slug: "naxos-mountain-villages-by-car",
     title: ls(
-      "Naxos mountain villages by car: Chalki, Filoti, Apeiranthos",
+      "Naxos mountain villages by car: Chalki, Filoti, Apeiranthos guide",
       "Τα ορεινά χωριά της Νάξου με αυτοκίνητο",
       "I villaggi montani di Naxos in auto",
       "Les villages de montagne de Naxos en voiture",
       "Naxos Bergdörfer mit dem Auto",
     ),
     excerpt: ls(
-      "The single most photogenic loop on Naxos — and you can do it in a day with any small car.",
+      "The Tragea loop is the most photogenic drive in the Cyclades — marble streets, kitron distilleries, Venetian towers and souvlaki under 800-year-old plane trees.",
       "Η πιο φωτογενής διαδρομή της Νάξου σε μια μέρα.",
       "Il giro più fotogenico di Naxos in un giorno.",
       "La boucle la plus photogénique en une journée.",
       "Die fotogenste Schleife in einem Tag.",
     ),
-    hero: HERO("1611348586804-61bf6c080437"),
+    hero: "/images/naxos/apiranthos.jpg",
     publishedAt: "2026-02-20",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 7,
     related: ["naxos-road-trip-itinerary", "driving-in-naxos", "best-beaches-by-car-naxos"],
     sections: [
       {
-        heading: ls("Chalki — the Tragea capital", "Χαλκί — η πρωτεύουσα της Τραγαίας", "Chalki — la capitale di Tragea", "Chalki — la capitale de Tragea", "Chalki — die Tragea-Hauptstadt"),
+        heading: ls("Chalki — kitron and neoclassical streets", "Χαλκί — η πρωτεύουσα της Τραγαίας", "Chalki — la capitale di Tragea", "Chalki — la capitale de Tragea", "Chalki — die Tragea-Hauptstadt"),
         body: ls(
-          "16 km from Chora on a smooth paved road. Park in the square, walk the neoclassical streets, and stop at Vallindras Distillery for a free kitron tasting (Naxos's citrus liqueur, made here since 1896).",
+          "16 km from Chora on a smooth, well-signed paved road through the Tragea olive plain. Park in the small square and walk the neoclassical streets — Chalki served as the Byzantine capital of Naxos and its elegant houses reflect that history. The unmissable stop is Vallindras Distillery, a family-run operation since 1896 producing Naxos kitron: a liqueur distilled from the leaves of the citron fruit, which grows only on Naxos. The tasting (free) includes three grades of kitron — dry, medium and sweet — plus the opportunity to buy directly from the producer at cellar-door prices. The distillery has original copper stills and old photographs on the walls; the tour takes about 20 minutes.",
           "16 χλμ από τη Χώρα. Παρκάρετε στην πλατεία, δοκιμάστε κίτρο στο Βαλληνδρά.",
           "16 km da Chora. Parcheggio in piazza, degustazione di kitron a Vallindras.",
           "16 km de Chora. Parking sur la place, dégustation de kitron à Vallindras.",
@@ -265,9 +262,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Filoti — souvlaki under plane trees", "Φιλώτι — σουβλάκι κάτω από πλάτανους", "Filoti — souvlaki sotto i platani", "Filoti — souvlaki sous les platanes", "Filoti — Souvlaki unter Platanen"),
+        heading: ls("Filoti — the village at the foot of Mount Zas", "Φιλώτι — σουβλάκι κάτω από πλάτανους", "Filoti — souvlaki sotto i platani", "Filoti — souvlaki sous les platanes", "Filoti — Souvlaki unter Platanen"),
         body: ls(
-          "Filoti is the trailhead for Mount Zas (1004 m, the highest in the Cyclades) and the Cave of Zeus. Even if you skip the hike, the village square and the church of Panagia Filotitissa are worth the stop.",
+          "9 km east of Chalki, Filoti is the largest village in the Naxos interior — a lived-in working town, not a tourist village, which is exactly what makes it excellent. The main square is shaded by enormous plane trees beside the church of Panagia Filotitissa; lunch here costs half of what you'll pay in Chora. Filoti is also the trailhead for Mount Zas (1,004 m), the highest peak in the Cyclades and the legendary birthplace of Zeus. The summit hike takes 3–4 hours return and requires solid footwear — leave the sandals in the car. If you skip the hike, even a 20-minute walk up the signed path toward the Cave of Zeus gives you a remarkable view back over the Tragea valley.",
           "Το Φιλώτι είναι η αφετηρία για τον Ζα. Πλατεία και εκκλησία αξίζουν.",
           "Filoti è la base per il Monte Zas. Piazza e chiesa meritano.",
           "Filoti est le départ pour le mont Zas. Place et église valent l'arrêt.",
@@ -275,13 +272,23 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Apeiranthos — marble streets at 600 m", "Απείρανθος — μαρμάρινα στενά στα 600 μ.", "Apeiranthos — vie di marmo a 600 m", "Apeiranthos — rues en marbre à 600 m", "Apeiranthos — Marmorgassen auf 600 m"),
+        heading: ls("Apeiranthos — marble streets at 600 metres", "Απείρανθος — μαρμάρινα στενά στα 600 μ.", "Apeiranthos — vie di marmo a 600 m", "Apeiranthos — rues en marbre à 600 m", "Apeiranthos — Marmorgassen auf 600 m"),
         body: ls(
-          "Visually the most stunning village on Naxos. Whitewashed houses, marble paving, Venetian towers, balcony tavernas with sweeping views over the eastern coast. Five small museums.",
+          "Visually the most stunning village on Naxos and arguably in the entire Cyclades. The streets — every single one — are paved in marble quarried from the surrounding mountains. Whitewashed houses with blue shutters line lanes so narrow you brush the walls as you walk. Venetian towers recall the island's Frankish history; five small museums (geological, archaeological, natural history and two more) punish any temptation to rush. The balcony taverna at the top of the village serves the best view on the island with your coffee: the entire eastern coast of Naxos stretching south toward Koufonisia. Budget at least two hours here — most guests wish they'd allowed more.",
           "Το πιο όμορφο χωριό της Νάξου. Λευκά σπίτια, μάρμαρο, βενετσιάνικοι πύργοι.",
           "Il villaggio più bello. Case bianche, marmo, torri veneziane.",
           "Le plus beau village. Maisons blanches, marbre, tours vénitiennes.",
           "Das schönste Dorf. Weiße Häuser, Marmor, venezianische Türme.",
+        ),
+      },
+      {
+        heading: ls("Practical tips for the Tragea loop", "Πρακτικές συμβουλές", "Consigli pratici", "Conseils pratiques", "Praktische Tipps"),
+        body: ls(
+          "Any small car handles the Tragea loop — the road is paved throughout, though narrow in places between Chalki and Filoti. Leave Chora no later than 10 am to get the distillery open and village squares uncrowded. Parking at all three villages is free and informal — pull up at the edge of the square. Fuel up in Chora before you go; there's one petrol station in Filoti. The full loop (Chora → Chalki → Filoti → Apeiranthos → Chora) is about 60 km and takes the full day with a proper lunch stop. Book your rental car online and WhatsApp us the morning of — we'll have the tank full and the AC pre-cooled.",
+          "Κάθε μικρό αυτοκίνητο τα καταφέρνει. Ξεκινήστε από τη Χώρα πριν τις 10.",
+          "Ogni piccola auto va bene. Partire da Chora prima delle 10.",
+          "N'importe quelle petite voiture convient. Partir de Chora avant 10h.",
+          "Jedes Kleinauto reicht. Vor 10 Uhr von Chora losfahren.",
         ),
       },
     ],
@@ -289,29 +296,29 @@ export const GUIDES: Guide[] = [
   {
     slug: "best-beaches-by-car-naxos",
     title: ls(
-      "Naxos beaches by car: a beach hopper's guide",
+      "Naxos beaches by car: the complete beach-hopper's guide 2026",
       "Παραλίες Νάξου με αυτοκίνητο: οδηγός",
       "Spiagge di Naxos in auto: guida",
       "Plages de Naxos en voiture : guide",
       "Naxos Strände mit dem Auto: Guide",
     ),
     excerpt: ls(
-      "From the family-friendly classics to the wild south — driving makes Naxos's 30 km of west coast yours.",
+      "From the family-friendly classics at Prokopios to the wild south at Alyko — driving Naxos's 30 km of west coast puts every beach within reach.",
       "Από οικογενειακές μέχρι άγριες παραλίες — με αυτοκίνητο όλη η δυτική ακτή είναι δική σας.",
       "Dalle classiche per famiglie alla costa sud selvaggia.",
       "Des classiques familiales à la côte sud sauvage.",
       "Von Familien-Klassikern bis zur wilden Südküste.",
     ),
-    hero: HERO("1611348586804-61bf6c080437"),
+    hero: "/images/naxos/plaka-beach.jpg",
     publishedAt: "2026-02-25",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 8,
     related: ["naxos-road-trip-itinerary", "atv-vs-buggy-vs-car", "do-you-need-a-car-in-naxos"],
     sections: [
       {
-        heading: ls("Agios Prokopios", "Άγιος Προκόπιος", "Agios Prokopios", "Agios Prokopios", "Agios Prokopios"),
+        heading: ls("Agios Prokopios — the best organised beach", "Άγιος Προκόπιος", "Agios Prokopios", "Agios Prokopios", "Agios Prokopios"),
         body: ls(
-          "5 km south of Chora. Wide white sand, organised loungers, family-friendly. Buses run frequently here too — but parking is plentiful.",
+          "5 km south of Chora on the main coast road — a 10-minute drive, never more. Fine white sand, calm translucent water, and a full line of sunbed operators and beachfront tavernas. Buses reach Agios Prokopios frequently in summer so the beach gets busy by 11 am; drive here, park (free and plentiful at the south end), and claim your spot early. The water is shallow for 50 metres — ideal for children and weak swimmers. Voted consistently among the top ten beaches in Greece by TripAdvisor users; the accolade is deserved.",
           "5 χλμ νότια. Λευκή άμμος, ξαπλώστρες, οικογενειακή.",
           "5 km a sud. Sabbia bianca, lettini, in famiglia.",
           "5 km au sud. Sable blanc, transats, en famille.",
@@ -319,9 +326,19 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Plaka", "Πλάκα", "Plaka", "Plaka", "Plaka"),
+        heading: ls("Agia Anna — compact, charming, with tavernas", "Αγία Άννα", "Agia Anna", "Agia Anna", "Agia Anna"),
         body: ls(
-          "8 km south. Long, less developed than Prokopios. Naturist friendly at the southern end. Ample free parking.",
+          "7 km south and practically a continuation of Prokopios, separated by a small headland and the village of Agia Anna itself. Narrower strip of beach, denser concentration of fish tavernas and small hotels directly on the sand, and a tiny fishing harbour at the north end that you can walk to. The village road has several parking spots; arrive before 10 am in August or expect a walk. Good base if you're renting accommodation in the area — everything is within a five-minute stroll.",
+          "7 χλμ νότια. Μικρό λιμανάκι, παραλιακές ταβέρνες.",
+          "7 km a sud. Porticciolo, taverne sul mare.",
+          "7 km au sud. Petit port, tavernes sur la plage.",
+          "7 km südlich. Kleiner Hafen, Strandtavernas.",
+        ),
+      },
+      {
+        heading: ls("Plaka — long, uncrowded, beautiful", "Πλάκα", "Plaka", "Plaka", "Plaka"),
+        body: ls(
+          "8 km south of Chora, Plaka is simply a longer, quieter, less-developed version of Prokopios — and better for it. The beach stretches for almost 4 km without interruption: broad enough to absorb a full August crowd and still feel uncrowded in the middle. The southern half is naturist-friendly by local convention. No bus reaches Plaka on a reliable schedule — a car or scooter is the practical way in. Ample free parking along the access road. Several low-key beach bars and a campsite at the north end. If you have children and want to split the day between swimming and exploring, Plaka and Prokopios are an easy back-to-back.",
           "8 χλμ νότια. Λιγότερο αναπτυγμένη.",
           "8 km a sud. Meno sviluppata.",
           "8 km au sud. Moins développée.",
@@ -329,9 +346,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Mikri Vigla", "Μικρή Βίγλα", "Mikri Vigla", "Mikri Vigla", "Mikri Vigla"),
+        heading: ls("Mikri Vigla — windsurf and kitesurf capital", "Μικρή Βίγλα", "Mikri Vigla", "Mikri Vigla", "Mikri Vigla"),
         body: ls(
-          "17 km south. Wind-blasted, kitesurf central. Two beaches separated by a rocky headland. ATVs and buggies welcome on the access tracks.",
+          "17 km south of Chora, Mikri Vigla is two beaches in one: the north face of the headland is a calm, crystal-clear cove perfect for swimming; the south face catches the full force of the Aegean meltemi and is one of Europe's top-rated kitesurfing locations. Between June and September you'll see 30–40 kiters in the air at any given afternoon. The access road is paved to the car park; from there it's a short walk down. ATVs and buggies can use the track that continues south — standard cars should stop at the parking area. There's a beach bar and a kite school, but no organised sunbeds — bring your own shade.",
           "17 χλμ. Kitesurf παράδεισος. ATV και buggies καλοδεχούμενα.",
           "17 km. Paradiso kitesurf. ATV e buggy benvenuti.",
           "17 km. Paradis du kitesurf. ATV et buggys bienvenus.",
@@ -339,9 +356,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Alyko & Pyrgaki", "Αλυκό & Πυργάκι", "Alyko e Pyrgaki", "Alyko et Pyrgaki", "Alyko & Pyrgaki"),
+        heading: ls("Alyko and Pyrgaki — the wild south", "Αλυκό & Πυργάκι", "Alyko e Pyrgaki", "Alyko et Pyrgaki", "Alyko & Pyrgaki"),
         body: ls(
-          "23 km south, the wildest west-coast string. Cedar forests, the famous painted abandoned hotel, no facilities. The unpaved tracks here are why we offer the Suzuki Jimny and the Polaris buggy.",
+          "23 km south of Chora, Alyko is Naxos at its most raw. A protected cedar forest (the cedars are actually junipers, but Naxians call them cedar) runs down to three wild beaches with no facilities, no sunbeds, and sometimes no other visitors at all. The famous painted abandoned hotel sits in the middle of the forest — a grid of derelict rooms covered floor to ceiling in street art, one of the most photographed locations on the island. The access tracks here are unpaved soft sand. Standard cars should not attempt them. Our Suzuki Jimny and Polaris buggy handle everything easily. Pyrgaki, 3 km further, is a smaller wild beach facing due west — the ideal last stop for a south-coast sunset.",
           "23 χλμ νότια. Κέδροι, το εγκαταλελειμμένο ξενοδοχείο, χωμάτινοι δρόμοι.",
           "23 km a sud. Cedri, l'hotel abbandonato dipinto, sterrati.",
           "23 km au sud. Cèdres, l'hôtel abandonné peint, pistes.",
@@ -353,30 +370,30 @@ export const GUIDES: Guide[] = [
   {
     slug: "idp-greece-rules",
     title: ls(
-      "International Driving Permit (IDP) in Greece: 2026 rules",
+      "International Driving Permit in Greece: 2026 rules (most tourists don't need one)",
       "International Driving Permit στην Ελλάδα: κανόνες 2026",
       "Patente internazionale in Grecia: regole 2026",
       "Permis international en Grèce : règles 2026",
       "Internationaler Führerschein in Griechenland 2026",
     ),
     excerpt: ls(
-      "Most travel sites still tell you you need an IDP. Greek Law 4850/2021 disagrees.",
+      "Most travel sites still tell you to get an IDP for Greece. Greek Law 4850/2021 removed that requirement for most nationalities. Here's exactly who needs one and who doesn't.",
       "Τα περισσότερα blogs ζητούν IDP. Ο Νόμος 4850/2021 λέει διαφορετικά.",
       "I siti dicono ancora di servire l'IDP. La legge 4850/2021 dice il contrario.",
       "Les blogs disent IDP obligatoire. La loi 4850/2021 dit non.",
       "Blogs sagen IDP nötig. Gesetz 4850/2021 sagt nein.",
     ),
-    hero: HERO("1568772585407-9361f9bf3a87"),
+    hero: "/images/naxos/portara-detail.jpg",
     publishedAt: "2026-03-01",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 5,
     related: ["new-greek-traffic-code-2026", "driving-in-naxos"],
     faqRefs: ["idp-greece", "documents-needed"],
     sections: [
       {
-        heading: ls("The 2021 law that changed everything", "Ο νόμος του 2021 που τα άλλαξε όλα", "La legge del 2021 che ha cambiato tutto", "La loi 2021 qui a tout changé", "Das Gesetz 2021 das alles änderte"),
+        heading: ls("The 2021 law that ended the IDP requirement for most tourists", "Ο νόμος του 2021 που τα άλλαξε όλα", "La legge del 2021 che ha cambiato tutto", "La loi 2021 qui a tout changé", "Das Gesetz 2021 das alles änderte"),
         body: ls(
-          "Greek Law 4850/2021 (Government Gazette 208/Α, 5 November 2021), Article 25.3.η, removed the IDP requirement for licence holders from EU/EEA, the United Kingdom, the United States, Canada, Australia, and Gibraltar for tourist stays under 6 months. Switzerland, Iceland, Liechtenstein and Norway are also covered. If you hold a licence from one of these jurisdictions, your home licence is enough — no IDP needed.",
+          "Greek Law 4850/2021 (Government Gazette 208/Α, published 5 November 2021), Article 25.3.η, removed the IDP requirement for driving licence holders from the following jurisdictions for tourist stays under six months: all EU and EEA countries, the United Kingdom, the United States, Canada, Australia, Gibraltar, Switzerland, Iceland, Liechtenstein and Norway. If your licence was issued by any of these countries, your home licence is the only document you need to rent and drive legally in Greece — no IDP required. This applies at the rental counter, during police checks and in the event of an accident. Despite this, many booking platforms (and car hire staff at larger airports) still ask for an IDP as a matter of corporate habit rather than Greek law. At Fast Motor Rental Naxos we follow the law as written. Your EU, UK, US, Canadian or Australian licence is sufficient.",
           "Ο Νόμος 4850/2021 κατάργησε την υποχρέωση IDP για ΕΕ/ΗΠΑ/Καναδά/ΗΒ/Αυστραλίας/Γιβραλτάρ για τουριστική διαμονή κάτω των 6 μηνών.",
           "La legge 4850/2021 ha eliminato l'IDP per UE/USA/Canada/UK/Australia/Gibilterra fino a 6 mesi.",
           "La loi 4850/2021 a supprimé l'IDP pour UE/USA/Canada/UK/Australie/Gibraltar jusqu'à 6 mois.",
@@ -386,11 +403,21 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("When you do still need an IDP", "Πότε χρειάζεστε ακόμη IDP", "Quando serve ancora l'IDP", "Quand l'IDP reste obligatoire", "Wann der IDP noch nötig ist"),
         body: ls(
-          "If your licence is from outside the listed jurisdictions (e.g. China, India, Brazil, most Asian and Latin American countries) you still need a 1949 or 1968 IDP. If your licence is in non-Latin script (Cyrillic, Chinese, Arabic, etc.) bring an IDP regardless — it makes the contract easier to write.",
+          "If your driving licence was issued by a country not on the list above — China, India, Brazil, Russia, most Asian and Latin American countries — you are still legally required to carry a 1949 or 1968 International Driving Permit alongside your national licence. Additionally: if your licence is printed in a non-Latin script (Cyrillic, Arabic, Chinese, Korean, etc.), even if the issuing country is technically exempt, we strongly recommend carrying an IDP — it makes the rental paperwork faster, police interaction smoother and accident procedures cleaner. An IDP from an AA, AAA or equivalent motoring association costs around €20–25 and takes 15 minutes to obtain at the office with your passport and licence photos. Get it before you fly.",
           "Από χώρες εκτός ΕΕ/ΗΠΑ/κλπ ή με μη λατινικό αλφάβητο: ναι.",
           "Da paesi fuori UE/USA/etc o alfabeto non latino: sì.",
           "Pays hors UE/USA/etc ou alphabet non latin : oui.",
           "Aus Ländern außer EU/USA/etc oder nichtlateinischer Schrift: ja.",
+        ),
+      },
+      {
+        heading: ls("What documents you actually need to rent with us", "Τι έγγραφα χρειάζεστε για ενοικίαση", "Documenti necessari per il noleggio", "Documents requis pour la location", "Welche Dokumente für die Miete"),
+        body: ls(
+          "For EU, UK, US, Canadian, Australian and most Western licence holders: your national driving licence and your passport or national ID. No IDP, no international licence translation, no notarised copy. For licences outside those jurisdictions: bring the IDP in addition. For scooters (50cc): a car licence (Category B) is sufficient in Greece. For scooters 125cc and above: Category A1, A2 or A licence required. For our buggies and ATVs: a standard car licence (Category B) is sufficient — these are classed as passenger vehicles, not off-road machinery, for licence purposes. Still not sure? WhatsApp us a photo of your licence before you book and we'll confirm instantly.",
+          "Εθνική άδεια και ταυτότητα ή διαβατήριο. Για εξωτερικές άδειες: επιπλέον IDP.",
+          "Patente nazionale e passaporto/carta d'identità. Licenze estere: aggiungi IDP.",
+          "Permis national et passeport/ID. Permis hors liste : ajoutez IDP.",
+          "Nationaler Führerschein und Reisepass/Ausweis. Nicht-EU: IDP dazu.",
         ),
       },
     ],
@@ -398,30 +425,30 @@ export const GUIDES: Guide[] = [
   {
     slug: "new-greek-traffic-code-2026",
     title: ls(
-      "New Greek Traffic Code 2026: every change explained",
+      "New Greek Traffic Code 2026: every change explained for tourists",
       "Νέος ΚΟΚ 2026: όλες οι αλλαγές",
       "Nuovo Codice della Strada greco 2026",
       "Nouveau Code de la route grec 2026",
       "Neue griechische StVO 2026",
     ),
     excerpt: ls(
-      "Voted June 2025, in force January 2026. Lower urban limits, harsher penalties, new rules for e-scooters.",
+      "Voted June 2025, in force January 2026. Lower urban speed limits, doubled fines, new e-scooter rules — and what it all means if you're renting on Naxos.",
       "Ψηφίστηκε Ιούνιο 2025, ισχύει Ιανουάριο 2026.",
       "Votato giugno 2025, in vigore gennaio 2026.",
       "Voté juin 2025, en vigueur janvier 2026.",
       "Beschlossen Juni 2025, gültig Januar 2026.",
     ),
-    hero: HERO("1568772585407-9361f9bf3a87"),
+    hero: "/images/naxos/gallery/naxos-chora.jpg",
     publishedAt: "2026-01-08",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 7,
     related: ["driving-in-naxos", "idp-greece-rules"],
     faqRefs: ["speed-limits-2026", "alcohol-limit"],
     sections: [
       {
-        heading: ls("The 30 km/h urban limit", "Όριο 30 km/h εντός πόλης", "Limite urbano 30 km/h", "Limite urbain 30 km/h", "Innerorts 30 km/h"),
+        heading: ls("The 30 km/h urban limit — what it means in practice", "Όριο 30 km/h εντός πόλης", "Limite urbano 30 km/h", "Limite urbain 30 km/h", "Innerorts 30 km/h"),
         body: ls(
-          "Greece is the second EU country (after Spain) to drop the urban speed limit to 30 km/h. Every street inside a town or village now defaults to 30. This applies to every village on Naxos — Chora, Chalki, Filoti, Apeiranthos, Apollonas, all of them.",
+          "Greece became the second EU member state after Spain to drop the urban speed limit to 30 km/h, effective 1 January 2026. The rule applies inside every built-up area with a village or town sign — which on Naxos means Chora, Chalki, Filoti, Apeiranthos, Apollonas, Koronos, Engares, Vivlos and all other settlements. Roads between villages remain at 90 km/h unless signed otherwise. There are no 30 km/h zones on major Naxos roads where no settlement exists. Speed cameras are not yet widespread on the island, but police patrols enforce the limit actively in Chora, particularly in the harbour area where cruise-ship visitors often drive quickly thinking it's an open road.",
           "Η Ελλάδα είναι η 2η χώρα ΕΕ μετά την Ισπανία με 30 km/h εντός πόλης.",
           "La Grecia è il 2° paese UE dopo la Spagna con 30 km/h.",
           "La Grèce est le 2e pays UE après l'Espagne à 30 km/h en ville.",
@@ -429,13 +456,23 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Other limits and penalties", "Άλλα όρια και κυρώσεις", "Altri limiti e sanzioni", "Autres limites et sanctions", "Andere Limits und Strafen"),
+        heading: ls("Other speed limits and penalties", "Άλλα όρια και κυρώσεις", "Altri limiti e sanzioni", "Autres limites et sanctions", "Andere Limits und Strafen"),
         body: ls(
-          "Outside built-up areas: 90 km/h. Expressways: 110 km/h. Motorways: 130 km/h. Penalties for speeding doubled in some bands. Phone-while-driving fines tripled. Helmet enforcement on scooters and ATVs is now strict — riding without a helmet costs €350 and the suspension of your driving rights for 30 days.",
+          "Outside built-up areas: 90 km/h. Expressways: 110 km/h. Motorways: 130 km/h (there are none on Naxos). Penalties for speeding have been doubled across most bands — exceeding the limit by 20–30 km/h now costs €350. Using a mobile phone while driving costs €450 (up from €150). Helmet enforcement on scooters, ATVs and motorbikes is now actively pursued: riding without a helmet carries a €350 fine and a 30-day suspension of driving rights. All vehicles rented from us come with helmets; we check they fit before you leave the lot.",
           "Εκτός πόλης 90, ταχείας 110, αυτοκινητοδρόμου 130. Πρόστιμα διπλά. Κινητό 3πλάσιο. Χωρίς κράνος €350 + 30 ημέρες αφαίρεση.",
           "Fuori città 90, superstrade 110, autostrade 130. Sanzioni raddoppiate.",
           "Hors agglo 90, voies rapides 110, autoroutes 130. Amendes doublées.",
           "Außerorts 90, Schnellstr. 110, Autobahn 130. Strafen verdoppelt.",
+        ),
+      },
+      {
+        heading: ls("New rules for e-scooters and micro-mobility", "Νέοι κανόνες για e-scooters", "Nuove regole per i monopattini", "Nouvelles règles pour les trottinettes", "Neue Regeln für E-Scooter"),
+        body: ls(
+          "Electric scooters and micro-mobility devices are now regulated under the new code: maximum 25 km/h on shared paths, prohibited on pavements, mandatory reflective vest at night, minimum age 15. Helmets strongly recommended (not yet mandatory for e-scooters, but mandatory for conventional scooters 50cc and above). If you're considering an e-scooter rental in Chora, note that the old town's marble-paved lanes are not e-scooter compatible. Conventional petrol scooters from our fleet are a safer, better-suited option for the island terrain.",
+          "Ηλεκτρικά πατίνια: μέγιστο 25 km/h, απαγορεύονται σε πεζοδρόμια, ελάχιστη ηλικία 15 ετών.",
+          "Monopattini elettrici: max 25 km/h, vietati sui marciapiedi, età minima 15 anni.",
+          "Trottinettes: max 25 km/h, interdites sur les trottoirs, âge minimum 15 ans.",
+          "E-Scooter: max 25 km/h, Bürgersteige verboten, Mindestalter 15 Jahre.",
         ),
       },
     ],
@@ -443,30 +480,30 @@ export const GUIDES: Guide[] = [
   {
     slug: "naxos-airport-jnx-guide",
     title: ls(
-      "Naxos Airport (JNX): everything you need to know",
+      "Naxos Airport (JNX) guide: car rental, transfers and what to expect",
       "Αεροδρόμιο Νάξου (JNX): όλα όσα πρέπει να ξέρετε",
       "Aeroporto di Naxos (JNX): guida completa",
       "Aéroport de Naxos (JNX) : guide complet",
       "Flughafen Naxos (JNX): kompletter Guide",
     ),
     excerpt: ls(
-      "A small regional airport <4 km from Chora. No permanent rental desks — only meet-and-greet. Here's how it works.",
+      "JNX is a small regional airport under 4 km from Chora's port. No permanent rental desks — here's exactly how meet-and-greet car rental works and what to do on arrival.",
       "Μικρό περιφερειακό αεροδρόμιο, λιγότερο από 4 χλμ από τη Χώρα. Μόνο meet-and-greet.",
       "Piccolo scalo regionale a meno di 4 km da Chora. Solo meet-and-greet.",
       "Petit aéroport régional à moins de 4 km de Chora. Meet-and-greet uniquement.",
       "Kleiner Regionalflughafen unter 4 km von Chora. Nur Meet-and-Greet.",
     ),
-    hero: HERO("1556388275-3a5b48dc6b48"),
+    hero: "/images/naxos/gallery/naxos-aerial.jpg",
     publishedAt: "2026-03-05",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 6,
     related: ["do-you-need-a-car-in-naxos", "driving-in-naxos"],
     faqRefs: ["airport-vs-port-pickup", "delivery-zones"],
     sections: [
       {
-        heading: ls("The basics", "Τα βασικά", "Le basi", "Les bases", "Die Basics"),
+        heading: ls("JNX basics — one runway, one terminal", "Τα βασικά", "Le basi", "Les bases", "Die Basics"),
         body: ls(
-          "IATA: JNX. ICAO: LGNX. One runway, one terminal, no jet bridges. Located 3.6 km southwest of Chora. Domestic flights to Athens via Olympic Air, plus the occasional charter from Western Europe in summer.",
+          "IATA code: JNX. ICAO: LGNX. One runway (2,365 m), one terminal building with a single arrivals hall, no jet bridges, no airbridges, no escalators — you walk across the apron from the plane stairs. Located 3.6 km southwest of Chora's old town, roughly a €10 taxi ride or a 15-minute walk if you're travelling light. Domestic routes: Olympic Air connects JNX to Athens (ATH) multiple times daily in summer; Sky Express operates seasonal services. International charters from Northern Europe (Germany, UK, Netherlands) operate June–September on a weekly or twice-weekly basis. The terminal has a café, a newsagent and one car hire desk that operates irregularly. There is no ATM in the terminal — use Chora for cash.",
           "IATA: JNX. Ένας διάδρομος, ένα τερματικό, 3.6 χλμ από τη Χώρα.",
           "IATA: JNX. Una pista, un terminal, 3,6 km da Chora.",
           "IATA : JNX. Une piste, un terminal, 3,6 km de Chora.",
@@ -474,9 +511,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Why there are no rental desks", "Γιατί δεν υπάρχουν γκισέ ενοικίασης", "Perché non ci sono banchi di noleggio", "Pourquoi pas de comptoirs", "Warum keine Mietschalter"),
+        heading: ls("Why there are no permanent rental desks at JNX", "Γιατί δεν υπάρχουν γκισέ ενοικίασης", "Perché non ci sono banchi di noleggio", "Pourquoi pas de comptoirs", "Warum keine Mietschalter"),
         body: ls(
-          "JNX has irregular hours. Avis, Budget, Enterprise and Europcar all schedule meet-and-greets only when a customer's flight lands. Hertz hours are inconsistently reported across booking platforms (Rentalcars.com lists 24/7; AtlasChoice and EconomyBookings list 09:00–21:00). Sixt has no JNX presence. We do exactly the same — and we don't charge for it.",
+          "JNX operates on irregular schedules — some days see three flights, other days none. Staffing a full-time rental desk is economically unviable for any company. Avis, Budget, Enterprise and Europcar all operate JNX on a meet-and-greet basis only, meaning they arrange for an agent to be present when a specific customer's flight lands. Hertz is listed with inconsistent hours across booking platforms — Rentalcars.com lists 24/7; AtlasChoice shows 09:00–21:00; EconomyBookings shows contact-required. Sixt has no JNX presence at all. We operate exactly the same meet-and-greet model, with the same result: your car is there when you land. The difference is we don't charge for the service and we track your flight from our side.",
           "Το JNX έχει ακανόνιστες ώρες. Όλες οι μάρκες κάνουν meet-and-greet. Εμείς δωρεάν.",
           "JNX ha orari irregolari. Tutti i marchi fanno meet-and-greet. Noi gratis.",
           "JNX a des horaires irréguliers. Toutes les marques font du meet-and-greet. Nous gratuitement.",
@@ -484,9 +521,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("How our meet-and-greet works", "Πώς λειτουργεί το δικό μας meet-and-greet", "Come funziona il nostro meet-and-greet", "Comment fonctionne notre accueil", "Wie unser Meet-and-Greet funktioniert"),
+        heading: ls("How our airport meet-and-greet works", "Πώς λειτουργεί το δικό μας meet-and-greet", "Come funziona il nostro meet-and-greet", "Comment fonctionne notre accueil", "Wie unser Meet-and-Greet funktioniert"),
         body: ls(
-          "Send us your flight number on WhatsApp the day before. We track the flight. We're standing at arrivals with your name on a sign. Five minutes for paperwork and photos, the keys are yours, you drive away. No queue, no upsell, no cost for the service.",
+          "Send us your flight number on WhatsApp the evening before your arrival. We monitor the flight from our end — delays, gate changes, early arrivals. When you walk into the arrivals hall you'll see us holding a sign with your name. We hand over the keys in the car park: 5 minutes for paperwork, photos of the vehicle condition and your signature, then the car is yours and you drive away. No queue, no upsell desk, no hidden 'airport surcharge'. Return works the same way — send your departure flight or ferry time, we meet you at the terminal or port at the agreed time and take the car from you there. You go straight to check-in with zero hassle.",
           "Στείλτε αριθμό πτήσης στο WhatsApp. Σας περιμένουμε στις αφίξεις. Πέντε λεπτά και τα κλειδιά είναι δικά σας.",
           "Mandaci il volo su WhatsApp. Ti aspettiamo agli arrivi. Cinque minuti e via.",
           "Envoie ton vol sur WhatsApp. On t'attend aux arrivées. Cinq minutes et c'est bon.",
@@ -498,30 +535,30 @@ export const GUIDES: Guide[] = [
   {
     slug: "parking-in-naxos",
     title: ls(
-      "Parking in Naxos: where, when, and how to avoid the towing zone",
+      "Parking in Naxos 2026: where to park in Chora and beyond",
       "Παρκάρισμα στη Νάξο: πού και πώς",
       "Parcheggio a Naxos: dove e come",
       "Stationnement à Naxos : où et comment",
       "Parken auf Naxos: wo und wie",
     ),
     excerpt: ls(
-      "Chora is car-free in the old town. Here's where you actually park.",
+      "Chora's old town is car-free. The port car park fills by 11 am in August. Here's where you actually park — and the mistakes that get tourists towed every day.",
       "Η παλιά πόλη είναι πεζόδρομος. Δείτε πού παρκάρετε.",
       "Il centro storico è pedonale. Ecco dove si parcheggia.",
       "Le centre est piéton. Voici où se garer.",
       "Die Altstadt ist Fußgängerzone. Hier parken Sie.",
     ),
-    hero: HERO("1611348586804-61bf6c080437"),
+    hero: "/images/naxos/chora.jpg",
     publishedAt: "2026-03-10",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 4,
     related: ["driving-in-naxos", "do-you-need-a-car-in-naxos"],
     faqRefs: ["chora-parking"],
     sections: [
       {
-        heading: ls("The port car park (free, fills fast)", "Παρκινγκ λιμανιού (δωρεάν)", "Parcheggio del porto (gratis)", "Parking du port (gratuit)", "Hafenparkplatz (kostenlos)"),
+        heading: ls("The port car park — free but fills fast", "Παρκινγκ λιμανιού (δωρεάν)", "Parcheggio del porto (gratis)", "Parking du port (gratuit)", "Hafenparkplatz (kostenlos)"),
         body: ls(
-          "Largest free lot in Chora. Open-air, no time limit. Full by 11:00 most July–August days. Get there early, walk into town in 5 minutes.",
+          "The largest free parking area in Chora is the open-air lot adjacent to the ferry terminal. No time limit, no cost, no machine. Walk from the lot to the old town's central square takes 5–8 minutes. In July and August the lot is typically full by 10:30–11:00 am — locals and visitors alike know it and arrive early. The lot has no shade, so a car left there all day in August gets very hot; consider leaving windows cracked. We always point guests toward this lot when they collect their vehicle from the port — it's the most convenient drop-off and pick-up point.",
           "Μεγαλύτερο δωρεάν παρκινγκ. Γεμίζει μέχρι 11:00 το καλοκαίρι.",
           "Il più grande gratis. Pieno entro le 11 in estate.",
           "Le plus grand gratuit. Plein vers 11h en été.",
@@ -529,13 +566,23 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Pay-and-display in the centre", "Παρκάρισμα με κάρτα στο κέντρο", "Sosta a pagamento in centro", "Stationnement payant au centre", "Bezahlparken im Zentrum"),
+        heading: ls("Pay-and-display in central Chora", "Παρκάρισμα με κάρτα στο κέντρο", "Sosta a pagamento in centro", "Stationnement payant au centre", "Bezahlparken im Zentrum"),
         body: ls(
-          "Marked blue spots in central Chora cost €1/hour from a kiosk or app. Don't park on white-line spots reserved for residents — they're enforced.",
+          "Blue-marked parking spaces in central Chora cost €1 per hour, payable at a roadside kiosk or via a parking app available in Greek app stores. Hours are typically 08:00–20:00 in summer; free after 20:00. White-line parking spaces are reserved for registered island residents and are enforced — tourist vehicles left in white spaces receive tickets and, if left overnight, are towed. The tow yard is inconveniently located and the release fee is around €150 plus the fine. When in doubt: if it's not blue-lined or a signed public lot, don't park there.",
           "Μπλε σημάδια €1/ώρα. Λευκά μόνο για κατοίκους.",
           "Strisce blu €1/ora. Bianche solo residenti.",
           "Bandes bleues €1/h. Blanches résidents seulement.",
           "Blaue Streifen €1/Std. Weiße nur Anwohner.",
+        ),
+      },
+      {
+        heading: ls("Parking at villages and beaches", "Παρκάρισμα στα χωριά και παραλίες", "Parcheggio a villaggi e spiagge", "Stationnement aux villages et plages", "Parken an Dörfern und Stränden"),
+        body: ls(
+          "Good news: outside Chora, parking on Naxos is almost entirely free and informal. Village squares have unpainted spots around the perimeter — pull up, check you're not blocking a doorway or fire hydrant, and leave it. Beach parking areas (Prokopios, Plaka, Mikri Vigla) are unpaved lots next to the beach access path with no charge and no time limit. The exception is the main beach road at Agios Prokopios in August, where a private operator occasionally charges €2–3 for a marked spot closest to the sand. Drive 200 m further and park free. Mountain villages like Apeiranthos have very limited space — there's a small lot at the entry to the village and parking on the main road outside. Never drive or park inside the marble-paved lanes; they're pedestrian-only.",
+          "Εκτός Χώρας, παρκάρισμα συνήθως δωρεάν. Ελέγξτε να μην μπλοκάρετε εισόδους.",
+          "Fuori Chora, parcheggio quasi sempre gratis. Controlla di non bloccare ingressi.",
+          "Hors Chora, stationnement presque toujours gratuit. Vérifier de ne pas bloquer les entrées.",
+          "Außerhalb von Chora fast überall kostenlos. Einfahrten nicht blockieren.",
         ),
       },
     ],
@@ -543,29 +590,29 @@ export const GUIDES: Guide[] = [
   {
     slug: "atv-vs-buggy-vs-car",
     title: ls(
-      "ATV vs Buggy vs Car on Naxos: which to rent",
+      "ATV vs Buggy vs Car on Naxos: which should you rent in 2026?",
       "ATV ή buggy ή αυτοκίνητο στη Νάξο;",
       "ATV, buggy o auto a Naxos: cosa scegliere",
       "ATV, buggy ou voiture à Naxos : quoi choisir ?",
       "ATV, Buggy oder Auto auf Naxos: was mieten?",
     ),
     excerpt: ls(
-      "A frank decision tree based on travellers, days, weather and the kinds of beaches you want to reach.",
+      "A frank decision guide based on who you're travelling with, where you want to go, and what the island's roads actually demand.",
       "Πρακτικός οδηγός επιλογής με βάση το πρόγραμμά σας.",
       "Guida pratica per la scelta in base al viaggio.",
       "Guide pratique pour choisir selon ton voyage.",
       "Praktischer Entscheidungsbaum nach Reise.",
     ),
-    hero: HERO("1604147495798-57beb5d6af73"),
+    hero: "/images/naxos/mikri-vigla.jpg",
     publishedAt: "2026-03-15",
-    updatedAt: "2026-04-22",
+    updatedAt: "2026-05-10",
     readingTime: 6,
     related: ["best-beaches-by-car-naxos", "do-you-need-a-car-in-naxos", "naxos-road-trip-itinerary"],
     sections: [
       {
-        heading: ls("Pick a car if…", "Επιλέξτε αυτοκίνητο αν…", "Scegli l'auto se…", "Choisis la voiture si…", "Wähle das Auto, wenn…"),
+        heading: ls("Rent a car if…", "Επιλέξτε αυτοκίνητο αν…", "Scegli l'auto se…", "Choisis la voiture si…", "Wähle das Auto, wenn…"),
         body: ls(
-          "You have luggage, kids, or you'll be driving in the rain. You want air-con on the Apeiranthos drive. You want one vehicle for the whole trip.",
+          "You're travelling with children or elderly companions. You have more than one carry-on bag per person. You plan to drive to Apeiranthos, Apollonas or the mountain interior (the switchbacks and distance make a car far more comfortable than a scooter or ATV). You want air conditioning — Naxos reaches 36°C in August. You're driving at night or in uncertain weather. A small car like the Suzuki Baleno or Peugeot 208 costs €60–80/day from our fleet in peak season, includes 24/7 roadside assistance coverage and handles every paved road on the island. It's the default sensible choice for most travellers.",
           "Έχετε αποσκευές, παιδιά ή κακοκαιρία.",
           "Hai bagagli, bambini, o pioggia in vista.",
           "Tu as des bagages, des enfants, ou de la pluie.",
@@ -573,9 +620,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Pick a scooter if…", "Επιλέξτε μηχανάκι αν…", "Scegli lo scooter se…", "Choisis le scooter si…", "Wähle den Roller, wenn…"),
+        heading: ls("Rent a scooter if…", "Επιλέξτε μηχανάκι αν…", "Scegli lo scooter se…", "Choisis le scooter si…", "Wähle den Roller, wenn…"),
         body: ls(
-          "Two adults, light luggage, sunny week. Cheaper, faster, more fun on the coastal roads.",
+          "You're a couple or solo, travelling with no more than a small daypack each. Your itinerary is coastal (Prokopios, Plaka, Agia Anna, Mikri Vigla on paved roads). The forecast is reliably sunny for your whole trip. You have a motorbike or scooter licence — or, for 50cc, any driving licence. Our Piaggio Liberty 125cc and Sym Symphony 125cc are the most popular choices: comfortable for two riders, fast enough for the Naxos road network, and €35–45/day. The 50cc options are cheaper but genuinely slow on the long climbs to Apollonas or Apeiranthos.",
           "Δύο ενήλικες, λίγες αποσκευές, ήλιος.",
           "Due adulti, poco bagaglio, sole.",
           "Deux adultes, peu de bagages, du soleil.",
@@ -583,9 +630,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Pick a buggy if…", "Επιλέξτε buggy αν…", "Scegli il buggy se…", "Choisis le buggy si…", "Wähle den Buggy, wenn…"),
+        heading: ls("Rent a buggy or ATV if…", "Επιλέξτε buggy ή ATV αν…", "Scegli il buggy o ATV se…", "Choisis le buggy ou ATV si…", "Wähle den Buggy oder ATV, wenn…"),
         body: ls(
-          "You're spending serious time at Alyko, Mikri Vigla or Pyrgaki. The buggy is the only legal way to drive those tracks for a non-4×4-licensed vehicle, and it's the most fun.",
+          "You're planning a serious day at Alyko, Mikri Vigla's south track, Pyrgaki or any of the unpaved coastal paths in the south. A standard car cannot legally or safely access these tracks under any rental contract on Naxos. Our Polaris Buggy (4-seat, open-top, roll cage) and CFMoto ATV handle them with ease. Both require only a standard car licence (Category B). The Polaris costs around €100–120/day — more than a small car, but the experience of driving through Alyko's cedar forest in an open buggy with the Aegean in front of you is genuinely incomparable. Book in advance: buggy slots sell out weeks ahead in July and August.",
           "Αν θα είστε σε Αλυκό, Μικρή Βίγλα, Πυργάκι.",
           "Per Alyko, Mikri Vigla, Pyrgaki.",
           "Pour Alyko, Mikri Vigla, Pyrgaki.",
@@ -593,9 +640,9 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("The hybrid plan most travellers love", "Το υβριδικό πρόγραμμα που αγαπάμε", "Il piano ibrido che piace", "Le plan hybride apprécié", "Der beliebte Hybrid-Plan"),
+        heading: ls("The hybrid plan most guests love", "Το υβριδικό πρόγραμμα που αγαπάμε", "Il piano ibrido che piace", "Le plan hybride apprécié", "Der beliebte Hybrid-Plan"),
         body: ls(
-          "A small car for the whole trip + one day of buggy or ATV. Costs about the same as a buggy alone for a week, gives you everything.",
+          "Small car for the whole trip (Chalki, Filoti, Apeiranthos, Apollonas, all the main beaches) + one day of buggy or ATV specifically for the south-coast adventure. The total cost is almost exactly the same as renting a buggy for the whole week. You get the practicality of a car with luggage and the freedom of a buggy on the day it actually matters. We offer this combination as a package — ask us when you book and we'll schedule the swap to fit your itinerary perfectly.",
           "Μικρό αυτοκίνητο όλη τη βδομάδα + μία μέρα buggy ή ATV.",
           "Auto piccola per la settimana + un giorno di buggy/ATV.",
           "Petite auto la semaine + un jour de buggy/ATV.",
