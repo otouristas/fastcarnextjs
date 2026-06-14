@@ -105,7 +105,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildMetadata({
     locale,
     path: `fleet/${v.category}/${v.slug}`,
-    title: `${v.name[locale]} — ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`,
+    title: `${v.name[locale]}  -  ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`,
     description: v.tagline[locale],
     image: v.image,
     type: "product",
@@ -169,7 +169,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(15,37,51,0.55)] via-transparent to-transparent p-5">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>
                       <BadgeCheck className="h-3.5 w-3.5" /> {navLabels[v.category]}
                     </span>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[var(--ink)] shadow-sm backdrop-blur dark:bg-[rgba(16,43,61,0.85)] dark:text-white">
@@ -179,7 +179,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 </div>
               </div>
 
-              {/* Quick spec strip — sits visually attached under the photo on large screens */}
+              {/* Quick spec strip  -  sits visually attached under the photo on large screens */}
               <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
                 {v.seats != null && <SpecTile icon={<Users className="h-4 w-4" />} label={dict.common.seats} value={String(v.seats)} />}
                 {v.doors != null && <SpecTile icon={<DoorOpen className="h-4 w-4" />} label={dict.common.doors} value={String(v.doors)} />}
@@ -235,7 +235,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                       href={SITE.bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-transform hover:scale-[1.01]"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.01]" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
                     >
                       {dict.cta.bookCar} <ArrowRight className="h-4 w-4" />
                     </a>
@@ -326,10 +326,10 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
               <SectionEyebrow icon={<Gauge className="h-3.5 w-3.5" />}>{labels.specs}</SectionEyebrow>
               <h3 className="mt-2 text-2xl font-bold text-foreground">{labels.specs}</h3>
               <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                <SpecRow label={dict.common.seats} value={v.seats ? String(v.seats) : "—"} />
-                <SpecRow label={dict.common.doors} value={v.doors ? String(v.doors) : "—"} />
-                <SpecRow label={dict.common.transmission} value={v.transmission ? (v.transmission === "automatic" ? dict.common.automatic : dict.common.manual) : "—"} />
-                <SpecRow label={dict.common.fuel} value={v.fuelType ? dict.common[v.fuelType === "gasoline" ? "gasoline" : v.fuelType] : "—"} />
+                <SpecRow label={dict.common.seats} value={v.seats ? String(v.seats) : " - "} />
+                <SpecRow label={dict.common.doors} value={v.doors ? String(v.doors) : " - "} />
+                <SpecRow label={dict.common.transmission} value={v.transmission ? (v.transmission === "automatic" ? dict.common.automatic : dict.common.manual) : " - "} />
+                <SpecRow label={dict.common.fuel} value={v.fuelType ? dict.common[v.fuelType === "gasoline" ? "gasoline" : v.fuelType] : " - "} />
                 {v.engineCC && <SpecRow label="Engine" value={`${v.engineCC} cc`} />}
                 <SpecRow label="Year" value={String(v.year)} />
               </dl>

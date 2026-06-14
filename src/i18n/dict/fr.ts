@@ -69,7 +69,7 @@ export const dict: Dict = {
       {
         title: "Livraison gratuite porte à porte",
         body:
-          "Nous remettons les clés où vous voulez — aéroport JNX, port, votre hôtel à Chora, Agios Prokopios, Agia Anna, Plaka, Mikri Vigla, Apollonas ou ailleurs à Naxos.",
+          "Nous remettons les clés où vous voulez  -  aéroport JNX, port, votre hôtel à Chora, Agios Prokopios, Agia Anna, Plaka, Mikri Vigla, Apollonas ou ailleurs à Naxos.",
       },
       {
         title: "Prix transparents, sans frais cachés",
@@ -84,7 +84,7 @@ export const dict: Dict = {
       {
         title: "Voitures, scooters, ATV et buggys",
         body:
-          "Un seul prestataire pour toute la famille — petite automatique pour Chora, 4×4 pour le mont Zas, buggy pour Alyko, Vespa pour la plage.",
+          "Un seul prestataire pour toute la famille  -  petite automatique pour Chora, 4×4 pour le mont Zas, buggy pour Alyko, Vespa pour la plage.",
       },
     ],
   },
@@ -131,12 +131,12 @@ export const dict: Dict = {
   fleetHub: {
     title: "Notre flotte à Naxos",
     subtitle:
-      "Voitures, scooters, ATV et buggys — entièrement assurés, entretenus régulièrement, prêts au JNX, au port ou à votre hôtel.",
-    categoryCars: "Voitures — de la compacte au 7-places & 4×4",
-    categoryScooters: "Scooters — 50cc à 200cc & Vespa",
-    categoryAtv: "ATV & Quad — 150cc à 800cc",
-    categoryBuggy: "Buggy — Polaris RZR 2 & 4 places",
-    categoryMoto: "Moto — touring & adventure",
+      "Voitures, scooters, ATV et buggys  -  entièrement assurés, entretenus régulièrement, prêts au JNX, au port ou à votre hôtel.",
+    categoryCars: "Voitures  -  de la compacte au 7-places & 4×4",
+    categoryScooters: "Scooters  -  50cc à 200cc & Vespa",
+    categoryAtv: "ATV & Quad  -  150cc à 800cc",
+    categoryBuggy: "Buggy  -  Polaris RZR 2 & 4 places",
+    categoryMoto: "Moto  -  touring & adventure",
   },
   pricing: {
     title: "Tarifs transparents",
@@ -151,7 +151,7 @@ export const dict: Dict = {
   insurance: {
     title: "Assurance & couverture",
     subtitle:
-      "Chaque véhicule inclut le CDW de base. Améliorez au retrait ou à l'avance — sans pression.",
+      "Chaque véhicule inclut le CDW de base. Améliorez au retrait ou à l'avance  -  sans pression.",
     levelsTitle: "Niveaux de couverture",
     levels: [
       {
@@ -205,7 +205,7 @@ export const dict: Dict = {
     title: "Familial depuis 2018",
     subtitle: "Marios & Ria. Un bureau à Chora. Une promesse : zéro frais cachés.",
     body:
-      "Fast Motor Rental Naxos est une petite entreprise familiale. Nous ne sous-traitons pas les retraits, ne vendons pas via un contrat tiers et répondons à WhatsApp nous-mêmes. Chaque voiture, scooter, ATV et buggy de la flotte est à nous et entretenu par nous. Nous vous accueillons au JNX, au port ou à l'hôtel — gratuitement — et remettons les clés avec un contrat clair et un numéro qui répond.",
+      "Fast Motor Rental Naxos est une petite entreprise familiale. Nous ne sous-traitons pas les retraits, ne vendons pas via un contrat tiers et répondons à WhatsApp nous-mêmes. Chaque voiture, scooter, ATV et buggy de la flotte est à nous et entretenu par nous. Nous vous accueillons au JNX, au port ou à l'hôtel  -  gratuitement  -  et remettons les clés avec un contrat clair et un numéro qui répond.",
   },
   contact: {
     title: "Nous contacter",
@@ -247,7 +247,7 @@ export const dict: Dict = {
   },
   legal: {
     termsTitle: "Conditions Générales",
-    termsSubtitle: "Le contrat de location en bref — court, honnête, sans petits caractères.",
+    termsSubtitle: "Le contrat de location en bref  -  court, honnête, sans petits caractères.",
     cancellationTitle: "Politique d'Annulation",
     cancellationSubtitle: "Annulation gratuite jusqu'à 21 jours avant l'arrivée. Paliers de remboursement clairs.",
     privacyTitle: "Politique de Confidentialité",
@@ -268,7 +268,7 @@ export const dict: Dict = {
   },
   ai: {
     trigger: "Demandez à Touristas AI",
-    title: "Touristas AI — votre ami de voyage à Naxos",
+    title: "Touristas AI  -  votre ami de voyage à Naxos",
     subtitle: "Propulsé par Fast Motor Rental Naxos",
     greeting: "Bonjour ! Je suis Touristas AI. Demandez-moi tout sur la location à Naxos, les plages, la conduite ou quel véhicule choisir.",
     placeholder: "Posez-moi une question sur Naxos…",
@@ -316,7 +316,7 @@ export const dict: Dict = {
   },
   naxos: {
     pageTitle: "Découvrir Naxos",
-    pageSubtitle: "La plus grande, la plus verte et la plus autosuffisante des Cyclades — où, selon la légende, Zeus aurait grandi.",
+    pageSubtitle: "La plus grande, la plus verte et la plus autosuffisante des Cyclades  -  où, selon la légende, Zeus aurait grandi.",
     quickFactsTitle: "En bref",
     historyTitle: "Histoire",
     geographyTitle: "Géographie & climat",

@@ -252,7 +252,7 @@ export function TouristasChat({ dict }: { dict: Dict }) {
               {/* Disclaimer + footer */}
               <div className="shrink-0 border-t border-border/40 bg-muted/30 px-4 py-2 space-y-1">
                 <p className="text-[10px] text-muted-foreground leading-relaxed">
-                  ⚠️ Touristas AI is for guidance only — responses may not reflect real-time availability or exact pricing. Contact us directly to confirm.
+                  ⚠️ Touristas AI is for guidance only  -  responses may not reflect real-time availability or exact pricing. Contact us directly to confirm.
                 </p>
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-[10px] text-muted-foreground">

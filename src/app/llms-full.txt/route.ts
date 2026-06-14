@@ -10,7 +10,7 @@ export function GET() {
   const out: string[] = [];
   const push = (s: string = "") => out.push(s);
 
-  push(`# ${SITE.brand} — Full content dump`);
+  push(`# ${SITE.brand}  -  Full content dump`);
   push();
   push(`Domain: ${SITE.domain}`);
   push(`Booking: ${SITE.bookingUrl}`);
@@ -90,7 +90,7 @@ export function GET() {
   push();
 
   push("## Greek 2026 traffic code (in force from 1 January 2026)");
-  push("Speed limits: 30 km/h within cities (down from 50), 90 km/h rural roads, 110 km/h expressways, 130 km/h motorways. Greece is the second EU country (after Spain) to adopt 30 km/h urban limit. Alcohol limit: 0.05% standard, 0.02% for new drivers and motorcyclists. Seatbelts mandatory all occupants. Children under 12 (or shorter than 1.35 m) cannot sit in front. Helmet enforcement on scooters and ATVs is strict — €350 fine and 30-day suspension for non-compliance.");
+  push("Speed limits: 30 km/h within cities (down from 50), 90 km/h rural roads, 110 km/h expressways, 130 km/h motorways. Greece is the second EU country (after Spain) to adopt 30 km/h urban limit. Alcohol limit: 0.05% standard, 0.02% for new drivers and motorcyclists. Seatbelts mandatory all occupants. Children under 12 (or shorter than 1.35 m) cannot sit in front. Helmet enforcement on scooters and ATVs is strict  -  €350 fine and 30-day suspension for non-compliance.");
 
   return new Response(out.join("\n"), {
     headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=3600" },

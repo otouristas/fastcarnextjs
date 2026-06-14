@@ -71,7 +71,8 @@ export function MobileMenu({
         role="dialog"
         aria-modal="true"
         aria-label={dict.nav.menu}
-        className={`fixed inset-x-0 top-0 z-50 flex max-h-[100dvh] origin-top flex-col overflow-hidden border-b border-border bg-[#fffaf1] shadow-2xl transition-transform duration-300 dark:border-white/10 dark:bg-[var(--ink)] ${open ? "translate-y-0" : "-translate-y-full"}`}
+        className={`fixed inset-x-0 top-0 z-50 flex max-h-[100dvh] origin-top flex-col overflow-hidden border-b shadow-2xl transition-transform duration-300 dark:border-white/10 ${open ? "translate-y-0" : "-translate-y-full"}`}
+        style={{ background: 'rgba(237,245,252,0.98)', borderColor: 'rgba(143,165,207,0.34)' }}
       >
         {/* Header row */}
         <div className="shrink-0 border-b border-border bg-white/70 px-4 py-3 dark:border-white/10 dark:bg-white/5 sm:px-6">

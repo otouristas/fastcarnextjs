@@ -83,9 +83,9 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-[#fffaf1]/95 shadow-[0_8px_30px_-22px_rgba(15,37,51,0.45)] backdrop-blur-xl dark:border-white/10 dark:bg-[rgba(16,43,61,0.92)]">
+    <header className="sticky top-0 z-40 w-full border-b backdrop-blur-xl" style={{ background: 'linear-gradient(180deg, rgba(227,237,255,0.52) 0%, rgba(209,224,250,0.34) 100%)', backgroundColor: 'rgba(223,234,252,0.42)', borderColor: 'rgba(143,165,207,0.34)', boxShadow: '0 8px 24px rgba(13, 34, 74, 0.12), inset 0 1px 0 rgba(255,255,255,0.36)' }}>
       {/* Utility bar */}
-      <div className="hidden border-b border-border/70 bg-white/60 text-xs text-muted-foreground dark:border-white/10 dark:bg-white/5 sm:block">
+      <div className="hidden border-b text-xs text-muted-foreground sm:block" style={{ borderColor: 'rgba(143,165,207,0.24)', background: 'rgba(237,245,252,0.50)' }}>
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <a href={`tel:${SITE.phones[0]}`} className="inline-flex items-center gap-1.5 font-medium hover:text-[var(--sea)]">
@@ -102,7 +102,7 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
             <span className="hidden items-center gap-1 font-semibold text-[var(--ink)] dark:text-white md:inline-flex">
               <Star className="h-3.5 w-3.5 fill-[var(--brand-1)] text-[var(--brand-1)]" /> {SITE.rating.value}/5
             </span>
-            <div className="flex items-center gap-1 rounded-full border border-border bg-white/80 px-2 py-0.5 dark:bg-white/10">
+            <div className="flex items-center gap-1 rounded-full border px-2 py-0.5" style={{ borderColor: 'rgba(143,165,207,0.30)', background: 'rgba(248,252,255,0.80)' }}>
               {LOCALES.map((l) => (
                 <Link
                   key={l}
@@ -126,7 +126,7 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
 
       {/* Main bar */}
       <div className="group/header relative">
-        <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${scrolled ? "h-16" : "h-24"}`}>
+        <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${scrolled ? "h-16" : "h-[72px]"}`}>
           <Link href={localePath(locale)} className="flex items-center gap-3" aria-label={SITE.brand}>
             <Image
               src={SITE.logo}
@@ -148,7 +148,7 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
           <div className="flex items-center gap-2">
             <a
               href={`tel:${SITE.phones[0]}`}
-              className="hidden h-11 w-11 items-center justify-center rounded-full border border-border bg-white/80 text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white sm:flex"
+              className="hidden h-10 w-10 items-center justify-center rounded-lg border text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] hover:text-[var(--sea)] dark:text-white sm:flex" style={{ borderColor: 'rgba(26,143,197,0.20)', background: 'transparent' }}
               aria-label={dict.nav.call}
             >
               <Phone className="h-4 w-4" />
@@ -158,7 +158,7 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
               href={whatsappUrl(dict.whatsAppFab.message)}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden h-11 w-11 items-center justify-center rounded-full border border-border bg-white/80 shadow-sm hover:border-green-400 dark:bg-white/10 sm:flex"
+              className="hidden h-10 w-10 items-center justify-center rounded-lg border shadow-sm hover:border-green-400 sm:flex" style={{ borderColor: 'rgba(26,143,197,0.20)', background: 'transparent' }}
               aria-label="WhatsApp"
             >
               <WhatsAppIcon className="h-6 w-6" />
@@ -168,7 +168,7 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
               href={SITE.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-full bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20 sm:inline-flex"
+              className="hidden items-center gap-2 rounded-lg bg-brand-gradient px-6 py-3 text-[13px] font-bold uppercase tracking-[0.12em] text-white shadow-lg sm:inline-flex" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
             >
               {dict.nav.bookNow}
             </a>
@@ -193,7 +193,7 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
     <div className="group/mega self-stretch flex items-center">
       <button
         type="button"
-        className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-[var(--ink)] transition-colors hover:bg-white/90 hover:text-[var(--sea)] focus:bg-white/90 focus:outline-none dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
+        className="inline-flex h-10 items-center gap-1 rounded-lg px-2 text-[12px] font-semibold uppercase tracking-[0.10em] whitespace-nowrap transition-all duration-200 text-[var(--ink)]/75 hover:bg-[var(--sea)]/[0.06] hover:text-[var(--ink)] dark:text-white/80 dark:hover:text-white"
         aria-haspopup="true"
       >
         {group.title}
@@ -203,8 +203,7 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
       <div className="invisible absolute left-1/2 top-full -translate-x-1/2 opacity-0 transition-all duration-200 group-hover/mega:visible group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:opacity-100">
         <div aria-hidden="true" className="h-3 w-full" />
         <div
-          className="rounded-[2rem] border border-border bg-[#fffaf1]/98 p-6 shadow-[0_40px_100px_-30px_rgba(15,37,51,0.5)] backdrop-blur-xl dark:border-white/10 dark:bg-[rgba(16,43,61,0.98)]"
-          style={{ width: "min(76rem, calc(100vw - 2rem))" }}
+          className="rounded-[2rem] border p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(26,143,197,0.18)', background: 'rgba(248,252,255,0.98)', boxShadow: '0 40px 100px -30px rgba(0,20,60,0.35)', width: 'min(76rem, calc(100vw - 2rem))' }}
         >
           <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
             <div>
@@ -238,7 +237,7 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
             {group.cta && (
               <Link
                 href={group.cta.href}
-                className="relative flex min-h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-brand-gradient p-6 text-white shadow-xl shadow-orange-500/25"
+                className="relative flex min-h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-brand-gradient p-6 text-white shadow-xl" style={{ boxShadow: '0 20px 60px rgba(0,119,182,0.30)' }}
               >
                 <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-white/15 blur-2xl" />
                 <div aria-hidden="true" className="pointer-events-none absolute -left-12 -bottom-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />

@@ -10,6 +10,8 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Google-Extended", allow: "/" },
       { userAgent: "ClaudeBot", allow: "/" },
       { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "Applebot-Extended", allow: "/" },
+      { userAgent: "Meta-ExternalAgent", allow: "/" },
       { userAgent: "CCBot", allow: "/" },
     ],
     sitemap: `${SITE.domain}/sitemap.xml`,

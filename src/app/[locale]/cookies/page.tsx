@@ -34,7 +34,7 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
     { name: "fmr-theme", purpose: "Remembers light/dark/system theme preference.", duration: "12 months" },
   ];
   const analytics: CookieRow[] = [
-    { name: "_ga, _ga_*", purpose: "Google Analytics 4 — anonymous page-view stats. Only set after you accept analytics.", duration: "Up to 24 months" },
+    { name: "_ga, _ga_*", purpose: "Google Analytics 4  -  anonymous page-view stats. Only set after you accept analytics.", duration: "Up to 24 months" },
   ];
   const marketing: CookieRow[] = [];
 

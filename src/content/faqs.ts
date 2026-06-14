@@ -16,7 +16,7 @@ export const FAQS: Faq[] = [
       "Brauche ich auf Naxos ein Auto?",
     ),
     answer: ls(
-      "If you're staying in Chora and only visiting the closest beaches, no — buses and taxis cover that. For the inland villages (Chalki, Filoti, Apeiranthos), Apollonas, Mikri Vigla and Alyko, a rental gives you 5–10× the freedom of the bus schedule. Most visitors who rent for at least 3 days say it's the best money they spent on the island.",
+      "If you're staying in Chora and only visiting the closest beaches, no  -  buses and taxis cover that. For the inland villages (Chalki, Filoti, Apeiranthos), Apollonas, Mikri Vigla and Alyko, a rental gives you 5–10× the freedom of the bus schedule. Most visitors who rent for at least 3 days say it's the best money they spent on the island.",
       "Αν μένετε μόνο στη Χώρα και θέλετε να δείτε τις πολύ κοντινές παραλίες, μπορείτε να κινηθείτε και χωρίς αυτοκίνητο. Για τα χωριά της ενδοχώρας (Χαλκί, Φιλότι, Απείρανθος), τον Απόλλωνα, τη Μικρή Βίγλα και το Αλυκό, η ενοικίαση σας δίνει πολλαπλάσια ελευθερία από τα δρομολόγια λεωφορείων. Οι περισσότεροι επισκέπτες που νοικιάζουν για 3+ ημέρες το θεωρούν από τις καλύτερες επιλογές του ταξιδιού.",
       "Se resti a Chora e visiti solo le spiagge vicine, no. Per i villaggi interni, Apollonas, Mikri Vigla e Alyko, il noleggio è essenziale.",
       "Si tu restes à Chora et ne visites que les plages proches, non. Pour l'arrière-pays, Apollonas, Mikri Vigla et Alyko, la location est essentielle.",
@@ -70,7 +70,7 @@ export const FAQS: Faq[] = [
       "Brauche ich ein 4×4 / SUV auf Naxos?",
     ),
     answer: ls(
-      "No for 95% of itineraries. The road network — including the climb to Apeiranthos and Apollonas — is paved and a small car handles it fine. You only need a 4×4 if you plan to drive the dirt tracks to remote chapels, the Alyko cedar dunes, or the goat tracks above Mikri Vigla. Most rental contracts (ours included) forbid taking a non-4×4 vehicle off-road, so respect it.",
+      "No for 95% of itineraries. The road network  -  including the climb to Apeiranthos and Apollonas  -  is paved and a small car handles it fine. You only need a 4×4 if you plan to drive the dirt tracks to remote chapels, the Alyko cedar dunes, or the goat tracks above Mikri Vigla. Most rental contracts (ours included) forbid taking a non-4×4 vehicle off-road, so respect it.",
       "Όχι για το 95% των διαδρομών. Οι βασικοί δρόμοι προς Χώρα, παραλίες, Απείρανθο, Φιλότι και Απόλλωνα είναι ασφαλτοστρωμένοι και ένα μικρό αυτοκίνητο αρκεί. 4×4 χρειάζεστε μόνο αν σκοπεύετε να κινηθείτε σε χωματόδρομους ή πιο απομονωμένα σημεία. Θυμηθείτε ότι τα περισσότερα συμβόλαια ενοικίασης δεν επιτρέπουν off-road οδήγηση με απλό αυτοκίνητο.",
       "No nel 95% dei casi. 4×4 solo per strade sterrate.",
       "Non dans 95% des cas. 4×4 seulement pour les pistes.",
@@ -88,11 +88,11 @@ export const FAQS: Faq[] = [
       "Lieber im Hafen oder Flughafen mieten?",
     ),
     answer: ls(
-      "Whichever is closer to your arrival point — both are free. We meet you at JNX (under 4 km from Chora) or at the port (2-min walk to our office). The price is identical. Tell us your flight or ferry on WhatsApp the day before.",
-      "Ό,τι σας βολεύει περισσότερο — και τα δύο σημεία είναι δωρεάν. Στο αεροδρόμιο JNX σας συναντάμε στην άφιξη, ενώ στο λιμάνι το γραφείο είναι πολύ κοντά. Η τιμή δεν αλλάζει ανάλογα με το σημείο παραλαβής. Στείλτε μας πτήση ή πλοίο στο WhatsApp για να οργανώσουμε την παράδοση χωρίς αναμονή.",
-      "Quello più vicino al tuo arrivo — entrambi gratis.",
-      "Le plus proche de ton arrivée — les deux gratuits.",
-      "Was näher liegt — beides kostenlos.",
+      "Whichever is closer to your arrival point  -  both are free. We meet you at JNX (under 4 km from Chora) or at the port (2-min walk to our office). The price is identical. Tell us your flight or ferry on WhatsApp the day before.",
+      "Ό,τι σας βολεύει περισσότερο  -  και τα δύο σημεία είναι δωρεάν. Στο αεροδρόμιο JNX σας συναντάμε στην άφιξη, ενώ στο λιμάνι το γραφείο είναι πολύ κοντά. Η τιμή δεν αλλάζει ανάλογα με το σημείο παραλαβής. Στείλτε μας πτήση ή πλοίο στο WhatsApp για να οργανώσουμε την παράδοση χωρίς αναμονή.",
+      "Quello più vicino al tuo arrivo  -  entrambi gratis.",
+      "Le plus proche de ton arrivée  -  les deux gratuits.",
+      "Was näher liegt  -  beides kostenlos.",
     ),
   },
   {
@@ -106,7 +106,7 @@ export const FAQS: Faq[] = [
       "Vorab oder vor Ort buchen?",
     ),
     answer: ls(
-      "Advance is cheaper and safer in July, August and the first half of September — local supply runs out and walk-in prices spike. May, June, late September and October are usually fine to book a day or two before. We hold the same online price either way; we don't penalise advance bookings.",
+      "Advance is cheaper and safer in July, August and the first half of September  -  local supply runs out and walk-in prices spike. May, June, late September and October are usually fine to book a day or two before. We hold the same online price either way; we don't penalise advance bookings.",
       "Τον Ιούλιο, τον Αύγουστο και στις αρχές Σεπτεμβρίου η προ-κράτηση είναι πιο ασφαλής και συχνά πιο οικονομική, γιατί η διαθεσιμότητα μειώνεται γρήγορα. Τον Μάιο, τον Ιούνιο, στα τέλη Σεπτεμβρίου και τον Οκτώβριο μπορείτε συνήθως να κλείσετε και 1–2 ημέρες πριν. Κρατάμε διαφανείς online τιμές και δεν τιμωρούμε την έγκαιρη κράτηση.",
       "In alta stagione meglio prima. Negli altri mesi anche all'arrivo.",
       "En haute saison, à l'avance. Hors saison, l'arrivée convient.",
@@ -142,7 +142,7 @@ export const FAQS: Faq[] = [
       "Mindestalter für die Anmietung?",
     ),
     answer: ls(
-      "21 years old, with the licence held for at least 1 year, for our cars. 23 years for SUVs and the buggy. No upper age limit. Drivers under 25 may have a small young-driver surcharge — we'll always tell you in advance.",
+      "21 years old, with the licence held for at least 1 year, for our cars. 23 years for SUVs and the buggy. No upper age limit. Drivers under 25 may have a small young-driver surcharge  -  we'll always tell you in advance.",
       "Για αυτοκίνητα χρειάζεται ηλικία 21+ και δίπλωμα τουλάχιστον 1 έτους. Για SUV και buggy η ελάχιστη ηλικία είναι 23 ετών. Δεν υπάρχει ανώτατο όριο ηλικίας. Για οδηγούς 21–24 ετών μπορεί να υπάρχει μικρή χρέωση νέου οδηγού, την οποία αναφέρουμε πάντα πριν την κράτηση.",
       "21 anni con patente da almeno 1 anno. 23 per SUV e buggy.",
       "21 ans, permis depuis 1 an. 23 pour SUV et buggy.",
@@ -160,7 +160,7 @@ export const FAQS: Faq[] = [
       "Ist die Versicherung inklusive? Wie hoch die Kaution?",
     ),
     answer: ls(
-      "Basic CDW is included with every rental. Deposit varies €100–€800 depending on insurance level. Full CDW (€150 excess) and Zero Excess (€0) are optional upgrades. Tyres, undercarriage and windscreen are NOT covered by basic — choose Full or Zero if you'll be on rougher village roads.",
+      "Basic CDW is included with every rental. Deposit varies €100–€800 depending on insurance level. Full CDW (€150 excess) and Zero Excess (€0) are optional upgrades. Tyres, undercarriage and windscreen are NOT covered by basic  -  choose Full or Zero if you'll be on rougher village roads.",
       "Η βασική ασφάλεια CDW περιλαμβάνεται σε κάθε ενοικίαση. Η εγγύηση κυμαίνεται συνήθως από €100 έως €800 ανάλογα με το όχημα και το επίπεδο κάλυψης. Μπορείτε να επιλέξετε Full CDW ή Zero Excess για μικρότερη ή μηδενική απαλλαγή. Ελαστικά, κάτω μέρος και παρμπρίζ δεν καλύπτονται από τη βασική ασφάλεια.",
       "CDW base inclusa. Deposito €100–€800 secondo il livello.",
       "CDW de base inclus. Caution €100–€800 selon niveau.",
@@ -198,9 +198,9 @@ export const FAQS: Faq[] = [
     answer: ls(
       "Same-to-same. We hand over the car with whatever fuel level is in it (usually full or near-full) and you return it at the same level. No 'pre-purchase' tricks, no top-up fees, no penalty if you return slightly under as long as it's reasonable.",
       "Η πολιτική είναι same-to-same: παραλαμβάνετε το όχημα με συγκεκριμένο επίπεδο καυσίμου και το επιστρέφετε στο ίδιο. Δεν υπάρχουν υποχρεωτικές προπληρωμές καυσίμων ή κρυφές χρεώσεις. Αν η διαφορά είναι μικρή και λογική, το χειριζόμαστε ανθρώπινα.",
-      "Stesso a stesso — restituisci come l'hai presa.",
-      "Identique — rendre comme reçue.",
-      "Same-to-same — bei gleichem Tankstand zurück.",
+      "Stesso a stesso  -  restituisci come l'hai presa.",
+      "Identique  -  rendre comme reçue.",
+      "Same-to-same  -  bei gleichem Tankstand zurück.",
     ),
   },
   {
@@ -214,7 +214,7 @@ export const FAQS: Faq[] = [
       "Darf ich den Wagen auf die Fähre nehmen?",
     ),
     answer: ls(
-      "No, not without written permission. Like every other Naxos rental company, our standard contract forbids leaving the island. If you have a special case (e.g. transfer to Paros for the day), tell us before booking — sometimes we can authorise it with extra insurance.",
+      "No, not without written permission. Like every other Naxos rental company, our standard contract forbids leaving the island. If you have a special case (e.g. transfer to Paros for the day), tell us before booking  -  sometimes we can authorise it with extra insurance.",
       "Όχι χωρίς γραπτή άδεια. Σε ειδικές περιπτώσεις μπορούμε να εγκρίνουμε με επιπλέον ασφάλεια.",
       "No, senza permesso scritto.",
       "Non, sans autorisation écrite.",
@@ -232,7 +232,7 @@ export const FAQS: Faq[] = [
       "Ist das Fahren auf Naxos schwierig?",
     ),
     answer: ls(
-      "Main roads are paved and in good shape. Mountain switchbacks (especially Filoti–Apeiranthos and Chalki–Moni) demand attention but are not technically difficult. The biggest hazards are: narrow village streets, scooters overtaking, goats on the road, and unlit roads at night — avoid driving the back roads after sunset on your first day.",
+      "Main roads are paved and in good shape. Mountain switchbacks (especially Filoti–Apeiranthos and Chalki–Moni) demand attention but are not technically difficult. The biggest hazards are: narrow village streets, scooters overtaking, goats on the road, and unlit roads at night  -  avoid driving the back roads after sunset on your first day.",
       "Οι κύριοι δρόμοι είναι καλοί. Στροφές βουνού απαιτούν προσοχή. Αποφύγετε νυχτερινή οδήγηση στους εσωτερικούς δρόμους.",
       "Strade principali buone. Curve di montagna richiedono attenzione.",
       "Routes principales bonnes. Virages de montagne exigent de l'attention.",
@@ -250,7 +250,7 @@ export const FAQS: Faq[] = [
       "Wo parke ich in Chora?",
     ),
     answer: ls(
-      "Free parking at the port (often full by 11:00 in summer) and along the harbour road. Pay-and-display in the centre. The smartest move is to park at the port and walk in — the old town is car-free anyway.",
+      "Free parking at the port (often full by 11:00 in summer) and along the harbour road. Pay-and-display in the centre. The smartest move is to park at the port and walk in  -  the old town is car-free anyway.",
       "Δωρεάν παρκινγκ στο λιμάνι (γεμίζει στις 11:00). Παρκάρετε στο λιμάνι και περπατήστε.",
       "Parcheggio gratis al porto (pieno dalle 11:00).",
       "Parking gratuit au port (plein dès 11h).",
@@ -268,7 +268,7 @@ export const FAQS: Faq[] = [
       "Tempolimits in Griechenland 2026?",
     ),
     answer: ls(
-      "Effective 1 January 2026: 30 km/h within cities (down from 50), 90 km/h on rural roads, 110 km/h on expressways, 130 km/h on motorways. Greece is the second EU country (after Spain) to adopt the 30 km/h urban limit. Naxos is mostly rural and village roads — expect a lot of 30 and 50 zones.",
+      "Effective 1 January 2026: 30 km/h within cities (down from 50), 90 km/h on rural roads, 110 km/h on expressways, 130 km/h on motorways. Greece is the second EU country (after Spain) to adopt the 30 km/h urban limit. Naxos is mostly rural and village roads  -  expect a lot of 30 and 50 zones.",
       "Από 1/1/2026: 30 εντός πόλης, 90 αγροτικά, 110 ταχείας, 130 αυτοκινητόδρομου.",
       "Dall'1/1/2026: 30 città, 90 extraurbane, 110 superstrade, 130 autostrade.",
       "Au 1/1/2026 : 30 ville, 90 hors agglo, 110 voie rapide, 130 autoroute.",
@@ -304,7 +304,7 @@ export const FAQS: Faq[] = [
       "Sind Kindersitze inklusive?",
     ),
     answer: ls(
-      "Yes — one baby seat or booster is free with every car. Greek law requires a proper seat for under-3s, a booster for 3–11s, and forbids children under 12 (or shorter than 1.35 m) from sitting in the front. Multiple seats free on request — just message us.",
+      "Yes  -  one baby seat or booster is free with every car. Greek law requires a proper seat for under-3s, a booster for 3–11s, and forbids children under 12 (or shorter than 1.35 m) from sitting in the front. Multiple seats free on request  -  just message us.",
       "Ναι, ένα δωρεάν με κάθε αυτοκίνητο. Πολλαπλά κατόπιν ζήτησης.",
       "Sì, uno gratis. Multipli su richiesta.",
       "Oui, un gratuit. Plusieurs sur demande.",
@@ -340,7 +340,7 @@ export const FAQS: Faq[] = [
       "Was passiert bei einem Schaden?",
     ),
     answer: ls(
-      "We follow a transparent damage protocol. We photograph the car together at pickup and at return, and any new damage is logged with photos. With Basic CDW you pay up to your excess (€600). With Full CDW it's €150. With Zero Excess you pay nothing. We do not charge invented damage — every Google review can attest.",
+      "We follow a transparent damage protocol. We photograph the car together at pickup and at return, and any new damage is logged with photos. With Basic CDW you pay up to your excess (€600). With Full CDW it's €150. With Zero Excess you pay nothing. We do not charge invented damage  -  every Google review can attest.",
       "Ακολουθούμε διαφανές πρωτόκολλο ζημιών. Φωτογραφίες παράδοσης και επιστροφής.",
       "Protocollo danni trasparente con foto al ritiro e alla restituzione.",
       "Protocole transparent : photos au retrait et au retour.",
@@ -430,7 +430,7 @@ export const FAQS: Faq[] = [
       "Wohin liefern Sie kostenlos?",
     ),
     answer: ls(
-      "Anywhere on Naxos. Airport, port, every village, every beach hotel. Free is free — no minimum rental days, no hidden fees.",
+      "Anywhere on Naxos. Airport, port, every village, every beach hotel. Free is free  -  no minimum rental days, no hidden fees.",
       "Παντού στη Νάξο. Δωρεάν, χωρίς όρια.",
       "Ovunque a Naxos. Gratis senza minimi.",
       "Partout à Naxos. Gratuit sans minimum.",
@@ -448,7 +448,7 @@ export const FAQS: Faq[] = [
       "Automatik oder Schalter auf Naxos?",
     ),
     answer: ls(
-      "Manual is fine for confident drivers — Naxos isn't San Francisco. Automatic is calmer if you'll be doing stop-and-go in Chora and around tight Stelida roads, especially for two-driver families splitting the wheel.",
+      "Manual is fine for confident drivers  -  Naxos isn't San Francisco. Automatic is calmer if you'll be doing stop-and-go in Chora and around tight Stelida roads, especially for two-driver families splitting the wheel.",
       "Χειροκίνητο για έμπειρους οδηγούς. Αυτόματο πιο άνετο σε Χώρα και Στελίδα.",
       "Manuale per guidatori esperti. Automatico più rilassato in Chora.",
       "Manuel pour conducteurs confirmés. Auto plus reposant à Chora.",
@@ -466,7 +466,7 @@ export const FAQS: Faq[] = [
       "Wann ist die beste Zeit für eine Autotour auf Naxos?",
     ),
     answer: ls(
-      "Mid-May to mid-June and mid-September to mid-October. Warm weather, swimmable sea, low queues, full availability of the fleet at shoulder prices. Avoid early August if you can — it's the busiest week of the year.",
+      "Mid-May to mid-June and mid-September to mid-October. Warm weather, swimmable sea, low queues, full availability of the fleet at shoulder prices. Avoid early August if you can  -  it's the busiest week of the year.",
       "Μέσα Μαΐου–μέσα Ιουνίου και μέσα Σεπτεμβρίου–μέσα Οκτωβρίου.",
       "Metà maggio–metà giugno e metà settembre–metà ottobre.",
       "Mi-mai à mi-juin et mi-septembre à mi-octobre.",
@@ -484,7 +484,7 @@ export const FAQS: Faq[] = [
       "Gibt es E-Autos und Ladesäulen auf Naxos?",
     ),
     answer: ls(
-      "Charging points exist in Chora and a handful of major hotels. We don't currently offer fully-electric rentals because the island infrastructure is still thin — when it improves, we'll add a Tesla Model Y. We do offer Toyota RAV4 Hybrid for low-fuel touring.",
+      "Charging points exist in Chora and a handful of major hotels. We don't currently offer fully-electric rentals because the island infrastructure is still thin  -  when it improves, we'll add a Tesla Model Y. We do offer Toyota RAV4 Hybrid for low-fuel touring.",
       "Υπάρχουν λίγα σημεία φόρτισης. Δεν προσφέρουμε αμιγώς ηλεκτρικά ακόμη.",
       "Pochi punti di ricarica. Per ora niente elettriche.",
       "Quelques bornes. Pas encore d'électrique.",
@@ -520,11 +520,11 @@ export const FAQS: Faq[] = [
       "Was, wenn meine Fähre ausfällt?",
     ),
     answer: ls(
-      "Send us the cancellation notice on WhatsApp — we waive the no-show fee. Aegean weather happens.",
+      "Send us the cancellation notice on WhatsApp  -  we waive the no-show fee. Aegean weather happens.",
       "Στείλτε μας απόδειξη ακύρωσης στο WhatsApp. Δεν χρεώνουμε no-show.",
-      "Inviaci la cancellazione su WhatsApp — niente penale.",
-      "Envoie-nous l'annulation — pas de frais.",
-      "Sende uns die Stornobestätigung — keine Gebühr.",
+      "Inviaci la cancellazione su WhatsApp  -  niente penale.",
+      "Envoie-nous l'annulation  -  pas de frais.",
+      "Sende uns die Stornobestätigung  -  keine Gebühr.",
     ),
   },
   {
@@ -539,10 +539,10 @@ export const FAQS: Faq[] = [
     ),
     answer: ls(
       "Rear-facing baby seat (0–13 kg), forward-facing toddler seat (9–18 kg), and high-back booster (15–36 kg). All ECE R44/04 or R129 (i-Size) certified.",
-      "Bébé, παιδικό και booster — όλα πιστοποιημένα.",
-      "Da neonato, bambino e booster — tutti certificati.",
-      "Bébé, enfant et booster — tous certifiés.",
-      "Babyschale, Kindersitz und Booster — alle zertifiziert.",
+      "Bébé, παιδικό και booster  -  όλα πιστοποιημένα.",
+      "Da neonato, bambino e booster  -  tutti certificati.",
+      "Bébé, enfant et booster  -  tous certifiés.",
+      "Babyschale, Kindersitz und Booster  -  alle zertifiziert.",
     ),
   },
 ];

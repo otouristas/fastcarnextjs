@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) return {};
   const dict = await getDict(locale);
   return {
-    title: `${dict.reviews.title} — ${SITE.brand}`,
+    title: `${dict.reviews.title}  -  ${SITE.brand}`,
     description: `${SITE.rating.count}+ verified Google reviews for Fast Motor Rental Naxos. Read what our customers say about renting cars, scooters and ATVs on Naxos.`,
   };
 }
@@ -84,7 +84,7 @@ export default async function ReviewsPage({ params }: { params: Promise<{ locale
                 </blockquote>
 
                 <figcaption className="mt-4 flex items-center justify-between">
-                  <span className="text-sm font-bold text-[var(--ink)] dark:text-white">— {r.author}</span>
+                  <span className="text-sm font-bold text-[var(--ink)] dark:text-white"> -  {r.author}</span>
                   <time className="text-xs text-muted-foreground">
                     {new Date(r.date).toLocaleDateString(locale === "el" ? "el-GR" : locale === "fr" ? "fr-FR" : locale === "de" ? "de-DE" : locale === "it" ? "it-IT" : "en-US", { month: "short", year: "numeric" })}
                   </time>

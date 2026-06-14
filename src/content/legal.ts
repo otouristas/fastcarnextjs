@@ -185,7 +185,7 @@ export const TERMS: TermClause[] = [
       "Ο ενοικιαστής υποχρεούται να επιστρέψει το όχημα την ημέρα, ώρα και τόπο που αναφέρονται στο συμβόλαιο. Το αυτοκίνητο πρέπει να επιστραφεί στην ίδια κατάσταση εσωτερικά και εξωτερικά όπως κατά την παράδοση. Επιτρέπεται καθυστέρηση έως 30 λεπτά από τη συμφωνημένη ώρα παράδοσης. Πέραν αυτής, ισχύει επιπλέον χρέωση ανάλογα με τη διάρκεια της καθυστέρησης.",
       "Il noleggiatore deve restituire il veicolo nel giorno, ora e luogo indicati nel contratto. Il veicolo deve essere riconsegnato nelle stesse condizioni interne ed esterne della consegna. È tollerato un ritardo fino a 30 minuti dall'orario concordato. Oltre, viene applicato un sovrapprezzo in base alla durata del ritardo.",
       "Le locataire doit restituer le véhicule au jour, heure et lieu indiqués au contrat, dans le même état intérieur et extérieur. Un retard de 30 minutes est toléré au-delà de l'heure convenue. Au-delà, des frais supplémentaires s'appliquent selon la durée du retard.",
-      "Der Mieter muss das Fahrzeug am vereinbarten Tag, zur vereinbarten Zeit und am vereinbarten Ort gemäß Vertrag zurückgeben — in gleichem Zustand innen und außen wie bei Übergabe. Eine Verspätung bis 30 Minuten ist tolerierbar. Darüber hinaus fällt je nach Dauer ein Aufpreis an.",
+      "Der Mieter muss das Fahrzeug am vereinbarten Tag, zur vereinbarten Zeit und am vereinbarten Ort gemäß Vertrag zurückgeben  -  in gleichem Zustand innen und außen wie bei Übergabe. Eine Verspätung bis 30 Minuten ist tolerierbar. Darüber hinaus fällt je nach Dauer ein Aufpreis an.",
     ),
   },
   {

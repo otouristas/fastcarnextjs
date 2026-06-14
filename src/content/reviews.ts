@@ -99,7 +99,7 @@ export const REVIEWS: Review[] = [
     source: "Google",
     body: ls(
       "Marios met us at the airport with a smile and the keys were in our hands within 5 minutes. Car was spotless and the price was exactly what we paid. Best rental experience in 10 years of Greek-island travel.",
-      "Ο Μάριος μας υποδέχθηκε στο αεροδρόμιο με χαμόγελο — σε πέντε λεπτά είχαμε κλειδιά στα χέρια. Το αυτοκίνητο άψογο, η τιμή ακριβώς όπως συμφωνήθηκε.",
+      "Ο Μάριος μας υποδέχθηκε στο αεροδρόμιο με χαμόγελο  -  σε πέντε λεπτά είχαμε κλειδιά στα χέρια. Το αυτοκίνητο άψογο, η τιμή ακριβώς όπως συμφωνήθηκε.",
       "Marios ci ha accolto in aeroporto, chiavi in 5 minuti. La migliore esperienza in 10 anni di Grecia.",
       "Marios nous a accueillis à l'aéroport en 5 min. La meilleure expérience en 10 ans en Grèce.",
       "Marios hat uns am Flughafen abgeholt, Schlüssel in 5 Minuten. Beste Erfahrung in 10 Jahren Griechenland.",

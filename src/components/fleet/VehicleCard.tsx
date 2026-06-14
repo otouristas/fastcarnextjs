@@ -22,7 +22,7 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,37,51,0.85)] via-[rgba(15,37,51,0.18)] to-transparent" />
-        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-lg shadow-[rgba(255,110,0,0.25)]">
+        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-lg" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>
           {v.category.replace("-", " ")}
         </span>
         {v.fourByFour && (
@@ -81,7 +81,7 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
         </ul>
         <div className="mt-auto flex items-center justify-between border-t border-border pt-3 text-sm">
           <span className="font-semibold text-[var(--ink)] dark:text-white">{dict.common.seeDetails}</span>
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-gradient text-white shadow-md transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-gradient text-white shadow-md transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>
             <ArrowUpRight className="h-4 w-4" />
           </span>
         </div>

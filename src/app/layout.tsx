@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -29,15 +29,15 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fffaf1" },
-    { media: "(prefers-color-scheme: dark)", color: "#102b3d" },
+    { media: "(prefers-color-scheme: light)", color: "#edf5fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#081b2e" },
   ],
   colorScheme: "light dark",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${outfit.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

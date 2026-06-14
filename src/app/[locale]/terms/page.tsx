@@ -29,7 +29,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
       <div className="mt-12 rounded-3xl border border-border bg-[var(--sea-soft)]/40 p-6 text-sm text-[var(--ink)] dark:bg-white/5 dark:text-white">
         <p>
-          {dict.contact.subtitle} —{" "}
+          {dict.contact.subtitle}  - {" "}
           <a className="font-semibold text-[var(--sea)] hover:underline" href={`mailto:${SITE.email}`}>
             {SITE.email}
           </a>{" "}

@@ -3,11 +3,11 @@ export const SITE = {
   shortBrand: "FMR Naxos",
   legalName: "Fast Motor Rental Naxos",
   tagline: {
-    en: "Cars, scooters, ATVs & buggies on Naxos — free delivery to airport, port & hotel",
-    el: "Αυτοκίνητα, μηχανάκια, γουρούνες & buggy στη Νάξο — δωρεάν παράδοση σε αεροδρόμιο, λιμάνι & ξενοδοχείο",
-    it: "Auto, scooter, ATV e buggy a Naxos — consegna gratuita in aeroporto, porto e hotel",
-    fr: "Voitures, scooters, ATV et buggys à Naxos — livraison gratuite à l'aéroport, au port et à l'hôtel",
-    de: "Autos, Roller, ATVs & Buggys auf Naxos — kostenlose Lieferung zu Flughafen, Hafen & Hotel",
+    en: "Cars, scooters, ATVs & buggies on Naxos  -  free delivery to airport, port & hotel",
+    el: "Αυτοκίνητα, μηχανάκια, γουρούνες & buggy στη Νάξο  -  δωρεάν παράδοση σε αεροδρόμιο, λιμάνι & ξενοδοχείο",
+    it: "Auto, scooter, ATV e buggy a Naxos  -  consegna gratuita in aeroporto, porto e hotel",
+    fr: "Voitures, scooters, ATV et buggys à Naxos  -  livraison gratuite à l'aéroport, au port et à l'hôtel",
+    de: "Autos, Roller, ATVs & Buggys auf Naxos  -  kostenlose Lieferung zu Flughafen, Hafen & Hotel",
   },
   domain: "https://fastmotorrentalnaxos.gr",
   url: "https://fastmotorrentalnaxos.gr",
@@ -19,7 +19,7 @@ export const SITE = {
   email: "info@fmrnaxos.gr",
   owners: ["Marios", "Ria"],
   founded: "2018",
-  // TODO confirm exact coords with owner — Chora, Naxos centre as default
+  // TODO confirm exact coords with owner  -  Chora, Naxos centre as default
   geo: { lat: 37.1036, lng: 25.3771 },
   address: {
     street: "Chora",

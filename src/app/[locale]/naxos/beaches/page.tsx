@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildMetadata({
     locale,
     path: "naxos/beaches",
-    title: "Naxos Beaches & Villages — Complete Guide with Vehicle Recommendations",
+    title: "Naxos Beaches & Villages  -  Complete Guide with Vehicle Recommendations",
     description: "Explore every beach and mountain village on Naxos with expert vehicle recommendations for each destination.",
     keywords: ["Naxos beaches", "Naxos villages", "Agios Prokopios", "Agia Anna", "Plaka beach", "Filoti", "Apeiranthos"],
   });
@@ -115,14 +115,14 @@ export default async function NaxosBeachesPage({ params }: { params: Promise<{ l
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-muted-foreground">
             {locale === "el"
-              ? "Κάθε παραλία και ορεινό χωριό στη Νάξο — με προτεινόμενα οχήματα για τη μεγαλύτερη εμπειρία."
+              ? "Κάθε παραλία και ορεινό χωριό στη Νάξο  -  με προτεινόμενα οχήματα για τη μεγαλύτερη εμπειρία."
               : locale === "it"
-              ? "Ogni spiaggia e villaggio di montagna a Naxos — con consigli sui veicoli per la migliore esperienza."
+              ? "Ogni spiaggia e villaggio di montagna a Naxos  -  con consigli sui veicoli per la migliore esperienza."
               : locale === "fr"
-              ? "Chaque plage et village de montagne à Naxos — avec des recommandations de véhicules pour la meilleure expérience."
+              ? "Chaque plage et village de montagne à Naxos  -  avec des recommandations de véhicules pour la meilleure expérience."
               : locale === "de"
-              ? "Jeder Strand und jedes Bergdorf auf Naxos — mit Fahrzeugempfehlungen für das beste Erlebnis."
-              : "Every beach and mountain village on Naxos — with vehicle recommendations for the best experience."}
+              ? "Jeder Strand und jedes Bergdorf auf Naxos  -  mit Fahrzeugempfehlungen für das beste Erlebnis."
+              : "Every beach and mountain village on Naxos  -  with vehicle recommendations for the best experience."}
           </p>
         </div>
       </section>

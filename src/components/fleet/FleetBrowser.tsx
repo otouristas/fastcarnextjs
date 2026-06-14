@@ -187,7 +187,7 @@ export function FleetBrowser({
         )}
       </div>
 
-      {/* Type — hidden when locked to category */}
+      {/* Type  -  hidden when locked to category */}
       {!initialCategory && (
         <FilterSection title={ff.type}>
           <div className="flex flex-wrap gap-2">

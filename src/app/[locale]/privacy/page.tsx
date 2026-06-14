@@ -38,7 +38,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       body: (
         <ul className="ml-5 list-disc space-y-1">
           <li>Booking details you submit: full name, dates, vehicle, contact info.</li>
-          <li>Driver documents shown at pickup (licence, passport/ID, credit-card details for the deposit hold) — retained only as required by Greek tax law.</li>
+          <li>Driver documents shown at pickup (licence, passport/ID, credit-card details for the deposit hold)  -  retained only as required by Greek tax law.</li>
           <li>Email exchanges and WhatsApp messages with our team.</li>
           <li>Anonymous site analytics if you consent (cookies, see Cookie Policy).</li>
         </ul>
@@ -59,10 +59,10 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       h: "4. Lawful basis",
       body: (
         <ul className="ml-5 list-disc space-y-1">
-          <li><strong>Contract</strong> — for booking, pickup and drop-off.</li>
-          <li><strong>Legal obligation</strong> — tax records, rental registry, insurance records.</li>
-          <li><strong>Legitimate interest</strong> — fraud prevention, replying to support enquiries.</li>
-          <li><strong>Consent</strong> — analytics and any future marketing communications.</li>
+          <li><strong>Contract</strong>  -  for booking, pickup and drop-off.</li>
+          <li><strong>Legal obligation</strong>  -  tax records, rental registry, insurance records.</li>
+          <li><strong>Legitimate interest</strong>  -  fraud prevention, replying to support enquiries.</li>
+          <li><strong>Consent</strong>  -  analytics and any future marketing communications.</li>
         </ul>
       ),
     },
@@ -70,10 +70,10 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       h: "5. Third parties",
       body: (
         <ul className="ml-5 list-disc space-y-1">
-          <li><strong>Cosmic Booker</strong> — booking engine at fastmotorentalnaxos.cosmicbooker.com.</li>
-          <li><strong>WhatsApp / Meta</strong> — when you message us via WhatsApp.</li>
-          <li><strong>Google Analytics</strong> — only if you accept analytics cookies.</li>
-          <li><strong>Hellenic tax authority (AADE)</strong> — invoices and rental records as legally required.</li>
+          <li><strong>Cosmic Booker</strong>  -  booking engine at fastmotorentalnaxos.cosmicbooker.com.</li>
+          <li><strong>WhatsApp / Meta</strong>  -  when you message us via WhatsApp.</li>
+          <li><strong>Google Analytics</strong>  -  only if you accept analytics cookies.</li>
+          <li><strong>Hellenic tax authority (AADE)</strong>  -  invoices and rental records as legally required.</li>
         </ul>
       ),
     },
@@ -92,7 +92,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
         <ul className="ml-5 list-disc space-y-1">
           <li>Right of access, rectification, erasure, restriction, portability, objection.</li>
           <li>Right to withdraw consent at any time (where consent is the basis).</li>
-          <li>Right to lodge a complaint with the Hellenic Data Protection Authority — <a className="text-[var(--sea)] hover:underline" href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer">www.dpa.gr</a>.</li>
+          <li>Right to lodge a complaint with the Hellenic Data Protection Authority  -  <a className="text-[var(--sea)] hover:underline" href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer">www.dpa.gr</a>.</li>
         </ul>
       ),
     },

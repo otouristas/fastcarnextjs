@@ -1,4 +1,4 @@
-// Touristas AI Chat Engine — intent-matching engine for Naxos rental queries.
+// Touristas AI Chat Engine  -  intent-matching engine for Naxos rental queries.
 
 import {
   KNOWLEDGE_BASE,

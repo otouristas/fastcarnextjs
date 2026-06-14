@@ -26,45 +26,45 @@ export default async function GdprPage({ params }: { params: Promise<{ locale: s
   const lawfulBases = [
     {
       activity: "Processing rental bookings",
-      basis: "Article 6(1)(b) — performance of a contract",
+      basis: "Article 6(1)(b)  -  performance of a contract",
       detail: "We need your name, dates, vehicle preference and contact details to fulfil the rental contract.",
     },
     {
       activity: "Storing rental & tax records",
-      basis: "Article 6(1)(c) — legal obligation",
+      basis: "Article 6(1)(c)  -  legal obligation",
       detail: "Greek tax (AADE) and rental-vehicle legislation require us to keep records for the legally mandated retention period.",
     },
     {
       activity: "Replying to enquiries",
-      basis: "Article 6(1)(f) — legitimate interest",
+      basis: "Article 6(1)(f)  -  legitimate interest",
       detail: "Operating a responsive customer-service channel is a legitimate interest of the business.",
     },
     {
       activity: "Fraud prevention",
-      basis: "Article 6(1)(f) — legitimate interest",
+      basis: "Article 6(1)(f)  -  legitimate interest",
       detail: "We verify documents and credit-card pre-authorisations to prevent rental fraud, weighed against your rights.",
     },
     {
       activity: "Analytics cookies",
-      basis: "Article 6(1)(a) — consent",
+      basis: "Article 6(1)(a)  -  consent",
       detail: "Only set after you click Accept on the cookie banner. Can be withdrawn at any time from cookie settings.",
     },
     {
       activity: "Marketing emails",
-      basis: "Article 6(1)(a) — consent",
+      basis: "Article 6(1)(a)  -  consent",
       detail: "We currently do not send marketing emails. If we ever start, an opt-in checkbox will appear at booking and any email will include an unsubscribe link.",
     },
   ];
 
   const rights = [
-    "Access — request a copy of the personal data we hold about you.",
-    "Rectification — ask us to correct inaccurate data.",
-    "Erasure — request deletion where we no longer need the data.",
-    "Restriction — ask us to pause processing while a dispute is resolved.",
-    "Portability — receive your data in a machine-readable format.",
-    "Objection — object to processing based on legitimate interest.",
-    "Withdraw consent — for any processing where consent is the basis.",
-    "Complaint to supervisory authority — Hellenic Data Protection Authority (www.dpa.gr).",
+    "Access  -  request a copy of the personal data we hold about you.",
+    "Rectification  -  ask us to correct inaccurate data.",
+    "Erasure  -  request deletion where we no longer need the data.",
+    "Restriction  -  ask us to pause processing while a dispute is resolved.",
+    "Portability  -  receive your data in a machine-readable format.",
+    "Objection  -  object to processing based on legitimate interest.",
+    "Withdraw consent  -  for any processing where consent is the basis.",
+    "Complaint to supervisory authority  -  Hellenic Data Protection Authority (www.dpa.gr).",
   ];
 
   return (

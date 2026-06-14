@@ -49,114 +49,124 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         ])}
       />
 
-      {/* HERO */}
-      <section className="relative ember-bg overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-60 pointer-events-none" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-24 lg:pb-32">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold text-[var(--sea)] shadow-sm backdrop-blur dark:bg-white/10 dark:text-white">
-                <Sparkles className="h-3.5 w-3.5 text-[var(--brand-1)]" />
+      {/* HERO  -  full-bleed background image */}
+      <section className="relative flex min-h-[100dvh] flex-col overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/naxos/portara-detail.jpg"
+            alt="Portara, Naxos - Fast Motor Rental Naxos"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+        {/* Gradient overlays */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(7,32,78,0.68) 0%, rgba(7,32,78,0.50) 44%, rgba(7,32,78,0.28) 60%, rgba(7,32,78,0.08) 72%, rgba(7,32,78,0) 94%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,7,12,0.30) 0%, rgba(4,7,12,0.10) 42%, transparent 66%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,6,12,0.26) 0%, rgba(4,6,12,0.10) 52%, transparent 82%)' }} />
+
+        <div className="container relative z-10 mx-auto flex flex-1 flex-col px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12 pt-40 lg:pt-52">
+          <div className="max-w-2xl">
+            {/* Eyebrow */}
+            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border px-5 py-2 backdrop-blur-sm" style={{ background: 'rgba(37,99,235,0.08)', borderColor: 'rgba(37,99,235,0.18)' }}>
+              <Star className="h-3.5 w-3.5 fill-blue-400 text-blue-400" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-blue-400">
                 {dict.hero.eyebrow}
               </span>
-              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-[var(--ink)] dark:text-white">
-                {dict.hero.title.split(" ").map((w, i, arr) => (
-                  <span key={i}>
-                    {i === arr.length - 1 ? <span className="text-brand-gradient">{w}</span> : w}
-                    {i < arr.length - 1 ? " " : ""}
-                  </span>
-                ))}
-              </h1>
-              <p className="mt-5 text-lg text-muted-foreground max-w-2xl">{dict.hero.subtitle}</p>
+            </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href={localePath(locale, "fleet")}
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white glow-brand"
-                >
-                  {dict.hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a
-                  href={whatsappUrl(dict.whatsAppFab.message)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-6 py-3 text-sm font-bold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white"
-                >
-                  <WhatsAppIcon className="h-5 w-5" />
-                  {dict.hero.ctaSecondary}
-                </a>
-              </div>
+            {/* Title */}
+            <h1 className="mb-5 text-[2.8rem] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-bold leading-[1.05]" style={{ color: 'rgba(245,250,255,0.98)' }}>
+              {dict.hero.title.split(" ").slice(0, -1).join(" ")}{" "}
+              <span className="text-brand-gradient" style={{ background: 'linear-gradient(135deg, #00b4d8, #48cae4)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
+                {dict.hero.title.split(" ").slice(-1)[0]}
+              </span>
+            </h1>
 
-              <ul className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {[dict.hero.badge1, dict.hero.badge2, dict.hero.badge3, dict.hero.badge4].map((b) => (
-                  <li key={b} className="flex items-start gap-2 rounded-2xl border border-border bg-white/70 px-3 py-2 text-xs text-[var(--ink)] shadow-sm dark:bg-white/10 dark:text-white">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 text-[var(--brand-1)] shrink-0" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Subtitle */}
+            <p className="mb-4 max-w-xl text-[1rem] leading-[1.85]" style={{ color: 'rgba(233,242,255,0.92)' }}>
+              {dict.hero.subtitle}
+            </p>
 
-              <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[var(--brand-1)] text-[var(--brand-1)]" />
-                    ))}
-                  </div>
-                  <span className="font-semibold text-[var(--ink)] dark:text-white">{SITE.rating.value}</span>
-                  <span>· {SITE.rating.count}+ {dict.reviews.google}</span>
-                </div>
+            {/* CTAs */}
+            <div className="mb-8 flex flex-wrap items-center gap-4">
+              <Link
+                href={localePath(locale, "fleet")}
+                className="inline-flex min-h-[60px] items-center gap-2.5 rounded-full border-none px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-all duration-200 hover:brightness-110 glow-brand"
+                style={{ background: 'linear-gradient(135deg, #0077b6 0%, #00b4d8 100%)', boxShadow: '0 4px 20px rgba(0,119,182,0.25), 0 2px 8px rgba(0,180,216,0.15)' }}
+              >
+                {dict.hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href={whatsappUrl(dict.whatsAppFab.message)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[60px] items-center gap-2 rounded-full border px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] backdrop-blur-sm transition-all duration-200 hover:brightness-110 hover:scale-105"
+                style={{ borderColor: 'rgba(20,184,166,0.18)', backgroundColor: 'rgba(255,255,255,0.88)', color: 'rgba(12,34,56,0.95)', boxShadow: '0 10px 24px rgba(5,20,35,0.16)' }}
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+                {dict.hero.ctaSecondary}
+              </a>
+            </div>
+
+            {/* Trust badges inline */}
+            <div className="mb-8 inline-flex max-w-lg items-start gap-3 rounded-xl border px-5 py-3.5 backdrop-blur-sm" style={{ background: 'rgba(218,232,252,0.20)', borderColor: 'rgba(200,223,252,0.42)' }}>
+              <ShieldCheck className="mt-0.5 h-5 w-5 flex-none" style={{ color: 'rgba(244,251,255,0.98)' }} />
+              <div>
+                <p className="text-sm font-semibold" style={{ color: 'rgba(244,251,255,0.98)' }}>{dict.hero.badge1}</p>
+                <p className="mt-1 text-xs leading-relaxed" style={{ color: 'rgba(226,239,255,0.93)' }}>{dict.hero.badge2} · {dict.hero.badge3} · {dict.hero.badge4}</p>
               </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                <div className="absolute inset-0 animate-kenburns">
-                  <Image
-                    src={VEHICLES[3].image}
-                    alt={VEHICLES[3].name[locale]}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover"
-                  />
+            {/* Stats row */}
+            <div className="flex flex-wrap items-center gap-6 sm:gap-8">
+              {[
+                { icon: <CarIcon className="h-4 w-4" />, value: `${VEHICLES.length}+`, label: "Vehicles" },
+                { icon: <Star className="h-4 w-4" />, value: String(SITE.rating.value), label: "Rating" },
+                { icon: <Clock className="h-4 w-4" />, value: `${SITE.hours.open}–${SITE.hours.close}`, label: "Support" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full" style={{ background: 'rgba(220,235,255,0.22)', border: '1px solid rgba(196,222,253,0.40)' }}>
+                    <span style={{ color: 'rgba(243,250,255,0.95)' }}>{stat.icon}</span>
+                  </div>
+                  <div>
+                    <p className="text-xl font-bold" style={{ color: 'rgba(246,252,255,0.98)' }}>{stat.value}</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: 'rgba(219,234,252,0.90)' }}>{stat.label}</p>
+                  </div>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-ink via-ink/60 to-transparent">
-                  <span className="inline-flex items-center rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-lg shadow-[rgba(255,110,0,0.35)]">
-                    {VEHICLES[3].category}
-                  </span>
-                  <h3 className="mt-2 text-xl font-bold text-white">{VEHICLES[3].name[locale]}</h3>
-                  <p className="text-sm text-white/70">
-                    {dict.common.from} <span className="text-brand-gradient font-bold">€{VEHICLES[3].priceShoulder}</span>{dict.common.perDay}
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
+
           {/* Scroll cue */}
-          <div className="mt-10 flex justify-center lg:hidden">
-            <ChevronDown className="h-6 w-6 text-[var(--brand-1)] animate-scroll-cue" />
+          <div className="mt-auto flex justify-center pt-8 lg:hidden">
+            <ChevronDown className="h-6 w-6 animate-scroll-cue" style={{ color: 'rgba(0,180,216,0.8)' }} />
           </div>
         </div>
       </section>
 
-      {/* TRUST STRIP — inspired by bestrrentals */}
-      <section aria-label="Trust" className="bg-ink text-white border-y border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center md:text-left">
-            {[
-              { Icon: Truck, text: dict.trust.delivery },
-              { Icon: BadgeCheck, text: dict.trust.unlimited },
-              { Icon: ShieldCheck, text: dict.trust.transparent },
-              { Icon: ThumbsUp, text: dict.trust.owner },
-            ].map(({ Icon, text }) => (
-              <div key={text} className="flex items-center justify-center md:justify-start gap-2.5 text-sm">
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-md shadow-[rgba(255,110,0,0.25)]">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <span className="text-white/90 font-medium leading-snug">{text}</span>
-              </div>
-            ))}
+      {/* TRUST STRIP */}
+      <section aria-label="Trust" className="py-8" style={{ backgroundColor: 'color-mix(in oklab, #edf5fc 84%, #ffffff)' }}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-[28px] border island-card">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '1px', backgroundColor: 'rgba(26,143,197,0.08)' }}>
+              {[
+                { Icon: Truck, text: dict.trust.delivery },
+                { Icon: BadgeCheck, text: dict.trust.unlimited },
+                { Icon: ShieldCheck, text: dict.trust.transparent },
+                { Icon: ThumbsUp, text: dict.trust.owner },
+              ].map(({ Icon, text }) => (
+                <div key={text} className="flex items-start gap-3 p-4 md:p-5" style={{ backgroundColor: 'color-mix(in oklab, #edf5fc 84%, #ffffff)' }}>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl" style={{ backgroundColor: 'rgba(26,143,197,0.08)', color: 'var(--sea)' }}>
+                    <Icon className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-extrabold uppercase tracking-[0.08em] text-[var(--ink)] dark:text-white">{text}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -173,7 +183,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               const Icon = [MapPin, Wallet, MessageCircle, Sparkles][i];
               return (
                 <div key={item.title} className="island-card rounded-3xl p-6 transition-colors hover:border-[var(--sea-2)]">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient text-white">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl text-[var(--sea)]" style={{ backgroundColor: 'rgba(26,143,197,0.08)' }}>
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-4 font-bold text-lg text-[var(--ink)] dark:text-white">{item.title}</h3>
@@ -185,7 +195,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* FLEET TEASER — CARS */}
+      {/* FLEET TEASER  -  CARS */}
       <section className="bg-sand dark:bg-[var(--background)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -208,7 +218,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* CATEGORY GRID — Find Your Ride */}
+      {/* CATEGORY GRID  -  Find Your Ride */}
       <section className="bg-background border-y border-border/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -249,7 +259,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* FLEET TEASER — OTHER */}
+      {/* FLEET TEASER  -  OTHER */}
       <section className="relative bg-sand dark:bg-[var(--background)] overflow-hidden">
         <div className="diagonal-accent" aria-hidden />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
@@ -328,7 +338,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href={localePath(locale, "naxos")}
-                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20"
+                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
               >
                 {dict.naxos.readMoreAbout} Naxos <ArrowRight className="h-4 w-4" />
               </Link>
@@ -367,7 +377,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </span>
             ))}
           </div>
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/30 cursor-pointer select-none">
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-7 py-3.5 text-sm font-bold text-white shadow-lg cursor-pointer select-none" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.30)' }}>
             <Sparkles className="h-4 w-4" /> {dict.ai.trigger}
           </div>
           <p className="mt-3 text-xs text-white/40">{dict.ai.placeholder}</p>
@@ -392,7 +402,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 <blockquote className="mt-3 text-sm text-muted-foreground leading-relaxed">
                   "{r.body[locale]}"
                 </blockquote>
-                <figcaption className="mt-4 text-sm font-semibold text-[var(--ink)] dark:text-white">— {r.author}</figcaption>
+                <figcaption className="mt-4 text-sm font-semibold text-[var(--ink)] dark:text-white"> -  {r.author}</figcaption>
               </figure>
             ))}
           </div>
@@ -450,7 +460,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               href={SITE.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white glow-brand shadow-2xl shadow-[rgba(255,110,0,0.35)]"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white glow-brand shadow-2xl" style={{ boxShadow: '0 6px 28px rgba(0,119,182,0.35)' }}
             >
               {dict.book.continue} <ArrowRight className="h-4 w-4" />
             </a>

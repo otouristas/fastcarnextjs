@@ -35,7 +35,7 @@ export function GET() {
   lines.push("");
 
   lines.push("## Pickup zones (free delivery)");
-  for (const l of LOCATIONS) lines.push(`- ${l.shortName} — ${l.distanceFromChoraKm} km from Chora, ~${l.pickupTimeMinutes} min`);
+  for (const l of LOCATIONS) lines.push(`- ${l.shortName}  -  ${l.distanceFromChoraKm} km from Chora, ~${l.pickupTimeMinutes} min`);
   lines.push("");
 
   lines.push("## Contact");

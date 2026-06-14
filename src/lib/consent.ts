@@ -1,5 +1,5 @@
 // Lightweight cookie-consent storage & hook.
-// We use localStorage (not a cookie) for the consent record itself — the consent record
+// We use localStorage (not a cookie) for the consent record itself  -  the consent record
 // is essential and does not require its own consent. Analytics/marketing scripts must
 // gate themselves behind `consent.analytics === true` / `consent.marketing === true`.
 
