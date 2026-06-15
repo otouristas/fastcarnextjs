@@ -198,7 +198,7 @@ function FooterCol({
   return (
     <div className={className}>
       <details className="group" open>
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-bold text-[var(--ink)] dark:text-white md:pointer-events-none md:cursor-default">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-bold text-white md:pointer-events-none md:cursor-default">
           {title}
           <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180 md:hidden" />
         </summary>
