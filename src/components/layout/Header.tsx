@@ -37,10 +37,6 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
 
   const fleetLinks: MegaLink[] = [
     { href: localePath(locale, "fleet/cars"), label: dict.nav.cars, description: dict.fleetHub.categoryCars },
-    { href: localePath(locale, "fleet/scooters"), label: dict.nav.scooters, description: dict.fleetHub.categoryScooters },
-    { href: localePath(locale, "fleet/atv-quad"), label: dict.nav.atvQuad, description: dict.fleetHub.categoryAtv },
-    { href: localePath(locale, "fleet/buggy"), label: dict.nav.buggy, description: dict.fleetHub.categoryBuggy },
-    { href: localePath(locale, "fleet/motorbike"), label: dict.nav.motorbike, description: dict.fleetHub.categoryMoto },
     { href: localePath(locale, "fleet"), label: dict.nav.fleet, description: dict.fleetHub.subtitle },
   ];
   const infoLinks: MegaLink[] = [

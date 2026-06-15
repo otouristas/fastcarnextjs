@@ -12,7 +12,7 @@ import type { VehicleCategory } from "@/types/content";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
 import { ArrowRight, BadgeCheck, Car, KeyRound, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 
-const VALID_CATEGORIES: VehicleCategory[] = ["cars", "scooters", "atv-quad", "buggy", "motorbike"];
+const VALID_CATEGORIES: VehicleCategory[] = ["cars"];
 
 export function generateStaticParams() {
   const params: { locale: string; category: string }[] = [];

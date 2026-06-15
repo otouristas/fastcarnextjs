@@ -187,19 +187,6 @@ export function FleetBrowser({
         )}
       </div>
 
-      {/* Type  -  hidden when locked to category */}
-      {!initialCategory && (
-        <FilterSection title={ff.type}>
-          <div className="flex flex-wrap gap-2">
-            {typeOptions.map((opt) => (
-              <Chip key={opt.value} active={filters.type === opt.value} onClick={() => update("type", opt.value)}>
-                {opt.label}
-              </Chip>
-            ))}
-          </div>
-        </FilterSection>
-      )}
-
       {/* Transmission */}
       <FilterSection title={ff.transmission}>
         <div className="flex gap-2">
@@ -217,17 +204,6 @@ export function FleetBrowser({
           {[null, 2, 4, 5, 7].map((s) => (
             <Chip key={s ?? "any"} active={filters.seats === s} onClick={() => update("seats", s)}>
               {s === null ? ff.any : `${s}+`}
-            </Chip>
-          ))}
-        </div>
-      </FilterSection>
-
-      {/* Licence */}
-      <FilterSection title={ff.licence}>
-        <div className="flex flex-wrap gap-2">
-          {(["any", "car", "moto"] as Licence[]).map((l) => (
-            <Chip key={l} active={filters.licence === l} onClick={() => update("licence", l)}>
-              {l === "any" ? ff.any : l === "car" ? ff.licenceB : ff.licenceMoto}
             </Chip>
           ))}
         </div>

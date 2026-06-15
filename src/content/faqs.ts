@@ -124,11 +124,11 @@ export const FAQS: Faq[] = [
       "Was kostet die Anmietung auf Naxos?",
     ),
     answer: ls(
-      "Indicative ranges in 2026: small cars €30–55/day, mid-size €45–75, SUVs €65–110, scooters €18–48, ATVs €35–120, buggies €110–190. The cheapest month historically is March–April; July–August can be 60–80% more expensive than May. All our prices include unlimited km, basic CDW, taxes, second driver and a baby seat.",
-      "Ενδεικτικά για το 2026: μικρά αυτοκίνητα €30–55/ημέρα, μεσαία €45–75, SUV €65–110, μηχανάκια €18–48, ATV €35–120 και buggy €110–190. Οι τιμές ανεβαίνουν τον Ιούλιο και τον Αύγουστο, ενώ Μάιο, αρχές Ιουνίου, τέλος Σεπτεμβρίου και Οκτώβριο είναι συνήθως χαμηλότερες. Στις τιμές μας περιλαμβάνονται απεριόριστα χιλιόμετρα, βασική ασφάλεια, φόροι, δεύτερος οδηγός και παιδικό κάθισμα.",
-      "Indicativo: piccole €30–55, medie €45–75, SUV €65–110, scooter €18–48, ATV €35–120, buggy €110–190.",
-      "Indicatif : petites €30–55, moyennes €45–75, SUV €65–110, scooters €18–48, ATV €35–120, buggys €110–190.",
-      "Richtwerte: Kleinwagen €30–55, Mittelklasse €45–75, SUV €65–110, Roller €18–48, ATV €35–120, Buggy €110–190.",
+      "Indicative ranges in 2026: small cars €30–55/day, mid-size €45–75, SUVs €65–110. The cheapest month historically is March–April; July–August can be 60–80% more expensive than May. All our prices include unlimited km, basic CDW, taxes, second driver and a baby seat.",
+      "Ενδεικτικά για το 2026: μικρά αυτοκίνητα €30–55/ημέρα, μεσαία €45–75, SUV €65–110. Οι τιμές ανεβαίνουν τον Ιούλιο και τον Αύγουστο, ενώ Μάιο, αρχές Ιουνίου, τέλος Σεπτεμβρίου και Οκτώβριο είναι συνήθως χαμηλότερες. Στις τιμές μας περιλαμβάνονται απεριόριστα χιλιόμετρα, βασική ασφάλεια, φόροι, δεύτερος οδηγός και παιδικό κάθισμα.",
+      "Indicativo: piccole €30–55, medie €45–75, SUV €65–110.",
+      "Indicatif : petites €30–55, moyennes €45–75, SUV €65–110.",
+      "Richtwerte: Kleinwagen €30–55, Mittelklasse €45–75, SUV €65–110.",
     ),
   },
   {
@@ -365,24 +365,7 @@ export const FAQS: Faq[] = [
       "Kostenlose Stornierung bis 24 h vorher. Änderungen immer kostenfrei.",
     ),
   },
-  {
-    slug: "scooter-licence-50",
-    category: "documents",
-    question: ls(
-      "Can I rent a 50cc scooter with a car licence?",
-      "Μπορώ να νοικιάσω 50cc με δίπλωμα Β;",
-      "Posso noleggiare 50cc con la patente B?",
-      "Puis-je louer un 50cc avec un permis B ?",
-      "Kann ich 50cc mit Pkw-Schein mieten?",
-    ),
-    answer: ls(
-      "Yes. Greek law allows 50cc scooters and 150cc ATVs/quads on a category B (car) licence held for at least 1 year. 125cc and above scooters require an A1, A2 or A motorcycle licence.",
-      "Ναι, 50cc και ATV 150cc με δίπλωμα Β. 125cc και άνω χρειάζονται δίπλωμα μοτο.",
-      "Sì, 50cc e ATV 150cc con patente B. 125cc+ patente moto.",
-      "Oui, 50cc et ATV 150cc avec permis B. 125cc+ permis moto.",
-      "Ja, 50cc und ATV 150cc mit Pkw-Schein. Ab 125cc Motorradschein.",
-    ),
-  },
+
   {
     slug: "credit-card-required",
     category: "booking",
@@ -412,7 +395,7 @@ export const FAQS: Faq[] = [
       "Gibt es einen Jungfahrer-Aufschlag unter 25?",
     ),
     answer: ls(
-      "€5/day young-driver fee for drivers aged 21–24 on cars and SUVs. No surcharge on scooters, ATVs or buggies once the age requirement is met.",
+      "€5/day young-driver fee for drivers aged 21–24 on cars and SUVs.",
       "€5/ημέρα για οδηγούς 21–24 σε αυτοκίνητα και SUV.",
       "€5/giorno per conducenti 21–24 su auto e SUV.",
       "€5/jour conducteurs 21–24 sur voitures et SUV.",

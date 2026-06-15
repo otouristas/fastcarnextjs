@@ -18,8 +18,8 @@ export const LOCATIONS: Location[] = [
       "Kostenloser Meet-and-Greet am Flughafen Naxos  -  unter 4 km von Chora",
     ),
     body: ls(
-      "Naxos Airport (IATA: JNX, ICAO: LGNX) is a small regional airport <4 km southwest of Chora. There are no permanent rental desks; major brands (Avis, Budget, Enterprise, Europcar, Hertz) only schedule meet-and-greets when a customer's flight lands. We do exactly the same  -  and we don't charge for it. We track your flight number, wait at arrivals with your name, hand over the keys outside the terminal in under 5 minutes. Drop-off is the reverse: leave the car keys in the agreed spot, walk to your gate.",
-      "Το Αεροδρόμιο της Νάξου (JNX) είναι μικρό περιφερειακό αεροδρόμιο, λιγότερο από 4 χλμ. νοτιοδυτικά της Χώρας. Δεν υπάρχουν μόνιμα γραφεία ενοικιάσεων  -  αποκλειστικά παραλαβές meet-and-greet. Παρακολουθούμε τον αριθμό της πτήσης σας, σας υποδεχόμαστε στις αφίξεις με πινακίδα και παραδίδουμε τα κλειδιά σε λιγότερο από 5 λεπτά  -  χωρίς χρέωση. Η επιστροφή γίνεται ακριβώς αντίστροφα.",
+      "Naxos Airport (IATA: JNX, ICAO: LGNX) is a small regional airport <4 km southwest of Chora. There are no permanent rental desks; major brands only schedule meet-and-greets when a customer's flight lands. We do exactly the same  -  and we don't charge for it. We track your flight number, wait at arrivals with your name, hand over the keys outside the terminal in under 5 minutes. Drop-off is the reverse: leave the car keys in the agreed spot, walk to your gate.",
+      "Το Αεροδρόμιο της Νάξου (JNX) είναι μικρό περιφερειακό αεροδρόμιο, λιγότερο από 4 χλμ. νοδυτικά της Χώρας. Δεν υπάρχουν μόνιμα γραφεία ενοικιάσεων  -  αποκλειστικά παραλαβές meet-and-greet. Παρακολουθούμε τον αριθμό της πτήσης σας, σας υποδεχόμαστε στις αφίξεις με πινακίδα και παραδίδουμε τα κλειδιά σε λιγότερο από 5 λεπτά  -  χωρίς χρέωση. Η επιστροφή γίνεται ακριβώς αντίστροφα.",
       "L'aeroporto di Naxos (JNX) è un piccolo scalo regionale, meno di 4 km a sud-ovest di Chora. Nessun banco fisso. Tracciamo il tuo volo, ti aspettiamo agli arrivi e consegniamo l'auto in meno di 5 minuti. Gratis.",
       "L'aéroport de Naxos (JNX) est un petit aéroport régional à moins de 4 km au sud-ouest de Chora. Aucun comptoir permanent. Nous suivons ton vol, t'attendons aux arrivées, remise des clés en moins de 5 minutes. Gratuit.",
       "Der Flughafen Naxos (JNX) ist ein kleiner Regionalflughafen, weniger als 4 km südwestlich von Chora. Keine festen Schalter. Wir verfolgen Ihren Flug, warten am Ankunftsbereich und übergeben das Fahrzeug in unter 5 Minuten. Kostenlos.",
@@ -33,7 +33,7 @@ export const LOCATIONS: Location[] = [
       ls("Under 5 minutes from arrival to keys"),
       ls("Open whenever your flight lands"),
     ],
-    nearbyVehicles: ["cars", "scooters", "atv-quad", "buggy"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "port-pickup",
@@ -58,7 +58,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 0.2,
     pickupTimeMinutes: 2,
     highlights: [ls("2-minute walk from ferry"), ls("Drop-off as easy as walking back"), ls("WhatsApp ETA  -  keys ready"), ls("Free parking right outside")],
-    nearbyVehicles: ["cars", "scooters", "atv-quad", "buggy"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "naxos-town",
@@ -83,7 +83,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 0,
     pickupTimeMinutes: 5,
     highlights: [ls("Free delivery to any Chora address"), ls("Office walk-in welcome"), ls("Best beach base"), ls("Closest to the ferry & airport")],
-    nearbyVehicles: ["cars", "scooters", "atv-quad", "buggy"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "agios-prokopios",
@@ -98,8 +98,8 @@ export const LOCATIONS: Location[] = [
       "Naxos' beliebtester Strand",
     ),
     body: ls(
-      "Agios Prokopios is the long, fine-sand beach 5 km south of Chora. Most visitors here pick a small automatic car or a scooter  -  the road into Chora is busy in summer.",
-      "Ο Άγιος Προκόπιος είναι η μακριά, αμμώδης παραλία 5 χλμ. νότια της Χώρας. Οι περισσότεροι επισκέπτες εδώ επιλέγουν ένα μικρό αυτόματο αυτοκίνητο ή ένα scooter  -  ο δρόμος προς τη Χώρα έχει αρκετή κίνηση το καλοκαίρι.",
+      "Agios Prokopios is the long, fine-sand beach 5 km south of Chora. Most visitors here pick a small automatic car for beach hopping  -  the road into Chora is busy in summer.",
+      "Ο Άγιος Προκόπιος είναι η μακριά, αμμώδης παραλία 5 χλμ. νότια της Χώρας. Οι περισσότεροι επισκέπτες εδώ επιλέγουν ένα μικρό αυτόματο αυτοκίνητο για τις μετακινήσεις τους.",
       "Agios Prokopios è la lunga spiaggia di sabbia 5 km a sud di Chora.",
       "Agios Prokopios est la longue plage de sable à 5 km au sud de Chora.",
       "Agios Prokopios ist der lange Sandstrand 5 km südlich von Chora.",
@@ -107,8 +107,8 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0728, lng: 25.3647 },
     distanceFromChoraKm: 5,
     pickupTimeMinutes: 10,
-    highlights: [ls("Free hotel delivery"), ls("Scooter-friendly"), ls("10 mins from Chora")],
-    nearbyVehicles: ["cars", "scooters", "atv-quad"],
+    highlights: [ls("Free hotel delivery"), ls("Perfect beaches"), ls("10 mins from Chora")],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "agia-anna",
@@ -127,7 +127,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 6,
     pickupTimeMinutes: 12,
     highlights: [ls("Quieter than Prokopios"), ls("Fishing harbour"), ls("Free delivery")],
-    nearbyVehicles: ["cars", "scooters", "atv-quad"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "plaka",
@@ -146,7 +146,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 8,
     pickupTimeMinutes: 15,
     highlights: [ls("Quietest of the main beaches"), ls("Beachfront tavernas"), ls("Easy parking")],
-    nearbyVehicles: ["cars", "scooters", "atv-quad", "buggy"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "stelida",
@@ -165,17 +165,17 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 4,
     pickupTimeMinutes: 10,
     highlights: [ls("Steep streets  -  auto recommended"), ls("5 min from beaches"), ls("Best sunsets")],
-    nearbyVehicles: ["cars", "scooters"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "mikri-vigla",
     type: "beach",
     name: ls("Car rental Mikri Vigla", "Ενοικίαση Μικρή Βίγλα", "Noleggio Mikri Vigla", "Location Mikri Vigla", "Mietwagen Mikri Vigla"),
     shortName: "Mikri Vigla",
-    hero: ls("Windsurf and kitesurf central  -  buggies and ATVs shine here", "Κέντρο windsurf  -  buggy και ATV", "Centro windsurf  -  buggy e ATV", "Centre windsurf  -  buggys et ATV", "Windsurf-Zentrum  -  Buggys und ATVs"),
+    hero: ls("Windsurf and kitesurf central  -  perfect for 4x4 cars", "Κέντρο windsurf  -  ιδανικό για 4x4", "Centro windsurf  -  perfetto per 4x4", "Centre windsurf  -  parfait pour 4x4", "Windsurf-Zentrum  -  perfekt für 4x4"),
     body: ls(
-      "Mikri Vigla is the wind-blasted south-west beach famous for kitesurfing. Long unpaved access roads make ATVs and buggies a great choice. About 17 km from Chora.",
-      "Η Μικρή Βίγλα είναι η ανεμόδαρτη νοτιοδυτική παραλία, διάσημη για το kitesurf. Οι εκτεταμένοι χωματόδρομοι πρόσβασης καθιστούν τα ATV και τα buggy ιδανική επιλογή. Απέχει περίπου 17 χλμ. από τη Χώρα.",
+      "Mikri Vigla is the wind-blasted south-west beach famous for kitesurfing. Long unpaved access roads make 4x4 SUVs a great choice. About 17 km from Chora.",
+      "Η Μικρή Βίγλα είναι η ανεμόδαρτη νοτιοδυτική παραλία, διάσημη για το kitesurf. Οι εκτεταμένοι χωματόδρομοι πρόσβασης καθιστούν τα 4x4 SUV ιδανική επιλογή. Απέχει περίπου 17 χλμ. από τη Χώρα.",
       "Mikri Vigla è la spiaggia sud-ovest famosa per il kitesurf.",
       "Mikri Vigla est la plage sud-ouest célèbre pour le kitesurf.",
       "Mikri Vigla ist der südwestliche Strand für Kitesurfen.",
@@ -183,8 +183,8 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0259, lng: 25.4123 },
     distanceFromChoraKm: 17,
     pickupTimeMinutes: 25,
-    highlights: [ls("Kitesurf paradise"), ls("Buggies welcomed"), ls("Sunset over the dunes")],
-    nearbyVehicles: ["cars", "atv-quad", "buggy"],
+    highlights: [ls("Kitesurf paradise"), ls("4x4 recommended"), ls("Sunset over the dunes")],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "apollonas",
@@ -193,8 +193,8 @@ export const LOCATIONS: Location[] = [
     shortName: "Apollonas",
     hero: ls("North-coast fishing village  -  the famous Kouros statue", "Βορεινό ψαροχώρι  -  Κούρος Απόλλωνα", "Villaggio di pescatori  -  Kouros", "Village de pêcheurs  -  Kouros", "Fischerdorf  -  Kouros"),
     body: ls(
-      "Apollonas is 35 km from Chora, an hour's drive on winding mountain roads. Worth it for the unfinished giant Kouros and a quiet seafood lunch. A 200cc scooter or any car will do; avoid the 50cc.",
-      "Ο Απόλλωνας απέχει 35 χλμ. από τη Χώρα, διαδρομή περίπου μιας ώρας σε ορεινούς δρόμους. Αξίζει για τον ημιτελή γιγαντιαίο Κούρο και για ένα ήσυχο γεύμα με θαλασσινά. Αρκεί ένα scooter 200cc ή οποιοδήποτε αυτοκίνητο  -  αποφύγετε το 50cc.",
+      "Apollonas is 35 km from Chora, an hour's drive on winding mountain roads. Worth it for the unfinished giant Kouros and a quiet seafood lunch. Any car will do.",
+      "Ο Απόλλωνας απέχει 35 χλμ. από τη Χώρα, διαδρομή περίπου μιας ώρας σε ορεινούς δρόμους. Αξίζει για τον ημιτελή γιγαντιαίο Κούρο και για ένα ήσυχο γεύμα με θαλασσινά. Αρκεί οποιοδήποτε αυτοκίνητο.",
       "Apollonas è a 35 km da Chora, un'ora di guida.",
       "Apollonas est à 35 km de Chora, une heure de route.",
       "Apollonas liegt 35 km von Chora, eine Stunde Fahrt.",
@@ -203,7 +203,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 35,
     pickupTimeMinutes: 60,
     highlights: [ls("Famous Kouros"), ls("Quiet seafood lunch"), ls("Best north-coast village")],
-    nearbyVehicles: ["cars", "scooters"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "filoti",
@@ -222,7 +222,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 19,
     pickupTimeMinutes: 30,
     highlights: [ls("Mt Zas trailhead"), ls("Tragea olive valley"), ls("Tavernas under plane trees")],
-    nearbyVehicles: ["cars", "scooters"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "apeiranthos",
@@ -241,7 +241,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 28,
     pickupTimeMinutes: 45,
     highlights: [ls("Marble streets"), ls("Mountain views"), ls("Iconic drive")],
-    nearbyVehicles: ["cars", "scooters"],
+    nearbyVehicles: ["cars"],
   },
   {
     slug: "chalki",
@@ -260,7 +260,7 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 16,
     pickupTimeMinutes: 25,
     highlights: [ls("Neoclassical mansions"), ls("Kitron tasting"), ls("Tragea base")],
-    nearbyVehicles: ["cars", "scooters"],
+    nearbyVehicles: ["cars"],
   },
 ];
 

@@ -20,11 +20,10 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = await getDict(locale);
-  const groups = ["cars", "scooters", "atv-quad", "buggy"] as const;
+  const groups = ["cars"] as const;
   const faqs = FAQS.filter((f) => ["rental-cost", "advance-vs-walkin", "credit-card-required", "cancellation", "delivery-zones", "insurance-included"].includes(f.slug));
   const groupLabels = {
-    cars: dict.nav.cars, scooters: dict.nav.scooters,
-    "atv-quad": dict.nav.atvQuad, buggy: dict.nav.buggy,
+    cars: dict.nav.cars,
   } as const;
 
   return (

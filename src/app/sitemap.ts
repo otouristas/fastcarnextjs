@@ -24,7 +24,7 @@ function entry(path: string, priority: number, changeFrequency: MetadataRoute.Si
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const headersList = await headers();
-  const host = headersList.get("host") || "www.fastmotorrentalnaxos.gr";
+  const host = headersList.get("host") || "naxos-carrentals.com";
   const proto = headersList.get("x-forwarded-proto") || "https";
   const domain = `${proto}://${host}`;
 
@@ -33,10 +33,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "",
     "fleet",
     "fleet/cars",
-    "fleet/scooters",
-    "fleet/atv-quad",
-    "fleet/buggy",
-    "fleet/motorbike",
     "locations",
     "pricing",
     "insurance",

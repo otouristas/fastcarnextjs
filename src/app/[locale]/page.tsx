@@ -31,13 +31,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   if (!isLocale(locale)) notFound();
   const dict = await getDict(locale);
 
-  const featuredCars = vehiclesByCategory("cars").slice(0, 4);
-  const featuredOther = [
-    ...vehiclesByCategory("scooters").slice(0, 1),
-    ...vehiclesByCategory("atv-quad").slice(0, 1),
-    ...vehiclesByCategory("buggy").slice(0, 1),
-    ...vehiclesByCategory("scooters").slice(2, 3),
-  ];
+  const featuredCars = vehiclesByCategory("cars").slice(0, 8);
   const heroFaqs = FAQS.slice(0, 6);
 
   return (
@@ -53,7 +47,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="relative flex min-h-[100dvh] flex-col overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/naxos/portara-detail.jpg"
+             src="/images/naxos/portara-detail.jpg"
             alt="Portara, Naxos - Fast Motor Rental Naxos"
             fill
             priority
@@ -228,15 +222,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </h2>
             <p className="mt-3 text-muted-foreground">{dict.fleetHub.subtitle}</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
               { href: "fleet/cars", label: dict.fleetTeaser.cars, Icon: CarIcon },
               { href: "fleet/cars?transmission=automatic", label: dict.common.automatic, Icon: Zap },
+              { href: "fleet/cars?transmission=manual", label: dict.common.manual, Icon: CarIcon },
               { href: "fleet/cars?fourByFour=true", label: "Jeeps & 4×4", Icon: Mountain },
-              { href: "fleet/scooters", label: dict.fleetTeaser.scooters, Icon: Bike },
-              { href: "fleet/atv-quad", label: dict.fleetTeaser.atvQuad, Icon: Mountain },
-              { href: "fleet/buggy", label: dict.fleetTeaser.buggy, Icon: Zap },
-              { href: "fleet/motorbike", label: dict.nav.motorbike, Icon: Bike },
+              { href: "fleet/cars?seats=7", label: "7-Seater Vans", Icon: Truck },
             ].map((c) => (
               <Link
                 key={c.href}
@@ -254,24 +246,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   {dict.common.viewAll} <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FLEET TEASER  -  OTHER */}
-      <section className="relative bg-sand dark:bg-[var(--background)] overflow-hidden">
-        <div className="diagonal-accent" aria-hidden />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">{dict.fleetTeaser.title}</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">
-              {dict.fleetTeaser.scooters} · {dict.fleetTeaser.atvQuad} · {dict.fleetTeaser.buggy}
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {featuredOther.map((v) => (
-              <VehicleCard key={v.slug} vehicle={v} locale={locale} dict={dict} />
             ))}
           </div>
         </div>

@@ -49,31 +49,17 @@ export const FLEET_SUGGESTIONS: VehicleSuggestion[] = [
     features: ["4–5 Seats", "Manual/Auto", "A/C", "Off-road ready"],
     link: "/fleet/cars",
   },
-  {
-    name: "Piaggio Liberty / SYM Symphony",
-    category: "Scooter",
-    priceRange: "€18–38/day",
-    features: ["Helmet included", "Easy parking", "Fuel-efficient"],
-    link: "/fleet/scooters",
-  },
-  {
-    name: "CF Moto ATV / Polaris Buggy",
-    category: "ATV & Buggy",
-    priceRange: "€35–150/day",
-    features: ["2–4 Seats", "Automatic", "Open-air adventure"],
-    link: "/fleet/atv-quad",
-  },
 ];
 
 const WA_URL = whatsappUrl("Hi! I'd like to get a rental quote for Naxos.");
 
 export const WELCOME_MESSAGE = {
-  response: `Hi! I'm Touristas AI, your Naxos travel companion from Fast Motor Rental Naxos 🏝️\n\nI can help you choose the right vehicle, plan beach routes, answer questions about licences, insurance, and more.\n\nWhat would you like to know?`,
+  response: `Hi! I'm Touristas AI, your Naxos travel companion from Fast Motor Rental Naxos 🏝️\n\nI can help you choose the right rental car, plan beach routes, answer questions about licences, insurance, and more.\n\nWhat would you like to know?`,
   quickReplies: ["Which car for Filoti?", "Best vehicle for beaches?", "Do I need a 4×4?", "Prices"],
 };
 
 export const GREETING_RESPONSE = {
-  response: `Hey there! 👋 Welcome to Fast Motor Rental Naxos.\n\nI'm Touristas AI  -  here to help you pick the perfect vehicle for your Naxos adventure. Whether you're heading to hidden beaches, mountain villages or just exploring Chora, I've got you covered!`,
+  response: `Hey there! 👋 Welcome to Fast Motor Rental Naxos.\n\nI'm Touristas AI  -  here to help you pick the perfect rental car for your Naxos adventure. Whether you're heading to hidden beaches, mountain villages or just exploring Chora, I've got you covered!`,
   quickReplies: ["See all vehicles", "Prices", "Airport pickup", "Ask about Naxos"],
 };
 
@@ -83,7 +69,7 @@ export const THANK_YOU_RESPONSE = {
 };
 
 export const FALLBACK_RESPONSE = {
-  response: `I'm not sure I caught that  -  but I'm happy to help! 🤔\n\nYou can ask me about:\n• Vehicle types and prices\n• Naxos beaches and villages\n• Driving tips and licence requirements\n• Delivery to airport, port or hotel\n\nOr chat with our team directly on WhatsApp for instant answers!`,
+  response: `I'm not sure I caught that  -  but I'm happy to help! 🤔\n\nYou can ask me about:\n• Car types and prices\n• Naxos beaches and villages\n• Driving tips and licence requirements\n• Delivery to airport, port or hotel\n\nOr chat with our team directly on WhatsApp for instant answers!`,
   quickReplies: ["See all vehicles", "Prices", "WhatsApp us"],
 };
 
@@ -91,9 +77,9 @@ export const KNOWLEDGE_BASE: KnowledgeEntry[] = [
   // ── Fleet overview ──
   {
     id: "fleet_overview",
-    keywords: ["car", "cars", "vehicle", "vehicles", "fleet", "rent", "rental", "what do you have", "options", "available", "motorbike", "scooter"],
+    keywords: ["car", "cars", "vehicle", "vehicles", "fleet", "rent", "rental", "what do you have", "options", "available"],
     title: "Our Fleet",
-    response: "We have everything you need for Naxos! 🚗 From tiny Hyundai i10s perfect for Chora's alleyways to rugged Jimny 4×4s for mountain tracks and open-air buggies for the coastal dunes. Here's a quick overview:",
+    response: "We have everything you need for Naxos! 🚗 From tiny Hyundai i10s perfect for Chora's alleyways to rugged Jimny 4×4s for mountain tracks and spacious SUVs for families. Here's a quick overview:",
     vehicles: FLEET_SUGGESTIONS,
     quickReplies: ["Best for beaches?", "Best for villages?", "Prices", "Book now"],
   },
@@ -115,30 +101,12 @@ export const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     vehicles: [FLEET_SUGGESTIONS[3]],
     quickReplies: ["Book now", "Do I need a 4×4?", "Prices"],
   },
-  // ── Scooters ──
-  {
-    id: "fleet_scooter",
-    keywords: ["scooter", "moped", "piaggio", "motorbike", "bike", "two-wheel", "sym", "125cc", "50cc"],
-    title: "Scooters",
-    response: "The classic Cycladic experience! 🛵 Our Piaggio and SYM scooters are nimble, easy to park, and perfect for beach-hopping between Agios Prokopios, Agia Anna and Plaka. Helmets always included. From €18/day!",
-    vehicles: [FLEET_SUGGESTIONS[4]],
-    quickReplies: ["Book now", "ATVs & Buggies", "Licence info"],
-  },
-  // ── ATV / Buggy ──
-  {
-    id: "fleet_atv",
-    keywords: ["atv", "quad", "buggy", "buggies", "four-wheeler", "open-air", "alyko", "mikri vigla", "dunes", "cf moto"],
-    title: "ATVs & Buggies",
-    response: "The most memorable Naxos experience! 🏎️ Our CF Moto quads and Polaris-style buggies are perfect for Alyko beach, Kastraki and the coastal dunes. Book early for July & August  -  they sell out fast! From €35/day.",
-    vehicles: [FLEET_SUGGESTIONS[5]],
-    quickReplies: ["Book now", "Scooters", "Licence info"],
-  },
   // ── Prices ──
   {
     id: "pricing",
     keywords: ["price", "prices", "cost", "how much", "rate", "rates", "expensive", "cheap", "per day", "daily", "€", "euro", "shoulder", "high season"],
     title: "Our Prices",
-    response: "Here are our starting rates (shoulder / high season):\n\n🚗 Economy cars: from €30/€55 per day\n🚙 Compact cars: from €32/€55 per day\n🚐 Family/SUV: from €50/€85 per day\n🏔️ 4×4/Jeep: from €55/€95 per day\n🛵 Scooters: from €18/€38 per day\n🏎️ ATVs/Buggies: from €35/€150 per day\n\nAll prices include unlimited km, basic CDW & free delivery. For an exact quote, WhatsApp us  -  fastest reply!",
+    response: "Here are our starting rates (shoulder / high season):\n\n🚗 Economy cars: from €30/€55 per day\n🚙 Compact cars: from €32/€55 per day\n🚐 Family/SUV: from €50/€85 per day\n🏔️ 4×4/Jeep: from €55/€95 per day\n\nAll prices include unlimited km, basic CDW & free delivery. For an exact quote, WhatsApp us  -  fastest reply!",
     quickReplies: ["WhatsApp us", "Book now", "See fleet"],
   },
   // ── Airport pickup ──
@@ -154,7 +122,7 @@ export const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     id: "location_port",
     keywords: ["port", "ferry", "boat", "ship", "dock", "arrive by sea", "paros ferry", "piraeus"],
     title: "Port Delivery",
-    response: "Arriving by ferry? 🚢 We deliver right to Naxos Port  -  2-minute walk from the ferry gate. Share your arrival time and we'll be there with your vehicle. Always free!",
+    response: "Arriving by ferry? 🚢 We deliver right to Naxos Port  -  2-minute walk from the ferry gate. Share your arrival time and we'll be there with your rental car. Always free!",
     quickReplies: ["Airport pickup", "Book port pickup", "Prices"],
   },
   // ── General delivery ──
@@ -170,25 +138,25 @@ export const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     id: "4x4_needed",
     keywords: ["do i need", "4x4 needed", "need jeep", "need 4x4", "need jimny", "paved", "dirt track"],
     title: "Do I need a 4×4?",
-    response: "Honestly? Most visitors don't! 🤔 All major beaches (Agios Prokopios, Agia Anna, Plaka) and villages (Filoti, Apeiranthos, Apollonas) are reachable on tarmac roads with a regular car.\n\nYou DO want a Jimny or quad if you're heading to:\n• Alyko beach dunes\n• The unmaintained track to Kastraki\n• Mikri Vigla windsurf area via the sandy access road\n\nIn doubt? Ask us  -  we'll tell you honestly.",
+    response: "Honestly? Most visitors don't! 🤔 All major beaches (Agios Prokopios, Agia Anna, Plaka) and villages (Filoti, Apeiranthos, Apollonas) are reachable on tarmac roads with a regular car.\n\nYou DO want a Jimny if you're heading to:\n• Alyko beach dunes\n• The unmaintained track to Kastraki\n• Mikri Vigla windsurf area via the sandy access road\n\nIn doubt? Ask us  -  we'll tell you honestly.",
     quickReplies: ["Jeeps & 4×4s", "Best for beaches?", "WhatsApp us"],
   },
   // ── Best for beaches ──
   {
     id: "beach_vehicles",
-    keywords: ["beach", "beaches", "swim", "sea", "agios prokopios", "agia anna", "plaka", "stelida", "mikri vigla", "kolymbithres"],
+    keywords: ["beach", "beaches", "swim", "sea", "agios prokopios", "agia anna", "plaka", "stelida", "mikri vigla"],
     title: "Best Vehicles for Beaches",
-    response: "For beach-hopping, any of our compact cars work perfectly! 🏖️ The most popular combo:\n\n🚗 **Hyundai i10 / Toyota Aygo**  -  fits any parking spot near Agios Prokopios or Agia Anna\n🛵 **Scooter 125cc**  -  fastest way to hop between beaches\n🏎️ **ATV 300**  -  if you want open-air and a bit of adventure\n\nAll our beach-area car parks have free access.",
-    vehicles: [FLEET_SUGGESTIONS[0], FLEET_SUGGESTIONS[4], FLEET_SUGGESTIONS[5]],
-    quickReplies: ["Book now", "Prices", "ATV & Buggy"],
+    response: "For beach-hopping, any of our compact cars work perfectly! 🏖️ The most popular combo:\n\n🚗 **Hyundai i10 / Toyota Aygo**  -  fits any parking spot near Agios Prokopios or Agia Anna.\n\nAll our beach-area car parks have free access.",
+    vehicles: [FLEET_SUGGESTIONS[0]],
+    quickReplies: ["Book now", "Prices", "WhatsApp us"],
   },
   // ── Best for mountain villages ──
   {
     id: "village_vehicles",
     keywords: ["filoti", "apeiranthos", "apollonas", "chalki", "mountain village", "village", "inland", "mountain", "zas"],
     title: "Best for Mountain Villages",
-    response: "The mountain villages are Naxos's best-kept secret! 🏔️ Our recommendations:\n\n🏔️ **Suzuki Jimny**  -  king of the Filoti–Apeiranthos road (some stretches are steep and narrow)\n🚗 **Hyundai i10 automatic**  -  surprisingly agile and easy to maneuver in tight village streets\n🛵 **Scooter 125cc**  -  great for solo exploration, lighter through the switchbacks\n\nAll roads are paved  -  a regular car is perfectly fine!",
-    vehicles: [FLEET_SUGGESTIONS[3], FLEET_SUGGESTIONS[0], FLEET_SUGGESTIONS[4]],
+    response: "The mountain villages are Naxos's best-kept secret! 🏔️ Our recommendations:\n\n🏔️ **Suzuki Jimny**  -  king of the Filoti–Apeiranthos road (some stretches are steep and narrow)\n🚗 **Hyundai i10 automatic**  -  surprisingly agile and easy to maneuver in tight village streets\n\nAll roads are paved  -  a regular car is perfectly fine!",
+    vehicles: [FLEET_SUGGESTIONS[3], FLEET_SUGGESTIONS[0]],
     quickReplies: ["Book now", "Do I need a 4×4?", "Prices"],
   },
   // ── Minimum age ──
@@ -196,15 +164,15 @@ export const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     id: "faq_age",
     keywords: ["age", "how old", "minimum age", "young", "21", "25", "years old"],
     title: "Minimum Age",
-    response: "Minimum age to rent is **21 years** (1+ year driving experience). Some premium vehicles and buggies require 25+. No maximum age! 😊\n\nScooters and ATVs have additional licence requirements  -  ask us if unsure.",
+    response: "Minimum age to rent is **21 years** (1+ year driving experience). Some premium vehicles require 23+. No maximum age! 😊",
     quickReplies: ["Licence info", "Book now", "Prices"],
   },
   // ── Licence ──
   {
     id: "faq_license",
-    keywords: ["license", "licence", "driving permit", "IDP", "international", "permit", "document", "documents", "category", "cat b", "cat a", "motorbike licence"],
+    keywords: ["license", "licence", "driving permit", "IDP", "international", "permit", "document", "documents", "category", "cat b"],
     title: "Licence Requirements",
-    response: "📋 **Cars (Cat. B)**: EU, UK, US, CA, AU, NZ licence is accepted as-is. Other nationalities need an IDP alongside your national licence.\n\n🛵 **Scooters 50cc**: any valid car licence (Cat. B) is fine.\n🛵 **Scooters 125cc+**: motorbike licence (Cat. A or A2) required.\n🏎️ **ATVs & Buggies**: car licence (Cat. B) is sufficient.\n\nWe'll guide you before arrival  -  no surprises!",
+    response: "📋 **Cars (Cat. B)**: EU, UK, US, CA, AU, NZ licence is accepted as-is. Other nationalities need an IDP alongside your national licence.\n\nWe'll guide you before arrival  -  no surprises!",
     quickReplies: ["Minimum age", "Book now", "See fleet"],
   },
   // ── Insurance ──
@@ -236,7 +204,7 @@ export const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     id: "naxos_tips",
     keywords: ["tip", "tips", "driving", "roads", "parking", "speed", "traffic", "safe", "naxos roads"],
     title: "Driving Tips for Naxos",
-    response: "Naxos driving tips from us! 🚗\n\n🐐 **Watch for goats** on mountain roads  -  especially at dusk on the Filoti road\n🅿️ **Chora parking**: use the free car park at the seafront (5 min walk to old town)\n⚡ **Speed limits**: 50 km/h in villages, 90 km/h on open roads\n🌬️ **Meltemi wind**: strong from July–August  -  watch out on exposed coastal roads\n⛽ **Fuel up**: few stations inland  -  fill up in Chora or Agios Prokopios",
+    response: "Naxos driving tips from us! 🚗\n\n🐐 **Watch for goats** on mountain roads  -  especially at dusk on the Filoti road\n🅿️ **Chora parking**: use the free car park at the seafront (5 min walk to old town)\n⚡ **Speed limits**: 50 km/h in villages, 90 km/h on open roads\n🌬️ **Meltemi wind**: strong from July–August  -  watch out on exposed coastal roads\n\nFuel up: few stations inland  -  fill up in Chora or Agios Prokopios",
     quickReplies: ["See fleet", "Book now", "WhatsApp us"],
   },
   // ── Book / booking ──
@@ -254,5 +222,13 @@ export const KNOWLEDGE_BASE: KnowledgeEntry[] = [
     title: "Contact Us",
     response: `Reach us anytime! 📱\n\n💬 **WhatsApp** (fastest): [${SITE.phones[0]}](${WA_URL})\n📞 **Phone**: ${SITE.phones[0]}\n📧 **Email**: ${SITE.email}\n⏰ **Hours**: ${SITE.hours.open}–${SITE.hours.close}, every day`,
     quickReplies: ["Book now", "Prices", "See fleet"],
+  },
+  // ── Scooters, ATVs, Buggies redirect ──
+  {
+    id: "non_car_vehicles",
+    keywords: ["scooter", "scooters", "atv", "atvs", "quad", "quads", "buggy", "buggies", "motorbike", "motorbikes", "moped", "mopeds", "moto"],
+    title: "Scooters, ATVs & Buggies",
+    response: "To ensure the highest standards of safety, comfort, and reliability on Naxos's roads, we have transitioned our fleet to focus exclusively on quality car rentals. 🚗 We no longer rent scooters, motorbikes, ATVs/quads, or buggies. All our rental cars come with free delivery to the airport, port, or your hotel, plus unlimited mileage and basic CDW insurance included!",
+    quickReplies: ["See fleet", "Prices", "WhatsApp us"],
   },
 ];

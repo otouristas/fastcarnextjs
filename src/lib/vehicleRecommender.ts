@@ -15,7 +15,7 @@ type SlugRule = {
 const RULES: SlugRule[] = [
   {
     slugs: ["apeiranthos", "filoti", "apollonas", "chalki"],
-    preferred: ["suzuki-jimny", "hyundai-i10", "piaggio-liberty-125"],
+    preferred: ["suzuki-jimny", "hyundai-i10"],
     reason: {
       en: "Built for mountain village roads",
       el: "Ιδανικό για ορεινά χωριά",
@@ -26,7 +26,7 @@ const RULES: SlugRule[] = [
   },
   {
     slugs: ["agios-prokopios", "agia-anna", "plaka", "stelida"],
-    preferred: ["hyundai-i10", "toyota-aygo", "fiat-panda", "piaggio-zip-50"],
+    preferred: ["hyundai-i10", "toyota-aygo", "fiat-panda"],
     reason: {
       en: "Ideal for beach-to-beach hopping",
       el: "Ιδανικό για παραλία-παραλία",
@@ -37,7 +37,7 @@ const RULES: SlugRule[] = [
   },
   {
     slugs: ["mikri-vigla"],
-    preferred: ["cfmoto-zforce-950", "polaris-rzr-buggy", "cf-moto-atv-800"],
+    preferred: ["suzuki-jimny"],
     reason: {
       en: "Handles dunes and off-road tracks",
       el: "Για αμμόλοφους και χωματόδρομους",

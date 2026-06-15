@@ -31,10 +31,6 @@ function FacebookIcon({ className }: { className?: string }) {
 export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
   const fleetLinks = [
     { href: localePath(locale, "fleet/cars"), label: dict.nav.cars },
-    { href: localePath(locale, "fleet/scooters"), label: dict.nav.scooters },
-    { href: localePath(locale, "fleet/atv-quad"), label: dict.nav.atvQuad },
-    { href: localePath(locale, "fleet/buggy"), label: dict.nav.buggy },
-    { href: localePath(locale, "fleet/motorbike"), label: dict.nav.motorbike },
     { href: localePath(locale, "fleet"), label: dict.nav.fleet },
   ];
   const infoLinks = [
