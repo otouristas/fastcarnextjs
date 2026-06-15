@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { SITE } from "@/lib/site";
 
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
     icon: SITE.logo,
     apple: SITE.logo,
   },
+  verification: {
+    google: "pL-SeZBkk3W6jILNDB7fGwD_hJuVYmXNENO0DhFvYMo",
+  },
 };
 
 export const viewport: Viewport = {
@@ -41,7 +45,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full bg-background text-foreground flex flex-col">{children}</body>
+      <body className="min-h-full bg-background text-foreground flex flex-col">
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CWXLKV3G9T"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CWXLKV3G9T');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
+
