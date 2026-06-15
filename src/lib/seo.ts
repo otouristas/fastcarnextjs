@@ -31,7 +31,11 @@ function clamp(text: string, max: number): string {
 
 export function buildMetadata(input: SeoInput): Metadata {
   const url = absoluteUrl(input.locale, input.path);
-  const image = input.image ?? `${SITE.domain}/api/og?title=${encodeURIComponent(input.title)}`;
+  
+  const cleanPath = input.path.replace(/^\/+|\/+$/g, "");
+  const ogFilename = cleanPath ? cleanPath.replace(/\//g, "-") : "home";
+  const image = input.image ?? `${SITE.domain}/og/${ogFilename}.png`;
+
   const rawTitle = input.title.includes(SITE.brand) ? input.title : `${input.title} | ${SITE.brand}`;
   const titleFull = clamp(rawTitle, 65);
   const description = clamp(input.description, 160);
