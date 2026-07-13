@@ -44,10 +44,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "book"
   ];
 
-  for (const p of STATIC_PATHS) items.push(entry(p, p === "" ? 1.0 : 0.8, "weekly", domain));
+  for (const p of STATIC_PATHS) items.push(entry(p, p === "" ? 1.0 : 0.85, "weekly", domain));
   for (const v of VEHICLES) items.push(entry(`fleet/${v.category}/${v.slug}`, 0.85, "weekly", domain));
-  for (const l of LOCATIONS) items.push(entry(`locations/${l.slug}`, 0.7, "monthly", domain));
-  for (const g of GUIDES) items.push(entry(`guides/${g.slug}`, 0.65, "monthly", domain));
+  for (const l of LOCATIONS) {
+    const isMajorHub = ["airport-pickup-jnx", "port-pickup", "naxos-town"].includes(l.slug);
+    items.push(entry(`locations/${l.slug}`, isMajorHub ? 0.88 : 0.75, "weekly", domain));
+  }
+  for (const g of GUIDES) {
+    const isPillar = [
+      "do-you-need-a-car-in-naxos",
+      "naxos-rent-a-car-prices-cost-breakdown",
+      "naxos-car-rental-without-credit-card-insurance",
+      "rent-a-car-naxos-port-vs-airport-pickup-guide",
+      "best-car-rental-naxos-reviews-comparison",
+    ].includes(g.slug);
+    items.push(entry(`guides/${g.slug}`, isPillar ? 0.90 : 0.75, "weekly", domain));
+  }
 
   // Add root AI & LLM endpoints for search engine and AI crawler discovery
   for (const txt of ["llms.txt", "llms-full.txt", "ai.txt"]) {

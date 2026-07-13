@@ -2,74 +2,121 @@ import { ImageResponse } from "next/og";
 import { SITE } from "@/lib/site";
 
 export const runtime = "edge";
-export const contentType = "image/png";
-export const size = { width: 1200, height: 630 };
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const title = searchParams.get("title") ?? SITE.brand;
+export async function GET(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          background:
-            "radial-gradient(60% 80% at 20% 100%, rgba(255, 68, 0, 0.55) 0%, transparent 60%), radial-gradient(50% 70% at 80% 0%, rgba(255, 140, 0, 0.45) 0%, transparent 60%), linear-gradient(180deg, #0a0a0a 0%, #141414 100%)",
-          padding: "72px",
-          color: "#fff",
-          fontFamily: "Inter, system-ui",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+    const title = searchParams.get("title") || "Rent a Car Naxos";
+    const subtitle = searchParams.get("subtitle") || SITE.tagline.en;
+    const category = searchParams.get("category") || "Car Rental Naxos";
+    const price = searchParams.get("price");
+
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            padding: "60px 80px",
+            backgroundColor: "#07204e",
+            backgroundImage: "radial-gradient(circle at 80% 20%, #00b4d8 0%, #07204e 60%)",
+            color: "white",
+            fontFamily: "sans-serif",
+          }}
+        >
+          {/* Top Bar / Brand */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+              <div
+                style={{
+                  background: "linear-gradient(135deg, #0077b6, #00b4d8)",
+                  padding: "10px 24px",
+                  borderRadius: "30px",
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  color: "white",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                }}
+              >
+                {category}
+              </div>
+              <div style={{ fontSize: "20px", color: "#48cae4", fontWeight: "600" }}>
+                ⭐ 4.9/5 (187+ Verified Reviews)
+              </div>
+            </div>
+            {price && (
+              <div
+                style={{
+                  background: "#ffb703",
+                  color: "#023e8a",
+                  padding: "10px 20px",
+                  borderRadius: "20px",
+                  fontSize: "22px",
+                  fontWeight: "bold",
+                }}
+              >
+                From €{price}/day
+              </div>
+            )}
+          </div>
+
+          {/* Main Title & Tagline */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "1000px" }}>
+            <h1
+              style={{
+                fontSize: "64px",
+                fontWeight: "900",
+                lineHeight: "1.1",
+                color: "#f5faff",
+                margin: 0,
+              }}
+            >
+              {title}
+            </h1>
+            <p
+              style={{
+                fontSize: "26px",
+                color: "#caf0f8",
+                lineHeight: "1.4",
+                margin: 0,
+              }}
+            >
+              {subtitle}
+            </p>
+          </div>
+
+          {/* Footer Features */}
           <div
             style={{
-              width: 14,
-              height: 14,
-              borderRadius: 999,
-              background: "linear-gradient(135deg, #ff8c00 0%, #ff4400 50%, #ff0000 100%)",
-            }}
-          />
-          <div style={{ fontSize: 28, fontWeight: 700, letterSpacing: -0.5 }}>{SITE.brand}</div>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <div
-            style={{
-              fontSize: 78,
-              fontWeight: 800,
-              lineHeight: 1.05,
-              letterSpacing: -2,
-              maxWidth: 1000,
+              display: "flex",
+              alignItems: "center",
+              gap: "32px",
+              fontSize: "20px",
+              color: "#90e0ef",
+              borderTop: "1px solid rgba(255, 255, 255, 0.15)",
+              paddingTop: "24px",
+              width: "100%",
             }}
           >
-            {title}
-          </div>
-          <div style={{ fontSize: 26, color: "rgba(255,255,255,0.7)", maxWidth: 900 }}>
-            Cars · Scooters · ATVs · Buggies on Naxos
-          </div>
-        </div>
-
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ fontSize: 22, color: "rgba(255,255,255,0.6)" }}>fastmotorrentalnaxos.gr</div>
-          <div
-            style={{
-              fontSize: 22,
-              fontWeight: 700,
-              padding: "10px 22px",
-              borderRadius: 999,
-              background: "linear-gradient(135deg, #ff8c00 0%, #ff4400 50%, #ff0000 100%)",
-            }}
-          >
-            Free airport & port delivery
+            <span>✈️ Free Airport Delivery (JNX)</span>
+            <span>⚓ Free Port Delivery</span>
+            <span>💳 Debit Card / Zero Excess Available</span>
+            <span>🚗 Fast Motor Rental Naxos</span>
           </div>
         </div>
-      </div>
-    ),
-    size,
-  );
+      ),
+      {
+        width: 1200,
+        height: 630,
+      }
+    );
+  } catch {
+    return new Response(`Failed to generate the OG image`, { status: 500 });
+  }
 }
