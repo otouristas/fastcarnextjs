@@ -460,6 +460,36 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
 
       <ContextualFaq faqs={categoryFaqs} locale={locale} dict={dict} />
 
+      {/* Internal Link Silo: Vehicle C -> Location B */}
+      <section className="border-t border-border/70 bg-sand/60 py-10 dark:bg-white/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="island-card rounded-3xl p-6">
+            <h3 className="text-lg font-bold text-foreground">Free Delivery Zones for {v.name[locale]}</h3>
+            <p className="mt-1 text-xs text-muted-foreground">Select your arrival location on Naxos for instant free meet-and-greet delivery</p>
+            <div className="mt-4 flex flex-wrap gap-2.5 text-xs font-semibold">
+              <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+                ⚓ Naxos Port Ferry Pickup
+              </Link>
+              <Link href={localePath(locale, "locations/airport-pickup-jnx")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+                ✈️ Naxos Airport (JNX) Terminal Pickup
+              </Link>
+              <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+                🏛️ Chora / Naxos Town Hotels
+              </Link>
+              <Link href={localePath(locale, "locations/agios-prokopios")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+                🏖️ Agios Prokopios Resort Delivery
+              </Link>
+              <Link href={localePath(locale, "locations/plaka")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+                🌅 Plaka Beach Hotels
+              </Link>
+              <Link href={localePath(locale, "locations/mikri-vigla")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+                🪁 Mikri Vigla Spot
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-background border-t border-border/70">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">{dict.common.relatedArticles}</h2>

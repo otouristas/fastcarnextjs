@@ -147,17 +147,45 @@ export default async function LocationPage({ params }: { params: Promise<{ local
               ))}
             </ul>
           </article>
-          <aside className="island-card h-fit rounded-3xl p-6">
-            <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">{dict.delivery.title}</h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              {nearby.map((n) => (
-                <li key={n.slug}>
-                  <Link href={localePath(locale, `locations/${n.slug}`)} className="text-muted-foreground hover:text-[var(--sea)]">
-                    → {n.shortName}
+          <aside className="space-y-6">
+            <div className="island-card rounded-3xl p-6">
+              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">{dict.delivery.title}</h3>
+              <ul className="mt-4 space-y-2 text-sm">
+                {nearby.map((n) => (
+                  <li key={n.slug}>
+                    <Link href={localePath(locale, `locations/${n.slug}`)} className="text-muted-foreground hover:text-[var(--sea)]">
+                      → {n.shortName}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="island-card rounded-3xl p-6">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--brand-2)]">Naxos Driving & Planning Guides</h3>
+              <ul className="mt-3 space-y-2 text-xs font-semibold">
+                <li>
+                  <Link href={localePath(locale, "guides/naxos-rent-a-car-prices-cost-breakdown")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                    📖 Naxos Rent a Car Prices (2026 Costs)
                   </Link>
                 </li>
-              ))}
-            </ul>
+                <li>
+                  <Link href={localePath(locale, "guides/naxos-car-rental-without-credit-card-insurance")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                    💳 No Credit Card & Insurance Options
+                  </Link>
+                </li>
+                <li>
+                  <Link href={localePath(locale, "guides/rent-a-car-naxos-port-vs-airport-pickup-guide")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                    ⚓ Port vs Airport Pickup Guide
+                  </Link>
+                </li>
+                <li>
+                  <Link href={localePath(locale, "guides/best-car-rental-naxos-reviews-comparison")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                    ⭐ Best Car Rental Naxos Reviews & Comparison
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </aside>
         </div>
       </section>

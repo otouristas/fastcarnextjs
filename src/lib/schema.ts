@@ -53,12 +53,20 @@ export function localBusinessSchema(locale: Locale) {
       reviewCount: SITE.rating.count,
     },
     knowsAbout: [
+      "rent a car Naxos",
+      "Naxos rent a car",
       "car rental Naxos",
+      "Naxos car rental",
+      "rent a car Naxos port",
+      "rent a car Naxos airport",
+      "rent a car Naxos no credit card",
+      "cheap car rental Naxos",
+      "best car rental Naxos",
       "scooter rental Naxos",
       "ATV rental Naxos",
       "buggy rental Naxos",
-      "Naxos airport pickup",
-      "Naxos port pickup",
+      "Naxos airport pickup JNX",
+      "Naxos port ferry pickup",
     ],
   };
 }

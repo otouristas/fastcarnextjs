@@ -12,7 +12,7 @@ import { REVIEWS } from "@/content/reviews";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
-import { graph, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
+import { graph, localBusinessSchema, organizationSchema, websiteSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
   ArrowRight, Star, MapPin, Plane, Anchor, MessageCircle, ShieldCheck, Wallet, Clock, Sparkles,
@@ -32,12 +32,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const dict = await getDict(locale);
 
   const featuredCars = vehiclesByCategory("cars").slice(0, 8);
-  const heroFaqs = FAQS.slice(0, 6);
+  const heroFaqs = FAQS.slice(0, 10);
 
   return (
     <>
       <JsonLd
         data={graph([
+          localBusinessSchema(locale),
+          organizationSchema(),
+          websiteSchema(locale),
           faqPageSchema(heroFaqs, locale),
           breadcrumbSchema([{ name: dict.nav.home, url: `${SITE.domain}${localePath(locale)}` }]),
         ])}

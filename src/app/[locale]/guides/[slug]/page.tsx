@@ -102,6 +102,65 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
 
       {faqs.length > 0 && <ContextualFaq faqs={faqs} locale={locale} dict={dict} />}
 
+      {/* Internal Link Silo: Guide A -> Location B & Fleet C */}
+      <section className="border-t border-border/70 bg-background/50 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* Location Hubs (Page B) */}
+            <div className="island-card rounded-3xl p-6">
+              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Popular Naxos Car Rental Pickup Hubs</h3>
+              <p className="mt-1 text-xs text-muted-foreground">Free delivery & meet-and-greet at all major arrival locations</p>
+              <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
+                <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  ⚓ Rent a Car Naxos Port
+                </Link>
+                <Link href={localePath(locale, "locations/airport-pickup-jnx")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  ✈️ Rent a Car Naxos Airport (JNX)
+                </Link>
+                <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🏛️ Car Rental Naxos Town (Chora)
+                </Link>
+                <Link href={localePath(locale, "locations/agios-prokopios")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🏖️ Rent a Car Agios Prokopios
+                </Link>
+                <Link href={localePath(locale, "locations/plaka")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🌅 Rent a Car Plaka Beach
+                </Link>
+                <Link href={localePath(locale, "locations/mikri-vigla")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🪁 Rent a Car Mikri Vigla
+                </Link>
+              </div>
+            </div>
+
+            {/* Fleet Categories (Page C) */}
+            <div className="island-card rounded-3xl p-6">
+              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Naxos Rental Fleet Categories</h3>
+              <p className="mt-1 text-xs text-muted-foreground">Select your ideal vehicle type with full CDW insurance options</p>
+              <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
+                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🚗 Economy & Compact Cars
+                </Link>
+                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  ⚡ Automatic Rental Cars
+                </Link>
+                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🚙 SUVs & 4x4 Off-Road
+                </Link>
+                <Link href={localePath(locale, "fleet/scooters")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🛵 Scooters & Motorbikes
+                </Link>
+                <Link href={localePath(locale, "fleet/atvs")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🚜 Quad / ATV 4x4
+                </Link>
+                <Link href={localePath(locale, "fleet/buggies")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  🏎️ Polaris Buggies
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {related.length > 0 && (
         <section className="bg-sand border-t border-border/70 dark:bg-[var(--background)]">
           <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">

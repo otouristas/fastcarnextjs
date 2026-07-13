@@ -13,6 +13,7 @@ export const SITE = {
   url: "https://naxos-carrentals.com",
   bookingUrl: "https://fastmotorentalnaxos.cosmicbooker.com",
   logo: "/logo-final.svg",
+  favicon: "https://fastmotorrentalnaxos.gr/wp-content/uploads/2022/05/cropped-thumbnail-180x180.png",
   ogImage: "/og-default.jpg",
   phones: ["+306948820568", "+306948820702"],
   whatsapp: "306948820568",

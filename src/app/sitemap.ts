@@ -48,5 +48,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const v of VEHICLES) items.push(entry(`fleet/${v.category}/${v.slug}`, 0.85, "weekly", domain));
   for (const l of LOCATIONS) items.push(entry(`locations/${l.slug}`, 0.7, "monthly", domain));
   for (const g of GUIDES) items.push(entry(`guides/${g.slug}`, 0.65, "monthly", domain));
+
+  // Add root AI & LLM endpoints for search engine and AI crawler discovery
+  for (const txt of ["llms.txt", "llms-full.txt", "ai.txt"]) {
+    items.push({
+      url: `${domain}/${txt}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.5,
+    });
+  }
+
   return items;
 }

@@ -23,8 +23,9 @@ export const metadata: Metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   alternates: { canonical: `${SITE.domain}/` },
   icons: {
-    icon: SITE.logo,
-    apple: SITE.logo,
+    icon: SITE.favicon,
+    apple: SITE.favicon,
+    shortcut: SITE.favicon,
   },
   verification: {
     google: "pL-SeZBkk3W6jILNDB7fGwD_hJuVYmXNENO0DhFvYMo",
