@@ -1,5 +1,6 @@
 import { SITE, type Locale, absoluteAssetUrl, absoluteUrl, LOCALES } from "./site";
-import type { Vehicle, Location, Faq, Guide, Review } from "@/types/content";
+import { BUSINESS_FACTS, verifiedValue } from "@/content/business-facts";
+import type { Vehicle, Location, Faq, Guide } from "@/types/content";
 
 const ORG_ID = `${SITE.domain}#organization`;
 const LB_ID = `${SITE.domain}#localbusiness`;
@@ -12,12 +13,15 @@ export function organizationSchema() {
     url: SITE.domain,
     logo: absoluteAssetUrl(SITE.logo),
     sameAs: [SITE.social.facebook, SITE.social.instagram],
-    founder: SITE.owners.map((name) => ({ "@type": "Person", name })),
-    foundingDate: SITE.founded,
   };
 }
 
 export function localBusinessSchema(locale: Locale) {
+  const address = verifiedValue(BUSINESS_FACTS.operations.address);
+  const geo = verifiedValue(BUSINESS_FACTS.operations.geo);
+  const hours = verifiedValue(BUSINESS_FACTS.operations.hours);
+  const areaServed = verifiedValue(BUSINESS_FACTS.operations.deliveryAreas);
+
   return {
     "@type": ["LocalBusiness", "AutoRental"],
     "@id": LB_ID,
@@ -27,39 +31,37 @@ export function localBusinessSchema(locale: Locale) {
     logo: absoluteAssetUrl(SITE.logo),
     telephone: SITE.phones[0],
     email: SITE.email,
-    priceRange: SITE.priceRange,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: SITE.address.street,
-      addressLocality: SITE.address.locality,
-      addressRegion: SITE.address.region,
-      postalCode: SITE.address.postalCode,
-      addressCountry: SITE.address.country,
-    },
-    geo: { "@type": "GeoCoordinates", latitude: SITE.geo.lat, longitude: SITE.geo.lng },
-    areaServed: SITE.areaServed.map((name) => ({ "@type": "Place", name })),
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: SITE.hours.days,
-        opens: SITE.hours.open,
-        closes: SITE.hours.close,
-      },
-    ],
+    ...(address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: address.street,
+            addressLocality: address.locality,
+            addressRegion: address.region,
+            postalCode: address.postalCode,
+            addressCountry: address.country,
+          },
+        }
+      : {}),
+    ...(geo
+      ? { geo: { "@type": "GeoCoordinates", latitude: geo.lat, longitude: geo.lng } }
+      : {}),
+    ...(areaServed
+      ? { areaServed: areaServed.map((name) => ({ "@type": "Place", name })) }
+      : {}),
+    ...(hours
+      ? {
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: hours.days,
+              opens: hours.open,
+              closes: hours.close,
+            },
+          ],
+        }
+      : {}),
     sameAs: [SITE.social.facebook, SITE.social.instagram],
-    knowsAbout: [
-      "rent a car Naxos",
-      "Naxos rent a car",
-      "car rental Naxos",
-      "Naxos car rental",
-      "rent a car Naxos port",
-      "rent a car Naxos airport",
-      "rent a car Naxos no credit card",
-      "cheap car rental Naxos",
-      "best car rental Naxos",
-      "Naxos airport pickup JNX",
-      "Naxos port ferry pickup",
-    ],
   };
 }
 
@@ -69,7 +71,7 @@ export function vehicleSchema(v: Vehicle, locale: Locale) {
     "@type": "Product",
     "@id": url,
     name: v.name[locale],
-    description: v.description[locale],
+    description: SITE.tagline[locale],
     image: absoluteAssetUrl(v.image),
     brand: { "@type": "Brand", name: v.brand },
     sku: v.slug,
@@ -85,6 +87,7 @@ export function vehicleSchema(v: Vehicle, locale: Locale) {
 }
 
 export function faqPageSchema(faqs: Faq[], locale: Locale) {
+  if (faqs.length === 0) return null;
   return {
     "@type": "FAQPage",
     mainEntity: faqs.map((f) => ({
@@ -104,7 +107,6 @@ export function articleSchema(g: Guide, locale: Locale) {
     image: absoluteAssetUrl(g.hero),
     datePublished: g.publishedAt,
     dateModified: g.updatedAt,
-    author: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
     inLanguage: locale,
     mainEntityOfPage: absoluteUrl(locale, `guides/${g.slug}`),
@@ -122,17 +124,6 @@ export function locationPlaceSchema(loc: Location, locale: Locale) {
   };
 }
 
-export function reviewSchema(r: Review, locale: Locale) {
-  return {
-    "@type": "Review",
-    author: { "@type": "Person", name: r.author },
-    datePublished: r.date,
-    reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
-    reviewBody: r.body[locale],
-    publisher: { "@type": "Organization", name: r.source },
-  };
-}
-
 export function breadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@type": "BreadcrumbList",
@@ -145,8 +136,8 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
-export function graph(items: Record<string, unknown>[]) {
-  return { "@context": "https://schema.org", "@graph": items };
+export function graph(items: Array<Record<string, unknown> | null | undefined>) {
+  return { "@context": "https://schema.org", "@graph": items.filter(Boolean) };
 }
 
 export function websiteSchema(locale: Locale) {
@@ -157,11 +148,6 @@ export function websiteSchema(locale: Locale) {
     name: SITE.brand,
     inLanguage: locale,
     publisher: { "@id": ORG_ID },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${absoluteUrl(locale)}/fleet?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

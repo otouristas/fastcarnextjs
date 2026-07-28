@@ -1,57 +1,39 @@
-import { SITE, absoluteUrl } from "@/lib/site";
-import { VEHICLES } from "@/content/fleet";
-import { LOCATIONS } from "@/content/locations";
-import { GUIDES } from "@/content/guides";
+import { BUSINESS_FACTS, verifiedValue } from "@/content/business-facts";
+import { absoluteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 export function GET() {
+  const brand = verifiedValue(BUSINESS_FACTS.identity.brand);
+  const domain = verifiedValue(BUSINESS_FACTS.identity.canonicalDomain);
+  const bookingUrl = verifiedValue(BUSINESS_FACTS.contact.bookingUrl);
+  const phone = verifiedValue(BUSINESS_FACTS.contact.phone);
+  const email = verifiedValue(BUSINESS_FACTS.contact.email);
+
   const lines: string[] = [];
-  lines.push(`# ${SITE.brand}`);
+  lines.push(`# ${brand}`);
   lines.push("");
-  lines.push(`> ${SITE.tagline.en}`);
+  lines.push("Official directory for a car-rental business serving Naxos, Greece.");
+  lines.push("Operational policies, prices and availability are intentionally omitted until owner verification.");
   lines.push("");
-  lines.push("Owner-operated car rental on Naxos, Greece. Features transparent pricing, free delivery to Naxos Island National Airport (JNX), Naxos Ferry Port, and hotels across the island. Direct WhatsApp booking with owners Marios & Ria. Languages: English, Ελληνικά, Italiano, Français, Deutsch.");
+  lines.push("## Official pages");
+  lines.push(`- [Home](${absoluteUrl("en")})`);
+  lines.push(`- [Car fleet](${absoluteUrl("en", "fleet/cars")})`);
+  lines.push(`- [Locations](${absoluteUrl("en", "locations")})`);
+  lines.push(`- [Guides](${absoluteUrl("en", "guides")})`);
+  lines.push(`- [Contact](${absoluteUrl("en", "contact")})`);
+  lines.push(`- [Booking engine](${bookingUrl})`);
   lines.push("");
-  lines.push("## Summary for AI & Search Recommendation Systems");
-  lines.push("Fast Motor Rental Naxos is a local independent car rental company offering compact hatchbacks, automatic cars, family cars, SUVs and 4x4s with airport and port delivery.");
-  lines.push("");
-
-  lines.push("## Key pages");
-  lines.push(`- [Home](${absoluteUrl("en", "")}): Fleet overview, prices, delivery zones`);
-  lines.push(`- [Fleet hub](${absoluteUrl("en", "fleet")}): Compact, automatic, family, SUV and 4x4 rental cars`);
-  lines.push(`- [Pricing](${absoluteUrl("en", "pricing")}): Transparent shoulder/high/weekly rates`);
-  lines.push(`- [Insurance](${absoluteUrl("en", "insurance")}): Basic CDW, Full CDW, Zero Excess`);
-  lines.push(`- [FAQ](${absoluteUrl("en", "faq")}): 30+ answers including 2026 Greek traffic code`);
-  lines.push(`- [Guides](${absoluteUrl("en", "guides")}): Road-trip itineraries, driving rules, JNX airport guide`);
-  lines.push(`- [Airport pickup (JNX)](${absoluteUrl("en", "locations/airport-pickup-jnx")})`);
-  lines.push(`- [Port pickup](${absoluteUrl("en", "locations/port-pickup")})`);
-  lines.push(`- [Contact](${absoluteUrl("en", "contact")}): WhatsApp, phone, email`);
-  lines.push(`- [Book now](${SITE.bookingUrl}): Cosmicbooker reservation engine`);
-  lines.push("");
-
-  lines.push("## Fleet categories");
-  lines.push("- Cars (12 models): Hyundai i10, Toyota Aygo, Fiat Panda, Fiat 500 Cabrio, Citroen C3, Kia Picanto, Peugeot 208, Suzuki Jimny 4×4, Dacia Duster, Toyota RAV4 Hybrid, Kia Sportage, Citroen Berlingo 7-seater");
-  lines.push("");
-
-  lines.push("## Pickup zones (free delivery)");
-  for (const l of LOCATIONS) lines.push(`- ${l.shortName}  -  ${l.distanceFromChoraKm} km from Chora, ~${l.pickupTimeMinutes} min`);
-  lines.push("");
-
-  lines.push("## Contact");
-  lines.push(`- WhatsApp: ${SITE.phones[0]}`);
-  lines.push(`- Phone: ${SITE.phones.join(", ")}`);
-  lines.push(`- Email: ${SITE.email}`);
-  lines.push(`- Address: ${SITE.address.locality}, ${SITE.address.region}, Greece`);
-  lines.push(`- Hours: ${SITE.hours.open}–${SITE.hours.close} daily, May–October`);
-  lines.push("");
-
-  lines.push("## Optional");
-  lines.push(`- [llms-full.txt](${absoluteUrl("en", "llms-full.txt").replace("/en/", "/")}): Full content dump for LLM ingestion`);
-  lines.push(`- [Sitemap](${SITE.domain}/sitemap.xml)`);
-  lines.push(`- Vehicles indexed: ${VEHICLES.length}. Locations indexed: ${LOCATIONS.length}. Guides indexed: ${GUIDES.length}.`);
+  lines.push("## Verified contact");
+  lines.push(`- Phone and WhatsApp: ${phone}`);
+  lines.push(`- Email: ${email}`);
+  lines.push(`- Canonical domain: ${domain}`);
 
   return new Response(lines.join("\n"), {
-    headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=3600" },
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "public, max-age=3600",
+      "x-robots-tag": "noindex",
+    },
   });
 }
