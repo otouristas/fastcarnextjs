@@ -198,16 +198,6 @@ const ALL_GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("Day 3  -  Mikri Vigla and Alyko (buggy day)", "Ημέρα 3  -  Μικρή Βίγλα & Αλυκό", "Giorno 3  -  Mikri Vigla e Alyko", "Jour 3  -  Mikri Vigla et Alyko", "Tag 3  -  Mikri Vigla & Alyko"),
-        body: ls(
-          "If you've pre-booked a buggy for today, this is the best day of the trip. If not, the car still gets you to the paved sections. Drive 17 km south to Mikri Vigla  -  two beaches separated by a rocky headland, one sheltered and calm, the other one of the world's premier kitesurf locations. Swim, watch the kiters, have coffee at the beach bar. Then push 6 km further south to Alyko: a cedar-scented forest tumbling down to three wild beaches. Walk through the woods to find the famous painted abandoned hotel  -  every surface an open-air mural, entirely unofficial and entirely breathtaking. Finish the day at Pyrgaki for one of the island's most private sunset spots. Reserve the buggy in advance  -  it books out fast.",
-          "Αλλάξτε σε buggy. Μικρή Βίγλα, Αλυκό, ηλιοβασίλεμα στο Πυργάκι.",
-          "Passa al buggy. Mikri Vigla, Alyko, tramonto a Pyrgaki.",
-          "Passe au buggy. Mikri Vigla, Alyko, coucher de soleil à Pyrgaki.",
-          "Auf Buggy wechseln. Mikri Vigla, Alyko, Sonnenuntergang Pyrgaki.",
-        ),
-      },
-      {
         heading: ls("Day 4  -  Apollonas and the Kouros of the north", "Ημέρα 4  -  Απόλλωνας και Κούρος", "Giorno 4  -  Apollonas e il Kouros", "Jour 4  -  Apollonas et le Kouros", "Tag 4  -  Apollonas und der Kouros"),
         body: ls(
           "The most ambitious drive on the island  -  roughly an hour from Chora via Engares and Koronos, through villages so small the road narrows to the width of the car. The payoff: the Kouros of Apollonas, a 10.5-metre unfinished marble giant carved in the 7th century BC, lying in an ancient quarry above the village. It takes 10 minutes to visit and is one of the most quietly magnificent things in the Cyclades. Afterwards, seafood lunch at the small harbour of Apollonas  -  grilled octopus and fried squid, tables at the waterline. Return via Lionas if you want a quick, private swim on the east coast before heading back.",
@@ -338,7 +328,7 @@ const ALL_GUIDES: Guide[] = [
       {
         heading: ls("Plaka  -  long, uncrowded, beautiful", "Πλάκα", "Plaka", "Plaka", "Plaka"),
         body: ls(
-          "8 km south of Chora, Plaka is simply a longer, quieter, less-developed version of Prokopios  -  and better for it. The beach stretches for almost 4 km without interruption: broad enough to absorb a full August crowd and still feel uncrowded in the middle. The southern half is naturist-friendly by local convention. No bus reaches Plaka on a reliable schedule  -  a car or scooter is the practical way in. Ample free parking along the access road. Several low-key beach bars and a campsite at the north end. If you have children and want to split the day between swimming and exploring, Plaka and Prokopios are an easy back-to-back.",
+          "8 km south of Chora, Plaka is simply a longer, quieter, less-developed version of Prokopios  -  and better for it. The beach stretches for almost 4 km without interruption: broad enough to absorb a full August crowd and still feel uncrowded in the middle. The southern half is naturist-friendly by local convention. Bus frequency varies by season, so check the current timetable before travelling; a car is the practical option for a flexible visit. Parking is available along the access road. Several low-key beach bars and a campsite sit at the north end. If you have children and want to split the day between swimming and exploring, Plaka and Prokopios are an easy back-to-back.",
           "8 χλμ νότια. Λιγότερο αναπτυγμένη.",
           "8 km a sud. Meno sviluppata.",
           "8 km au sud. Moins développée.",
@@ -348,11 +338,11 @@ const ALL_GUIDES: Guide[] = [
       {
         heading: ls("Mikri Vigla  -  windsurf and kitesurf capital", "Μικρή Βίγλα", "Mikri Vigla", "Mikri Vigla", "Mikri Vigla"),
         body: ls(
-          "17 km south of Chora, Mikri Vigla is two beaches in one: the north face of the headland is a calm, crystal-clear cove perfect for swimming; the south face catches the full force of the Aegean meltemi and is one of Europe's top-rated kitesurfing locations. Between June and September you'll see 30–40 kiters in the air at any given afternoon. The access road is paved to the car park; from there it's a short walk down. ATVs and buggies can use the track that continues south  -  standard cars should stop at the parking area. There's a beach bar and a kite school, but no organised sunbeds  -  bring your own shade.",
-          "17 χλμ. Kitesurf παράδεισος. ATV και buggies καλοδεχούμενα.",
-          "17 km. Paradiso kitesurf. ATV e buggy benvenuti.",
-          "17 km. Paradis du kitesurf. ATV et buggys bienvenus.",
-          "17 km. Kitesurf-Paradies. ATVs und Buggys willkommen.",
+          "17 km south of Chora, Mikri Vigla is two beaches in one: the north face of the headland is a calm, crystal-clear cove for swimming; the south face catches the Aegean meltemi and is a well-known kitesurfing location. The access road is paved to the signed car park; standard rental cars should stop there and visitors should continue on foot rather than use the track farther south. Check local wind and access conditions before setting out.",
+          "17 χλμ. νότια της Χώρας. Ο ασφαλτοστρωμένος δρόμος φτάνει έως το σημείο στάθμευσης· συνεχίστε με τα πόδια προς την παραλία.",
+          "17 km a sud di Chora. La strada asfaltata arriva al parcheggio; prosegui a piedi verso la spiaggia.",
+          "À 17 km au sud de Chora. La route goudronnée mène au parking ; continuez à pied vers la plage.",
+          "17 km südlich von Chora. Die asphaltierte Straße führt zum Parkplatz; von dort geht es zu Fuß weiter.",
         ),
       },
       {
@@ -588,70 +578,6 @@ const ALL_GUIDES: Guide[] = [
     ],
   },
   {
-    slug: "atv-vs-buggy-vs-car",
-    title: ls(
-      "ATV vs Buggy vs Car on Naxos: which should you rent in 2026?",
-      "ATV ή buggy ή αυτοκίνητο στη Νάξο;",
-      "ATV, buggy o auto a Naxos: cosa scegliere",
-      "ATV, buggy ou voiture à Naxos : quoi choisir ?",
-      "ATV, Buggy oder Auto auf Naxos: was mieten?",
-    ),
-    excerpt: ls(
-      "A frank decision guide based on who you're travelling with, where you want to go, and what the island's roads actually demand.",
-      "Πρακτικός οδηγός επιλογής με βάση το πρόγραμμά σας.",
-      "Guida pratica per la scelta in base al viaggio.",
-      "Guide pratique pour choisir selon ton voyage.",
-      "Praktischer Entscheidungsbaum nach Reise.",
-    ),
-    hero: "/images/naxos/mikri-vigla.jpg",
-    publishedAt: "2026-03-15",
-    updatedAt: "2026-05-10",
-    readingTime: 6,
-    related: ["best-beaches-by-car-naxos", "do-you-need-a-car-in-naxos", "naxos-road-trip-itinerary"],
-    sections: [
-      {
-        heading: ls("Rent a car if…", "Επιλέξτε αυτοκίνητο αν…", "Scegli l'auto se…", "Choisis la voiture si…", "Wähle das Auto, wenn…"),
-        body: ls(
-          "You're travelling with children or elderly companions. You have more than one carry-on bag per person. You plan to drive to Apeiranthos, Apollonas or the mountain interior (the switchbacks and distance make a car far more comfortable than a scooter or ATV). You want air conditioning  -  Naxos reaches 36°C in August. You're driving at night or in uncertain weather. A small car like the Suzuki Baleno or Peugeot 208 costs €60–80/day from our fleet in peak season, includes 24/7 roadside assistance coverage and handles every paved road on the island. It's the default sensible choice for most travellers.",
-          "Έχετε αποσκευές, παιδιά ή κακοκαιρία.",
-          "Hai bagagli, bambini, o pioggia in vista.",
-          "Tu as des bagages, des enfants, ou de la pluie.",
-          "Sie haben Gepäck, Kinder oder Regen.",
-        ),
-      },
-      {
-        heading: ls("Rent a scooter if…", "Επιλέξτε μηχανάκι αν…", "Scegli lo scooter se…", "Choisis le scooter si…", "Wähle den Roller, wenn…"),
-        body: ls(
-          "You're a couple or solo, travelling with no more than a small daypack each. Your itinerary is coastal (Prokopios, Plaka, Agia Anna, Mikri Vigla on paved roads). The forecast is reliably sunny for your whole trip. You have a motorbike or scooter licence  -  or, for 50cc, any driving licence. Our Piaggio Liberty 125cc and Sym Symphony 125cc are the most popular choices: comfortable for two riders, fast enough for the Naxos road network, and €35–45/day. The 50cc options are cheaper but genuinely slow on the long climbs to Apollonas or Apeiranthos.",
-          "Δύο ενήλικες, λίγες αποσκευές, ήλιος.",
-          "Due adulti, poco bagaglio, sole.",
-          "Deux adultes, peu de bagages, du soleil.",
-          "Zwei Erwachsene, leichtes Gepäck, Sonne.",
-        ),
-      },
-      {
-        heading: ls("Rent a buggy or ATV if…", "Επιλέξτε buggy ή ATV αν…", "Scegli il buggy o ATV se…", "Choisis le buggy ou ATV si…", "Wähle den Buggy oder ATV, wenn…"),
-        body: ls(
-          "You're planning a serious day at Alyko, Mikri Vigla's south track, Pyrgaki or any of the unpaved coastal paths in the south. A standard car cannot legally or safely access these tracks under any rental contract on Naxos. Our Polaris Buggy (4-seat, open-top, roll cage) and CFMoto ATV handle them with ease. Both require only a standard car licence (Category B). The Polaris costs around €100–120/day  -  more than a small car, but the experience of driving through Alyko's cedar forest in an open buggy with the Aegean in front of you is genuinely incomparable. Book in advance: buggy slots sell out weeks ahead in July and August.",
-          "Αν θα είστε σε Αλυκό, Μικρή Βίγλα, Πυργάκι.",
-          "Per Alyko, Mikri Vigla, Pyrgaki.",
-          "Pour Alyko, Mikri Vigla, Pyrgaki.",
-          "Für Alyko, Mikri Vigla, Pyrgaki.",
-        ),
-      },
-      {
-        heading: ls("The hybrid plan most guests love", "Το υβριδικό πρόγραμμα που αγαπάμε", "Il piano ibrido che piace", "Le plan hybride apprécié", "Der beliebte Hybrid-Plan"),
-        body: ls(
-          "Small car for the whole trip (Chalki, Filoti, Apeiranthos, Apollonas, all the main beaches) + one day of buggy or ATV specifically for the south-coast adventure. The total cost is almost exactly the same as renting a buggy for the whole week. You get the practicality of a car with luggage and the freedom of a buggy on the day it actually matters. We offer this combination as a package  -  ask us when you book and we'll schedule the swap to fit your itinerary perfectly.",
-          "Μικρό αυτοκίνητο όλη τη βδομάδα + μία μέρα buggy ή ATV.",
-          "Auto piccola per la settimana + un giorno di buggy/ATV.",
-          "Petite auto la semaine + un jour de buggy/ATV.",
-          "Kleinwagen die Woche + ein Tag Buggy/ATV.",
-        ),
-      },
-    ],
-  },
-  {
     slug: "naxos-rent-a-car-prices-cost-breakdown",
     title: ls(
       "Naxos Rent a Car Prices (2026): Average Costs & Avoid Hidden Fees",
@@ -671,7 +597,7 @@ const ALL_GUIDES: Guide[] = [
     publishedAt: "2026-06-01",
     updatedAt: "2026-07-10",
     readingTime: 7,
-    related: ["do-you-need-a-car-in-naxos", "naxos-car-rental-without-credit-card-insurance", "best-car-rental-naxos-reviews-comparison"],
+    related: ["do-you-need-a-car-in-naxos", "naxos-car-rental-without-credit-card-insurance"],
     faqRefs: ["naxos-car-rental-prices-per-day", "best-car-rental-company-naxos", "no-credit-card-rental-naxos"],
     sections: [
       {
@@ -766,42 +692,35 @@ const ALL_GUIDES: Guide[] = [
       },
     ],
   },
-  {
-    slug: "best-car-rental-naxos-reviews-comparison",
-    title: ls(
-      "Best Car Rental in Naxos: Reviews & Local vs Chain Comparison",
-      "Το Καλύτερο Γραφείο Ενοικίασης στη Νάξο: Αξιολογήσεις & Σύγκριση",
-      "Il Miglior Noleggio Auto a Naxos: Recensioni e Confronto",
-      "La Meilleure Location de Voiture à Naxos : Avis et Comparatif",
-      "Beste Autovermietung auf Naxos: Bewertungen & Vergleich",
-    ),
-    excerpt: ls(
-      "In-depth guide comparing local family-owned car rental agencies in Naxos against global franchises like Hertz, Avis, and Enterprise.",
-      "Αναλυτική σύγκριση τοπικών γραφείων ενοικίασης στη Νάξο έναντι πολυεθνικών αλυσίδων.",
-      "Confronto approfondito tra noleggiatori locali a Naxos e grandi catene.",
-      "Comparatif détaillé entre loueurs locaux à Naxos et grandes enseignes.",
-      "Ausführlicher Vergleich zwischen lokalen Vermietern auf Naxos und Ketten.",
-    ),
-    hero: "/images/naxos/mikri-vigla.jpg",
-    publishedAt: "2026-06-15",
-    updatedAt: "2026-07-10",
-    readingTime: 6,
-    related: ["naxos-rent-a-car-prices-cost-breakdown", "do-you-need-a-car-in-naxos"],
-    faqRefs: ["best-car-rental-company-naxos", "is-it-worth-renting-a-car-naxos"],
-    sections: [
-      {
-        heading: ls("Why Local Independent Providers Excel in Naxos", "Γιατί οι Τοπικές Επιχειρήσεις Ξεχωρίζουν", "Perché i Noleggiatori Locali Eccellono", "Pourquoi les Loueurs Locaux Excellent", "Warum lokale Vermieter überzeugen"),
-        body: ls(
-          "Local owner-operated businesses like Fast Motor Rental Naxos focus on customer satisfaction with 4.9/5 stars, offering personalized island advice, zero hidden fees, exact vehicle model guarantees, and flexible WhatsApp support that large call centers cannot match.",
-          "Η Fast Motor Rental Naxos προσφέρει προσωπική φροντίδα, εγγυημένα μοντέλα και 4.9/5 αστεράκια.",
-          "Fast Motor Rental Naxos offre attenzione personalizzata, modelli garantiti e recensioni 4.9/5.",
-          "Fast Motor Rental Naxos offre un service personnalisé, des modèles garantis et 4.9/5 d'avis.",
-          "Fast Motor Rental Naxos bietet persönlichen Service, garantierte Modelle und 4.9/5 Sterne.",
-        ),
-      },
-    ],
-  },
 ];
 
-export const GUIDES = ALL_GUIDES.filter((guide) => guide.slug !== "atv-vs-buggy-vs-car");
+const CONSOLIDATED_GUIDE_SLUGS = new Set([
+  "do-you-need-a-car-in-naxos",
+  "driving-in-naxos",
+  "naxos-road-trip-itinerary",
+  "naxos-mountain-villages-by-car",
+  "best-beaches-by-car-naxos",
+  "naxos-airport-jnx-guide",
+  "parking-in-naxos",
+  "naxos-rent-a-car-prices-cost-breakdown",
+]);
+
+export const GUIDES = ALL_GUIDES.filter((guide) =>
+  CONSOLIDATED_GUIDE_SLUGS.has(guide.slug),
+);
 export const GUIDES_BY_SLUG = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
+
+const LEGACY_GUIDES_REQUIRING_SOURCE_OR_OWNER_REVIEW = new Set(
+  CONSOLIDATED_GUIDE_SLUGS,
+);
+
+export const INDEXABLE_GUIDES = GUIDES.filter(
+  (guide) => !LEGACY_GUIDES_REQUIRING_SOURCE_OR_OWNER_REVIEW.has(guide.slug),
+);
+export const INDEXABLE_GUIDES_BY_SLUG = Object.fromEntries(
+  INDEXABLE_GUIDES.map((guide) => [guide.slug, guide]),
+);
+
+export function guideRequiresReview(slug: string): boolean {
+  return LEGACY_GUIDES_REQUIRING_SOURCE_OR_OWNER_REVIEW.has(slug);
+}

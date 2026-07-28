@@ -42,7 +42,7 @@ export function buildMetadata(input: SeoInput): Metadata {
   const alternateLocale = LOCALES.filter((l) => l !== input.locale).map((l) => OG_LOCALE[l]);
 
   const robots = input.noindex
-    ? { index: false, follow: false }
+    ? { index: false, follow: true }
     : { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1 } };
 
   return {

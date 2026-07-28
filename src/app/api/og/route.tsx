@@ -10,7 +10,6 @@ export async function GET(request: Request) {
     const title = searchParams.get("title") || "Rent a Car Naxos";
     const subtitle = searchParams.get("subtitle") || SITE.tagline.en;
     const category = searchParams.get("category") || "Car Rental Naxos";
-    const price = searchParams.get("price");
 
     return new ImageResponse(
       (
@@ -46,24 +45,10 @@ export async function GET(request: Request) {
               >
                 {category}
               </div>
-              <div style={{ fontSize: "20px", color: "#48cae4", fontWeight: "600" }}>
-                ⭐ 4.9/5 (187+ Verified Reviews)
-              </div>
             </div>
-            {price && (
-              <div
-                style={{
-                  background: "#ffb703",
-                  color: "#023e8a",
-                  padding: "10px 20px",
-                  borderRadius: "20px",
-                  fontSize: "22px",
-                  fontWeight: "bold",
-                }}
-              >
-                From €{price}/day
-              </div>
-            )}
+            <div style={{ fontSize: "20px", color: "#48cae4", fontWeight: "600" }}>
+              naxos-carrentals.com
+            </div>
           </div>
 
           {/* Main Title & Tagline */}
@@ -91,7 +76,7 @@ export async function GET(request: Request) {
             </p>
           </div>
 
-          {/* Footer Features */}
+          {/* Footer */}
           <div
             style={{
               display: "flex",
@@ -104,10 +89,9 @@ export async function GET(request: Request) {
               width: "100%",
             }}
           >
-            <span>✈️ Free Airport Delivery (JNX)</span>
-            <span>⚓ Free Port Delivery</span>
-            <span>💳 Debit Card / Zero Excess Available</span>
-            <span>🚗 Fast Motor Rental Naxos</span>
+            <span>🚗 Car rental on Naxos</span>
+            <span>Fast Motor Rental Naxos</span>
+            <span>naxos-carrentals.com</span>
           </div>
         </div>
       ),
