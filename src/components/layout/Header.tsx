@@ -3,14 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { SITE, type Locale, localePath, LOCALES, LOCALE_META } from "@/lib/site";
+import { usePathname } from "next/navigation";
+import { SITE, type Locale, localePath, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
 import { LOCATIONS } from "@/content/locations";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
   Phone, ChevronDown, Mail, Clock, Star,
-  BookOpen, Wallet, HelpCircle, Sparkles, MapPin, ShieldCheck,
-  Car, Bike, Mountain, Zap,
 } from "lucide-react";
 import { MobileMenu, type MenuLink } from "./MobileMenu";
 import { ThemeToggle } from "./ThemeToggle";
@@ -26,8 +25,9 @@ interface MegaGroup {
   cta?: { label: string; href: string; description: string };
 }
 
-export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Dict; currentPath: string }) {
+export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
   const [scrolled, setScrolled] = useState(false);
+  const currentPath = usePathname();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -102,7 +102,7 @@ export function Header({ locale, dict, currentPath }: { locale: Locale; dict: Di
               {LOCALES.map((l) => (
                 <Link
                   key={l}
-                  href={swapLocale(currentPath, l)}
+                  href={swapLocalePath(currentPath, l)}
                   aria-label={LOCALE_META[l].name}
                   hrefLang={LOCALE_META[l].htmlLang}
                   className={`rounded-full px-1.5 py-0.5 uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "hover:text-[var(--ink)] dark:hover:text-white"}`}
@@ -252,13 +252,4 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
       </div>
     </div>
   );
-}
-
-function swapLocale(path: string, newLocale: Locale): string {
-  const parts = path.split("/").filter(Boolean);
-  if (parts.length === 0) return `/${newLocale}`;
-  const isLocale = (LOCALES as readonly string[]).includes(parts[0]);
-  if (isLocale) parts[0] = newLocale;
-  else parts.unshift(newLocale);
-  return "/" + parts.join("/");
 }

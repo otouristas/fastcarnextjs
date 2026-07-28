@@ -1,8 +1,8 @@
 # Fast Motor Rental Naxos
 
-Multilingual marketing + booking website for **Fast Motor Rental Naxos** — cars, scooters, ATVs, buggies and motorbikes on Naxos with free delivery to the airport, port and hotel.
+Multilingual marketing + booking website for **Fast Motor Rental Naxos** — rental cars on Naxos with free delivery to the airport, port and hotel.
 
-Built with **Next.js 16 (App Router, Turbopack)**, **React 19**, **TypeScript** and **Tailwind CSS 4**. Fully SSR/SSG, SEO-optimised with per-page canonicals on `https://fastmotorrentalnaxos.gr/`, hreflang for 5 locales, JSON-LD (Organization, LocalBusiness, AutoRental, Vehicle/Product, FAQPage, Article, BreadcrumbList, WebSite + SearchAction), dynamic OG images, sitemap, robots, manifest and `llms.txt`.
+Built with **Next.js 16 (App Router, Turbopack)**, **React 19**, **TypeScript** and **Tailwind CSS 4**. Fully SSR/SSG, SEO-optimised with per-page canonicals on `https://naxos-carrentals.com/`, hreflang for 5 locales, JSON-LD (Organization, LocalBusiness, AutoRental, Vehicle/Product, FAQPage, Article, BreadcrumbList, WebSite + SearchAction), dynamic OG images, sitemap, robots, manifest and `llms.txt`.
 
 ## Tech stack
 
@@ -28,8 +28,6 @@ npm run start        # serve the production build locally
 ```
 src/
 ├── app/
-│   ├── layout.tsx                     # root layout + no-flash theme script
-│   ├── page.tsx                       # root redirect → default locale
 │   ├── robots.ts                      # /robots.txt
 │   ├── sitemap.ts                     # /sitemap.xml (with hreflang alternates)
 │   ├── manifest.ts                    # /manifest.webmanifest
@@ -37,7 +35,7 @@ src/
 │   ├── llms-full.txt/                 # full content dump for AI crawlers
 │   ├── api/og/                        # dynamic OG image (next/og)
 │   └── [locale]/
-│       ├── layout.tsx                 # header, footer, JSON-LD graph
+│       ├── layout.tsx                 # localized root layout, consent, header, footer, JSON-LD
 │       ├── page.tsx                   # home
 │       ├── fleet/                     # hub + category + vehicle detail
 │       ├── locations/                 # hub + per-location detail
@@ -49,6 +47,7 @@ src/
 │   └── seo/JsonLd.tsx
 ├── content/                           # fleet, locations, faqs, guides, reviews (multilingual)
 ├── i18n/                              # Dict type + locale dictionaries
+├── proxy.ts                           # Next.js 16 proxy (locale auto-redirect)
 ├── lib/
 │   ├── site.ts                        # SITE constants, LOCALES
 │   ├── seo.ts                         # buildMetadata + seoFor helpers
@@ -56,7 +55,6 @@ src/
 │   ├── schema.ts                      # JSON-LD generators
 │   └── whatsapp.ts
 ├── types/content.ts
-proxy.ts                               # Next.js 16 proxy (locale auto-redirect)
 public/logo-final.svg
 ```
 
@@ -64,9 +62,9 @@ public/logo-final.svg
 
 1. Push this repo to GitHub.
 2. Go to <https://vercel.com/new>, import the repo, and accept the auto-detected Next.js settings.
-3. Add the production domain `fastmotorrentalnaxos.gr` in **Project Settings → Domains**.
+3. Add the production domain `naxos-carrentals.com` in **Project Settings → Domains**.
 4. No environment variables are required for the current build. (If you later wire analytics or an email provider, add them in **Project Settings → Environment Variables**.)
-5. Trigger a deploy. Vercel will run `next build` (Turbopack) and serve 300+ statically-generated routes.
+5. Trigger a deploy. Vercel will run `next build` (Turbopack) and serve the statically generated localized routes.
 
 ### Vercel build settings
 
@@ -80,11 +78,11 @@ public/logo-final.svg
 
 ## SEO highlights
 
-- Per-page absolute canonicals on `https://fastmotorrentalnaxos.gr/`
+- Per-page absolute canonicals on `https://naxos-carrentals.com/`
 - hreflang for `en`, `el`, `it`, `fr`, `de` + `x-default = en`
 - Hand-written `<title>` (≤65 chars) and `<meta description>` (≤160 chars) for every page in all 5 locales (see `src/lib/seoCopy.ts`)
 - Dynamic OG images at `/api/og?title=...`
-- JSON-LD: `Organization`, `LocalBusiness/AutoRental`, `WebSite + SearchAction`, `BreadcrumbList`, `FAQPage`, `Product/Vehicle` with offers, `Article` for guides, `Place` for locations
+- JSON-LD: `Organization`, `LocalBusiness/AutoRental`, `WebSite + SearchAction`, `BreadcrumbList`, `FAQPage`, `Product/Vehicle`, `Article` for guides, `Place` for locations
 - `robots.txt` allows all major search engines and AI crawlers (GPTBot, Google-Extended, ClaudeBot, PerplexityBot, CCBot)
 - `sitemap.xml` with alternates per locale
 

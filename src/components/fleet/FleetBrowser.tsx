@@ -2,22 +2,19 @@
 
 import { useState, useMemo, useCallback } from "react";
 import { VehicleCard } from "./VehicleCard";
-import type { Vehicle, VehicleCategory } from "@/types/content";
+import type { Vehicle } from "@/types/content";
 import type { Dict } from "@/i18n/types";
 import type { Locale } from "@/lib/site";
 import { SlidersHorizontal, X, ChevronDown, Sparkles } from "lucide-react";
 
 /* ── Types ── */
 type Transmission = "any" | "automatic" | "manual";
-type Licence = "any" | "car" | "moto";
 type SortKey = "recommended" | "price-asc" | "price-desc" | "largest";
 type BestForKey = "couples" | "families" | "adventure" | "mountains" | "beaches" | "offroad" | "style";
 
 interface Filters {
-  type: VehicleCategory | "all";
   transmission: Transmission;
   seats: number | null;
-  licence: Licence;
   priceMin: number;
   priceMax: number;
   fourByFour: boolean;
@@ -45,10 +42,8 @@ function getVehiclePrice(v: Vehicle) {
 }
 
 const DEFAULT_FILTERS: Filters = {
-  type: "all",
   transmission: "any",
   seats: null,
-  licence: "any",
   priceMin: 15,
   priceMax: 200,
   fourByFour: false,
@@ -58,11 +53,8 @@ const DEFAULT_FILTERS: Filters = {
 
 function applyFilters(vehicles: Vehicle[], f: Filters): Vehicle[] {
   let result = vehicles.filter((v) => {
-    if (f.type !== "all" && v.category !== f.type) return false;
     if (f.transmission !== "any" && v.transmission !== f.transmission) return false;
     if (f.seats !== null && (v.seats ?? 0) < f.seats) return false;
-    if (f.licence === "car" && !["cars"].includes(v.category)) return false;
-    if (f.licence === "moto" && v.category === "cars") return false;
     const price = getVehiclePrice(v);
     if (price < f.priceMin || price > f.priceMax) return false;
     if (f.fourByFour && !v.fourByFour) return false;
@@ -82,10 +74,8 @@ function applyFilters(vehicles: Vehicle[], f: Filters): Vehicle[] {
 
 function hasActiveFilters(f: Filters) {
   return (
-    f.type !== "all" ||
     f.transmission !== "any" ||
     f.seats !== null ||
-    f.licence !== "any" ||
     f.priceMin !== DEFAULT_FILTERS.priceMin ||
     f.priceMax !== DEFAULT_FILTERS.priceMax ||
     f.fourByFour ||
@@ -123,17 +113,12 @@ export function FleetBrowser({
   vehicles,
   locale,
   dict,
-  initialCategory,
 }: {
   vehicles: Vehicle[];
   locale: Locale;
   dict: Dict;
-  initialCategory?: VehicleCategory;
 }) {
-  const [filters, setFilters] = useState<Filters>({
-    ...DEFAULT_FILTERS,
-    type: initialCategory ?? "all",
-  });
+  const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const filtered = useMemo(() => applyFilters(vehicles, filters), [vehicles, filters]);
@@ -145,26 +130,18 @@ export function FleetBrowser({
   function toggleBestFor(key: BestForKey) {
     setFilters((prev) => {
       const next = new Set(prev.bestFor);
-      next.has(key) ? next.delete(key) : next.add(key);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
       return { ...prev, bestFor: next };
     });
   }
 
   function clearAll() {
-    setFilters({ ...DEFAULT_FILTERS, type: initialCategory ?? "all" });
+    setFilters(DEFAULT_FILTERS);
   }
 
   const ff = dict.fleetFilter;
   const active = hasActiveFilters(filters);
-
-  const typeOptions: { value: VehicleCategory | "all"; label: string }[] = [
-    { value: "all", label: ff.any },
-    { value: "cars", label: dict.fleetHub.categoryCars },
-    { value: "scooters", label: dict.fleetHub.categoryScooters },
-    { value: "atv-quad", label: dict.fleetHub.categoryAtv },
-    { value: "buggy", label: dict.fleetHub.categoryBuggy },
-    { value: "motorbike", label: dict.fleetHub.categoryMoto },
-  ];
 
   const bestForOptions: { key: BestForKey; label: string }[] = [
     { key: "couples", label: ff.bestForOptions.couples },
@@ -296,7 +273,7 @@ export function FleetBrowser({
           >
             <SlidersHorizontal className="h-4 w-4" />
             {ff.openDrawer}
-            {active && <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[var(--sea)] text-[10px] text-white">{Array.from(filters.bestFor).length + (filters.type !== "all" ? 1 : 0)}</span>}
+            {active && <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[var(--sea)] text-[10px] text-white">{Array.from(filters.bestFor).length}</span>}
           </button>
         </div>
       </div>

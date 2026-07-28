@@ -122,8 +122,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
   const related = VEHICLES.filter((x) => x.category === v.category && x.slug !== v.slug).slice(0, 3);
   const categoryFaqs = FAQS.filter((f) => f.category === "vehicles" || f.category === "insurance" || f.category === "documents").slice(0, 6);
   const navLabels = {
-    cars: dict.nav.cars, scooters: dict.nav.scooters, "atv-quad": dict.nav.atvQuad,
-    buggy: dict.nav.buggy, motorbike: dict.nav.motorbike,
+    cars: dict.nav.cars,
   } as const;
   const wm = whatsappVehicleMessage(v.name[locale], locale);
 

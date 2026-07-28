@@ -2,10 +2,10 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
-import { seoFor } from "@/lib/seo";
+import { buildMetadata } from "@/lib/seo";
 import { REVIEWS } from "@/content/reviews";
 import { LOCALES } from "@/lib/site";
-import { Star, ExternalLink } from "lucide-react";
+import { Star } from "lucide-react";
 
 export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -15,10 +15,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const dict = await getDict(locale);
-  return {
-    title: `${dict.reviews.title}  -  ${SITE.brand}`,
-    description: `${SITE.rating.count}+ verified Google reviews for Fast Motor Rental Naxos. Read what our customers say about renting cars, scooters and ATVs on Naxos.`,
-  };
+  return buildMetadata({
+    locale,
+    path: "reviews",
+    title: dict.reviews.title,
+    description: "Customer reviews for Fast Motor Rental Naxos. Read what guests say about renting cars on Naxos.",
+  });
 }
 
 export default async function ReviewsPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -49,14 +51,6 @@ export default async function ReviewsPage({ params }: { params: Promise<{ locale
             </div>
             <p className="text-3xl font-extrabold text-[var(--ink)] dark:text-white">{avgRating} / 5</p>
             <p className="text-sm text-muted-foreground">{totalReviews}+ {dict.reviews.google}</p>
-            <a
-              href={SITE.social.googleMaps}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-5 py-2 text-xs font-bold text-white"
-            >
-              View on Google <ExternalLink className="h-3 w-3" />
-            </a>
           </div>
         </div>
       </section>

@@ -109,8 +109,8 @@ export const dict: Dict = {
   },
   reviews: {
     title: "Ce que disent nos clients",
-    subtitle: "Avis Google vérifiés",
-    google: "d'avis Google",
+    subtitle: "Expériences de clients ayant récemment loué à Naxos",
+    google: "avis clients",
   },
   faqTeaser: {
     title: "Questions fréquentes",
@@ -120,7 +120,7 @@ export const dict: Dict = {
   footer: {
     rights: "Tous droits réservés.",
     description:
-      "Location familiale de voitures, scooters, ATV et buggys à Naxos. Livraison gratuite à l'aéroport, au port et à l'hôtel.",
+      "Location familiale de voitures à Naxos. Livraison gratuite à l'aéroport, au port et à l'hôtel.",
     fleet: "Flotte",
     company: "Société",
     legal: "Mentions légales",

@@ -13,7 +13,7 @@ export const SITE = {
   url: "https://naxos-carrentals.com",
   bookingUrl: "https://fastmotorentalnaxos.cosmicbooker.com",
   logo: "/logo-final.svg",
-  favicon: "https://fastmotorrentalnaxos.gr/wp-content/uploads/2022/05/cropped-thumbnail-180x180.png",
+  favicon: "/favicon.ico",
   ogImage: "/og-default.jpg",
   phones: ["+306948820568", "+306948820702"],
   whatsapp: "306948820568",
@@ -37,8 +37,6 @@ export const SITE = {
   social: {
     facebook: "https://www.facebook.com/fastmotorentalnaxos",
     instagram: "https://www.instagram.com/fastmotorentalnaxos",
-    googleMaps: "https://maps.google.com/?q=Fast+Motor+Rental+Naxos",
-    tripadvisor: "https://www.tripadvisor.com/",
   },
   rating: { value: 4.9, count: 187 },
   flags: {
@@ -74,4 +72,20 @@ export function localePath(locale: Locale, path: string = ""): string {
 
 export function absoluteUrl(locale: Locale, path: string = ""): string {
   return `${SITE.domain}${localePath(locale, path)}`;
+}
+
+export function absoluteAssetUrl(path: string): string {
+  if (/^https?:\/\//.test(path)) return path;
+  return `${SITE.domain}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+export function swapLocalePath(path: string, newLocale: Locale): string {
+  const parts = path.split("/").filter(Boolean);
+  if (parts.length === 0) return `/${newLocale}`;
+  if ((LOCALES as readonly string[]).includes(parts[0])) {
+    parts[0] = newLocale;
+  } else {
+    parts.unshift(newLocale);
+  }
+  return `/${parts.join("/")}`;
 }

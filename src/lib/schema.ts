@@ -1,4 +1,4 @@
-import { SITE, type Locale, absoluteUrl, LOCALES } from "./site";
+import { SITE, type Locale, absoluteAssetUrl, absoluteUrl, LOCALES } from "./site";
 import type { Vehicle, Location, Faq, Guide, Review } from "@/types/content";
 
 const ORG_ID = `${SITE.domain}#organization`;
@@ -10,8 +10,8 @@ export function organizationSchema() {
     "@id": ORG_ID,
     name: SITE.brand,
     url: SITE.domain,
-    logo: SITE.logo,
-    sameAs: [SITE.social.facebook, SITE.social.instagram, SITE.social.googleMaps, SITE.social.tripadvisor].filter(Boolean),
+    logo: absoluteAssetUrl(SITE.logo),
+    sameAs: [SITE.social.facebook, SITE.social.instagram],
     founder: SITE.owners.map((name) => ({ "@type": "Person", name })),
     foundingDate: SITE.founded,
   };
@@ -23,8 +23,8 @@ export function localBusinessSchema(locale: Locale) {
     "@id": LB_ID,
     name: SITE.brand,
     url: absoluteUrl(locale),
-    image: SITE.logo,
-    logo: SITE.logo,
+    image: absoluteAssetUrl(SITE.logo),
+    logo: absoluteAssetUrl(SITE.logo),
     telephone: SITE.phones[0],
     email: SITE.email,
     priceRange: SITE.priceRange,
@@ -46,12 +46,7 @@ export function localBusinessSchema(locale: Locale) {
         closes: SITE.hours.close,
       },
     ],
-    sameAs: [SITE.social.facebook, SITE.social.instagram, SITE.social.googleMaps, SITE.social.tripadvisor].filter(Boolean),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: SITE.rating.value,
-      reviewCount: SITE.rating.count,
-    },
+    sameAs: [SITE.social.facebook, SITE.social.instagram],
     knowsAbout: [
       "rent a car Naxos",
       "Naxos rent a car",
@@ -62,9 +57,6 @@ export function localBusinessSchema(locale: Locale) {
       "rent a car Naxos no credit card",
       "cheap car rental Naxos",
       "best car rental Naxos",
-      "scooter rental Naxos",
-      "ATV rental Naxos",
-      "buggy rental Naxos",
       "Naxos airport pickup JNX",
       "Naxos port ferry pickup",
     ],
@@ -78,24 +70,9 @@ export function vehicleSchema(v: Vehicle, locale: Locale) {
     "@id": url,
     name: v.name[locale],
     description: v.description[locale],
-    image: v.image,
+    image: absoluteAssetUrl(v.image),
     brand: { "@type": "Brand", name: v.brand },
     sku: v.slug,
-    offers: {
-      "@type": "Offer",
-      url,
-      priceCurrency: SITE.currency,
-      price: v.priceShoulder,
-      priceValidUntil: "2026-12-31",
-      availability: "https://schema.org/InStock",
-      seller: { "@id": LB_ID },
-      eligibleRegion: { "@type": "Place", name: "Naxos, Greece" },
-      priceSpecification: [
-        { "@type": "UnitPriceSpecification", price: v.priceShoulder, priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" }, name: "Shoulder season" },
-        { "@type": "UnitPriceSpecification", price: v.priceHigh, priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" }, name: "High season" },
-        { "@type": "UnitPriceSpecification", price: v.priceWeekly, priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: 7, unitCode: "DAY" }, name: "Weekly" },
-      ],
-    },
     additionalType: "https://schema.org/Vehicle",
     vehicleConfiguration: v.model,
     vehicleTransmission: v.transmission,
@@ -104,7 +81,6 @@ export function vehicleSchema(v: Vehicle, locale: Locale) {
     seatingCapacity: v.seats,
     vehicleEngine: v.engineCC ? { "@type": "EngineSpecification", engineDisplacement: { "@type": "QuantitativeValue", value: v.engineCC, unitCode: "CMQ" } } : undefined,
     modelDate: v.year,
-    aggregateRating: { "@type": "AggregateRating", ratingValue: SITE.rating.value, reviewCount: SITE.rating.count },
   };
 }
 
@@ -125,7 +101,7 @@ export function articleSchema(g: Guide, locale: Locale) {
     "@id": absoluteUrl(locale, `guides/${g.slug}`),
     headline: g.title[locale],
     description: g.excerpt[locale],
-    image: g.hero,
+    image: absoluteAssetUrl(g.hero),
     datePublished: g.publishedAt,
     dateModified: g.updatedAt,
     author: { "@id": ORG_ID },

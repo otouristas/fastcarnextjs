@@ -109,8 +109,8 @@ export const dict: Dict = {
   },
   reviews: {
     title: "What our renters say",
-    subtitle: "Verified Google reviews",
-    google: "from Google reviews",
+    subtitle: "Customer experiences from recent Naxos rentals",
+    google: "customer reviews",
   },
   faqTeaser: {
     title: "Frequently asked questions",
@@ -120,7 +120,7 @@ export const dict: Dict = {
   footer: {
     rights: "All rights reserved.",
     description:
-      "Owner-operated car, scooter, ATV and buggy rental on Naxos. Free delivery to airport, port and hotel.",
+      "Owner-operated car rental on Naxos. Free delivery to airport, port and hotel.",
     fleet: "Fleet",
     company: "Company",
     legal: "Legal",

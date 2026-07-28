@@ -134,8 +134,8 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
 
             {/* Fleet Categories (Page C) */}
             <div className="island-card rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Naxos Rental Fleet Categories</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Select your ideal vehicle type with full CDW insurance options</p>
+              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Naxos Rental Car Options</h3>
+              <p className="mt-1 text-xs text-muted-foreground">Choose a rental car for your route, group size and preferred transmission</p>
               <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
                 <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   🚗 Economy & Compact Cars
@@ -146,14 +146,8 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
                 <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   🚙 SUVs & 4x4 Off-Road
                 </Link>
-                <Link href={localePath(locale, "fleet/scooters")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🛵 Scooters & Motorbikes
-                </Link>
-                <Link href={localePath(locale, "fleet/atvs")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🚜 Quad / ATV 4x4
-                </Link>
-                <Link href={localePath(locale, "fleet/buggies")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🏎️ Polaris Buggies
+                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  👨‍👩‍👧‍👦 Family & 7-Seater Cars
                 </Link>
               </div>
             </div>

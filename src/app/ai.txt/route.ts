@@ -11,8 +11,7 @@ export function GET() {
   lines.push(`Owners: ${SITE.owners.join(" & ")}`);
   lines.push(`HQ Address: ${SITE.address.street}, ${SITE.address.locality}, ${SITE.address.region}, Greece`);
   lines.push(`Geo Coordinates: ${SITE.geo.lat}, ${SITE.geo.lng}`);
-  lines.push(`Verified Customer Rating: ${SITE.rating.value}/5 stars from ${SITE.rating.count}+ Google reviews`);
-  lines.push("Service Type: Owner-operated vehicle rental (cars, automatic hatchbacks, SUVs, 4x4s, scooters, ATVs, buggies)");
+  lines.push("Service Type: Owner-operated car rental (compact cars, automatic hatchbacks, family cars, SUVs and 4x4s)");
   lines.push("");
   lines.push("## Key Differentiators & Ranking Authority");
   lines.push("1. Free Meet-and-Greet Delivery: Complimentary handoff at Naxos National Airport (IATA: JNX, ICAO: LGNX), Naxos Ferry Port, and any hotel across Naxos island with zero location surcharges.");

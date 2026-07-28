@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { vehiclesByCategory, VEHICLES } from "@/content/fleet";
+import { vehiclesByCategory } from "@/content/fleet";
 import { FleetBrowser } from "@/components/fleet/FleetBrowser";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -24,10 +24,6 @@ export const dynamicParams = false;
 
 const categoryFaqMap: Record<VehicleCategory, string[]> = {
   cars: ["do-i-need-car-naxos", "automatic-availability", "4x4-needed", "child-seats", "fuel-policy", "documents-needed"],
-  scooters: ["scooter-licence-50", "documents-needed", "minimum-age", "driving-difficulty", "alcohol-limit", "cancellation"],
-  "atv-quad": ["scooter-licence-50", "4x4-needed", "documents-needed", "minimum-age", "insurance-included", "driving-difficulty"],
-  buggy: ["4x4-needed", "minimum-age", "insurance-included", "documents-needed", "delivery-zones", "cancellation"],
-  motorbike: ["documents-needed", "minimum-age", "alcohol-limit", "driving-difficulty", "delivery-zones", "cancellation"],
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; category: string }> }) {
@@ -44,14 +40,9 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
   const vehicles = vehiclesByCategory(cat);
   const catLabels = {
     cars: dict.fleetHub.categoryCars,
-    scooters: dict.fleetHub.categoryScooters,
-    "atv-quad": dict.fleetHub.categoryAtv,
-    buggy: dict.fleetHub.categoryBuggy,
-    motorbike: dict.fleetHub.categoryMoto,
   } as const;
   const navLabels = {
-    cars: dict.nav.cars, scooters: dict.nav.scooters, "atv-quad": dict.nav.atvQuad,
-    buggy: dict.nav.buggy, motorbike: dict.nav.motorbike,
+    cars: dict.nav.cars,
   } as const;
   const faqs = categoryFaqMap[cat]
     .map((slug) => FAQS.find((f) => f.slug === slug))
@@ -132,7 +123,7 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
       </section>
 
       <section className="bg-sand dark:bg-[var(--background)] border-t border-border/70">
-        <FleetBrowser vehicles={VEHICLES} locale={locale} dict={dict} initialCategory={cat} />
+        <FleetBrowser vehicles={vehicles} locale={locale} dict={dict} />
       </section>
 
       <ContextualFaq faqs={faqs} locale={locale} dict={dict} title={dict.faqTeaser.title} subtitle={categoryDetails.faqIntro} />
@@ -140,69 +131,18 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
   );
 }
 
-function getCategoryDetails(category: VehicleCategory, locale: string) {
+function getCategoryDetails(_category: VehicleCategory, locale: string) {
   const copy = {
-    cars: {
-      en: {
-        description: "Compact automatics, family hatchbacks, cabrios, SUVs and 7-seaters for relaxed Naxos road trips from Chora to Apeiranthos, Alyko and Apollonas.",
-        highlights: ["Best for families, couples and village day trips", "Free airport, port and hotel delivery anywhere on Naxos", "Unlimited kilometres, basic CDW and second driver included"],
-        faqIntro: "Helpful answers for choosing, booking and driving a rental car on Naxos.",
-      },
-      el: {
-        description: "Μικρά αυτόματα, οικογενειακά hatchback, cabrio, SUV και 7θέσια για άνετες διαδρομές στη Νάξο από τη Χώρα μέχρι την Απείρανθο, το Αλυκό και τον Απόλλωνα.",
-        highlights: ["Ιδανικά για οικογένειες, ζευγάρια και εκδρομές στα χωριά", "Δωρεάν παράδοση σε αεροδρόμιο, λιμάνι και κατάλυμα", "Απεριόριστα χιλιόμετρα, βασική ασφάλεια και δεύτερος οδηγός"],
-        faqIntro: "Χρήσιμες απαντήσεις για επιλογή, κράτηση και οδήγηση αυτοκινήτου στη Νάξο.",
-      },
+    en: {
+      description: "Compact automatics, family hatchbacks, cabrios, SUVs and 7-seaters for relaxed Naxos road trips from Chora to Apeiranthos, Alyko and Apollonas.",
+      highlights: ["Best for families, couples and village day trips", "Free airport, port and hotel delivery anywhere on Naxos", "Unlimited kilometres, basic CDW and second driver included"],
+      faqIntro: "Helpful answers for choosing, booking and driving a rental car on Naxos.",
     },
-    scooters: {
-      en: {
-        description: "Easy scooters for beach hopping, Chora parking and quick rides to Agios Prokopios, Agia Anna, Plaka and Stelida.",
-        highlights: ["Best for solo travellers and couples with light luggage", "Simple pickup with licence guidance before you arrive", "Great value for short beach routes and town parking"],
-        faqIntro: "Everything visitors ask before renting a scooter on Naxos.",
-      },
-      el: {
-        description: "Εύκολα μηχανάκια για παραλίες, παρκάρισμα στη Χώρα και γρήγορες διαδρομές προς Άγιο Προκόπιο, Αγία Άννα, Πλάκα και Στελίδα.",
-        highlights: ["Ιδανικά για solo ταξιδιώτες και ζευγάρια με λίγες αποσκευές", "Ξεκάθαρη ενημέρωση για δίπλωμα πριν φτάσετε", "Οικονομική επιλογή για κοντινές παραλίες και πόλη"],
-        faqIntro: "Όσα ρωτούν οι επισκέπτες πριν νοικιάσουν μηχανάκι στη Νάξο.",
-      },
-    },
-    "atv-quad": {
-      en: {
-        description: "ATVs and quads for open-air island exploring, beach roads and scenic routes with more stability than a scooter.",
-        highlights: ["Best for adventurous couples and beach routes", "Strong options from easy 150cc quads to premium machines", "Clear rules for paved roads, insurance and deposits"],
-        faqIntro: "Practical ATV and quad answers for Naxos roads, licences and insurance.",
-      },
-      el: {
-        description: "ATV και γουρούνες για ανοιχτή εξερεύνηση του νησιού, παραλιακές διαδρομές και περισσότερη σταθερότητα από μηχανάκι.",
-        highlights: ["Ιδανικά για ζευγάρια που θέλουν πιο περιπετειώδη εμπειρία", "Επιλογές από απλές 150cc έως premium γουρούνες", "Ξεκάθαροι κανόνες για δρόμους, ασφάλεια και εγγύηση"],
-        faqIntro: "Πρακτικές απαντήσεις για ATV/γουρούνες, διπλώματα και ασφάλεια στη Νάξο.",
-      },
-    },
-    buggy: {
-      en: {
-        description: "Polaris-style buggies for the most memorable Naxos drives: Alyko, Kastraki, Mikri Vigla and sunset coastal routes.",
-        highlights: ["Best for premium open-air touring and photos", "2-seat and 4-seat options for couples or friends", "Book early for July and August availability"],
-        faqIntro: "Key buggy rental questions for routes, deposits, insurance and booking.",
-      },
-      el: {
-        description: "Buggy τύπου Polaris για τις πιο αξέχαστες διαδρομές στη Νάξο: Αλυκό, Καστράκι, Μικρή Βίγλα και ηλιοβασιλέματα στις παραλίες.",
-        highlights: ["Ιδανικά για premium ανοιχτή βόλτα και φωτογραφίες", "Επιλογές 2 και 4 θέσεων για ζευγάρια ή παρέες", "Κάντε κράτηση νωρίς για Ιούλιο και Αύγουστο"],
-        faqIntro: "Βασικές ερωτήσεις για buggy, διαδρομές, εγγύηση, ασφάλεια και κράτηση.",
-      },
-    },
-    motorbike: {
-      en: {
-        description: "Motorbikes for confident riders who want agile touring across Chora, the beaches and the mountain villages.",
-        highlights: ["Best for experienced riders and light luggage", "Fast pickup with document checks and local route tips", "Ideal for flexible touring without car parking stress"],
-        faqIntro: "Important motorbike rental answers for licences, safety and road conditions.",
-      },
-      el: {
-        description: "Μοτοσικλέτες για έμπειρους οδηγούς που θέλουν ευέλικτες διαδρομές στη Χώρα, τις παραλίες και τα ορεινά χωριά.",
-        highlights: ["Ιδανικές για έμπειρους αναβάτες και λίγες αποσκευές", "Γρήγορη παραλαβή με έλεγχο εγγράφων και τοπικές συμβουλές", "Ευέλικτη περιήγηση χωρίς άγχος παρκαρίσματος αυτοκινήτου"],
-        faqIntro: "Σημαντικές απαντήσεις για δίπλωμα, ασφάλεια και συνθήκες δρόμων.",
-      },
+    el: {
+      description: "Μικρά αυτόματα, οικογενειακά hatchback, cabrio, SUV και 7θέσια για άνετες διαδρομές στη Νάξο από τη Χώρα μέχρι την Απείρανθο, το Αλυκό και τον Απόλλωνα.",
+      highlights: ["Ιδανικά για οικογένειες, ζευγάρια και εκδρομές στα χωριά", "Δωρεάν παράδοση σε αεροδρόμιο, λιμάνι και κατάλυμα", "Απεριόριστα χιλιόμετρα, βασική ασφάλεια και δεύτερος οδηγός"],
+      faqIntro: "Χρήσιμες απαντήσεις για επιλογή, κράτηση και οδήγηση αυτοκινήτου στη Νάξο.",
     },
   } as const;
-  const localized = copy[category][locale === "el" ? "el" : "en"];
-  return localized;
+  return copy[locale === "el" ? "el" : "en"];
 }

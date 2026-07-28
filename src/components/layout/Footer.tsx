@@ -6,7 +6,7 @@ import { LOCATIONS } from "@/content/locations";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
   Mail, Phone, MapPin, ShieldCheck, Gauge, Baby, Route,
-  MapPinned, Star, ChevronDown,
+  ChevronDown,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
@@ -108,8 +108,6 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
             <div className="mt-5 flex items-center gap-2">
               <SocialIcon href={SITE.social.instagram} label="Instagram"><InstagramIcon className="h-4 w-4" /></SocialIcon>
               <SocialIcon href={SITE.social.facebook} label="Facebook"><FacebookIcon className="h-4 w-4" /></SocialIcon>
-              <SocialIcon href={SITE.social.googleMaps} label="Google Maps"><MapPinned className="h-4 w-4" /></SocialIcon>
-              <SocialIcon href={SITE.social.tripadvisor} label="Tripadvisor"><Star className="h-4 w-4" /></SocialIcon>
             </div>
           </div>
 

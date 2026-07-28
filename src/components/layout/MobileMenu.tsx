@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { SITE, viberUrl, type Locale, LOCALES, LOCALE_META } from "@/lib/site";
+import { SITE, viberUrl, type Locale, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { Menu, X, Phone, Car, MapPin, BookOpen, ShieldCheck, ChevronDown } from "lucide-react";
@@ -129,7 +129,7 @@ export function MobileMenu({
                 {LOCALES.map((l) => (
                   <Link
                     key={l}
-                    href={swapLocale(currentPath, l)}
+                    href={swapLocalePath(currentPath, l)}
                     onClick={() => setOpen(false)}
                     hrefLang={LOCALE_META[l].htmlLang}
                     className={`rounded-full px-3 py-2 text-xs font-bold uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "bg-white text-muted-foreground shadow-sm hover:text-[var(--ink)] dark:bg-white/10 dark:hover:text-white"}`}
@@ -229,13 +229,4 @@ function MobileSection({
       </div>
     </details>
   );
-}
-
-function swapLocale(path: string, newLocale: Locale): string {
-  const parts = path.split("/").filter(Boolean);
-  if (parts.length === 0) return `/${newLocale}`;
-  const isLocale = (LOCALES as readonly string[]).includes(parts[0]);
-  if (isLocale) parts[0] = newLocale;
-  else parts.unshift(newLocale);
-  return "/" + parts.join("/");
 }

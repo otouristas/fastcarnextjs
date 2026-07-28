@@ -5,7 +5,7 @@
 
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useMemo, useSyncExternalStore } from "react";
 
 export type Consent = {
   essential: true;
@@ -16,20 +16,53 @@ export type Consent = {
 
 const STORAGE_KEY = "fmr-consent";
 const EVENT = "fmr-consent-change";
+const SERVER_SNAPSHOT = "__fmr_server__";
+const EMPTY_SNAPSHOT = "__fmr_empty__";
 
-export function readConsent(): Consent | null {
-  if (typeof window === "undefined") return null;
+function getSnapshot(): string {
+  if (typeof window === "undefined") return SERVER_SNAPSHOT;
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
+    return window.localStorage.getItem(STORAGE_KEY) ?? EMPTY_SNAPSHOT;
+  } catch {
+    return EMPTY_SNAPSHOT;
+  }
+}
+
+function getServerSnapshot(): string {
+  return SERVER_SNAPSHOT;
+}
+
+function subscribe(onStoreChange: () => void): () => void {
+  if (typeof window === "undefined") return () => {};
+  const onChange = () => onStoreChange();
+  window.addEventListener(EVENT, onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    window.removeEventListener(EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+function parseConsent(raw: string): Consent | null {
+  if (raw === SERVER_SNAPSHOT || raw === EMPTY_SNAPSHOT) return null;
+  try {
     const parsed = JSON.parse(raw);
     if (typeof parsed?.ts === "number" && typeof parsed?.analytics === "boolean") {
-      return { essential: true, analytics: !!parsed.analytics, marketing: !!parsed.marketing, ts: parsed.ts };
+      return {
+        essential: true,
+        analytics: Boolean(parsed.analytics),
+        marketing: Boolean(parsed.marketing),
+        ts: parsed.ts,
+      };
     }
-    return null;
   } catch {
-    return null;
+    // Treat invalid persisted data as no consent decision.
   }
+  return null;
+}
+
+export function readConsent(): Consent | null {
+  return parseConsent(getSnapshot());
 }
 
 export function writeConsent(partial: Omit<Consent, "essential" | "ts">) {
@@ -45,30 +78,24 @@ export function writeConsent(partial: Omit<Consent, "essential" | "ts">) {
 
 export function clearConsent() {
   if (typeof window === "undefined") return;
-  window.localStorage.removeItem(STORAGE_KEY);
-  window.dispatchEvent(new CustomEvent(EVENT));
+  try {
+    window.localStorage.removeItem(STORAGE_KEY);
+    window.dispatchEvent(new CustomEvent(EVENT));
+  } catch {
+    /* ignore */
+  }
 }
 
 export function useConsent(): {
   consent: Consent | null;
+  hydrated: boolean;
   decided: boolean;
   setConsent: (next: Omit<Consent, "essential" | "ts">) => void;
   reset: () => void;
 } {
-  const [consent, setConsentState] = useState<Consent | null>(null);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setConsentState(readConsent());
-    setHydrated(true);
-    const onChange = () => setConsentState(readConsent());
-    window.addEventListener(EVENT, onChange);
-    window.addEventListener("storage", onChange);
-    return () => {
-      window.removeEventListener(EVENT, onChange);
-      window.removeEventListener("storage", onChange);
-    };
-  }, []);
+  const snapshot = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const consent = useMemo(() => parseConsent(snapshot), [snapshot]);
+  const hydrated = snapshot !== SERVER_SNAPSHOT;
 
   const setConsent = useCallback((next: Omit<Consent, "essential" | "ts">) => {
     writeConsent(next);
@@ -78,5 +105,5 @@ export function useConsent(): {
     clearConsent();
   }, []);
 
-  return { consent, decided: hydrated && consent !== null, setConsent, reset };
+  return { consent, hydrated, decided: hydrated && consent !== null, setConsent, reset };
 }

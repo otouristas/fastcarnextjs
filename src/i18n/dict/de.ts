@@ -109,8 +109,8 @@ export const dict: Dict = {
   },
   reviews: {
     title: "Was unsere Kunden sagen",
-    subtitle: "Verifizierte Google-Bewertungen",
-    google: "aus Google-Bewertungen",
+    subtitle: "Erfahrungen aus aktuellen Mietwagenbuchungen auf Naxos",
+    google: "Kundenbewertungen",
   },
   faqTeaser: {
     title: "Häufig gestellte Fragen",
@@ -120,7 +120,7 @@ export const dict: Dict = {
   footer: {
     rights: "Alle Rechte vorbehalten.",
     description:
-      "Familiengeführte Auto-, Roller-, ATV- und Buggy-Vermietung auf Naxos. Kostenlose Lieferung zu Flughafen, Hafen und Hotel.",
+      "Familiengeführte Autovermietung auf Naxos. Kostenlose Lieferung zu Flughafen, Hafen und Hotel.",
     fleet: "Flotte",
     company: "Unternehmen",
     legal: "Rechtliches",
