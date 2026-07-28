@@ -99,7 +99,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       onClick={onClick}
       className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
         active
-          ? "border-[var(--sea)] bg-[var(--sea)] text-white"
+          ? "border-[var(--sea)] bg-[var(--sea)] text-[var(--primary-foreground)]"
           : "border-border bg-card text-foreground hover:border-[var(--sea-2)]"
       }`}
     >
@@ -273,7 +273,7 @@ export function FleetBrowser({
           >
             <SlidersHorizontal className="h-4 w-4" />
             {ff.openDrawer}
-            {active && <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[var(--sea)] text-[10px] text-white">{Array.from(filters.bestFor).length}</span>}
+            {active && <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[var(--sea)] text-[10px] text-[var(--primary-foreground)]">{Array.from(filters.bestFor).length}</span>}
           </button>
         </div>
       </div>
@@ -295,7 +295,7 @@ export function FleetBrowser({
               <p className="max-w-xs text-sm text-muted-foreground">{ff.emptyBody}</p>
               <button
                 onClick={clearAll}
-                className="rounded-full border border-[var(--sea)] px-4 py-2 text-sm font-bold text-[var(--sea)] transition-colors hover:bg-[var(--sea)] hover:text-white"
+                className="rounded-full border border-[var(--sea)] px-4 py-2 text-sm font-bold text-[var(--sea)] transition-colors hover:bg-[var(--sea)] hover:text-[var(--primary-foreground)]"
               >
                 {ff.clearAll}
               </button>
@@ -328,7 +328,7 @@ export function FleetBrowser({
             {FilterPanel}
             <button
               onClick={() => setDrawerOpen(false)}
-              className="mt-6 w-full rounded-full bg-[var(--sea)] py-3 text-sm font-bold text-white"
+              className="mt-6 w-full rounded-full bg-[var(--sea)] py-3 text-sm font-bold text-[var(--primary-foreground)]"
             >
               {ff.closeDrawer} · {filtered.length} {filtered.length === 1 ? ff.result : ff.results}
             </button>

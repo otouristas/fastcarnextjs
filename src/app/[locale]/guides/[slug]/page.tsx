@@ -57,7 +57,7 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
             { label: dict.nav.guides, href: localePath(locale, "guides") },
             { label: g.title[locale] },
           ]} />
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-soft)]">
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
             <Sparkles className="h-3.5 w-3.5" /> {dict.nav.guides}
           </div>
           <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">{g.title[locale]}</h1>

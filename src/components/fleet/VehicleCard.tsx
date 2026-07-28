@@ -46,7 +46,7 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
         <ul className="mt-1 grid grid-cols-2 gap-x-3 gap-y-2 text-xs text-muted-foreground">
           {v.seats != null && (
             <li className="flex items-center gap-1.5">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--brand-1)]">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
                 <Users className="h-3.5 w-3.5" />
               </span>
               <span className="font-medium text-[var(--ink)] dark:text-white">{v.seats}</span> {dict.common.seats}
@@ -54,7 +54,7 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
           )}
           {v.transmission && (
             <li className="flex items-center gap-1.5">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--brand-1)]">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
                 <Gauge className="h-3.5 w-3.5" />
               </span>
               <span className="font-medium text-[var(--ink)] dark:text-white">
@@ -64,7 +64,7 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
           )}
           {v.fuelType && (
             <li className="flex items-center gap-1.5">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--brand-1)]">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
                 <Fuel className="h-3.5 w-3.5" />
               </span>
               <span className="font-medium text-[var(--ink)] dark:text-white">{dict.common[v.fuelType]}</span>
@@ -72,7 +72,7 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
           )}
           {v.doors != null && (
             <li className="flex items-center gap-1.5">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--brand-1)]">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
                 <DoorOpen className="h-3.5 w-3.5" />
               </span>
               <span className="font-medium text-[var(--ink)] dark:text-white">{v.doors}</span> {dict.common.doors}

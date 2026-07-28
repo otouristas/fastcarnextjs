@@ -79,9 +79,9 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b backdrop-blur-xl" style={{ background: 'linear-gradient(180deg, rgba(227,237,255,0.52) 0%, rgba(209,224,250,0.34) 100%)', backgroundColor: 'rgba(223,234,252,0.42)', borderColor: 'rgba(143,165,207,0.34)', boxShadow: '0 8px 24px rgba(13, 34, 74, 0.12), inset 0 1px 0 rgba(255,255,255,0.36)' }}>
+    <header className="site-header sticky top-0 z-[80] w-full border-b backdrop-blur-xl">
       {/* Utility bar */}
-      <div className="hidden border-b text-xs text-muted-foreground sm:block" style={{ borderColor: 'rgba(143,165,207,0.24)', background: 'rgba(237,245,252,0.50)' }}>
+      <div className="site-header-utility hidden border-b text-xs text-muted-foreground sm:block">
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <a href={`tel:${SITE.phones[0]}`} className="inline-flex items-center gap-1.5 font-medium hover:text-[var(--sea)]">
@@ -98,7 +98,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
             <span className="hidden items-center gap-1 font-semibold text-[var(--ink)] dark:text-white md:inline-flex">
               <Star className="h-3.5 w-3.5 fill-[var(--brand-1)] text-[var(--brand-1)]" /> {SITE.rating.value}/5
             </span>
-            <div className="flex items-center gap-1 rounded-full border px-2 py-0.5" style={{ borderColor: 'rgba(143,165,207,0.30)', background: 'rgba(248,252,255,0.80)' }}>
+            <div className="site-language-switcher flex items-center gap-1 rounded-full border px-2 py-0.5">
               {LOCALES.map((l) => (
                 <Link
                   key={l}
@@ -199,11 +199,12 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
       <div className="invisible absolute left-1/2 top-full -translate-x-1/2 opacity-0 transition-all duration-200 group-hover/mega:visible group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:opacity-100">
         <div aria-hidden="true" className="h-3 w-full" />
         <div
-          className="rounded-[2rem] border p-6 backdrop-blur-xl" style={{ borderColor: 'rgba(26,143,197,0.18)', background: 'rgba(248,252,255,0.98)', boxShadow: '0 40px 100px -30px rgba(0,20,60,0.35)', width: 'min(76rem, calc(100vw - 2rem))' }}
+          className="site-mega-panel rounded-[2rem] border p-6 backdrop-blur-xl"
+          style={{ width: "min(76rem, calc(100vw - 2rem))" }}
         >
           <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-[var(--sea)] dark:text-[var(--sea-soft)]">
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-[var(--sea)] dark:text-[var(--sea-2)]">
                 {group.title}
               </p>
               <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -217,7 +218,7 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
                         <span className="flex items-center gap-1.5 text-sm font-bold text-[var(--ink)] dark:text-white">
                           {link.label}
                           {link.badge && (
-                            <span className="rounded-full bg-[var(--sea-soft)] px-1.5 py-0.5 text-[10px] font-bold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-soft)]">
+                            <span className="rounded-full bg-[var(--sea-soft)] px-1.5 py-0.5 text-[10px] font-bold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
                               {link.badge}
                             </span>
                           )}

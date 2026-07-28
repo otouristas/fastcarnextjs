@@ -62,6 +62,7 @@
   --brand-4: #023e8a;
   --brand-5: #03045e;
   --brand-gradient: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+  --brand-text-gradient: var(--brand-gradient);
 
   /* ── Sea / accent ── */
   --sea: #0077b6;
@@ -111,24 +112,37 @@
 }
 
 .dark {
-  --background: #081b2e;
-  --foreground: #e2ecf6;
-  --card: rgba(14, 38, 62, 0.92);
-  --card-foreground: #e2ecf6;
-  --popover: rgba(14, 38, 62, 0.96);
-  --popover-foreground: #e2ecf6;
-  --primary: #00b4d8;
-  --primary-foreground: #081b2e;
-  --secondary: rgba(0, 180, 216, 0.12);
-  --secondary-foreground: #e2ecf6;
-  --muted: #1a3a52;
-  --muted-foreground: #8ab0cc;
-  --accent: rgba(0, 180, 216, 0.15);
-  --accent-foreground: #48cae4;
+  /* Brighter ocean accents and neutral-blue surfaces preserve hierarchy at night. */
+  --brand-1: #38bfe5;
+  --brand-2: #67d9f3;
+  --brand-3: #4ac9ec;
+  --brand-4: #168fbd;
+  --brand-5: #0b5578;
+  --brand-gradient: linear-gradient(135deg, #006b93 0%, #087da5 100%);
+  --brand-text-gradient: linear-gradient(135deg, #38bfe5 0%, #78def4 100%);
+  --sea: #44c7e9;
+  --sea-2: #78def4;
+  --sea-soft: rgba(68, 199, 233, 0.13);
+  --sand: #0a1f2e;
+  --sand-2: #102b3d;
+  --background: #061521;
+  --foreground: #f2f7fa;
+  --card: rgba(13, 36, 52, 0.94);
+  --card-foreground: #f2f7fa;
+  --popover: rgba(11, 31, 46, 0.98);
+  --popover-foreground: #f2f7fa;
+  --primary: #44c7e9;
+  --primary-foreground: #031119;
+  --secondary: rgba(79, 188, 224, 0.13);
+  --secondary-foreground: #edf6fa;
+  --muted: #142f41;
+  --muted-foreground: #abc0ce;
+  --accent: rgba(68, 199, 233, 0.16);
+  --accent-foreground: #78def4;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: rgba(255, 255, 255, 0.10);
-  --input: rgba(255, 255, 255, 0.15);
-  --ring: oklch(0.556 0 0);
+  --border: rgba(129, 193, 218, 0.21);
+  --input: rgba(137, 202, 226, 0.28);
+  --ring: #67d9f3;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -156,6 +170,12 @@
       radial-gradient(circle at top right, rgba(0, 180, 216, 0.08), transparent 32rem),
       var(--background);
   }
+  .dark body {
+    background:
+      radial-gradient(circle at 12% -8%, rgba(35, 151, 194, 0.17), transparent 34rem),
+      radial-gradient(circle at 90% 8%, rgba(49, 192, 226, 0.10), transparent 30rem),
+      linear-gradient(180deg, #071824 0%, var(--background) 30rem);
+  }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
@@ -164,11 +184,27 @@
     background: var(--brand-1);
     color: #fff;
   }
+  .dark ::selection {
+    background: var(--sea);
+    color: #031119;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #89a4b6;
+    opacity: 1;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
 }
 
 @layer utilities {
   .text-brand-gradient {
-    background: var(--brand-gradient);
+    background: var(--brand-text-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -199,9 +235,9 @@
   }
   .dark .ember-bg {
     background:
-      radial-gradient(60% 80% at 18% 100%, rgba(0, 119, 182, 0.15) 0%, transparent 62%),
-      radial-gradient(50% 70% at 84% 0%, rgba(0, 180, 216, 0.12) 0%, transparent 60%),
-      linear-gradient(180deg, #081b2e 0%, #0e2d48 100%);
+      radial-gradient(60% 80% at 18% 100%, rgba(36, 158, 200, 0.18) 0%, transparent 62%),
+      radial-gradient(50% 70% at 84% 0%, rgba(72, 204, 233, 0.12) 0%, transparent 60%),
+      linear-gradient(180deg, #071722 0%, #0c2a3d 100%);
   }
 
   /* ── Grid background  -  subtle cool-tone ── */
@@ -220,9 +256,18 @@
     backdrop-filter: blur(8px);
   }
   .dark .island-card {
-    background: rgba(14, 38, 62, 0.88);
-    border-color: rgba(255, 255, 255, 0.10);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    background:
+      linear-gradient(145deg, rgba(18, 47, 66, 0.96), rgba(10, 31, 46, 0.96));
+    border-color: rgba(129, 193, 218, 0.20);
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(207, 239, 250, 0.035);
+  }
+  .dark .island-card:hover {
+    border-color: rgba(103, 217, 243, 0.52);
+    box-shadow:
+      0 28px 90px rgba(0, 0, 0, 0.42),
+      0 0 0 1px rgba(103, 217, 243, 0.06);
   }
 
   /* ── Sea gradient ── */
@@ -239,9 +284,120 @@
   }
   .dark .wave-bg {
     background:
-      radial-gradient(50% 70% at 8% 10%, rgba(0, 119, 182, 0.12), transparent 58%),
-      radial-gradient(44% 64% at 92% 18%, rgba(0, 180, 216, 0.10), transparent 58%),
-      linear-gradient(180deg, #081b2e 0%, #0e2d48 48%, #081b2e 100%);
+      radial-gradient(50% 70% at 8% 10%, rgba(34, 155, 197, 0.16), transparent 58%),
+      radial-gradient(44% 64% at 92% 18%, rgba(68, 199, 233, 0.11), transparent 58%),
+      linear-gradient(180deg, #061521 0%, #0c283a 48%, #061521 100%);
+  }
+
+  /* ── Navigation surfaces ── */
+  .site-header {
+    background:
+      linear-gradient(180deg, rgba(227, 237, 255, 0.72) 0%, rgba(209, 224, 250, 0.58) 100%);
+    border-color: rgba(143, 165, 207, 0.34);
+    box-shadow: 0 8px 24px rgba(13, 34, 74, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.36);
+  }
+  .site-header-utility {
+    border-color: rgba(143, 165, 207, 0.24);
+    background: rgba(237, 245, 252, 0.58);
+  }
+  .site-language-switcher {
+    border-color: rgba(143, 165, 207, 0.30);
+    background: rgba(248, 252, 255, 0.82);
+  }
+  .site-mega-panel {
+    border-color: rgba(26, 143, 197, 0.18);
+    background: rgba(248, 252, 255, 0.98);
+    box-shadow: 0 40px 100px -30px rgba(0, 20, 60, 0.35);
+  }
+  .dark .site-header {
+    background:
+      linear-gradient(180deg, rgba(7, 25, 38, 0.96) 0%, rgba(8, 29, 43, 0.91) 100%);
+    border-color: rgba(112, 193, 220, 0.20);
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(190, 232, 246, 0.04);
+  }
+  .dark .site-header-utility {
+    border-color: rgba(112, 193, 220, 0.14);
+    background: rgba(4, 17, 27, 0.66);
+  }
+  .dark .site-language-switcher {
+    border-color: rgba(112, 193, 220, 0.20);
+    background: rgba(17, 48, 67, 0.88);
+  }
+  .dark .site-mega-panel {
+    border-color: rgba(122, 207, 232, 0.24);
+    background:
+      radial-gradient(circle at 100% 0%, rgba(55, 187, 222, 0.09), transparent 24rem),
+      rgba(8, 27, 41, 0.985);
+    box-shadow: 0 40px 100px -24px rgba(0, 0, 0, 0.72), inset 0 1px 0 rgba(211, 241, 250, 0.05);
+  }
+
+  /* ── Mobile navigation ── */
+  .mobile-menu-surface {
+    border-color: rgba(143, 165, 207, 0.34);
+    background: rgba(237, 245, 252, 0.985);
+  }
+  .mobile-menu-actions {
+    background: rgba(255, 255, 255, 0.92);
+  }
+  .mobile-menu-section {
+    background: rgba(255, 255, 255, 0.72);
+  }
+  .dark .mobile-menu-surface {
+    border-color: rgba(122, 207, 232, 0.22);
+    background:
+      radial-gradient(circle at 90% 0%, rgba(48, 188, 224, 0.12), transparent 22rem),
+      rgba(6, 21, 33, 0.992);
+  }
+  .dark .mobile-menu-actions {
+    background: rgba(7, 25, 38, 0.985);
+    border-color: rgba(122, 207, 232, 0.18);
+  }
+  .dark .mobile-menu-section {
+    background: rgba(16, 43, 61, 0.82);
+    border-color: rgba(122, 207, 232, 0.18);
+  }
+
+  /* ── Homepage trust strip ── */
+  .trust-strip,
+  .trust-strip-item {
+    background: color-mix(in oklab, #edf5fc 84%, #ffffff);
+  }
+  .trust-strip-grid {
+    gap: 1px;
+    background: rgba(26, 143, 197, 0.10);
+  }
+  .dark .trust-strip {
+    background: #081b29;
+  }
+  .dark .trust-strip-grid {
+    background: rgba(111, 207, 233, 0.16);
+  }
+  .dark .trust-strip-item {
+    background: #0b2233;
+  }
+
+  /* Native controls and long-form content should feel designed in dark mode. */
+  .dark input:not([type="checkbox"]):not([type="radio"]),
+  .dark textarea,
+  .dark select {
+    background-color: rgba(11, 34, 50, 0.96);
+    border-color: var(--input);
+    color: var(--foreground);
+  }
+  .dark table {
+    border-color: var(--border);
+  }
+  .dark tbody tr {
+    transition: background-color 160ms ease;
+  }
+  .dark .prose {
+    color: var(--muted-foreground);
+  }
+  .dark .prose :where(h1, h2, h3, h4, strong) {
+    color: var(--foreground);
+  }
+  .dark .prose a {
+    color: var(--sea-2);
   }
 
   /* Ken-Burns slow zoom-out for hero imagery */

@@ -87,7 +87,7 @@ export default async function LocationPage({ params }: { params: Promise<{ local
           ]} />
           <div className="mt-6 grid items-end gap-10 lg:grid-cols-12">
             <div className="lg:col-span-8">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-soft)]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
                 <Sparkles className="h-4 w-4" /> {dict.hero.eyebrow}
               </span>
               <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">
@@ -199,7 +199,7 @@ export default async function LocationPage({ params }: { params: Promise<{ local
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {recommended.map(({ vehicle, reason }) => (
                 <div key={vehicle.slug} className="relative">
-                  <span className="absolute -top-3 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[var(--sea)] px-3 py-1 text-[11px] font-bold text-white shadow">
+                  <span className="absolute -top-3 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[var(--sea)] px-3 py-1 text-[11px] font-bold text-[var(--primary-foreground)] shadow">
                     {reason[locale]}
                   </span>
                   <VehicleCard vehicle={vehicle} locale={locale} dict={dict} />

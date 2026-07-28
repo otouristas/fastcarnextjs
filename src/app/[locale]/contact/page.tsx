@@ -63,7 +63,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 rel="noopener noreferrer"
                 className="group island-card col-span-2 flex items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-0.5 hover:shadow-xl"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e8f7ef]">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e8f7ef] dark:bg-emerald-400/15">
                   <WhatsAppIcon className="h-7 w-7" />
                 </span>
                 <div className="min-w-0">

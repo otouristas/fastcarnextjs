@@ -6,7 +6,7 @@ export function ChatMessage({ text, isBot }: { text: string; isBot: boolean }) {
   if (isBot) {
     return (
       <div className="flex items-start gap-2">
-        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--sea)] text-white">
+        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--sea)] text-[var(--primary-foreground)]">
           <Bot className="h-4 w-4" />
         </div>
         <div className="max-w-[80%] rounded-2xl rounded-tl-sm bg-card px-4 py-3 text-sm text-foreground shadow-sm border border-border/40">
@@ -22,7 +22,7 @@ export function ChatMessage({ text, isBot }: { text: string; isBot: boolean }) {
 
   return (
     <div className="flex justify-end">
-      <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-[var(--sea)] px-4 py-3 text-sm text-white shadow-sm">
+      <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-[var(--sea)] px-4 py-3 text-sm text-[var(--primary-foreground)] shadow-sm">
         <p className="leading-relaxed">{text}</p>
       </div>
     </div>
@@ -68,7 +68,7 @@ function parseInline(line: string): React.ReactNode[] {
 export function TypingIndicator() {
   return (
     <div className="flex items-start gap-2">
-      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--sea)] text-white">
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--sea)] text-[var(--primary-foreground)]">
         <Bot className="h-4 w-4" />
       </div>
       <div className="flex items-center gap-1 rounded-2xl rounded-tl-sm bg-card px-4 py-3 shadow-sm border border-border/40">

@@ -232,7 +232,7 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
             </div>
             <div className="overflow-hidden rounded-3xl border border-border">
               <table className="w-full text-xs">
-                <thead className="bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-soft)]">
+                <thead className="bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
                   <tr>
                     {["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map((m) => (
                       <th key={m} className="px-2 py-2 font-bold">{m}</th>
@@ -269,22 +269,22 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
                 </>
               ) : locale === "it" ? (
                 <>
-                  <p>A differenza di molte isole cicladiche che dipendono principalmente dal turismo, Naxos produce ancora il proprio cibo. La sua pianura ospita vigneti, uliveti, campi di patate (la "patata di Naxos" è IGP) e caseifici.</p>
+                  <p>A differenza di molte isole cicladiche che dipendono principalmente dal turismo, Naxos produce ancora il proprio cibo. La sua pianura ospita vigneti, uliveti, campi di patate (la &quot;patata di Naxos&quot; è IGP) e caseifici.</p>
                   <p>I principali prodotti locali: <strong>Arseniko di Naxos</strong> (formaggio duro DOP), <strong>Kitron</strong> (liquore di foglie di cedro  -  unico a Naxos), <strong>miele di Naxos</strong> al timo e il <strong>marmo di Naxos</strong> ancora estratto a sudest.</p>
                 </>
               ) : locale === "fr" ? (
                 <>
-                  <p>Contrairement à beaucoup d'îles cycladiques qui dépendent principalement du tourisme, Naxos produit encore sa propre nourriture. Sa plaine accueille vignobles, oliveraies, champs de pommes de terre (la « pomme de terre de Naxos » est IGP) et fromageries.</p>
+                  <p>Contrairement à beaucoup d&apos;îles cycladiques qui dépendent principalement du tourisme, Naxos produit encore sa propre nourriture. Sa plaine accueille vignobles, oliveraies, champs de pommes de terre (la « pomme de terre de Naxos » est IGP) et fromageries.</p>
                   <p>Les principaux produits locaux : <strong>Arseniko de Naxos</strong> (fromage dur AOP), <strong>Kitron</strong> (liqueur de feuilles de cédratier  -  unique à Naxos), <strong>miel de Naxos</strong> au thym et le <strong>marbre de Naxos</strong> encore extrait au sud-est.</p>
                 </>
               ) : locale === "de" ? (
                 <>
-                  <p>Im Gegensatz zu vielen anderen Kykladeninseln, die hauptsächlich vom Tourismus abhängen, produziert Naxos noch immer seine eigenen Lebensmittel. Die Ebene beherbergt Weinberge, Olivenhaine, Kartoffeläcker (die „Naxos-Kartoffel" ist g.g.A.) und Käsereien.</p>
+                  <p>Im Gegensatz zu vielen anderen Kykladeninseln, die hauptsächlich vom Tourismus abhängen, produziert Naxos noch immer seine eigenen Lebensmittel. Die Ebene beherbergt Weinberge, Olivenhaine, Kartoffeläcker (die „Naxos-Kartoffel“ ist g.g.A.) und Käsereien.</p>
                   <p>Die wichtigsten lokalen Produkte: <strong>Arseniko von Naxos</strong> (hartkäse g.U.), <strong>Kitron</strong> (Zitronslikör  -  einzigartig auf Naxos), <strong>Naxos-Honig</strong> aus Thymian und der <strong>Naxos-Marmor</strong>, der im Südosten noch abgebaut wird.</p>
                 </>
               ) : (
                 <>
-                  <p>Unlike many Cycladic islands that rely almost entirely on tourism, Naxos still produces its own food. Its fertile plain hosts vineyards, olive groves, potato fields (the "Naxian potato" holds EU PGI status) and cheese dairies.</p>
+                  <p>Unlike many Cycladic islands that rely almost entirely on tourism, Naxos still produces its own food. Its fertile plain hosts vineyards, olive groves, potato fields (the “Naxian potato” holds EU PGI status) and cheese dairies.</p>
                   <p>Key local products: <strong>Arseniko Naxou</strong> (hard sharp PDO cheese), <strong>Kitron</strong> (a liqueur made from citron leaves  -  completely unique to Naxos), <strong>Naxian thyme honey</strong> and <strong>Naxian marble</strong> still quarried in the southeast  -  the same stone used for the Portara 2,600 years ago.</p>
                 </>
               )}
@@ -369,7 +369,7 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {naxosTownRec.map(({ vehicle, reason }) => (
                 <div key={vehicle.slug} className="relative">
-                  <span className="absolute -top-3 left-4 z-10 inline-flex rounded-full bg-[var(--sea)] px-3 py-1 text-[11px] font-bold text-white shadow">
+                  <span className="absolute -top-3 left-4 z-10 inline-flex rounded-full bg-[var(--sea)] px-3 py-1 text-[11px] font-bold text-[var(--primary-foreground)] shadow">
                     {reason[locale]}
                   </span>
                   <VehicleCard vehicle={vehicle} locale={locale} dict={dict} />
@@ -402,10 +402,10 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-foreground">{nd.referencesTitle}</h2>
           <ol className="mt-4 space-y-2 text-xs text-muted-foreground">
-            <li>[1] Wikipedia contributors. "Naxos." Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer" className="text-[var(--sea)] hover:underline">https://en.wikipedia.org/wiki/Naxos</a>. Accessed {new Date().getFullYear()}. Licensed under CC BY-SA 4.0.</li>
-            <li>[2] Wikipedia contributors. "Duchy of the Archipelago." Wikipedia. <a href="https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago" target="_blank" rel="noopener noreferrer" className="text-[var(--sea)] hover:underline">https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago</a>. Accessed {new Date().getFullYear()}. CC BY-SA 4.0.</li>
+            <li>[1] Wikipedia contributors. “Naxos.” Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer" className="text-[var(--sea)] hover:underline">https://en.wikipedia.org/wiki/Naxos</a>. Accessed {new Date().getFullYear()}. Licensed under CC BY-SA 4.0.</li>
+            <li>[2] Wikipedia contributors. “Duchy of the Archipelago.” Wikipedia. <a href="https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago" target="_blank" rel="noopener noreferrer" className="text-[var(--sea)] hover:underline">https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago</a>. Accessed {new Date().getFullYear()}. CC BY-SA 4.0.</li>
             <li>[3] Hellenic National Meteorological Service (HNMS) climate data, as cited in Wikipedia  -  Naxos. Licensed under CC BY-SA 4.0.</li>
-            <li>[4] European Commission. "Arseniko Naxou" PDO registration. European Union geographical indications register.</li>
+            <li>[4] European Commission. “Arseniko Naxou” PDO registration. European Union geographical indications register.</li>
           </ol>
         </div>
       </section>

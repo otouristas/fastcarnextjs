@@ -72,7 +72,7 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
                 { label: dict.nav.fleet, href: localePath(locale, "fleet") },
                 { label: navLabels[cat] },
               ]} />
-              <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-soft)]">
+              <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
                 <Sparkles className="h-4 w-4" /> {dict.hero.eyebrow}
               </span>
               <h1 className="mt-5 max-w-4xl text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-6xl">{catLabels[cat]}</h1>

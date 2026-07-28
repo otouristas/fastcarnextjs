@@ -198,7 +198,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                     {v.name[locale]}
                   </h1>
                   <p className="mt-2 text-base text-muted-foreground">{v.tagline[locale]}</p>
-                  <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-[var(--sea-soft)] px-3 py-1 text-xs font-semibold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-soft)]">
+                  <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-[var(--sea-soft)] px-3 py-1 text-xs font-semibold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
                     <Star className="h-3.5 w-3.5 fill-[var(--brand-1)] text-[var(--brand-1)]" />
                     {SITE.rating.value}/5 · {SITE.rating.count}+ Google reviews
                   </div>
@@ -212,7 +212,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                       <span className="text-sm text-muted-foreground">{dict.common.perDay}</span>
                     </div>
                     {savePct > 0 && (
-                      <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--accent-foreground)] dark:bg-white/10 dark:text-[var(--brand-1)]">
+                      <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--accent-foreground)] dark:bg-white/10 dark:text-[var(--sea-2)]">
                         {labels.saveBadge(savePct)}
                       </span>
                     )}
@@ -294,7 +294,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                     key={i}
                     className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-[var(--sea-2)]/40 dark:bg-white/5"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-soft)]">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
                       <Check className="h-4 w-4" />
                     </span>
                     <span className="text-sm font-medium text-foreground">{f[locale]}</span>
@@ -311,7 +311,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 {v.bestFor.map((b, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-[var(--accent-foreground)] shadow-sm dark:bg-white/10 dark:text-[var(--brand-1)]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-[var(--accent-foreground)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]"
                   >
                     <Sparkles className="h-3 w-3" />
                     {b[locale]}
@@ -519,7 +519,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
 
 function SectionEyebrow({ children, icon }: { children: React.ReactNode; icon: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--sea-2)]/30 bg-[var(--sea-soft)]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-soft)]">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--sea-2)]/30 bg-[var(--sea-soft)]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
       {icon}
       {children}
     </span>
@@ -529,7 +529,7 @@ function SectionEyebrow({ children, icon }: { children: React.ReactNode; icon: R
 function SpecTile({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <li className="flex items-center gap-3 rounded-2xl border border-border bg-card px-3 py-2.5 shadow-sm dark:bg-white/5">
-      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-soft)]">
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
         {icon}
       </span>
       <span className="min-w-0">

@@ -43,7 +43,7 @@ export function CookieBanner({ dict, locale }: { dict: Dict; locale: Locale }) {
       <div className="mt-4 flex flex-col gap-2">
         <button
           onClick={accept}
-          className="w-full rounded-full bg-[var(--brand-1)] px-4 py-2 text-xs font-bold text-white shadow transition-opacity hover:opacity-90"
+          className="w-full rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow transition-opacity hover:opacity-90"
         >
           {dict.cookie.accept}
         </button>
