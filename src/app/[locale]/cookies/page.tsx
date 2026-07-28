@@ -5,6 +5,7 @@ import { isLocale, localePath } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { buildMetadata } from "@/lib/seo";
 import { LegalPageShell } from "@/components/legal/LegalPageShell";
+import { ConsentSettings } from "@/components/legal/ConsentSettings";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "cookies",
     title: dict.legal.cookiesTitle,
     description: dict.legal.cookiesSubtitle,
+    noindex: true,
   });
 }
 
@@ -87,6 +89,7 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
       subtitle={dict.legal.cookiesSubtitle}
     >
       <div className="space-y-6">
+        <ConsentSettings dict={dict} />
         <CookieSection title="Strictly necessary cookies" rows={essential} />
         <CookieSection title="Analytics cookies" rows={analytics} />
         <CookieSection

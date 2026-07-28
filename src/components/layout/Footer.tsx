@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SITE, type Locale, localePath, LOCALES, LOCALE_META } from "@/lib/site";
+import { SITE, type Locale, localePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
-import { LOCATIONS } from "@/content/locations";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
-  Mail, Phone, MapPin, ShieldCheck, Gauge, Baby, Route,
+  Mail, Phone, MapPin, ShieldCheck,
   ChevronDown, Globe2,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
+import { LanguageLinks } from "./LanguageLinks";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -41,10 +41,11 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
     { href: localePath(locale, "about"), label: dict.nav.about },
     { href: localePath(locale, "contact"), label: dict.nav.contact },
   ];
-  const exploreLinks = LOCATIONS.slice(0, 6).map((l) => ({
-    href: localePath(locale, `locations/${l.slug}`),
-    label: l.shortName,
-  }));
+  const exploreLinks = [
+    { href: localePath(locale, "naxos"), label: dict.naxos.pageTitle },
+    { href: localePath(locale, "naxos/beaches"), label: dict.naxos.beachesTitle },
+    { href: localePath(locale, "guides"), label: dict.nav.guides },
+  ];
   const legalLinks = [
     { href: localePath(locale, "terms"), label: "Terms & Conditions" },
     { href: localePath(locale, "cancellation"), label: "Cancellation Policy" },
@@ -54,27 +55,10 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
     { href: `${SITE.domain}/sitemap.xml`, label: "Sitemap", external: true },
   ];
 
-  const trustItems = [
-    { icon: <MapPin className="h-5 w-5" />, title: dict.trust.delivery },
-    { icon: <Route className="h-5 w-5" />, title: dict.trust.unlimited },
-    { icon: <Gauge className="h-5 w-5" />, title: dict.trust.transparent },
-    { icon: <Baby className="h-5 w-5" />, title: dict.trust.owner },
-  ];
-
   return (
     <footer className="relative overflow-hidden border-t bg-[#0a1628] text-white" style={{ borderColor: 'rgba(26,143,197,0.15)' }}>
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Trust strip */}
-        <div className="mb-12 grid gap-4 rounded-[2rem] p-4 sm:grid-cols-2 lg:grid-cols-4 border border-white/10 bg-[#0e2240]/40 backdrop-blur-md">
-          {trustItems.map((item) => (
-            <div key={item.title} className="flex items-center gap-3 rounded-3xl bg-[#0a1628]/60 border border-white/5 p-4 shadow-sm">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl sea-gradient text-white" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>{item.icon}</span>
-              <span className="text-sm font-bold leading-snug text-white">{item.title}</span>
-            </div>
-          ))}
-        </div>
-
         {/* Main grid  -  5 columns */}
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand block */}
@@ -82,7 +66,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
             <Link href={localePath(locale)} className="flex items-center gap-2" aria-label={SITE.brand}>
               <Image src={SITE.logo} alt={SITE.brand} width={280} height={84} className="h-14 w-auto sm:h-16" unoptimized />
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">{dict.footer.description}</p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">{SITE.tagline[locale]}</p>
 
             <div className="mt-5 rounded-3xl border border-white/10 bg-[#0e2240]/40 p-4 text-sm shadow-sm">
               <a href={`tel:${SITE.phones[0]}`} className="flex items-center gap-2 py-1 font-semibold hover:text-[var(--sea)]">
@@ -92,7 +76,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
                 <Mail className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.email}
               </a>
               <span className="flex items-center gap-2 py-1 text-muted-foreground">
-                <MapPin className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.address.locality}, Greece
+                <MapPin className="h-4 w-4 text-[var(--brand-2)]" /> Naxos, Greece
               </span>
               <a
                 href={whatsappUrl(dict.whatsAppFab.message)}
@@ -126,12 +110,6 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             </a>
             <span className="hidden sm:inline text-border">•</span>
-            <a href="https://touristas.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--sea)] transition-colors group">
-              <span>Powered by</span>
-              <span className="font-semibold group-hover:underline">Touristas AI</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            </a>
-            <span className="hidden sm:inline text-border">•</span>
             <a href="https://discovercyclades.gr/en" target="_blank" rel="noopener noreferrer" className="group relative flex-shrink-0">
               <div className="flex items-center gap-1.5 transition-transform duration-300 group-hover:-translate-y-0.5">
                 <Globe2 className="h-[18px] w-[18px] text-[var(--sea-2)]" aria-hidden="true" />
@@ -152,27 +130,9 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
             <span>{dict.footer.rights}</span>
           </div>
 
-          {/* Payment badges */}
-          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            <span>Pay with:</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-blue-800 dark:border-white/10 dark:bg-white/10 dark:text-blue-300">VISA</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-red-700 dark:border-white/10 dark:bg-white/10 dark:text-red-400">MC</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-blue-900 dark:border-white/10 dark:bg-white/10 dark:text-blue-200">AMEX</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-green-700 dark:border-white/10 dark:bg-white/10 dark:text-green-400">CASH</span>
-          </div>
-
           <div className="flex flex-wrap items-center gap-2 text-xs">
             <span className="mr-1 text-muted-foreground">{dict.footer.languages}:</span>
-            {LOCALES.map((l) => (
-              <Link
-                key={l}
-                href={localePath(l)}
-                hrefLang={LOCALE_META[l].htmlLang}
-                className={`rounded-full px-2 py-1 uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "border border-border bg-white/60 text-muted-foreground hover:text-[var(--ink)] dark:border-white/10 dark:bg-white/10 dark:hover:text-white"}`}
-              >
-                {LOCALE_META[l].flag} {l}
-              </Link>
-            ))}
+            <LanguageLinks locale={locale} />
           </div>
         </div>
       </div>

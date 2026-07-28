@@ -13,7 +13,7 @@ export function CookieBanner({ dict, locale }: { dict: Dict; locale: Locale }) {
   if (!hydrated || decided) return null;
 
   function accept() {
-    setConsent({ analytics: true, marketing: true });
+    setConsent({ analytics: true, marketing: false });
   }
 
   function reject() {
@@ -24,7 +24,7 @@ export function CookieBanner({ dict, locale }: { dict: Dict; locale: Locale }) {
     <div
       role="dialog"
       aria-label={dict.cookie.ariaLabel}
-      className="fixed bottom-4 left-4 z-50 max-w-sm rounded-2xl border border-border/60 bg-background/95 p-5 shadow-xl backdrop-blur-md"
+      className="fixed inset-x-3 bottom-3 z-[90] rounded-2xl border border-border bg-background/98 p-4 shadow-2xl backdrop-blur-xl sm:inset-x-auto sm:bottom-5 sm:left-5 sm:max-w-md sm:p-5"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-[var(--brand-1)]">
@@ -40,22 +40,22 @@ export function CookieBanner({ dict, locale }: { dict: Dict; locale: Locale }) {
         </button>
       </div>
       <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{dict.cookie.body}</p>
-      <div className="mt-4 flex flex-col gap-2">
+      <div className="mt-4 grid grid-cols-2 gap-2">
         <button
           onClick={accept}
-          className="w-full rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow transition-opacity hover:opacity-90"
+          className="min-h-11 w-full rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow transition-opacity hover:opacity-90"
         >
           {dict.cookie.accept}
         </button>
         <button
           onClick={reject}
-          className="w-full rounded-full border border-border px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted"
+          className="min-h-11 w-full rounded-full border border-border px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted"
         >
           {dict.cookie.reject}
         </button>
         <Link
           href={localePath(locale, "cookies")}
-          className="text-center text-xs text-[var(--sea)] underline-offset-2 hover:underline"
+          className="col-span-2 min-h-9 rounded-full py-2 text-center text-xs text-[var(--sea)] underline-offset-2 hover:underline"
         >
           {dict.cookie.settings}
         </Link>

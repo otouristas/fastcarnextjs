@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "gdpr",
     title: dict.legal.gdprTitle,
     description: dict.legal.gdprSubtitle,
+    noindex: true,
   });
 }
 

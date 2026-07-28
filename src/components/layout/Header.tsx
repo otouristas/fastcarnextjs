@@ -6,11 +6,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { SITE, type Locale, localePath, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
-import { LOCATIONS } from "@/content/locations";
 import { whatsappUrl } from "@/lib/whatsapp";
-import {
-  Phone, ChevronDown, Mail, Clock, Star,
-} from "lucide-react";
+import { Phone, ChevronDown, Mail } from "lucide-react";
 import { MobileMenu, type MenuLink } from "./MobileMenu";
 import { ThemeToggle } from "./ThemeToggle";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
@@ -37,26 +34,19 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
 
   const fleetLinks: MegaLink[] = [
     { href: localePath(locale, "fleet/cars"), label: dict.nav.cars, description: dict.fleetHub.categoryCars },
-    { href: localePath(locale, "fleet"), label: dict.nav.fleet, description: dict.fleetHub.subtitle },
+    { href: localePath(locale, "fleet"), label: dict.nav.fleet, description: SITE.tagline[locale] },
   ];
   const infoLinks: MegaLink[] = [
-    { href: localePath(locale, "pricing"), label: dict.nav.pricing, description: dict.pricing.subtitle },
-    { href: localePath(locale, "insurance"), label: dict.nav.insurance, description: dict.insurance.subtitle },
-    { href: localePath(locale, "faq"), label: dict.nav.faq, description: dict.faqHub.subtitle },
-    { href: localePath(locale, "about"), label: dict.nav.about, description: dict.about.subtitle },
-    { href: localePath(locale, "contact"), label: dict.nav.contact, description: dict.contact.subtitle },
+    { href: localePath(locale, "pricing"), label: dict.nav.pricing, description: SITE.tagline[locale] },
+    { href: localePath(locale, "insurance"), label: dict.nav.insurance, description: SITE.tagline[locale] },
+    { href: localePath(locale, "faq"), label: dict.nav.faq, description: SITE.tagline[locale] },
+    { href: localePath(locale, "about"), label: dict.nav.about, description: SITE.tagline[locale] },
+    { href: localePath(locale, "contact"), label: dict.nav.contact, description: SITE.tagline[locale] },
     { href: localePath(locale, "terms"), label: "Terms", description: "Rental terms & conditions" },
-    { href: localePath(locale, "reviews"), label: "Reviews", description: `${SITE.rating.value}★ · ${SITE.rating.count}+ verified Google reviews` },
   ];
   const exploreLinks: MegaLink[] = [
     { href: localePath(locale, "naxos"), label: dict.naxos.pageTitle, description: dict.naxos.pageSubtitle, badge: "Guide" },
     { href: localePath(locale, "naxos/beaches"), label: dict.naxos.beachesTitle, description: "Beaches, villages & best vehicle picks" },
-    { href: localePath(locale, "locations"), label: dict.nav.locations, description: dict.locationsHub.subtitle },
-    ...LOCATIONS.slice(0, 4).map((l) => ({
-      href: localePath(locale, `locations/${l.slug}`),
-      label: l.shortName,
-      description: l.hero[locale],
-    })),
     { href: localePath(locale, "guides"), label: dict.nav.guides, description: dict.guidesHub.subtitle },
   ];
 
@@ -64,17 +54,17 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
     {
       title: dict.nav.fleet,
       links: fleetLinks,
-      cta: { label: dict.cta.bookCar, href: SITE.bookingUrl, description: dict.book.subtitle },
+      cta: { label: dict.cta.bookCar, href: SITE.bookingUrl, description: SITE.tagline[locale] },
     },
     {
       title: dict.footer.company,
       links: infoLinks,
-      cta: { label: dict.cta.whatsappQuote, href: whatsappUrl(dict.whatsAppFab.message), description: dict.contact.subtitle },
+      cta: { label: dict.cta.whatsappQuote, href: whatsappUrl(dict.whatsAppFab.message), description: SITE.tagline[locale] },
     },
     {
       title: dict.footer.explore,
       links: exploreLinks,
-      cta: { label: dict.cta.seeFleet, href: localePath(locale, "fleet"), description: dict.fleetHub.subtitle },
+      cta: { label: dict.cta.seeFleet, href: localePath(locale, "fleet"), description: SITE.tagline[locale] },
     },
   ];
 
@@ -90,14 +80,8 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
             <a href={`mailto:${SITE.email}`} className="hidden items-center gap-1.5 font-medium hover:text-[var(--sea)] md:inline-flex">
               <Mail className="h-3.5 w-3.5" /> {SITE.email}
             </a>
-            <span className="hidden items-center gap-1.5 md:inline-flex">
-              <Clock className="h-3.5 w-3.5" /> {SITE.hours.open}–{SITE.hours.close}
-            </span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="hidden items-center gap-1 font-semibold text-[var(--ink)] dark:text-white md:inline-flex">
-              <Star className="h-3.5 w-3.5 fill-[var(--brand-1)] text-[var(--brand-1)]" /> {SITE.rating.value}/5
-            </span>
             <div className="site-language-switcher flex items-center gap-1 rounded-full border px-2 py-0.5">
               {LOCALES.map((l) => (
                 <Link
@@ -105,6 +89,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
                   href={swapLocalePath(currentPath, l)}
                   aria-label={LOCALE_META[l].name}
                   hrefLang={LOCALE_META[l].htmlLang}
+                  data-analytics-event="language_switch"
                   className={`rounded-full px-1.5 py-0.5 uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "hover:text-[var(--ink)] dark:hover:text-white"}`}
                 >
                   {l}

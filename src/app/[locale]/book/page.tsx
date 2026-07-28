@@ -12,7 +12,7 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return seoFor("book", locale, "book");
+  return seoFor("book", locale, "book", { noindex: true });
 }
 
 export default async function BookPage({ params }: { params: Promise<{ locale: string }> }) {

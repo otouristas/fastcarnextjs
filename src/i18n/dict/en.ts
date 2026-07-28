@@ -5,10 +5,6 @@ export const dict: Dict = {
     home: "Home",
     fleet: "Fleet",
     cars: "Cars",
-    scooters: "Scooters",
-    atvQuad: "ATV & Quad",
-    buggy: "Buggy",
-    motorbike: "Motorbike",
     locations: "Locations",
     pricing: "Pricing",
     insurance: "Insurance",
@@ -91,9 +87,6 @@ export const dict: Dict = {
   fleetTeaser: {
     title: "Built for every Naxos itinerary",
     cars: "Cars",
-    scooters: "Scooters",
-    atvQuad: "ATV & Quad",
-    buggy: "Buggy",
   },
   delivery: {
     title: "Free delivery, anywhere on Naxos",
@@ -133,10 +126,6 @@ export const dict: Dict = {
     subtitle:
       "Compact cars, automatics, family models and 4×4 options  -  regularly serviced and ready at JNX, the port or your hotel.",
     categoryCars: "Cars  -  from compact to 7-seater & 4×4",
-    categoryScooters: "Scooters  -  50cc to 200cc & Vespa",
-    categoryAtv: "ATV & Quad  -  150cc to 800cc",
-    categoryBuggy: "Buggy  -  Polaris RZR 2 & 4 seat",
-    categoryMoto: "Motorbike  -  touring & adventure",
   },
   pricing: {
     title: "Transparent pricing",
@@ -306,7 +295,6 @@ export const dict: Dict = {
     openDrawer: "Show filters",
     closeDrawer: "Apply filters",
     licenceB: "Car (Cat. B)",
-    licenceMoto: "Motorbike (Cat. A)",
     bestForOptions: {
       couples: "Couples",
       families: "Families",

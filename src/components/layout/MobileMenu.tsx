@@ -71,6 +71,9 @@ export function MobileMenu({
         role="dialog"
         aria-modal="true"
         aria-label={dict.nav.menu}
+        aria-hidden={!open}
+        inert={!open}
+        hidden={!open}
         className={`mobile-menu-surface fixed inset-x-0 top-0 z-[70] flex h-dvh max-h-[100dvh] origin-top flex-col overflow-hidden border-b shadow-2xl transition-transform duration-300 ${open ? "translate-y-0" : "-translate-y-full"}`}
       >
         {/* Header row */}
@@ -131,6 +134,7 @@ export function MobileMenu({
                     href={swapLocalePath(currentPath, l)}
                     onClick={() => setOpen(false)}
                     hrefLang={LOCALE_META[l].htmlLang}
+                    data-analytics-event="language_switch"
                     className={`rounded-full px-3 py-2 text-xs font-bold uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "bg-white text-muted-foreground shadow-sm hover:text-[var(--ink)] dark:bg-white/10 dark:hover:text-white"}`}
                   >
                     {LOCALE_META[l].flag} {l}
