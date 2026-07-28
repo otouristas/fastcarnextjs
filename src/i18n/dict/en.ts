@@ -52,7 +52,7 @@ export const dict: Dict = {
   },
   hero: {
     eyebrow: "Naxos · since 2018 · owner-operated",
-    title: "Rent a car, scooter, ATV or buggy on Naxos",
+    title: "Rent a car on Naxos",
     subtitle:
       "Free delivery to Naxos Airport (JNX), the port and your hotel. Transparent prices, zero hidden fees, owner-operated by Marios & Ria.",
     ctaPrimary: "Browse the fleet",
@@ -82,9 +82,9 @@ export const dict: Dict = {
           "You speak directly with Marios or Ria. WhatsApp answered in minutes, not days. Hundreds of 5-star Google reviews back it up.",
       },
       {
-        title: "Cars, scooters, ATVs and buggies",
+        title: "A car for every Naxos itinerary",
         body:
-          "One operator for the whole family  -  small automatic for Chora parking, a 4×4 for Mount Zas, a buggy for Alyko, a Vespa for the beach run.",
+          "Choose a small automatic for Chora parking, a roomy family car, or a capable 4×4 for mountain roads and longer island days.",
       },
     ],
   },
@@ -109,8 +109,8 @@ export const dict: Dict = {
   },
   reviews: {
     title: "What our renters say",
-    subtitle: "Verified Google reviews",
-    google: "from Google reviews",
+    subtitle: "Customer experiences from recent Naxos rentals",
+    google: "customer reviews",
   },
   faqTeaser: {
     title: "Frequently asked questions",
@@ -120,7 +120,7 @@ export const dict: Dict = {
   footer: {
     rights: "All rights reserved.",
     description:
-      "Owner-operated car, scooter, ATV and buggy rental on Naxos. Free delivery to airport, port and hotel.",
+      "Owner-operated car rental on Naxos. Free delivery to airport, port and hotel.",
     fleet: "Fleet",
     company: "Company",
     legal: "Legal",
@@ -131,7 +131,7 @@ export const dict: Dict = {
   fleetHub: {
     title: "Our Naxos fleet",
     subtitle:
-      "Cars, scooters, ATVs and buggies  -  fully insured, regularly serviced, ready at JNX, the port or your hotel.",
+      "Compact cars, automatics, family models and 4×4 options  -  regularly serviced and ready at JNX, the port or your hotel.",
     categoryCars: "Cars  -  from compact to 7-seater & 4×4",
     categoryScooters: "Scooters  -  50cc to 200cc & Vespa",
     categoryAtv: "ATV & Quad  -  150cc to 800cc",
@@ -205,7 +205,7 @@ export const dict: Dict = {
     title: "Owner-operated since 2018",
     subtitle: "Marios & Ria. One office in Chora. One promise: no hidden fees.",
     body:
-      "Fast Motor Rental Naxos is a small, family-run business. We don't outsource pickups, we don't sell on a third-party contract, and we answer WhatsApp ourselves. Every car, scooter, ATV and buggy in our fleet is owned and maintained in-house. We meet you at JNX, the port or your hotel  -  for free  -  and we hand you the keys with a clear contract, a transparent damage protocol and a phone number that actually picks up.",
+      "Fast Motor Rental Naxos is a small, family-run business. We don't outsource pickups, we don't sell on a third-party contract, and we answer WhatsApp ourselves. Every car in our fleet is owned and maintained in-house. We meet you at JNX, the port or your hotel  -  for free  -  and we hand you the keys with a clear contract, a transparent damage protocol and a phone number that actually picks up.",
   },
   contact: {
     title: "Contact us",
@@ -280,7 +280,7 @@ export const dict: Dict = {
     placeholder: "Ask me anything about Naxos…",
     send: "Send",
     reset: "Reset chat",
-    suggestions: ["Which car for Filoti?", "Best vehicle for beaches?", "Do I need a 4×4?", "Book a scooter"],
+    suggestions: ["Which car for Filoti?", "Best car for beaches?", "Do I need a 4×4?", "Book a car"],
     poweredBy: "FMR Naxos",
     minimize: "Minimise chat",
     close: "Close chat",

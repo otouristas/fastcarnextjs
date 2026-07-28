@@ -24,6 +24,46 @@ interface CookieRow {
   duration: string;
 }
 
+function CookieSection({
+  title,
+  rows,
+  emptyText,
+}: {
+  title: string;
+  rows: CookieRow[];
+  emptyText?: string;
+}) {
+  return (
+    <section className="rounded-3xl border border-border bg-white/70 p-6 shadow-sm dark:bg-white/5">
+      <h2 className="text-lg font-bold text-[var(--ink)] dark:text-white">{title}</h2>
+      {rows.length === 0 ? (
+        <p className="mt-3 text-sm text-muted-foreground">{emptyText}</p>
+      ) : (
+        <div className="mt-4 overflow-hidden rounded-2xl border border-border">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
+              <tr>
+                <th className="px-3 py-2 font-bold">Name</th>
+                <th className="px-3 py-2 font-bold">Purpose</th>
+                <th className="px-3 py-2 font-bold">Duration</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border bg-white dark:bg-white/5">
+              {rows.map((row) => (
+                <tr key={row.name}>
+                  <td className="px-3 py-2 font-mono text-xs text-[var(--ink)] dark:text-white">{row.name}</td>
+                  <td className="px-3 py-2 text-muted-foreground">{row.purpose}</td>
+                  <td className="px-3 py-2 text-muted-foreground">{row.duration}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+  );
+}
+
 export default async function CookiesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
@@ -38,36 +78,6 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
   ];
   const marketing: CookieRow[] = [];
 
-  const Section = ({ title, rows, emptyText }: { title: string; rows: CookieRow[]; emptyText?: string }) => (
-    <section className="rounded-3xl border border-border bg-white/70 p-6 shadow-sm dark:bg-white/5">
-      <h2 className="text-lg font-bold text-[var(--ink)] dark:text-white">{title}</h2>
-      {rows.length === 0 ? (
-        <p className="mt-3 text-sm text-muted-foreground">{emptyText}</p>
-      ) : (
-        <div className="mt-4 overflow-hidden rounded-2xl border border-border">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--brand-1)]">
-              <tr>
-                <th className="px-3 py-2 font-bold">Name</th>
-                <th className="px-3 py-2 font-bold">Purpose</th>
-                <th className="px-3 py-2 font-bold">Duration</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border bg-white dark:bg-white/5">
-              {rows.map((r) => (
-                <tr key={r.name}>
-                  <td className="px-3 py-2 font-mono text-xs text-[var(--ink)] dark:text-white">{r.name}</td>
-                  <td className="px-3 py-2 text-muted-foreground">{r.purpose}</td>
-                  <td className="px-3 py-2 text-muted-foreground">{r.duration}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </section>
-  );
-
   return (
     <LegalPageShell
       locale={locale}
@@ -77,9 +87,9 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
       subtitle={dict.legal.cookiesSubtitle}
     >
       <div className="space-y-6">
-        <Section title="Strictly necessary cookies" rows={essential} />
-        <Section title="Analytics cookies" rows={analytics} />
-        <Section
+        <CookieSection title="Strictly necessary cookies" rows={essential} />
+        <CookieSection title="Analytics cookies" rows={analytics} />
+        <CookieSection
           title="Marketing cookies"
           rows={marketing}
           emptyText="We do not currently use marketing cookies. If we ever introduce them, this page will be updated and your consent will be requested."

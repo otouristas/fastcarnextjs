@@ -49,7 +49,7 @@ export default async function LocationsHubPage({ params }: { params: Promise<{ l
             { label: dict.nav.home, href: localePath(locale) },
             { label: dict.nav.locations },
           ]} />
-          <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-soft)]">
+          <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
             <Sparkles className="h-4 w-4" /> {dict.trust.delivery}
           </span>
           <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">{dict.locationsHub.title}</h1>

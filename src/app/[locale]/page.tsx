@@ -16,7 +16,7 @@ import { graph, localBusinessSchema, organizationSchema, websiteSchema, faqPageS
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
   ArrowRight, Star, MapPin, Plane, Anchor, MessageCircle, ShieldCheck, Wallet, Clock, Sparkles,
-  Car as CarIcon, Bike, Mountain, Zap, Truck, ThumbsUp, BadgeCheck, ChevronDown,
+  Car as CarIcon, Mountain, Zap, Truck, ThumbsUp, BadgeCheck, ChevronDown,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
@@ -144,18 +144,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* TRUST STRIP */}
-      <section aria-label="Trust" className="py-8" style={{ backgroundColor: 'color-mix(in oklab, #edf5fc 84%, #ffffff)' }}>
+      <section aria-label="Trust" className="trust-strip py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-[28px] border island-card">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '1px', backgroundColor: 'rgba(26,143,197,0.08)' }}>
+            <div className="trust-strip-grid grid sm:grid-cols-2 lg:grid-cols-4">
               {[
                 { Icon: Truck, text: dict.trust.delivery },
                 { Icon: BadgeCheck, text: dict.trust.unlimited },
                 { Icon: ShieldCheck, text: dict.trust.transparent },
                 { Icon: ThumbsUp, text: dict.trust.owner },
               ].map(({ Icon, text }) => (
-                <div key={text} className="flex items-start gap-3 p-4 md:p-5" style={{ backgroundColor: 'color-mix(in oklab, #edf5fc 84%, #ffffff)' }}>
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl" style={{ backgroundColor: 'rgba(26,143,197,0.08)', color: 'var(--sea)' }}>
+                <div key={text} className="trust-strip-item flex items-start gap-3 p-4 md:p-5">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[var(--sea-soft)] text-[var(--sea)]">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div>
@@ -180,7 +180,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               const Icon = [MapPin, Wallet, MessageCircle, Sparkles][i];
               return (
                 <div key={item.title} className="island-card rounded-3xl p-6 transition-colors hover:border-[var(--sea-2)]">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl text-[var(--sea)]" style={{ backgroundColor: 'rgba(26,143,197,0.08)' }}>
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--sea-soft)] text-[var(--sea)]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-4 font-bold text-lg text-[var(--ink)] dark:text-white">{item.title}</h3>
@@ -239,7 +239,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 className="group island-card relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand-1)] hover:shadow-2xl"
               >
                 <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand-gradient opacity-10 group-hover:opacity-30 transition-opacity duration-500" />
-                <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--sea-soft)] text-[var(--sea)] transition-all duration-500 group-hover:bg-brand-gradient group-hover:text-white group-hover:rotate-6 dark:bg-[var(--ink-3)] dark:text-[var(--brand-1)]">
+                <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--sea-soft)] text-[var(--sea)] transition-all duration-500 group-hover:bg-brand-gradient group-hover:text-white group-hover:rotate-6 dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
                   <c.Icon className="h-7 w-7" />
                 </span>
                 <h3 className="mt-5 text-xl font-bold text-[var(--ink)] dark:text-white group-hover:text-[var(--brand-2)] transition-colors">
@@ -377,7 +377,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   ))}
                 </div>
                 <blockquote className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  "{r.body[locale]}"
+                  “{r.body[locale]}”
                 </blockquote>
                 <figcaption className="mt-4 text-sm font-semibold text-[var(--ink)] dark:text-white"> -  {r.author}</figcaption>
               </figure>

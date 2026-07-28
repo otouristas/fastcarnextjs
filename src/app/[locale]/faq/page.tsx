@@ -63,7 +63,7 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: st
             if (items.length === 0) return null;
             return (
               <div key={cat} id={`cat-${cat}`} className="scroll-mt-24">
-                <h2 className="text-2xl font-bold mb-4 text-[var(--sea)] dark:text-[var(--sea-soft)]">{CATEGORY_LABELS[cat]}</h2>
+                <h2 className="text-2xl font-bold mb-4 text-[var(--sea)] dark:text-[var(--sea-2)]">{CATEGORY_LABELS[cat]}</h2>
                 <ul className="space-y-3">
                   {items.map((f) => (
                     <li key={f.slug}>

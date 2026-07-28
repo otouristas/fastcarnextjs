@@ -6,7 +6,7 @@ import { LOCATIONS } from "@/content/locations";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
   Mail, Phone, MapPin, ShieldCheck, Gauge, Baby, Route,
-  MapPinned, Star, ChevronDown,
+  ChevronDown, Globe2,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
@@ -108,8 +108,6 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
             <div className="mt-5 flex items-center gap-2">
               <SocialIcon href={SITE.social.instagram} label="Instagram"><InstagramIcon className="h-4 w-4" /></SocialIcon>
               <SocialIcon href={SITE.social.facebook} label="Facebook"><FacebookIcon className="h-4 w-4" /></SocialIcon>
-              <SocialIcon href={SITE.social.googleMaps} label="Google Maps"><MapPinned className="h-4 w-4" /></SocialIcon>
-              <SocialIcon href={SITE.social.tripadvisor} label="Tripadvisor"><Star className="h-4 w-4" /></SocialIcon>
             </div>
           </div>
 
@@ -136,7 +134,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
             <span className="hidden sm:inline text-border">•</span>
             <a href="https://discovercyclades.gr/en" target="_blank" rel="noopener noreferrer" className="group relative flex-shrink-0">
               <div className="flex items-center gap-1.5 transition-transform duration-300 group-hover:-translate-y-0.5">
-                <img alt="Discover Cyclades" loading="lazy" width="18" height="18" src="https://discovercyclades.gr/favicon.svg" />
+                <Globe2 className="h-[18px] w-[18px] text-[var(--sea-2)]" aria-hidden="true" />
                 <div className="flex flex-col text-left">
                   <span className="text-xs font-bold leading-tight text-[var(--ink)] dark:text-white group-hover:text-[var(--sea)] transition-colors">Discover Cyclades</span>
                   <span className="text-[9px] uppercase tracking-wider text-muted-foreground">Partner</span>

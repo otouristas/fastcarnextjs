@@ -26,7 +26,7 @@ export function ContextualFaq({
     <section className={`wave-bg border-y border-border/70 ${className}`}>
       <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-soft)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
             <HelpCircle className="h-4 w-4" />
             FAQ
           </span>

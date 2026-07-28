@@ -2,7 +2,7 @@ import type { Locale } from "@/lib/site";
 
 export type LocalizedString = Record<Locale, string>;
 
-export type VehicleCategory = "cars" | "scooters" | "atv-quad" | "buggy" | "motorbike";
+export type VehicleCategory = "cars";
 
 export interface Vehicle {
   slug: string;

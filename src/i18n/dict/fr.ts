@@ -52,7 +52,7 @@ export const dict: Dict = {
   },
   hero: {
     eyebrow: "Naxos · depuis 2018 · entreprise familiale",
-    title: "Louer voiture, scooter, ATV ou buggy à Naxos",
+    title: "Louer une voiture à Naxos",
     subtitle:
       "Livraison gratuite à l'aéroport de Naxos (JNX), au port et à votre hôtel. Prix transparents, zéro frais cachés, gérée par Marios et Ria.",
     ctaPrimary: "Découvrir la flotte",
@@ -82,9 +82,9 @@ export const dict: Dict = {
           "Vous parlez directement à Marios ou Ria. WhatsApp répond en minutes. Des centaines d'avis Google 5 étoiles.",
       },
       {
-        title: "Voitures, scooters, ATV et buggys",
+        title: "Une voiture pour chaque itinéraire à Naxos",
         body:
-          "Un seul prestataire pour toute la famille  -  petite automatique pour Chora, 4×4 pour le mont Zas, buggy pour Alyko, Vespa pour la plage.",
+          "Choisissez une petite automatique pour Chora, une voiture familiale spacieuse ou un 4×4 pour les routes de montagne et les longues journées.",
       },
     ],
   },
@@ -109,8 +109,8 @@ export const dict: Dict = {
   },
   reviews: {
     title: "Ce que disent nos clients",
-    subtitle: "Avis Google vérifiés",
-    google: "d'avis Google",
+    subtitle: "Expériences de clients ayant récemment loué à Naxos",
+    google: "avis clients",
   },
   faqTeaser: {
     title: "Questions fréquentes",
@@ -120,7 +120,7 @@ export const dict: Dict = {
   footer: {
     rights: "Tous droits réservés.",
     description:
-      "Location familiale de voitures, scooters, ATV et buggys à Naxos. Livraison gratuite à l'aéroport, au port et à l'hôtel.",
+      "Location familiale de voitures à Naxos. Livraison gratuite à l'aéroport, au port et à l'hôtel.",
     fleet: "Flotte",
     company: "Société",
     legal: "Mentions légales",
@@ -131,7 +131,7 @@ export const dict: Dict = {
   fleetHub: {
     title: "Notre flotte à Naxos",
     subtitle:
-      "Voitures, scooters, ATV et buggys  -  entièrement assurés, entretenus régulièrement, prêts au JNX, au port ou à votre hôtel.",
+      "Voitures compactes, automatiques, familiales et 4×4  -  entretenues régulièrement et livrées au JNX, au port ou à votre hôtel.",
     categoryCars: "Voitures  -  de la compacte au 7-places & 4×4",
     categoryScooters: "Scooters  -  50cc à 200cc & Vespa",
     categoryAtv: "ATV & Quad  -  150cc à 800cc",
@@ -205,7 +205,7 @@ export const dict: Dict = {
     title: "Familial depuis 2018",
     subtitle: "Marios & Ria. Un bureau à Chora. Une promesse : zéro frais cachés.",
     body:
-      "Fast Motor Rental Naxos est une petite entreprise familiale. Nous ne sous-traitons pas les retraits, ne vendons pas via un contrat tiers et répondons à WhatsApp nous-mêmes. Chaque voiture, scooter, ATV et buggy de la flotte est à nous et entretenu par nous. Nous vous accueillons au JNX, au port ou à l'hôtel  -  gratuitement  -  et remettons les clés avec un contrat clair et un numéro qui répond.",
+      "Fast Motor Rental Naxos est une petite entreprise familiale. Nous ne sous-traitons pas les retraits, ne vendons pas via un contrat tiers et répondons à WhatsApp nous-mêmes. Chaque voiture de la flotte nous appartient et est entretenue par notre équipe. Nous vous accueillons au JNX, au port ou à l'hôtel  -  gratuitement  -  et remettons les clés avec un contrat clair et un numéro qui répond.",
   },
   contact: {
     title: "Nous contacter",
@@ -274,7 +274,7 @@ export const dict: Dict = {
     placeholder: "Posez-moi une question sur Naxos…",
     send: "Envoyer",
     reset: "Réinitialiser",
-    suggestions: ["Quelle voiture pour Filoti ?", "Meilleur véhicule pour les plages ?", "Faut-il un 4×4 ?", "Réserver un scooter"],
+    suggestions: ["Quelle voiture pour Filoti ?", "Meilleure voiture pour les plages ?", "Faut-il un 4×4 ?", "Réserver une voiture"],
     poweredBy: "FMR Naxos",
     minimize: "Réduire",
     close: "Fermer",

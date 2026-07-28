@@ -12,7 +12,7 @@ export function ChatVehicleCard({ vehicle }: { vehicle: VehicleSuggestion }) {
           <p className="text-xs font-bold text-foreground">{vehicle.name}</p>
           <p className="text-[11px] text-[var(--sea)]">{vehicle.category}</p>
         </div>
-        <span className="whitespace-nowrap rounded-full bg-[var(--sea-soft)] px-2 py-0.5 text-[11px] font-bold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-soft)]">
+        <span className="whitespace-nowrap rounded-full bg-[var(--sea-soft)] px-2 py-0.5 text-[11px] font-bold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
           {vehicle.priceRange}
         </span>
       </div>

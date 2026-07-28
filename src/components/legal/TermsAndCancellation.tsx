@@ -37,7 +37,7 @@ export function TermsAndCancellation({ locale, dict }: { locale: Locale; dict: D
 
         <div className="mt-6 overflow-hidden rounded-3xl border border-border">
           <table className="w-full text-left text-sm">
-            <thead className="bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--brand-1)]">
+            <thead className="bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
               <tr>
                 <th className="px-4 py-3 font-bold">{dict.common.from}</th>
                 <th className="px-4 py-3 font-bold">{dict.common.seeDetails}</th>

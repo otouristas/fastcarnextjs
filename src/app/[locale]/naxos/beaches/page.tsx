@@ -1,13 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { isLocale, localePath, SITE, type Locale } from "@/lib/site";
+import { isLocale, localePath, type Locale } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { buildMetadata } from "@/lib/seo";
 import { LOCATIONS } from "@/content/locations";
 import { VEHICLES } from "@/content/fleet";
 import { recommendForLocation } from "@/lib/vehicleRecommender";
-import { VehicleCard } from "@/components/fleet/VehicleCard";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ArrowRight, MapPin } from "lucide-react";
 
@@ -58,7 +57,7 @@ function LocationCard({ slug, locale, dict, image }: { slug: string; locale: Loc
       <div className="p-5 space-y-3">
         <p className="text-sm leading-relaxed text-muted-foreground line-clamp-3">{loc.body[locale]}</p>
         <div className="flex flex-wrap gap-1.5">
-          <span className="inline-flex items-center gap-1 rounded-full bg-[var(--sea-soft)] px-2.5 py-1 text-xs font-semibold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-soft)]">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[var(--sea-soft)] px-2.5 py-1 text-xs font-semibold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
             <MapPin className="h-3 w-3" /> {loc.distanceFromChoraKm} km
           </span>
           {loc.highlights.slice(0, 2).map((h, i) => (

@@ -1,31 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useConsent, writeConsent, readConsent } from "@/lib/consent";
+import { useConsent } from "@/lib/consent";
 import { X, Cookie } from "lucide-react";
 import type { Dict } from "@/i18n/types";
 import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 
 export function CookieBanner({ dict, locale }: { dict: Dict; locale: Locale }) {
-  const { decided } = useConsent();
-  const [visible, setVisible] = useState(false);
+  const { hydrated, decided, setConsent } = useConsent();
 
-  useEffect(() => {
-    if (readConsent() === null) setVisible(true);
-  }, []);
-
-  if (!visible || decided) return null;
+  if (!hydrated || decided) return null;
 
   function accept() {
-    writeConsent({ analytics: true, marketing: true });
-    setVisible(false);
+    setConsent({ analytics: true, marketing: true });
   }
 
   function reject() {
-    writeConsent({ analytics: false, marketing: false });
-    setVisible(false);
+    setConsent({ analytics: false, marketing: false });
   }
 
   return (
@@ -51,7 +43,7 @@ export function CookieBanner({ dict, locale }: { dict: Dict; locale: Locale }) {
       <div className="mt-4 flex flex-col gap-2">
         <button
           onClick={accept}
-          className="w-full rounded-full bg-[var(--brand-1)] px-4 py-2 text-xs font-bold text-white shadow transition-opacity hover:opacity-90"
+          className="w-full rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow transition-opacity hover:opacity-90"
         >
           {dict.cookie.accept}
         </button>

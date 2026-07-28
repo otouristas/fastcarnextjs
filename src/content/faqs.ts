@@ -52,8 +52,8 @@ export const FAQS: Faq[] = [
       "Gibt es Automatikautos auf Naxos?",
     ),
     answer: ls(
-      "Yes, but supply is tight. We always keep automatic Hyundai i10, Kia Picanto, Citroen C3, Peugeot 208, Toyota RAV4, Kia Sportage and Polaris buggies. In July and August book at least 3 weeks in advance for guaranteed automatic. Outside high season we usually have same-week availability.",
-      "Ναι, διαθέτουμε αυτόματα μικρά αυτοκίνητα, οικογενειακά μοντέλα, SUV και buggies, όμως η διαθεσιμότητα στη Νάξο είναι περιορισμένη. Για Ιούλιο και Αύγουστο προτείνουμε κράτηση τουλάχιστον 3 εβδομάδες πριν, ειδικά αν θέλετε συγκεκριμένο μοντέλο. Εκτός υψηλής σεζόν συνήθως υπάρχει διαθεσιμότητα και μέσα στην ίδια εβδομάδα.",
+      "Yes, but supply is tight. We keep automatic compact cars, family models and SUVs. In July and August book at least 3 weeks in advance for guaranteed automatic. Outside high season we usually have same-week availability.",
+      "Ναι, διαθέτουμε αυτόματα μικρά αυτοκίνητα, οικογενειακά μοντέλα και SUV, όμως η διαθεσιμότητα στη Νάξο είναι περιορισμένη. Για Ιούλιο και Αύγουστο προτείνουμε κράτηση τουλάχιστον 3 εβδομάδες πριν, ειδικά αν θέλετε συγκεκριμένο μοντέλο. Εκτός υψηλής σεζόν συνήθως υπάρχει διαθεσιμότητα και μέσα στην ίδια εβδομάδα.",
       "Sì, ma la disponibilità è limitata. In alta stagione prenota 3 settimane prima.",
       "Oui, mais la disponibilité est limitée. En haute saison, réserve 3 semaines avant.",
       "Ja, aber die Verfügbarkeit ist begrenzt. In der Hauptsaison 3 Wochen im Voraus buchen.",
@@ -142,11 +142,11 @@ export const FAQS: Faq[] = [
       "Mindestalter für die Anmietung?",
     ),
     answer: ls(
-      "21 years old, with the licence held for at least 1 year, for our cars. 23 years for SUVs and the buggy. No upper age limit. Drivers under 25 may have a small young-driver surcharge  -  we'll always tell you in advance.",
-      "Για αυτοκίνητα χρειάζεται ηλικία 21+ και δίπλωμα τουλάχιστον 1 έτους. Για SUV και buggy η ελάχιστη ηλικία είναι 23 ετών. Δεν υπάρχει ανώτατο όριο ηλικίας. Για οδηγούς 21–24 ετών μπορεί να υπάρχει μικρή χρέωση νέου οδηγού, την οποία αναφέρουμε πάντα πριν την κράτηση.",
-      "21 anni con patente da almeno 1 anno. 23 per SUV e buggy.",
-      "21 ans, permis depuis 1 an. 23 pour SUV et buggy.",
-      "21 Jahre, Führerschein seit 1 Jahr. 23 für SUV und Buggy.",
+      "21 years old, with the licence held for at least 1 year, for our cars. Some SUV groups require drivers to be 23. No upper age limit. Drivers under 25 may have a small young-driver surcharge  -  we'll always tell you in advance.",
+      "Για αυτοκίνητα χρειάζεται ηλικία 21+ και δίπλωμα τουλάχιστον 1 έτους. Για ορισμένες κατηγορίες SUV η ελάχιστη ηλικία είναι 23 ετών. Δεν υπάρχει ανώτατο όριο ηλικίας. Για οδηγούς 21–24 ετών μπορεί να υπάρχει μικρή χρέωση νέου οδηγού, την οποία αναφέρουμε πάντα πριν την κράτηση.",
+      "21 anni con patente da almeno 1 anno. 23 per alcuni SUV.",
+      "21 ans, permis depuis 1 an. 23 ans pour certains SUV.",
+      "21 Jahre, Führerschein seit 1 Jahr. 23 für einige SUVs.",
     ),
   },
   {

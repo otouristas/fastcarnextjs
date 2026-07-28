@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { SITE, viberUrl, type Locale, LOCALES, LOCALE_META } from "@/lib/site";
+import { SITE, viberUrl, type Locale, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { Menu, X, Phone, Car, MapPin, BookOpen, ShieldCheck, ChevronDown } from "lucide-react";
@@ -60,7 +60,7 @@ export function MobileMenu({
 
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-40 bg-[rgba(15,37,51,0.46)] backdrop-blur-sm transition-opacity duration-200 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`fixed inset-0 z-[60] bg-[rgba(3,12,20,0.68)] backdrop-blur-sm transition-opacity duration-200 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={() => setOpen(false)}
         aria-hidden="true"
       />
@@ -71,8 +71,7 @@ export function MobileMenu({
         role="dialog"
         aria-modal="true"
         aria-label={dict.nav.menu}
-        className={`fixed inset-x-0 top-0 z-50 flex max-h-[100dvh] origin-top flex-col overflow-hidden border-b shadow-2xl transition-transform duration-300 dark:border-white/10 ${open ? "translate-y-0" : "-translate-y-full"}`}
-        style={{ background: 'rgba(237,245,252,0.98)', borderColor: 'rgba(143,165,207,0.34)' }}
+        className={`mobile-menu-surface fixed inset-x-0 top-0 z-[70] flex h-dvh max-h-[100dvh] origin-top flex-col overflow-hidden border-b shadow-2xl transition-transform duration-300 ${open ? "translate-y-0" : "-translate-y-full"}`}
       >
         {/* Header row */}
         <div className="shrink-0 border-b border-border bg-white/70 px-4 py-3 dark:border-white/10 dark:bg-white/5 sm:px-6">
@@ -129,7 +128,7 @@ export function MobileMenu({
                 {LOCALES.map((l) => (
                   <Link
                     key={l}
-                    href={swapLocale(currentPath, l)}
+                    href={swapLocalePath(currentPath, l)}
                     onClick={() => setOpen(false)}
                     hrefLang={LOCALE_META[l].htmlLang}
                     className={`rounded-full px-3 py-2 text-xs font-bold uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "bg-white text-muted-foreground shadow-sm hover:text-[var(--ink)] dark:bg-white/10 dark:hover:text-white"}`}
@@ -143,7 +142,7 @@ export function MobileMenu({
         </div>
 
         {/* Sticky bottom CTA bar */}
-        <div className="shrink-0 border-t border-border bg-white/90 px-4 py-3 dark:border-white/10 dark:bg-[rgba(16,43,61,0.98)]">
+        <div className="mobile-menu-actions shrink-0 border-t border-border px-4 py-3">
           <div className="grid grid-cols-4 gap-2">
             <a
               href={whatsappUrl(dict.whatsAppFab.message)}
@@ -198,7 +197,7 @@ function MobileSection({
   defaultOpen?: boolean;
 }) {
   return (
-    <details open={defaultOpen} className="group mt-3 rounded-3xl border border-border bg-white/70 dark:bg-white/10">
+    <details open={defaultOpen} className="mobile-menu-section group mt-3 rounded-3xl border border-border">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-sm font-bold text-[var(--ink)] dark:text-white">
         <span className="inline-flex items-center gap-2">
           <span className="text-[var(--sea)]">{icon}</span> {title}
@@ -229,13 +228,4 @@ function MobileSection({
       </div>
     </details>
   );
-}
-
-function swapLocale(path: string, newLocale: Locale): string {
-  const parts = path.split("/").filter(Boolean);
-  if (parts.length === 0) return `/${newLocale}`;
-  const isLocale = (LOCALES as readonly string[]).includes(parts[0]);
-  if (isLocale) parts[0] = newLocale;
-  else parts.unshift(newLocale);
-  return "/" + parts.join("/");
 }

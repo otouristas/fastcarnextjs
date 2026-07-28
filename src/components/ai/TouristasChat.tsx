@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, X, Send, RotateCcw, Minus, Trash2 } from "lucide-react";
+import { Bot, X, Send, RotateCcw, Minus, Trash2, Globe2 } from "lucide-react";
 import { getResponse, type ChatResponse } from "@/lib/chat-engine";
 import { WELCOME_MESSAGE } from "@/lib/touristas-knowledge";
 import { ChatMessage, TypingIndicator } from "./ChatMessage";
@@ -70,7 +70,7 @@ export function TouristasChat({ dict }: { dict: Dict }) {
         vehicles: response.vehicles,
         quickReplies: response.quickReplies,
       }]);
-    }, 400 + Math.random() * 400);
+    }, 600);
   };
 
   const resetChat = () => {
@@ -102,7 +102,7 @@ export function TouristasChat({ dict }: { dict: Dict }) {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={openChat}
             aria-label={ai.trigger}
-            className="fixed bottom-[5.5rem] right-6 z-40 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--sea)] text-white shadow-xl hover:shadow-2xl sm:bottom-6 sm:right-[5.5rem]"
+            className="fixed bottom-[5.5rem] right-6 z-40 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--sea)] text-[var(--primary-foreground)] shadow-xl hover:shadow-2xl sm:bottom-6 sm:right-[5.5rem]"
           >
             <Bot className="h-7 w-7" />
             {!hasOpened && (
@@ -136,14 +136,14 @@ export function TouristasChat({ dict }: { dict: Dict }) {
               className="fixed bottom-0 right-0 z-50 flex h-dvh w-full flex-col overflow-hidden bg-background shadow-2xl sm:h-[640px] sm:max-h-[82vh] sm:w-[420px] sm:bottom-24 sm:right-6 sm:rounded-2xl sm:border sm:border-border/60"
             >
               {/* Header */}
-              <div className="flex shrink-0 items-center justify-between bg-[var(--sea)] px-5 py-4 text-white">
+              <div className="flex shrink-0 items-center justify-between bg-[var(--sea)] px-5 py-4 text-[var(--primary-foreground)]">
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                     <Bot className="h-5 w-5" />
                   </div>
                   <div>
                     <p className="text-sm font-bold">Touristas AI</p>
-                    <p className="text-[11px] text-white/80">{ai.subtitle}</p>
+                    <p className="text-[11px] text-[var(--primary-foreground)]/75">{ai.subtitle}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-1">
@@ -195,7 +195,7 @@ export function TouristasChat({ dict }: { dict: Dict }) {
                           <button
                             key={reply}
                             onClick={() => sendMessage(reply)}
-                            className="rounded-full border border-[var(--sea)]/30 bg-[var(--sea-soft)] px-3 py-1.5 text-xs font-medium text-[var(--sea)] transition-colors hover:bg-[var(--sea)] hover:text-white dark:bg-white/10 dark:text-[var(--sea-soft)]"
+                            className="rounded-full border border-[var(--sea)]/30 bg-[var(--sea-soft)] px-3 py-1.5 text-xs font-medium text-[var(--sea)] transition-colors hover:bg-[var(--sea)] hover:text-[var(--primary-foreground)] dark:bg-white/10 dark:text-[var(--sea-2)]"
                           >
                             {reply}
                           </button>
@@ -243,7 +243,7 @@ export function TouristasChat({ dict }: { dict: Dict }) {
                   type="submit"
                   disabled={!input.trim()}
                   aria-label={ai.send}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--sea)] text-white shadow transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--sea)] text-[var(--primary-foreground)] shadow transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <Send className="h-4 w-4" />
                 </button>
@@ -267,7 +267,7 @@ export function TouristasChat({ dict }: { dict: Dict }) {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-[10px] text-muted-foreground hover:text-[var(--sea)]"
                   >
-                    <img src="https://discovercyclades.gr/favicon.svg" alt="Discover Cyclades" width={12} height={12} className="inline" />
+                    <Globe2 className="h-3 w-3" aria-hidden="true" />
                     <span className="font-medium">Discover Cyclades</span>
                   </a>
                 </div>

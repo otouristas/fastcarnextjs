@@ -4,7 +4,7 @@ const ls = (en: string, el?: string, it?: string, fr?: string, de?: string) => (
   en, el: el ?? en, it: it ?? en, fr: fr ?? en, de: de ?? en,
 });
 
-export const GUIDES: Guide[] = [
+const ALL_GUIDES: Guide[] = [
   {
     slug: "do-you-need-a-car-in-naxos",
     title: ls(
@@ -15,7 +15,7 @@ export const GUIDES: Guide[] = [
       "Brauche ich auf Naxos ein Auto? Eine ehrliche Antwort",
     ),
     excerpt: ls(
-      "Buses cover the obvious beaches. Renting a car, scooter or ATV covers everything else  -  and Naxos has a lot of everything else.",
+      "Buses cover the obvious beaches. A rental car opens up everything else  -  and Naxos has a lot of everything else.",
       "Τα λεωφορεία καλύπτουν τα προφανή. Η ενοικίαση καλύπτει όλα τα υπόλοιπα.",
       "Gli autobus coprono l'ovvio. Il noleggio copre tutto il resto.",
       "Les bus couvrent l'essentiel. La location couvre tout le reste.",
@@ -49,29 +49,29 @@ export const GUIDES: Guide[] = [
         ),
       },
       {
-        heading: ls("When a scooter beats a car", "Πότε το μηχανάκι κερδίζει το αυτοκίνητο", "Quando lo scooter batte l'auto", "Quand le scooter bat la voiture", "Wann der Roller das Auto schlägt"),
+        heading: ls("Why a car is the safest all-round choice", "Γιατί το αυτοκίνητο είναι η πιο ασφαλής επιλογή", "Perché l'auto è la scelta più sicura", "Pourquoi la voiture est le choix le plus sûr", "Warum das Auto die sicherste Wahl ist"),
         body: ls(
-          "Two adults, light carry-on bags, a sunny week with no mountain-village nights planned  -  a 125cc scooter beats a small car on almost every metric. You'll pay €35–45/day instead of €60+, park anywhere for free, and filter through Chora's narrow lanes with zero stress. The honest trade-offs: Naxos is famously windy (the Aegean meltemi can make riding genuinely unpleasant in August), driving to Apollonas on a 50cc takes nearly two hours, and wet-weather grip on island roads is poor. If even one of those scenarios is likely, step up to a car. We can advise over WhatsApp on which option fits your exact itinerary  -  message us before you book.",
-          "Δύο ενήλικες, μία βάση, χωρίς αποσκευές  -  μηχανάκι κερδίζει σε κόστος και ευελιξία.",
-          "Due adulti, una base, niente bagagli  -  lo scooter batte l'auto per costi e libertà.",
-          "Deux adultes, une base, sans bagage  -  le scooter bat la voiture en coût et liberté.",
-          "Zwei Erwachsene, eine Basis, ohne Gepäck  -  Roller schlägt das Auto in Kosten und Freiheit.",
+          "Naxos is famously windy, mountain roads are long, and conditions can change quickly. A compact rental car gives couples and solo travellers air conditioning, luggage space, wet-weather grip and a much more comfortable trip to Apollonas or Apeiranthos. It is also the practical choice for arrivals after dark. We can advise over WhatsApp on the right car size for your exact itinerary before you book.",
+          "Η Νάξος έχει δυνατό αέρα και μεγάλες ορεινές διαδρομές. Ένα μικρό αυτοκίνητο προσφέρει άνεση, χώρο αποσκευών και ασφάλεια σε κάθε καιρό.",
+          "Naxos è ventosa e le strade di montagna sono lunghe. Un'auto compatta offre comfort, spazio e sicurezza con qualsiasi tempo.",
+          "Naxos est venteuse et les routes de montagne sont longues. Une voiture compacte offre confort, espace et sécurité par tous les temps.",
+          "Naxos ist windig und die Bergstrecken sind lang. Ein Kleinwagen bietet Komfort, Platz und Sicherheit bei jedem Wetter.",
         ),
       },
       {
-        heading: ls("ATVs, buggies and the adventure factor", "ATV, buggies και ο παράγοντας περιπέτεια", "ATV, buggy e il fattore avventura", "ATV, buggys et le côté aventure", "ATV, Buggys und der Abenteuerfaktor"),
+        heading: ls("Where a standard rental car can go", "Πού μπορεί να πάει ένα απλό ενοικιαζόμενο αυτοκίνητο", "Dove può arrivare un'auto a noleggio", "Où peut aller une voiture de location", "Wohin ein normaler Mietwagen fahren kann"),
         body: ls(
-          "If your trip includes even one day at Alyko's cedar beach, the Alyko dunes, Mikri Vigla's kite beach or the painted abandoned hotel south of Pyrgaki, a Polaris buggy or a CFMoto ATV turns those hours into the highlight of the holiday. The unpaved tracks in Alyko and south of Mikri Vigla are not accessible to standard hire cars under our contract (or any reputable rental's contract  -  they're rough, soft sand in places). The buggy handles all of it with ease and costs only €30–40 more per day than a small car. Most guests who try a buggy day say they wish they'd booked two.",
-          "Αν το πρόγραμμά σας περιλαμβάνει Αλυκό, Μικρή Βίγλα ή Πυργάκι, ένα ATV ή buggy κάνει την ημέρα αξέχαστη.",
-          "Se l'itinerario tocca Alyko, Mikri Vigla o Pyrgaki, ATV o buggy rendono la giornata indimenticabile.",
-          "Si Alyko, Mikri Vigla ou Pyrgaki sont prévus, ATV ou buggy rendent la journée mémorable.",
-          "Wenn Alyko, Mikri Vigla oder Pyrgaki im Plan stehen, machen ATV oder Buggy den Tag unvergesslich.",
+          "A standard rental car reaches the signed parking areas for Alyko, Mikri Vigla and Pyrgaki on paved roads. Stop at the official parking areas and continue on foot: soft-sand tracks and unpaved coastal paths are excluded from normal rental agreements and can damage the vehicle. Ask us for the safest paved approach before setting off.",
+          "Ένα απλό αυτοκίνητο φτάνει στα επίσημα πάρκινγκ Αλυκού, Μικρής Βίγλας και Πυργακίου. Αποφύγετε χωματόδρομους και άμμο.",
+          "Un'auto normale raggiunge i parcheggi ufficiali di Alyko, Mikri Vigla e Pyrgaki. Evita sterrato e sabbia.",
+          "Une voiture normale rejoint les parkings officiels d'Alyko, Mikri Vigla et Pyrgaki. Évitez les pistes et le sable.",
+          "Ein normaler Mietwagen erreicht die offiziellen Parkplätze von Alyko, Mikri Vigla und Pyrgaki. Schotter und Sand meiden.",
         ),
       },
       {
         heading: ls("Our honest recommendation by trip type", "Η ειλικρινής σύστασή μας", "Il nostro consiglio onesto", "Notre recommandation honnête", "Unsere ehrliche Empfehlung"),
         body: ls(
-          "Couple travelling light, 4–7 nights: scooter or small car for the whole stay. Family with kids and luggage: a 5-seat car (Suzuki Baleno, Seat Arona or Peugeot 208) from day one. Solo or couple wanting the full island in 5 days: a small car plus one day of buggy rental  -  costs about the same as a buggy for the week and gives you everything. Short stay (2–3 nights): rent for the middle 2 days, use taxis for arrivals and departures. We hold the same daily rate whether you book 2 days or 10  -  there's no penalty or premium for short rentals. Check our live fleet and prices, then WhatsApp us with your dates and we'll confirm availability within the hour.",
+          "Couple travelling light, 4–7 nights: a compact car for the whole stay. Family with kids and luggage: a 5-seat car such as a Suzuki Baleno, Seat Arona or Peugeot 208 from day one. Short stay (2–3 nights): rent for the middle 2 days and use taxis for arrivals and departures. Check our current fleet and prices, then WhatsApp us with your dates and we'll confirm availability.",
           "Για επισκέπτες 4+ ημερών: ενοικίαση για όλη την παραμονή. Για 2–3 μέρες: επικεντρωθείτε στις εσωτερικές διαδρομές.",
           "Per soggiorni di 4+ notti: noleggia per tutto il tempo. Per 2–3 giorni: concentrati sull'entroterra.",
           "Pour 4 nuits + : louez pour tout le séjour. Pour 2-3 jours : concentrez-vous sur l'arrière-pays.",
@@ -313,7 +313,7 @@ export const GUIDES: Guide[] = [
     publishedAt: "2026-02-25",
     updatedAt: "2026-05-10",
     readingTime: 8,
-    related: ["naxos-road-trip-itinerary", "atv-vs-buggy-vs-car", "do-you-need-a-car-in-naxos"],
+    related: ["naxos-road-trip-itinerary", "driving-in-naxos", "do-you-need-a-car-in-naxos"],
     sections: [
       {
         heading: ls("Agios Prokopios  -  the best organised beach", "Άγιος Προκόπιος", "Agios Prokopios", "Agios Prokopios", "Agios Prokopios"),
@@ -358,7 +358,7 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("Alyko and Pyrgaki  -  the wild south", "Αλυκό & Πυργάκι", "Alyko e Pyrgaki", "Alyko et Pyrgaki", "Alyko & Pyrgaki"),
         body: ls(
-          "23 km south of Chora, Alyko is Naxos at its most raw. A protected cedar forest (the cedars are actually junipers, but Naxians call them cedar) runs down to three wild beaches with no facilities, no sunbeds, and sometimes no other visitors at all. The famous painted abandoned hotel sits in the middle of the forest  -  a grid of derelict rooms covered floor to ceiling in street art, one of the most photographed locations on the island. The access tracks here are unpaved soft sand. Standard cars should not attempt them. Our Suzuki Jimny and Polaris buggy handle everything easily. Pyrgaki, 3 km further, is a smaller wild beach facing due west  -  the ideal last stop for a south-coast sunset.",
+          "23 km south of Chora, Alyko is Naxos at its most raw. A protected cedar forest (the cedars are actually junipers, but Naxians call them cedar) runs down to three wild beaches with no facilities, no sunbeds, and sometimes no other visitors at all. The famous painted abandoned hotel sits in the middle of the forest  -  a grid of derelict rooms covered floor to ceiling in street art, one of the most photographed locations on the island. The access tracks here are unpaved soft sand and are excluded from standard rental agreements, including for 4x4 cars. Park at the signed area and continue on foot. Pyrgaki, 3 km further, is a smaller wild beach facing due west  -  the ideal last stop for a south-coast sunset.",
           "23 χλμ νότια. Κέδροι, το εγκαταλελειμμένο ξενοδοχείο, χωμάτινοι δρόμοι.",
           "23 km a sud. Cedri, l'hotel abbandonato dipinto, sterrati.",
           "23 km au sud. Cèdres, l'hôtel abandonné peint, pistes.",
@@ -413,7 +413,7 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("What documents you actually need to rent with us", "Τι έγγραφα χρειάζεστε για ενοικίαση", "Documenti necessari per il noleggio", "Documents requis pour la location", "Welche Dokumente für die Miete"),
         body: ls(
-          "For EU, UK, US, Canadian, Australian and most Western licence holders: your national driving licence and your passport or national ID. No IDP, no international licence translation, no notarised copy. For licences outside those jurisdictions: bring the IDP in addition. For scooters (50cc): a car licence (Category B) is sufficient in Greece. For scooters 125cc and above: Category A1, A2 or A licence required. For our buggies and ATVs: a standard car licence (Category B) is sufficient  -  these are classed as passenger vehicles, not off-road machinery, for licence purposes. Still not sure? WhatsApp us a photo of your licence before you book and we'll confirm instantly.",
+          "For EU, UK, US, Canadian, Australian and most Western licence holders: your national driving licence and your passport or national ID. No IDP, international licence translation or notarised copy is normally required. For licences outside those jurisdictions, bring the IDP in addition. Still not sure? WhatsApp us a photo of your licence before you book and we'll confirm.",
           "Εθνική άδεια και ταυτότητα ή διαβατήριο. Για εξωτερικές άδειες: επιπλέον IDP.",
           "Patente nazionale e passaporto/carta d'identità. Licenze estere: aggiungi IDP.",
           "Permis national et passeport/ID. Permis hors liste : ajoutez IDP.",
@@ -458,7 +458,7 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("Other speed limits and penalties", "Άλλα όρια και κυρώσεις", "Altri limiti e sanzioni", "Autres limites et sanctions", "Andere Limits und Strafen"),
         body: ls(
-          "Outside built-up areas: 90 km/h. Expressways: 110 km/h. Motorways: 130 km/h (there are none on Naxos). Penalties for speeding have been doubled across most bands  -  exceeding the limit by 20–30 km/h now costs €350. Using a mobile phone while driving costs €450 (up from €150). Helmet enforcement on scooters, ATVs and motorbikes is now actively pursued: riding without a helmet carries a €350 fine and a 30-day suspension of driving rights. All vehicles rented from us come with helmets; we check they fit before you leave the lot.",
+          "Outside built-up areas: 90 km/h. Expressways: 110 km/h. Motorways: 130 km/h (there are none on Naxos). Penalties for speeding have been doubled across most bands  -  exceeding the limit by 20–30 km/h now costs €350. Using a mobile phone while driving costs €450 (up from €150). Helmet enforcement for riders is also active, with fines and possible suspension for non-compliance.",
           "Εκτός πόλης 90, ταχείας 110, αυτοκινητοδρόμου 130. Πρόστιμα διπλά. Κινητό 3πλάσιο. Χωρίς κράνος €350 + 30 ημέρες αφαίρεση.",
           "Fuori città 90, superstrade 110, autostrade 130. Sanzioni raddoppiate.",
           "Hors agglo 90, voies rapides 110, autoroutes 130. Amendes doublées.",
@@ -468,7 +468,7 @@ export const GUIDES: Guide[] = [
       {
         heading: ls("New rules for e-scooters and micro-mobility", "Νέοι κανόνες για e-scooters", "Nuove regole per i monopattini", "Nouvelles règles pour les trottinettes", "Neue Regeln für E-Scooter"),
         body: ls(
-          "Electric scooters and micro-mobility devices are now regulated under the new code: maximum 25 km/h on shared paths, prohibited on pavements, mandatory reflective vest at night, minimum age 15. Helmets strongly recommended (not yet mandatory for e-scooters, but mandatory for conventional scooters 50cc and above). If you're considering an e-scooter rental in Chora, note that the old town's marble-paved lanes are not e-scooter compatible. Conventional petrol scooters from our fleet are a safer, better-suited option for the island terrain.",
+          "Electric scooters and micro-mobility devices are now regulated under the new code: maximum 25 km/h on shared paths, prohibited on pavements, mandatory reflective vest at night, minimum age 15. Helmets are strongly recommended. Chora's old marble-paved lanes are pedestrian areas and are not suitable for e-scooters.",
           "Ηλεκτρικά πατίνια: μέγιστο 25 km/h, απαγορεύονται σε πεζοδρόμια, ελάχιστη ηλικία 15 ετών.",
           "Monopattini elettrici: max 25 km/h, vietati sui marciapiedi, età minima 15 anni.",
           "Trottinettes: max 25 km/h, interdites sur les trottoirs, âge minimum 15 ans.",
@@ -803,4 +803,5 @@ export const GUIDES: Guide[] = [
   },
 ];
 
+export const GUIDES = ALL_GUIDES.filter((guide) => guide.slug !== "atv-vs-buggy-vs-car");
 export const GUIDES_BY_SLUG = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));

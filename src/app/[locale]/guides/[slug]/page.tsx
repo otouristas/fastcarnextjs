@@ -57,7 +57,7 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
             { label: dict.nav.guides, href: localePath(locale, "guides") },
             { label: g.title[locale] },
           ]} />
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-soft)]">
+          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
             <Sparkles className="h-3.5 w-3.5" /> {dict.nav.guides}
           </div>
           <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">{g.title[locale]}</h1>
@@ -134,8 +134,8 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
 
             {/* Fleet Categories (Page C) */}
             <div className="island-card rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Naxos Rental Fleet Categories</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Select your ideal vehicle type with full CDW insurance options</p>
+              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Naxos Rental Car Options</h3>
+              <p className="mt-1 text-xs text-muted-foreground">Choose a rental car for your route, group size and preferred transmission</p>
               <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
                 <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   🚗 Economy & Compact Cars
@@ -146,14 +146,8 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
                 <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   🚙 SUVs & 4x4 Off-Road
                 </Link>
-                <Link href={localePath(locale, "fleet/scooters")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🛵 Scooters & Motorbikes
-                </Link>
-                <Link href={localePath(locale, "fleet/atvs")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🚜 Quad / ATV 4x4
-                </Link>
-                <Link href={localePath(locale, "fleet/buggies")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🏎️ Polaris Buggies
+                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  👨‍👩‍👧‍👦 Family & 7-Seater Cars
                 </Link>
               </div>
             </div>
