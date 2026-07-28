@@ -4,7 +4,12 @@ import Image from "next/image";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { buildMetadata } from "@/lib/seo";
-import { GUIDES, GUIDES_BY_SLUG } from "@/content/guides";
+import {
+  GUIDES,
+  GUIDES_BY_SLUG,
+  INDEXABLE_GUIDES_BY_SLUG,
+  guideRequiresReview,
+} from "@/content/guides";
 import { FAQS } from "@/content/faqs";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -27,6 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildMetadata({
     locale, path: `guides/${slug}`, title: g.title[locale], description: g.excerpt[locale],
     image: g.hero, type: "article", publishedTime: g.publishedAt, modifiedTime: g.updatedAt,
+    noindex: guideRequiresReview(slug),
   });
 }
 
@@ -35,13 +41,14 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
   const g = GUIDES_BY_SLUG[slug];
   if (!isLocale(locale) || !g) notFound();
   const dict = await getDict(locale);
-  const related = (g.related || []).map((s) => GUIDES_BY_SLUG[s]).filter(Boolean).slice(0, 3);
+  const requiresReview = guideRequiresReview(slug);
+  const related = (g.related || []).map((s) => INDEXABLE_GUIDES_BY_SLUG[s]).filter(Boolean).slice(0, 3);
   const faqs = (g.faqRefs ?? []).map((s) => FAQS.find((f) => f.slug === s)).filter(Boolean) as typeof FAQS;
 
   return (
     <>
       <JsonLd data={graph([
-        articleSchema(g, locale),
+        ...(!requiresReview ? [articleSchema(g, locale)] : []),
         breadcrumbSchema([
           { name: dict.nav.home, url: `${SITE.domain}${localePath(locale)}` },
           { name: dict.nav.guides, url: `${SITE.domain}${localePath(locale, "guides")}` },
@@ -51,7 +58,7 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
       ])} />
 
       <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <Breadcrumbs label={dict.common.breadcrumb} items={[
             { label: dict.nav.home, href: localePath(locale) },
             { label: dict.nav.guides, href: localePath(locale, "guides") },
@@ -60,8 +67,8 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
             <Sparkles className="h-3.5 w-3.5" /> {dict.nav.guides}
           </div>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">{g.title[locale]}</h1>
-          <p className="mt-3 text-lg text-muted-foreground">{g.excerpt[locale]}</p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl lg:text-6xl">{g.title[locale]}</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">{g.excerpt[locale]}</p>
           <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3" /> {g.readingTime} min</span>
             <time dateTime={g.updatedAt}>{new Date(g.updatedAt).toLocaleDateString(locale)}</time>
@@ -70,26 +77,43 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
       </section>
 
       <section className="bg-background">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="island-card relative -mt-10 aspect-[16/8] overflow-hidden rounded-[2rem] shadow-2xl">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="island-card relative -mt-7 aspect-[16/9] overflow-hidden rounded-[1.75rem] shadow-2xl sm:-mt-10 sm:rounded-[2rem]">
             <Image src={g.hero} alt={g.title[locale]} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" unoptimized />
           </div>
         </div>
       </section>
 
       <section className="bg-background">
-        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 grid gap-10 lg:grid-cols-[1fr_240px]">
-          <article className="space-y-10">
+        <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1fr)_260px] lg:px-8">
+          <article className="min-w-0">
+            <div className="mb-10 rounded-3xl border border-[var(--sea)]/20 bg-[var(--sea-soft)]/45 p-6 text-lg leading-8 text-[var(--ink)] dark:bg-white/5 dark:text-white">
+              {g.excerpt[locale]}
+            </div>
+            <details className="mb-10 rounded-2xl border border-border bg-background p-4 lg:hidden">
+              <summary className="cursor-pointer font-bold text-foreground">{dict.toc}</summary>
+              <ul className="mt-4 space-y-2 text-sm">
+                {g.sections.map((section, index) => (
+                  <li key={index}>
+                    <a href={`#s${index}`} className="text-muted-foreground hover:text-[var(--sea)]">
+                      {section.heading[locale]}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+            <div className="space-y-12">
             {g.sections.map((s, i) => (
-              <div key={i} id={`s${i}`}>
-                <h2 className="text-2xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{s.heading[locale]}</h2>
-                <p className="mt-3 text-base leading-7 text-[var(--ink)] dark:text-white">{s.body[locale]}</p>
-              </div>
+              <section key={i} id={`s${i}`} className="scroll-mt-28">
+                <h2 className="text-2xl font-bold leading-tight tracking-tight text-[var(--ink)] dark:text-white sm:text-3xl">{s.heading[locale]}</h2>
+                <p className="mt-4 max-w-[68ch] text-[1.0625rem] leading-8 text-foreground/90">{s.body[locale]}</p>
+              </section>
             ))}
+            </div>
           </article>
           <aside className="hidden lg:block">
             <div className="island-card sticky top-28 rounded-3xl p-4">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-2)]">{dict.toc}</p>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-4)] dark:text-[var(--sea-2)]">{dict.toc}</p>
               <ul className="space-y-2 text-sm">
                 {g.sections.map((s, i) => (
                   <li key={i}><a href={`#s${i}`} className="text-muted-foreground hover:text-[var(--sea)]">{s.heading[locale]}</a></li>
@@ -101,59 +125,6 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
       </section>
 
       {faqs.length > 0 && <ContextualFaq faqs={faqs} locale={locale} dict={dict} />}
-
-      {/* Internal Link Silo: Guide A -> Location B & Fleet C */}
-      <section className="border-t border-border/70 bg-background/50 py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Location Hubs (Page B) */}
-            <div className="island-card rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Popular Naxos Car Rental Pickup Hubs</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Free delivery & meet-and-greet at all major arrival locations</p>
-              <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-                <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  ⚓ Rent a Car Naxos Port
-                </Link>
-                <Link href={localePath(locale, "locations/airport-pickup-jnx")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  ✈️ Rent a Car Naxos Airport (JNX)
-                </Link>
-                <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🏛️ Car Rental Naxos Town (Chora)
-                </Link>
-                <Link href={localePath(locale, "locations/agios-prokopios")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🏖️ Rent a Car Agios Prokopios
-                </Link>
-                <Link href={localePath(locale, "locations/plaka")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🌅 Rent a Car Plaka Beach
-                </Link>
-                <Link href={localePath(locale, "locations/mikri-vigla")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🪁 Rent a Car Mikri Vigla
-                </Link>
-              </div>
-            </div>
-
-            {/* Fleet Categories (Page C) */}
-            <div className="island-card rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Naxos Rental Car Options</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Choose a rental car for your route, group size and preferred transmission</p>
-              <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🚗 Economy & Compact Cars
-                </Link>
-                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  ⚡ Automatic Rental Cars
-                </Link>
-                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🚙 SUVs & 4x4 Off-Road
-                </Link>
-                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  👨‍👩‍👧‍👦 Family & 7-Seater Cars
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {related.length > 0 && (
         <section className="bg-sand border-t border-border/70 dark:bg-[var(--background)]">

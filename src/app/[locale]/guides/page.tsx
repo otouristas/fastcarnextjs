@@ -4,7 +4,7 @@ import Image from "next/image";
 import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { GUIDES } from "@/content/guides";
+import { INDEXABLE_GUIDES } from "@/content/guides";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
@@ -45,7 +45,7 @@ export default async function GuidesHubPage({ params }: { params: Promise<{ loca
       <section className="bg-background border-y border-border/70">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {GUIDES.map((g) => (
+            {INDEXABLE_GUIDES.map((g) => (
               <Link
                 key={g.slug}
                 href={localePath(locale, `guides/${g.slug}`)}
