@@ -18,11 +18,27 @@ export const SITE = {
   phones: ["+306948820568"],
   whatsapp: "306948820568",
   email: "info@fmrnaxos.gr",
+  // Compatibility-only placeholders for templates removed by the next stacked
+  // branch. They are deliberately empty and must not be used as facts.
+  owners: [] as readonly string[],
+  founded: "",
+  geo: { lat: 0, lng: 0 },
+  address: {
+    street: "",
+    locality: "Naxos",
+    region: "",
+    postalCode: "",
+    country: "GR",
+  },
+  hours: { open: "", close: "", days: [] as readonly string[] },
+  priceRange: "",
   currency: "EUR",
+  areaServed: [] as readonly string[],
   social: {
     facebook: "https://www.facebook.com/fastmotorentalnaxos",
     instagram: "https://www.instagram.com/fastmotorentalnaxos",
   },
+  rating: { value: "", count: "" },
   flags: {
     touristasEnabled: false,
     cookieBannerEnabled: true,
