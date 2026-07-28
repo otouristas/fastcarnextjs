@@ -20,7 +20,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return seoFor("faq", locale, "faq");
+  return seoFor("faq", locale, "faq", { noindex: true });
 }
 
 export default async function FaqPage({ params }: { params: Promise<{ locale: string }> }) {

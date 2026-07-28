@@ -34,15 +34,9 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
           <h3 className="text-lg font-bold leading-tight text-white drop-shadow-md">
             {v.name[locale]}
           </h3>
-          <span className="shrink-0 rounded-full border border-white/40 bg-white/95 px-3 py-1 text-xs font-bold text-[var(--ink)] shadow-md backdrop-blur">
-            <span className="text-[10px] uppercase tracking-wider text-muted-foreground mr-1">{dict.common.from}</span>
-            <span className="text-brand-gradient">€{v.priceShoulder}</span>
-            <span className="text-muted-foreground">{dict.common.perDay}</span>
-          </span>
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
-        <p className="text-sm text-muted-foreground line-clamp-2 min-h-[2.5rem]">{v.tagline[locale]}</p>
         <ul className="mt-1 grid grid-cols-2 gap-x-3 gap-y-2 text-xs text-muted-foreground">
           {v.seats != null && (
             <li className="flex items-center gap-1.5">

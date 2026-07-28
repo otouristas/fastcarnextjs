@@ -9,14 +9,12 @@ import { SlidersHorizontal, X, ChevronDown, Sparkles } from "lucide-react";
 
 /* ── Types ── */
 type Transmission = "any" | "automatic" | "manual";
-type SortKey = "recommended" | "price-asc" | "price-desc" | "largest";
+type SortKey = "recommended" | "largest";
 type BestForKey = "couples" | "families" | "adventure" | "mountains" | "beaches" | "offroad" | "style";
 
 interface Filters {
   transmission: Transmission;
   seats: number | null;
-  priceMin: number;
-  priceMax: number;
   fourByFour: boolean;
   bestFor: Set<BestForKey>;
   sort: SortKey;
@@ -28,7 +26,7 @@ const BEST_FOR_KEYWORDS: Record<BestForKey, string[]> = {
   adventure: ["adventure", "explore", "off-road", "trails"],
   mountains: ["mountain", "filoti", "apollonas", "village", "apeiranthos", "climb"],
   beaches:   ["beach", "coast", "swim"],
-  offroad:   ["off-road", "off road", "4×4", "4x4", "terrain", "buggy", "atv"],
+  offroad:   ["off-road", "off road", "4×4", "4x4", "terrain"],
   style:     ["style", "photo", "instagram", "elegant", "luxury"],
 };
 
@@ -37,15 +35,9 @@ function matchesBestFor(vehicle: Vehicle, key: BestForKey): boolean {
   return BEST_FOR_KEYWORDS[key].some((kw) => text.includes(kw));
 }
 
-function getVehiclePrice(v: Vehicle) {
-  return v.priceShoulder;
-}
-
 const DEFAULT_FILTERS: Filters = {
   transmission: "any",
   seats: null,
-  priceMin: 15,
-  priceMax: 200,
   fourByFour: false,
   bestFor: new Set(),
   sort: "recommended",
@@ -55,8 +47,6 @@ function applyFilters(vehicles: Vehicle[], f: Filters): Vehicle[] {
   let result = vehicles.filter((v) => {
     if (f.transmission !== "any" && v.transmission !== f.transmission) return false;
     if (f.seats !== null && (v.seats ?? 0) < f.seats) return false;
-    const price = getVehiclePrice(v);
-    if (price < f.priceMin || price > f.priceMax) return false;
     if (f.fourByFour && !v.fourByFour) return false;
     if (f.bestFor.size > 0) {
       const anyMatch = Array.from(f.bestFor).some((key) => matchesBestFor(v, key));
@@ -65,9 +55,9 @@ function applyFilters(vehicles: Vehicle[], f: Filters): Vehicle[] {
     return true;
   });
 
-  if (f.sort === "price-asc") result = [...result].sort((a, b) => a.priceShoulder - b.priceShoulder);
-  else if (f.sort === "price-desc") result = [...result].sort((a, b) => b.priceShoulder - a.priceShoulder);
-  else if (f.sort === "largest") result = [...result].sort((a, b) => (b.seats ?? 0) - (a.seats ?? 0));
+  if (f.sort === "largest") {
+    result = [...result].sort((a, b) => (b.seats ?? 0) - (a.seats ?? 0));
+  }
 
   return result;
 }
@@ -76,8 +66,6 @@ function hasActiveFilters(f: Filters) {
   return (
     f.transmission !== "any" ||
     f.seats !== null ||
-    f.priceMin !== DEFAULT_FILTERS.priceMin ||
-    f.priceMax !== DEFAULT_FILTERS.priceMax ||
     f.fourByFour ||
     f.bestFor.size > 0
   );
@@ -186,38 +174,18 @@ export function FleetBrowser({
         </div>
       </FilterSection>
 
-      {/* Price range */}
-      <FilterSection title={`${ff.priceRange}: €${filters.priceMin}–€${filters.priceMax}`}>
-        <div className="flex flex-col gap-2">
-          <input
-            type="range"
-            min={15}
-            max={200}
-            step={5}
-            value={filters.priceMax}
-            onChange={(e) => update("priceMax", Number(e.target.value))}
-            className="w-full accent-[var(--sea)]"
-            aria-label={ff.priceRange}
-          />
-          <div className="flex justify-between text-xs text-muted-foreground">
-            <span>€15</span><span>€200</span>
-          </div>
-        </div>
-      </FilterSection>
-
       {/* 4×4 toggle */}
       <FilterSection title="">
         <label className="flex cursor-pointer items-center gap-3">
-          <div
-            role="checkbox"
-            aria-checked={filters.fourByFour}
-            tabIndex={0}
-            onClick={() => update("fourByFour", !filters.fourByFour)}
-            onKeyDown={(e) => e.key === " " && update("fourByFour", !filters.fourByFour)}
-            className={`relative h-5 w-9 rounded-full transition-colors ${filters.fourByFour ? "bg-[var(--sea)]" : "bg-muted"}`}
-          >
+          <input
+            type="checkbox"
+            checked={filters.fourByFour}
+            onChange={(event) => update("fourByFour", event.target.checked)}
+            className="peer sr-only"
+          />
+          <span className={`relative h-5 w-9 rounded-full transition-colors ${filters.fourByFour ? "bg-[var(--sea)]" : "bg-muted"}`}>
             <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform ${filters.fourByFour ? "translate-x-4" : "translate-x-0.5"}`} />
-          </div>
+          </span>
           <span className="text-sm font-medium text-foreground">{ff.fourByFourOnly}</span>
         </label>
       </FilterSection>
@@ -259,8 +227,6 @@ export function FleetBrowser({
               aria-label={ff.sort}
             >
               <option value="recommended">{ff.sortRecommended}</option>
-              <option value="price-asc">{ff.sortPriceAsc}</option>
-              <option value="price-desc">{ff.sortPriceDesc}</option>
               <option value="largest">{ff.sortLargest}</option>
             </select>
             <ChevronDown className="pointer-events-none absolute right-2 top-2.5 h-3.5 w-3.5 text-muted-foreground" />

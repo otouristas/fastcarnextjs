@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "cancellation",
     title: dict.legal.cancellationTitle,
     description: dict.legal.cancellationSubtitle,
+    noindex: true,
   });
 }
 

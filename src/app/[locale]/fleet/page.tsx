@@ -14,7 +14,7 @@ import { Sparkles } from "lucide-react";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return seoFor("fleet", locale, "fleet");
+  return seoFor("fleet", locale, "fleet", { description: SITE.tagline[locale] });
 }
 
 export default async function FleetHubPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -45,7 +45,7 @@ export default async function FleetHubPage({ params }: { params: Promise<{ local
           <h1 className="mt-5 max-w-4xl text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-6xl">
             {dict.fleetHub.title}
           </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">{dict.fleetHub.subtitle}</p>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">{SITE.tagline[locale]}</p>
         </div>
       </section>
 

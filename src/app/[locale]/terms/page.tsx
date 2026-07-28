@@ -9,7 +9,7 @@ import { TermsAndCancellation } from "@/components/legal/TermsAndCancellation";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return seoFor("terms", locale, "terms");
+  return seoFor("terms", locale, "terms", { noindex: true });
 }
 
 export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {

@@ -5,10 +5,6 @@ export const dict: Dict = {
     home: "Αρχική",
     fleet: "Στόλος",
     cars: "Αυτοκίνητα",
-    scooters: "Scooter",
-    atvQuad: "ATV & Γουρούνες",
-    buggy: "Buggy",
-    motorbike: "Μοτοσικλέτες",
     locations: "Σημεία παραλαβής",
     pricing: "Τιμοκατάλογος",
     insurance: "Ασφαλιστική κάλυψη",
@@ -91,9 +87,6 @@ export const dict: Dict = {
   fleetTeaser: {
     title: "Σχεδιασμένος για κάθε διαδρομή στη Νάξο",
     cars: "Αυτοκίνητα",
-    scooters: "Scooter",
-    atvQuad: "ATV & Γουρούνες",
-    buggy: "Buggy",
   },
   delivery: {
     title: "Δωρεάν παράδοση σε όλο το νησί",
@@ -133,10 +126,6 @@ export const dict: Dict = {
     subtitle:
       "Μικρά, αυτόματα, οικογενειακά και 4×4 αυτοκίνητα  -  με προγραμματισμένη συντήρηση και άμεση παράδοση στο αεροδρόμιο JNX, στο λιμάνι ή στο κατάλυμά σας.",
     categoryCars: "Αυτοκίνητα  -  από αστικά compact έως επταθέσια και 4×4",
-    categoryScooters: "Scooter  -  από 50cc έως 200cc και Vespa",
-    categoryAtv: "ATV & Γουρούνες  -  από 150cc έως 800cc",
-    categoryBuggy: "Buggy  -  Polaris RZR 2 & 4 θέσεων",
-    categoryMoto: "Μοτοσικλέτες  -  touring & adventure",
   },
   pricing: {
     title: "Διαφανής τιμοκατάλογος",
@@ -306,7 +295,6 @@ export const dict: Dict = {
     openDrawer: "Εμφάνιση φίλτρων",
     closeDrawer: "Εφαρμογή φίλτρων",
     licenceB: "Αυτοκίνητο (Κατ. Β)",
-    licenceMoto: "Μοτοσικλέτα (Κατ. Α)",
     bestForOptions: {
       couples: "Ζευγάρια",
       families: "Οικογένειες",

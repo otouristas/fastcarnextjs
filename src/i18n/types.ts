@@ -1,7 +1,6 @@
 export interface Dict {
   nav: {
-    home: string; fleet: string; cars: string; scooters: string; atvQuad: string;
-    buggy: string; motorbike: string; locations: string; pricing: string;
+    home: string; fleet: string; cars: string; locations: string; pricing: string;
     insurance: string; faq: string; guides: string; about: string; contact: string;
     book: string; bookNow: string; whatsapp: string; call: string; menu: string;
   };
@@ -19,7 +18,7 @@ export interface Dict {
     ctaSecondary: string; badge1: string; badge2: string; badge3: string; badge4: string;
   };
   why: { title: string; subtitle: string; items: { title: string; body: string }[] };
-  fleetTeaser: { title: string; cars: string; scooters: string; atvQuad: string; buggy: string };
+  fleetTeaser: { title: string; cars: string };
   delivery: { title: string; subtitle: string; points: string[] };
   reviews: { title: string; subtitle: string; google: string };
   faqTeaser: { title: string; subtitle: string; cta: string };
@@ -28,8 +27,7 @@ export interface Dict {
     legal: string; languages: string; contact: string; explore: string;
   };
   fleetHub: {
-    title: string; subtitle: string; categoryCars: string; categoryScooters: string;
-    categoryAtv: string; categoryBuggy: string; categoryMoto: string;
+    title: string; subtitle: string; categoryCars: string;
   };
   pricing: {
     title: string; subtitle: string; shoulder: string; high: string; weekly: string; note: string;
@@ -77,7 +75,7 @@ export interface Dict {
     priceRange: string; fourByFourOnly: string; bestFor: string;
     sort: string; sortRecommended: string; sortPriceAsc: string; sortPriceDesc: string; sortLargest: string;
     any: string; openDrawer: string; closeDrawer: string;
-    licenceB: string; licenceMoto: string;
+    licenceB: string;
     bestForOptions: { couples: string; families: string; adventure: string; mountains: string; beaches: string; offroad: string; style: string };
     emptyTitle: string; emptyBody: string; emptyCta: string;
   };

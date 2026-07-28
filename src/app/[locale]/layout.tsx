@@ -15,6 +15,7 @@ import { SITE } from "@/lib/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { graph, organizationSchema, localBusinessSchema, websiteSchema } from "@/lib/schema";
 import { ConsentAwareAnalytics } from "@/components/analytics/ConsentAwareAnalytics";
+import { ConsentAwareInteractionTracking } from "@/components/analytics/ConsentAwareInteractionTracking";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -42,7 +43,6 @@ export const metadata: Metadata = {
   title: { default: SITE.brand, template: `%s | ${SITE.brand}` },
   description: SITE.tagline.en,
   applicationName: SITE.brand,
-  authors: SITE.owners.map((name) => ({ name })),
   creator: SITE.brand,
   publisher: SITE.brand,
   formatDetection: { email: false, address: false, telephone: false },
@@ -103,6 +103,7 @@ export default async function LocaleLayout({
           {SITE.flags.touristasEnabled && <TouristasChat dict={dict} />}
         </div>
         <ConsentAwareAnalytics />
+        <ConsentAwareInteractionTracking locale={locale} />
       </body>
     </html>
   );

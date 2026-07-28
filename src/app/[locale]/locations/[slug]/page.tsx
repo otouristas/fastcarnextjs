@@ -47,6 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: `locations/${slug}`,
     title: loc.name[locale],
     description: loc.hero[locale],
+    noindex: true,
     keywords: [
       `${loc.shortName} car rental`,
       `rent a car ${loc.shortName} Naxos`,
@@ -177,11 +178,6 @@ export default async function LocationPage({ params }: { params: Promise<{ local
                 <li>
                   <Link href={localePath(locale, "guides/rent-a-car-naxos-port-vs-airport-pickup-guide")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
                     ⚓ Port vs Airport Pickup Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link href={localePath(locale, "guides/best-car-rental-naxos-reviews-comparison")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
-                    ⭐ Best Car Rental Naxos Reviews & Comparison
                   </Link>
                 </li>
               </ul>

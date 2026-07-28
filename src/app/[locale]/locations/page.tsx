@@ -7,12 +7,12 @@ import { LOCATIONS } from "@/content/locations";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
-import { Plane, Anchor, MapPin, Mountain, ArrowRight, Sparkles, Clock } from "lucide-react";
+import { Plane, Anchor, MapPin, Mountain, ArrowRight, Sparkles } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
-  return seoFor("locations", locale, "locations");
+  return seoFor("locations", locale, "locations", { noindex: true });
 }
 
 const TYPE_ICON = {
@@ -105,11 +105,6 @@ export default async function LocationsHubPage({ params }: { params: Promise<{ l
         <div className="mx-auto max-w-5xl px-4 py-14 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-[var(--ink)] dark:text-white sm:text-4xl">{dict.delivery.title}</h2>
           <p className="mx-auto mt-3 max-w-2xl text-lg text-muted-foreground">{dict.delivery.subtitle}</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 font-semibold text-[var(--ink)] shadow-sm dark:bg-white/10 dark:text-white">
-              <Clock className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.hours.open}–{SITE.hours.close}
-            </span>
-          </div>
         </div>
       </section>
     </>

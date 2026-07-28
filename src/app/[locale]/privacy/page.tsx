@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     path: "privacy",
     title: dict.legal.privacyTitle,
     description: dict.legal.privacySubtitle,
+    noindex: true,
   });
 }
 
@@ -28,7 +29,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
       h: "1. Data controller",
       body: (
         <p>
-          The data controller is <strong>{SITE.brand}</strong>, {SITE.address.street}, {SITE.address.locality} {SITE.address.postalCode}, Greece.
+          The data controller is <strong>{SITE.brand}</strong>.
           Contact: <a className="text-[var(--sea)] hover:underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>, phone {SITE.phones[0]}.
         </p>
       ),
