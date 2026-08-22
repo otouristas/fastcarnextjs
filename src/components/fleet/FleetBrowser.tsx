@@ -208,9 +208,12 @@ export function FleetBrowser({
       {/* 4×4 toggle */}
       <FilterSection title="">
         <label className="flex cursor-pointer items-center gap-3">
+          {/* A wrapping <label> only names real form controls, so a div with
+              role="checkbox" needs its name stated explicitly. */}
           <div
             role="checkbox"
             aria-checked={filters.fourByFour}
+            aria-label={ff.fourByFourOnly}
             tabIndex={0}
             onClick={() => update("fourByFour", !filters.fourByFour)}
             onKeyDown={(e) => e.key === " " && update("fourByFour", !filters.fourByFour)}

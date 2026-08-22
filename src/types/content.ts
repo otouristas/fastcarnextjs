@@ -74,3 +74,46 @@ export interface Review {
   body: LocalizedString;
   source: "Google" | "Tripadvisor" | "direct";
 }
+
+/** One fan-out question and its answer, in every locale. */
+export interface FanoutQa {
+  q: LocalizedString;
+  a: LocalizedString;
+}
+
+export interface ComparisonTable {
+  caption: LocalizedString;
+  columns: LocalizedString[];
+  rows: LocalizedString[][];
+}
+
+/**
+ * An article in the /naxos island guide.
+ *
+ * Differs from `Guide` in three ways that matter for answer engines:
+ * `answer` is the 40–60 word direct response rendered immediately under the H1
+ * and marked `speakable`; `faq` carries the query fan-out set that is rendered as
+ * real on-page content *and* emitted as FAQPage schema; and `table` supports the
+ * comparison layouts that win table snippets.
+ */
+export interface NaxosGuideArticle {
+  slug: string;
+  /** Groups articles on the hub and fills schema.org articleSection. */
+  cluster: "plan" | "explore" | "arrive" | "eat-stay";
+  title: LocalizedString;
+  excerpt: LocalizedString;
+  answer: LocalizedString;
+  hero: string;
+  publishedAt: string;
+  updatedAt: string;
+  readingTime: number;
+  keywords: string[];
+  sections: GuideSection[];
+  table?: ComparisonTable;
+  faq: FanoutQa[];
+  related: string[];
+  /** Vehicle slugs surfaced in the conversion rail (seo-os Law 1). */
+  vehiclePicks?: string[];
+  /** Location slugs surfaced in the cross-vertical rail (seo-os Law 2). */
+  locationPicks?: string[];
+}

@@ -102,14 +102,31 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const v = VEHICLES_BY_SLUG[slug];
   if (!isLocale(locale) || !v) return {};
   const dict = await getDict(locale);
+  // The tagline alone ran 40–60 characters, well under the ~155 Google renders,
+  // so the snippet was mostly empty space. Compose specs and the delivery offer
+  // into the description instead — the two things that actually earn the click.
+  const specs = [
+    v.seats ? `${v.seats} ${dict.common.seats}` : null,
+    v.transmission ? dict.common[v.transmission] : null,
+    v.fourByFour ? "4x4" : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  const description = `${v.tagline[locale]}. ${specs}. ${dict.common.from} €${v.priceShoulder}${dict.common.perDay} — ${dict.trust.delivery}.`;
+
   return buildMetadata({
     locale,
     path: `fleet/${v.category}/${v.slug}`,
     title: `${v.name[locale]}  -  ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`,
-    description: v.tagline[locale],
+    description,
     image: v.image,
     type: "product",
-    keywords: [`${v.brand} ${v.model} naxos`, `rent ${v.brand} ${v.model} naxos`, "naxos rental"],
+    keywords: [
+      `${v.brand} ${v.model} naxos`,
+      `rent ${v.brand} ${v.model} naxos`,
+      `${v.name[locale]} car rental naxos`,
+      "naxos car rental",
+    ],
   });
 }
 
@@ -212,7 +229,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                       <span className="text-sm text-muted-foreground">{dict.common.perDay}</span>
                     </div>
                     {savePct > 0 && (
-                      <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--accent-foreground)] dark:bg-white/10 dark:text-[var(--sea-2)]">
+                      <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--link)] dark:bg-white/10">
                         {labels.saveBadge(savePct)}
                       </span>
                     )}
@@ -311,7 +328,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 {v.bestFor.map((b, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-[var(--accent-foreground)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-[var(--link)] shadow-sm dark:bg-white/10"
                   >
                     <Sparkles className="h-3 w-3" />
                     {b[locale]}
@@ -349,7 +366,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                   </thead>
                   <tbody>
                     <tr className="border-t border-border dark:border-white/10">
-                      <td className="px-4 py-3 font-bold text-[var(--brand-2)]">€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></td>
+                      <td className="px-4 py-3 font-bold text-[var(--link)]">€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></td>
                       <td className="px-4 py-3 font-semibold text-foreground">€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></td>
                       <td className="px-4 py-3 font-semibold text-foreground">€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></td>
                     </tr>
@@ -519,7 +536,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
 
 function SectionEyebrow({ children, icon }: { children: React.ReactNode; icon: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--sea-2)]/30 bg-[var(--sea-soft)]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--sea-2)]/30 bg-[var(--sea-soft)]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--link)] shadow-sm dark:bg-white/10">
       {icon}
       {children}
     </span>

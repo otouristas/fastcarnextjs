@@ -46,11 +46,16 @@ export async function generateMetadata({
   if (!isLocale(locale) || !isCollectionSlug(slug)) return {};
   const dict = await getDict(locale);
   const title = collectionTitle(slug, dict);
+  const vehicles = vehiclesForCollection(slug);
+  const minPrice = vehicles.length ? Math.min(...vehicles.map((v) => v.priceShoulder)) : 0;
+  const description = `${title} on Naxos: ${vehicles.length} vehicles from €${minPrice}${dict.common.perDay}, ${dict.trust.delivery.toLowerCase()}. ${dict.trust.unlimited}, ${dict.trust.transparent.toLowerCase()}.`;
+
   return buildMetadata({
     locale,
     path: `fleet/collections/${slug}`,
     title,
-    description: `${title} · ${SITE.tagline[locale]}`,
+    description,
+    keywords: [`${slug.replace(/-/g, " ")} car rental naxos`, "naxos car rental", "rent a car naxos"],
   });
 }
 

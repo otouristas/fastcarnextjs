@@ -42,15 +42,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, slug } = await params;
   const loc = LOCATIONS_BY_SLUG[slug];
   if (!isLocale(locale) || !loc) return {};
+  const dict = await getDict(locale);
+  // Several location heroes are under 60 characters, which leaves the SERP
+  // snippet mostly blank. Append the distance and the free-delivery offer.
+  const description = `${loc.hero[locale]} ${loc.distanceFromChoraKm} km from Chora, about ${loc.pickupTimeMinutes} min. ${dict.trust.delivery}.`;
+
   return buildMetadata({
     locale,
     path: `locations/${slug}`,
     title: loc.name[locale],
-    description: loc.hero[locale],
+    description,
     keywords: [
       `${loc.shortName} car rental`,
       `rent a car ${loc.shortName} Naxos`,
       `${loc.shortName} pickup Naxos`,
+      `car hire ${loc.shortName}`,
     ],
   });
 }
@@ -153,7 +159,7 @@ export default async function LocationPage({ params }: { params: Promise<{ local
               <ul className="mt-4 space-y-2 text-sm">
                 {nearby.map((n) => (
                   <li key={n.slug}>
-                    <Link href={localePath(locale, `locations/${n.slug}`)} className="text-muted-foreground hover:text-[var(--sea)]">
+                    <Link href={localePath(locale, `locations/${n.slug}`)} className="text-[var(--prose-body)] hover:text-[var(--link)]">
                       → {n.shortName}
                     </Link>
                   </li>
@@ -162,25 +168,25 @@ export default async function LocationPage({ params }: { params: Promise<{ local
             </div>
 
             <div className="island-card rounded-3xl p-6">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--brand-2)]">Naxos Driving & Planning Guides</h3>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--link)]">Naxos Driving & Planning Guides</h3>
               <ul className="mt-3 space-y-2 text-xs font-semibold">
                 <li>
-                  <Link href={localePath(locale, "guides/naxos-rent-a-car-prices-cost-breakdown")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                  <Link href={localePath(locale, "guides/naxos-rent-a-car-prices-cost-breakdown")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
                     📖 Naxos Rent a Car Prices (2026 Costs)
                   </Link>
                 </li>
                 <li>
-                  <Link href={localePath(locale, "guides/naxos-car-rental-without-credit-card-insurance")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                  <Link href={localePath(locale, "guides/naxos-car-rental-without-credit-card-insurance")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
                     💳 No Credit Card & Insurance Options
                   </Link>
                 </li>
                 <li>
-                  <Link href={localePath(locale, "guides/rent-a-car-naxos-port-vs-airport-pickup-guide")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                  <Link href={localePath(locale, "guides/rent-a-car-naxos-port-vs-airport-pickup-guide")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
                     ⚓ Port vs Airport Pickup Guide
                   </Link>
                 </li>
                 <li>
-                  <Link href={localePath(locale, "guides/best-car-rental-naxos-reviews-comparison")} className="text-[var(--ink)] hover:text-[var(--sea)] dark:text-white">
+                  <Link href={localePath(locale, "guides/best-car-rental-naxos-reviews-comparison")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
                     ⭐ Best Car Rental Naxos Reviews & Comparison
                   </Link>
                 </li>

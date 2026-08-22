@@ -68,6 +68,11 @@
   --sea: #0077b6;
   --sea-2: #00b4d8;
   --sea-soft: rgba(26, 143, 197, 0.08);
+  /* Text-safe accent. --sea is a brand fill; at body size on the light page
+     background it measures ~4.3:1 and fails AA, so anything that is *text*
+     uses --link instead. */
+  --link: #005f92;
+  --link-hover: #00446b;
 
   /* ── Surfaces  -  cool ice-blue ── */
   --sand: color-mix(in oklab, #edf5fc 84%, #ffffff);
@@ -95,6 +100,23 @@
   --border: rgba(26, 143, 197, 0.18);
   --input: rgba(26, 143, 197, 0.18);
   --ring: #00b4d8;
+  /* ── Editorial layer ──
+     Long-form reading surfaces for the Naxos guide. Defined on bare :root so
+     every token has a light value before .dark overrides it — a colour whose
+     only definition lives in a dark block renders as nothing in light mode. */
+  --prose-body: #24425c;
+  --prose-heading: #0c2240;
+  --prose-lead: #33566f;
+  --prose-rule: rgba(26, 143, 197, 0.16);
+  --answer-bg: rgba(0, 119, 182, 0.07);
+  --answer-border: #0077b6;
+  --table-head: rgba(0, 119, 182, 0.08);
+  --table-stripe: rgba(26, 143, 197, 0.035);
+  --pill-bg: rgba(248, 252, 255, 0.9);
+  --overlay-scrim: rgba(6, 21, 33, 0.62);
+  --shadow-card: 0 24px 70px rgba(6, 30, 52, 0.09);
+  --shadow-lift: 0 30px 80px rgba(6, 30, 52, 0.16);
+
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -123,6 +145,8 @@
   --sea: #44c7e9;
   --sea-2: #78def4;
   --sea-soft: rgba(68, 199, 233, 0.13);
+  --link: #7ddcf6;
+  --link-hover: #a9ebfb;
   --sand: #0a1f2e;
   --sand-2: #102b3d;
   --background: #061521;
@@ -143,6 +167,21 @@
   --border: rgba(129, 193, 218, 0.21);
   --input: rgba(137, 202, 226, 0.28);
   --ring: #67d9f3;
+
+  /* Editorial layer — dark. Body text lifts to a readable neutral rather than
+     inheriting muted-foreground, which fails AA over the dark card surface. */
+  --prose-body: #c3d6e2;
+  --prose-heading: #f2f7fa;
+  --prose-lead: #d6e6ef;
+  --prose-rule: rgba(129, 193, 218, 0.2);
+  --answer-bg: rgba(68, 199, 233, 0.1);
+  --answer-border: #44c7e9;
+  --table-head: rgba(68, 199, 233, 0.12);
+  --table-stripe: rgba(129, 193, 218, 0.05);
+  --pill-bg: rgba(16, 43, 61, 0.7);
+  --overlay-scrim: rgba(2, 10, 17, 0.7);
+  --shadow-card: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --shadow-lift: 0 30px 90px rgba(0, 0, 0, 0.46);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -456,5 +495,98 @@
   .mrc-shimmer {
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* ── Editorial: long-form article body ──
+     Applied to the guide article container. Measure is capped at ~68ch because
+     the full 5xl container is too wide to read comfortably at 18px. */
+  .editorial {
+    color: var(--prose-body);
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    /* Grid and flex children default to min-width:auto, so a child with a `ch`
+       max-width pushes the whole track to that intrinsic size and the page
+       scrolls sideways on mobile. */
+    min-width: 0;
+  }
+  .editorial h2 {
+    color: var(--prose-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin-top: 2.75rem;
+  }
+  .editorial h3 {
+    color: var(--prose-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+  }
+  .editorial p {
+    margin-top: 1rem;
+    max-width: min(68ch, 100%);
+  }
+  .editorial strong { color: var(--prose-heading); font-weight: 700; }
+  .editorial a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+  .editorial a:hover { color: var(--link-hover); }
+
+  /* A link inside a run of prose must not be distinguished by colour alone —
+     axe flags this as link-in-text-block, and it is a real WCAG 1.4.1 failure
+     for anyone who cannot separate the two hues. */
+  .prose-links a,
+  .reference-list a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose-links a:hover,
+  .reference-list a:hover { color: var(--link-hover); }
+  .editorial hr { border-color: var(--prose-rule); margin: 2.5rem 0; }
+
+  /* Lead paragraph — the first paragraph of a section reads one step larger. */
+  .editorial-lead {
+    color: var(--prose-lead);
+    font-size: 1.15rem;
+    line-height: 1.75;
+  }
+
+  /* ── Answer block ──
+     The 40–60 word direct answer under the H1. Also the `speakable` target, so
+     the class name is referenced from schema.ts — renaming it breaks that. */
+  .answer-block {
+    background: var(--answer-bg);
+    border-left: 4px solid var(--answer-border);
+  }
+
+  /* ── Editorial tables ── */
+  .editorial-table thead { background: var(--table-head); }
+  .editorial-table tbody tr:nth-child(even) { background: var(--table-stripe); }
+  .editorial-table th,
+  .editorial-table td { border-color: var(--border); }
+
+  /* ── Chips / pills used across guide rails ── */
+  .pill {
+    background: var(--pill-bg);
+    border: 1px solid var(--border);
+  }
+
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .lift-on-hover { transition: transform 220ms ease, box-shadow 220ms ease; }
+  .lift-on-hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+  /* Anyone who has asked their OS to reduce motion gets no transforms at all. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-kenburns,
+    .animate-scroll-cue,
+    .animate-float,
+    .reveal-up,
+    .glow-brand,
+    .mrc-shimmer {
+      animation: none !important;
+    }
+    .lift-on-hover { transition: none; }
+    .lift-on-hover:hover { transform: none; }
+    html { scroll-behavior: auto; }
   }
 }

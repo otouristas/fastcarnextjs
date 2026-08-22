@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { SITE, type Locale, localePath, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
 import { LOCATIONS } from "@/content/locations";
+import { NAXOS_GUIDE_ARTICLES } from "@/content/naxos-guide";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
   Phone, ChevronDown, Mail, Clock, Star,
@@ -38,6 +39,10 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
   const fleetLinks: MegaLink[] = [
     { href: localePath(locale, "fleet/cars"), label: dict.nav.cars, description: dict.fleetHub.categoryCars },
     { href: localePath(locale, "fleet"), label: dict.nav.fleet, description: dict.fleetHub.subtitle },
+    { href: localePath(locale, "fleet/collections/automatic"), label: "Automatic cars", description: "Automatic transmission across the fleet" },
+    { href: localePath(locale, "fleet/collections/suv-4x4"), label: "SUV & 4x4", description: "For the mountain roads and unpaved tracks" },
+    { href: localePath(locale, "fleet/collections/family-7-seater"), label: "Family & 7-seater", description: "Groups of five or more with luggage" },
+    { href: localePath(locale, "fleet/scooters"), label: "Scooter rental in Naxos", description: "Why we rent cars, and when a scooter suits" },
   ];
   const infoLinks: MegaLink[] = [
     { href: localePath(locale, "pricing"), label: dict.nav.pricing, description: dict.pricing.subtitle },
@@ -50,9 +55,14 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
   ];
   const exploreLinks: MegaLink[] = [
     { href: localePath(locale, "naxos"), label: dict.naxos.pageTitle, description: dict.naxos.pageSubtitle, badge: "Guide" },
+    ...NAXOS_GUIDE_ARTICLES.slice(0, 5).map((a) => ({
+      href: localePath(locale, `naxos/${a.slug}`),
+      label: a.title[locale],
+      description: a.excerpt[locale],
+    })),
     { href: localePath(locale, "naxos/beaches"), label: dict.naxos.beachesTitle, description: "Beaches, villages & best vehicle picks" },
     { href: localePath(locale, "locations"), label: dict.nav.locations, description: dict.locationsHub.subtitle },
-    ...LOCATIONS.slice(0, 4).map((l) => ({
+    ...LOCATIONS.slice(0, 3).map((l) => ({
       href: localePath(locale, `locations/${l.slug}`),
       label: l.shortName,
       description: l.hero[locale],

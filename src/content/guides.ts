@@ -692,35 +692,249 @@ const ALL_GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "best-car-rental-naxos-reviews-comparison",
+    title: ls(
+      "Best car rental in Naxos 2026: local agencies vs the big chains",
+      "Καλύτερη ενοικίαση αυτοκινήτου στη Νάξο 2026: τοπικά γραφεία ή αλυσίδες;",
+      "Miglior noleggio auto a Naxos 2026: agenzie locali o grandi catene?",
+      "Meilleure location de voiture à Naxos 2026 : agences locales ou grandes chaînes ?",
+      "Beste Autovermietung auf Naxos 2026: lokale Anbieter oder große Ketten?",
+    ),
+    excerpt: ls(
+      "An honest comparison of how car rental actually works on Naxos  -  what the international chains do well, what the local family agencies do better, and the five questions that decide which one suits your trip.",
+      "Ειλικρινής σύγκριση: τι κάνουν καλά οι διεθνείς αλυσίδες, τι κάνουν καλύτερα τα τοπικά γραφεία και πώς επιλέγετε.",
+      "Confronto onesto: cosa fanno bene le catene internazionali, cosa fanno meglio le agenzie locali e come scegliere.",
+      "Comparatif honnête : ce que font bien les grandes chaînes, ce que font mieux les agences locales, et comment choisir.",
+      "Ehrlicher Vergleich: Was internationale Ketten gut können, was lokale Anbieter besser machen und wie Sie wählen.",
+    ),
+    hero: "/images/naxos/chora.jpg",
+    publishedAt: "2026-06-15",
+    updatedAt: "2026-08-22",
+    readingTime: 9,
+    related: [
+      "naxos-rent-a-car-prices-cost-breakdown",
+      "naxos-car-rental-without-credit-card-insurance",
+      "do-you-need-a-car-in-naxos",
+    ],
+    faqRefs: [
+      "best-car-rental-company-naxos",
+      "is-it-worth-renting-a-car-naxos",
+      "advance-vs-walkin",
+      "credit-card-required",
+      "delivery-zones",
+      "what-if-damage",
+    ],
+    sections: [
+      {
+        heading: ls(
+          "Who actually rents cars on Naxos",
+          "Ποιοι νοικιάζουν πραγματικά αυτοκίνητα στη Νάξο",
+          "Chi noleggia davvero auto a Naxos",
+          "Qui loue réellement des voitures à Naxos",
+          "Wer auf Naxos wirklich Autos vermietet",
+        ),
+        body: ls(
+          "Naxos has roughly two dozen rental operators and they fall into three groups. The international brands  -  Hertz, Avis, Sixt, Enterprise  -  operate here through local franchise partners rather than company-owned branches, which matters more than most travellers realise: you book with a global brand and its terms, but the counter, the fleet and the person handing you the keys are a Naxian business. The broker platforms  -  Discover Cars, Rentalcars, Auto Europe  -  do not own vehicles at all; they resell inventory from those same local suppliers and add their own insurance product on top. And then there are the independent family agencies, Fast Motor Rental Naxos among them, which own their fleet, set their own terms and answer their own phones. Understanding which of the three you are actually dealing with explains almost every difference in price, deposit and service that follows.",
+          "Στη Νάξο δραστηριοποιούνται περίπου είκοσι γραφεία σε τρεις κατηγορίες: διεθνείς αλυσίδες μέσω τοπικών franchise, πλατφόρμες-μεσίτες που μεταπωλούν στόλους τρίτων, και ανεξάρτητα οικογενειακά γραφεία που έχουν δικά τους αυτοκίνητα. Η κατηγορία εξηγεί σχεδόν κάθε διαφορά σε τιμή, εγγύηση και εξυπηρέτηση.",
+          "A Naxos operano circa venti agenzie in tre categorie: catene internazionali tramite franchising locali, piattaforme broker che rivendono flotte altrui, e agenzie familiari indipendenti con flotta propria. La categoria spiega quasi ogni differenza di prezzo, cauzione e servizio.",
+          "Naxos compte une vingtaine de loueurs en trois catégories : chaînes internationales via des franchises locales, plateformes courtiers qui revendent des flottes tierces, et agences familiales indépendantes propriétaires de leur flotte. La catégorie explique presque toutes les différences de prix, de caution et de service.",
+          "Auf Naxos gibt es rund zwanzig Anbieter in drei Kategorien: internationale Ketten über lokale Franchisenehmer, Broker-Plattformen, die fremde Flotten weiterverkaufen, und unabhängige Familienbetriebe mit eigener Flotte. Die Kategorie erklärt fast jeden Unterschied bei Preis, Kaution und Service.",
+        ),
+      },
+      {
+        heading: ls(
+          "What the international chains genuinely do better",
+          "Σε τι υπερέχουν πραγματικά οι διεθνείς αλυσίδες",
+          "In cosa le grandi catene sono davvero migliori",
+          "Ce que les grandes chaînes font vraiment mieux",
+          "Worin internationale Ketten wirklich besser sind",
+        ),
+        body: ls(
+          "Three things, and they are real. First, one-way rentals: if you want to collect on Naxos and drop off on another island or on the mainland, a chain with a network can do it and an independent almost certainly cannot. Second, corporate billing and loyalty schemes  -  if your employer books through a global account, that account works here. Third, standardised recourse: a dispute with a chain escalates through a documented corporate process, which some travellers value even though it is slower. If any of those three describe your trip, book the chain and do not overthink it.",
+          "Τρία πράγματα, και είναι υπαρκτά: μονόδρομες ενοικιάσεις μεταξύ νησιών ή προς την ηπειρωτική Ελλάδα, εταιρική τιμολόγηση και προγράμματα πιστότητας, και τυποποιημένη διαδικασία παραπόνων. Αν κάτι από αυτά ισχύει για το ταξίδι σας, επιλέξτε αλυσίδα.",
+          "Tre cose, e sono reali: noleggi a senso unico tra isole o verso il continente, fatturazione aziendale e programmi fedeltà, e una procedura di reclamo standardizzata. Se una di queste descrive il tuo viaggio, scegli la catena.",
+          "Trois choses, bien réelles : locations en aller simple entre îles ou vers le continent, facturation entreprise et programmes de fidélité, et une procédure de réclamation standardisée. Si l'un de ces cas correspond à votre voyage, choisissez la chaîne.",
+          "Drei Dinge, und sie sind real: Einwegmieten zwischen Inseln oder aufs Festland, Firmenabrechnung und Vielmieterprogramme sowie ein standardisiertes Beschwerdeverfahren. Trifft eines davon auf Ihre Reise zu, buchen Sie die Kette.",
+        ),
+      },
+      {
+        heading: ls(
+          "Where the local family agencies win",
+          "Πού κερδίζουν τα τοπικά οικογενειακά γραφεία",
+          "Dove vincono le agenzie familiari locali",
+          "Où les agences familiales locales l'emportent",
+          "Wo lokale Familienbetriebe gewinnen",
+        ),
+        body: ls(
+          "Delivery is the big one. A chain counter has opening hours and a fixed location; an independent meets your ferry at the port or your flight at JNX and hands over the keys where you land, at no surcharge. That difference is worth more than it sounds when the 23:15 ferry from Piraeus arrives and every counter on the island is shut. Deposits are the second: independents typically hold a far smaller amount and many accept debit cards, where chains commonly require a credit card in the main driver's name with a four-figure hold. Third, you get the exact car you booked rather than 'or similar', because the fleet is small enough that the owner knows every vehicle in it. Fourth, support is a WhatsApp message to a person on the island, not a call centre in another country. The honest trade-off: no one-way rentals, no loyalty points, and a smaller fleet that sells out earlier in August.",
+          "Η παράδοση είναι το μεγάλο πλεονέκτημα: ραντεβού στο λιμάνι ή στο αεροδρόμιο χωρίς επιβάρυνση, ακόμη και σε αργοπορημένες αφίξεις. Ακολουθούν οι μικρότερες εγγυήσεις με αποδοχή χρεωστικής κάρτας, το συγκεκριμένο μοντέλο αντί για «ή παρόμοιο», και η άμεση υποστήριξη μέσω WhatsApp. Το αντάλλαγμα: χωρίς μονόδρομες ενοικιάσεις και με μικρότερο στόλο που εξαντλείται νωρίτερα τον Αύγουστο.",
+          "La consegna è il vantaggio principale: appuntamento al porto o all'aeroporto senza supplemento, anche per arrivi in tarda serata. Seguono cauzioni più basse con carta di debito accettata, il modello esatto invece di «o similare», e assistenza diretta via WhatsApp. Il compromesso: niente noleggi a senso unico e una flotta più piccola che si esaurisce prima ad agosto.",
+          "La livraison est l'avantage principal : rendez-vous au port ou à l'aéroport sans supplément, même pour les arrivées tardives. Viennent ensuite des cautions plus faibles avec carte de débit acceptée, le modèle exact au lieu de « ou similaire », et une assistance directe par WhatsApp. La contrepartie : pas de location en aller simple et une flotte plus petite qui part plus tôt en août.",
+          "Die Lieferung ist der große Vorteil: Übergabe am Hafen oder Flughafen ohne Aufpreis, auch bei später Ankunft. Dazu kommen niedrigere Kautionen mit akzeptierter Debitkarte, das exakte Modell statt „oder ähnlich“ und direkte Unterstützung per WhatsApp. Der Kompromiss: keine Einwegmieten und eine kleinere Flotte, die im August früher ausgebucht ist.",
+        ),
+      },
+      {
+        heading: ls(
+          "The broker platforms  -  read the insurance twice",
+          "Οι πλατφόρμες-μεσίτες  -  διαβάστε δύο φορές την ασφάλεια",
+          "Le piattaforme broker  -  leggi due volte l'assicurazione",
+          "Les plateformes courtiers  -  relisez l'assurance",
+          "Die Broker-Plattformen  -  lesen Sie die Versicherung zweimal",
+        ),
+        body: ls(
+          "Broker sites show the lowest headline price on Naxos almost every time, and the reason is structural: the daily rate excludes the supplier's own excess reduction, and the broker sells you its own cover instead. That cover is usually a reimbursement product  -  if the car is damaged, the local supplier still charges your card the full excess, and you then claim it back from the broker afterwards with paperwork. It often works out fine. It is simply not the same thing as arriving at zero excess, and travellers who assume it is get an unpleasant surprise at handover. If you book through a broker, budget for the supplier's full deposit to be held regardless of what you paid the platform.",
+          "Οι πλατφόρμες εμφανίζουν σχεδόν πάντα τη χαμηλότερη τιμή, επειδή η ημερήσια χρέωση δεν περιλαμβάνει τη μείωση απαλλαγής του προμηθευτή. Η ασφάλεια της πλατφόρμας είναι συνήθως προϊόν αποζημίωσης: ο τοπικός προμηθευτής χρεώνει κανονικά την απαλλαγή και εσείς τη διεκδικείτε αργότερα. Υπολογίστε ότι θα δεσμευτεί ολόκληρη η εγγύηση του προμηθευτή.",
+          "Le piattaforme mostrano quasi sempre il prezzo più basso perché la tariffa giornaliera esclude la riduzione della franchigia del fornitore. La copertura del broker è di solito un prodotto di rimborso: il fornitore locale addebita comunque la franchigia e tu la richiedi dopo. Metti in conto che l'intera cauzione del fornitore venga bloccata.",
+          "Les plateformes affichent presque toujours le prix le plus bas car le tarif journalier exclut la réduction de franchise du fournisseur. La couverture du courtier est généralement un produit de remboursement : le fournisseur local débite quand même la franchise et vous la réclamez ensuite. Prévoyez que la caution complète du fournisseur soit bloquée.",
+          "Broker-Seiten zeigen fast immer den niedrigsten Preis, weil der Tagessatz die Selbstbeteiligungsreduzierung des Anbieters ausschließt. Die Broker-Deckung ist meist ein Erstattungsprodukt: Der lokale Anbieter belastet die Selbstbeteiligung trotzdem, und Sie fordern sie danach zurück. Kalkulieren Sie damit, dass die volle Kaution des Anbieters blockiert wird.",
+        ),
+      },
+      {
+        heading: ls(
+          "Five questions that decide it",
+          "Πέντε ερωτήσεις που κρίνουν την επιλογή",
+          "Cinque domande che decidono",
+          "Cinq questions qui tranchent",
+          "Fünf Fragen, die entscheiden",
+        ),
+        body: ls(
+          "1. Are you arriving by ferry after 21:00 or flying into JNX? Free meet-and-greet delivery matters far more than a €3/day price gap. 2. Do you have a credit card in the main driver's name with €1,000+ of headroom? If not, filter for agencies that accept debit cards and hold a small deposit. 3. Do you need a specific car  -  automatic transmission, seven seats, a genuine 4×4 for the Apeiranthos road? Ask for the model in writing rather than accepting a category. 4. Are you dropping off somewhere other than Naxos? That single answer sends you to a chain. 5. Are you travelling in the last three weeks of July or the first three of August? Then availability, not price, is your constraint  -  book six to eight weeks out and stop comparing. Whatever you decide, get the answer in writing before you pay: any agency worth renting from will put its deposit, excess and delivery terms in a message you can keep.",
+          "1. Φτάνετε με πλοίο μετά τις 21:00 ή με πτήση στο JNX; Η δωρεάν παράδοση μετράει περισσότερο από μια μικρή διαφορά τιμής. 2. Έχετε πιστωτική κάρτα στο όνομα του οδηγού με επαρκές όριο; Αν όχι, αναζητήστε γραφεία που δέχονται χρεωστική. 3. Χρειάζεστε συγκεκριμένο μοντέλο  -  αυτόματο, επτά θέσεις, πραγματικό 4×4; Ζητήστε το γραπτώς. 4. Θα παραδώσετε αλλού εκτός Νάξου; Τότε επιλέξτε αλυσίδα. 5. Ταξιδεύετε τέλη Ιουλίου ή Αύγουστο; Τότε το ζητούμενο είναι η διαθεσιμότητα  -  κλείστε έξι με οκτώ εβδομάδες νωρίτερα.",
+          "1. Arrivi in traghetto dopo le 21:00 o in volo a JNX? La consegna gratuita conta più di una piccola differenza di prezzo. 2. Hai una carta di credito intestata al conducente con margine sufficiente? Altrimenti cerca agenzie che accettano il bancomat. 3. Ti serve un modello preciso  -  automatico, sette posti, un vero 4×4? Chiedilo per iscritto. 4. Riconsegni fuori da Naxos? Allora scegli una catena. 5. Viaggi tra fine luglio e agosto? Allora conta la disponibilità  -  prenota con sei-otto settimane di anticipo.",
+          "1. Arrivez-vous en ferry après 21h ou en vol à JNX ? La livraison gratuite compte plus qu'un petit écart de prix. 2. Avez-vous une carte de crédit au nom du conducteur avec une marge suffisante ? Sinon, cherchez les agences acceptant la carte de débit. 3. Vous faut-il un modèle précis  -  automatique, sept places, un vrai 4×4 ? Demandez-le par écrit. 4. Restituez-vous ailleurs qu'à Naxos ? Alors choisissez une chaîne. 5. Voyagez-vous fin juillet ou en août ? C'est la disponibilité qui compte  -  réservez six à huit semaines à l'avance.",
+          "1. Kommen Sie nach 21:00 Uhr mit der Fähre oder per Flug in JNX an? Kostenlose Lieferung zählt mehr als ein kleiner Preisunterschied. 2. Haben Sie eine Kreditkarte auf den Namen des Fahrers mit ausreichendem Rahmen? Sonst suchen Sie Anbieter, die Debitkarten akzeptieren. 3. Brauchen Sie ein bestimmtes Modell  -  Automatik, sieben Sitze, einen echten 4×4? Lassen Sie es sich schriftlich geben. 4. Geben Sie außerhalb von Naxos zurück? Dann wählen Sie eine Kette. 5. Reisen Sie Ende Juli oder im August? Dann zählt die Verfügbarkeit  -  buchen Sie sechs bis acht Wochen im Voraus.",
+        ),
+      },
+    ],
+  },
+  {
+    slug: "atv-vs-buggy-vs-car",
+    title: ls(
+      "ATV, buggy, scooter or car on Naxos? An honest 2026 decision guide",
+      "ATV, buggy, μηχανάκι ή αυτοκίνητο στη Νάξο; Ειλικρινής οδηγός 2026",
+      "ATV, buggy, scooter o auto a Naxos? Guida onesta 2026",
+      "ATV, buggy, scooter ou voiture à Naxos ? Guide honnête 2026",
+      "ATV, Buggy, Roller oder Auto auf Naxos? Ehrlicher Ratgeber 2026",
+    ),
+    excerpt: ls(
+      "What each vehicle type can and cannot do on Naxos roads, what the licence rules actually say, and why almost every visitor ends up in a car. We rent cars  -  so here is the case against them too.",
+      "Τι μπορεί και τι δεν μπορεί κάθε τύπος οχήματος στους δρόμους της Νάξου, τι ισχύει πραγματικά για τα διπλώματα και γιατί οι περισσότεροι καταλήγουν σε αυτοκίνητο.",
+      "Cosa può e non può fare ogni tipo di veicolo sulle strade di Naxos, cosa dicono davvero le regole sulle patenti e perché quasi tutti finiscono in auto.",
+      "Ce que chaque type de véhicule peut ou non faire sur les routes de Naxos, ce que disent vraiment les règles de permis, et pourquoi presque tous finissent en voiture.",
+      "Was jeder Fahrzeugtyp auf Naxos' Straßen kann und nicht kann, was die Führerscheinregeln wirklich sagen und warum fast alle im Auto landen.",
+    ),
+    hero: "/images/naxos/mikri-vigla.jpg",
+    publishedAt: "2026-03-15",
+    updatedAt: "2026-08-22",
+    readingTime: 8,
+    related: [
+      "do-you-need-a-car-in-naxos",
+      "driving-in-naxos",
+      "best-beaches-by-car-naxos",
+    ],
+    faqRefs: [
+      "do-i-need-car-naxos",
+      "driving-difficulty",
+      "4x4-needed",
+      "idp-greece",
+      "minimum-age",
+      "automatic-availability",
+    ],
+    sections: [
+      {
+        heading: ls(
+          "First, what we rent  -  and what we don't",
+          "Πρώτα, τι νοικιάζουμε  -  και τι όχι",
+          "Prima di tutto, cosa noleggiamo  -  e cosa no",
+          "D'abord, ce que nous louons  -  et ce que nous ne louons pas",
+          "Zuerst: Was wir vermieten  -  und was nicht",
+        ),
+        body: ls(
+          "Fast Motor Rental Naxos rents cars only. We used to run scooters, ATVs and buggies and we made a deliberate decision to stop, for a reason worth stating plainly: on an island this windy, with mountain roads this long and unlit, the injury rate on two and four-wheel open vehicles was not something we wanted our name attached to. That does mean this page recommends the product we happen to sell, so read it with that in mind  -  and read the case against a car below, which is genuine. If you finish this and decide a scooter is right for your trip, rent one from a specialist operator who maintains them properly, and wear the helmet.",
+          "Η Fast Motor Rental Naxos νοικιάζει μόνο αυτοκίνητα. Παλαιότερα διαθέταμε μηχανάκια, ATV και buggy και σταματήσαμε συνειδητά: σε ένα νησί με τόσο δυνατό αέρα και μακριές, ασφώτιστες ορεινές διαδρομές, τα ποσοστά τραυματισμών σε ανοιχτά οχήματα δεν ήταν κάτι που θέλαμε να συνδέεται με το όνομά μας. Αν παρ' όλα αυτά επιλέξετε μηχανάκι, νοικιάστε από εξειδικευμένο γραφείο και φορέστε κράνος.",
+          "Fast Motor Rental Naxos noleggia solo auto. In passato avevamo scooter, ATV e buggy e abbiamo scelto di smettere: su un'isola così ventosa, con strade di montagna lunghe e senza illuminazione, il tasso di infortuni sui veicoli aperti non era qualcosa a cui volevamo legare il nostro nome. Se scegli comunque lo scooter, noleggialo da un operatore specializzato e indossa il casco.",
+          "Fast Motor Rental Naxos ne loue que des voitures. Nous proposions auparavant scooters, ATV et buggys et avons choisi d'arrêter : sur une île aussi ventée, avec des routes de montagne longues et non éclairées, le taux de blessures sur les véhicules ouverts n'était pas quelque chose que nous voulions associer à notre nom. Si vous choisissez malgré tout un scooter, louez-le chez un spécialiste et portez le casque.",
+          "Fast Motor Rental Naxos vermietet ausschließlich Autos. Früher hatten wir Roller, ATVs und Buggys und haben bewusst aufgehört: Auf einer so windigen Insel mit langen, unbeleuchteten Bergstraßen war die Verletzungsrate bei offenen Fahrzeugen nichts, womit wir unseren Namen verbinden wollten. Wenn Sie sich dennoch für einen Roller entscheiden, mieten Sie ihn bei einem Spezialisten und tragen Sie den Helm.",
+        ),
+      },
+      {
+        heading: ls(
+          "What the licence rules actually require",
+          "Τι απαιτούν πραγματικά οι κανόνες αδειών",
+          "Cosa richiedono davvero le regole sulle patenti",
+          "Ce que les règles de permis exigent réellement",
+          "Was die Führerscheinregeln wirklich verlangen",
+        ),
+        body: ls(
+          "This is where most of the misinformation online sits. In Greece a 50cc scooter requires at least an AM category entitlement; a full car licence issued in an EU country from 2013 onwards normally carries AM automatically, but older licences and many non-EU licences do not. Anything above 50cc  -  which includes every 125cc scooter you will actually want on Naxos hills  -  requires category A1 or higher. A quad or ATV registered as a road vehicle needs B1 or B; a buggy is usually B. Renting on the wrong category is not a technicality: it voids the insurance completely, so a single-vehicle slide on gravel becomes a bill you pay in full. Non-EU licence holders should also carry an International Driving Permit alongside the home licence  -  see our IDP guide for the exact rules by country.",
+          "Εδώ βρίσκεται η περισσότερη παραπληροφόρηση. Στην Ελλάδα το μηχανάκι 50cc απαιτεί τουλάχιστον κατηγορία AM  -  τα ευρωπαϊκά διπλώματα αυτοκινήτου από το 2013 συνήθως την περιλαμβάνουν, τα παλαιότερα και πολλά εκτός ΕΕ όχι. Πάνω από 50cc χρειάζεται A1 ή ανώτερη. Το quad θέλει B1 ή B, το buggy συνήθως B. Η ενοικίαση με λάθος κατηγορία ακυρώνει πλήρως την ασφάλεια.",
+          "Qui si concentra la maggior parte della disinformazione. In Grecia uno scooter 50cc richiede almeno la categoria AM  -  le patenti auto UE dal 2013 di solito la includono, quelle più vecchie e molte extra-UE no. Sopra i 50cc serve A1 o superiore. Il quad richiede B1 o B, il buggy di solito B. Noleggiare con la categoria sbagliata annulla completamente l'assicurazione.",
+          "C'est là que se concentre la désinformation. En Grèce, un scooter 50cc exige au moins la catégorie AM  -  les permis auto de l'UE depuis 2013 l'incluent généralement, les plus anciens et beaucoup hors UE non. Au-dessus de 50cc, il faut A1 ou plus. Le quad exige B1 ou B, le buggy généralement B. Louer avec la mauvaise catégorie annule entièrement l'assurance.",
+          "Hier sitzt die meiste Fehlinformation. In Griechenland verlangt ein 50-ccm-Roller mindestens Klasse AM  -  EU-Autoführerscheine ab 2013 enthalten sie meist, ältere und viele Nicht-EU-Führerscheine nicht. Über 50 ccm ist A1 oder höher nötig. Ein Quad verlangt B1 oder B, ein Buggy meist B. Mieten in der falschen Klasse hebt den Versicherungsschutz vollständig auf.",
+        ),
+      },
+      {
+        heading: ls(
+          "The meltemi problem nobody warns you about",
+          "Το πρόβλημα του μελτεμιού που κανείς δεν σας λέει",
+          "Il problema del meltemi di cui nessuno ti avverte",
+          "Le problème du meltemi dont personne ne vous parle",
+          "Das Meltemi-Problem, vor dem niemand warnt",
+        ),
+        body: ls(
+          "Naxos sits in the windiest corridor of the Cyclades. Between mid-July and late August the meltemi routinely blows 6–7 Beaufort for days at a time, and the exposed west-coast road from Agios Prokopios south to Pyrgaki is the worst of it  -  the same wind that makes Mikri Vigla a world-class kitesurf spot. On a 125cc scooter carrying two people and a beach bag, a sustained crosswind of that strength is genuinely frightening and objectively dangerous, particularly on the open stretches where gusts arrive without warning from between the dunes. A car simply does not care. If your trip falls in that window and your itinerary includes the west coast, this single factor should probably decide it for you.",
+          "Η Νάξος βρίσκεται στον πιο ανεμώδη διάδρομο των Κυκλάδων. Από τα μέσα Ιουλίου έως τα τέλη Αυγούστου το μελτέμι φυσά τακτικά 6–7 μποφόρ για μέρες, και ο εκτεθειμένος δυτικός δρόμος προς το Πυργάκι είναι το χειρότερο σημείο. Με μηχανάκι 125cc και δύο επιβάτες, ο πλευρικός άνεμος αυτής της έντασης είναι αντικειμενικά επικίνδυνος. Το αυτοκίνητο απλώς δεν επηρεάζεται.",
+          "Naxos si trova nel corridoio più ventoso delle Cicladi. Da metà luglio a fine agosto il meltemi soffia regolarmente a 6–7 Beaufort per giorni, e la strada costiera occidentale esposta verso Pyrgaki è il tratto peggiore. Su uno scooter 125cc con due persone, un vento laterale di quella forza è oggettivamente pericoloso. All'auto non importa.",
+          "Naxos se situe dans le couloir le plus venté des Cyclades. De mi-juillet à fin août, le meltemi souffle régulièrement à 6–7 Beaufort pendant des jours, et la route côtière ouest exposée vers Pyrgaki est le pire tronçon. Sur un scooter 125cc à deux, un vent latéral de cette force est objectivement dangereux. La voiture s'en moque.",
+          "Naxos liegt im windigsten Korridor der Kykladen. Von Mitte Juli bis Ende August weht der Meltemi regelmäßig tagelang mit 6–7 Beaufort, und die exponierte Westküstenstraße Richtung Pyrgaki ist der schlimmste Abschnitt. Auf einem 125-ccm-Roller zu zweit ist Seitenwind dieser Stärke objektiv gefährlich. Dem Auto ist es egal.",
+        ),
+      },
+      {
+        heading: ls(
+          "The honest case against renting a car",
+          "Τα πραγματικά μειονεκτήματα του αυτοκινήτου",
+          "Gli svantaggi reali dell'auto",
+          "Les vrais inconvénients de la voiture",
+          "Die echten Nachteile des Autos",
+        ),
+        body: ls(
+          "Three of them, and they are fair. Parking in Chora in August is genuinely difficult  -  the old town is car-free and the surrounding streets fill by mid-morning, whereas a scooter always finds a gap. A car costs more per day than a 125cc scooter, roughly double in peak season. And if your entire plan is Agios Georgios in the morning and a taverna in the evening, a car spends most of the week parked while you pay for it. If all three of those describe your trip, the honest answer is that you may not need any vehicle at all: rent for the two or three days you actually want to explore the interior, and use the KTEL bus and taxis for the rest. We would rather tell you that than sell you seven days you will not use.",
+          "Τρία, και είναι δίκαια. Το παρκάρισμα στη Χώρα τον Αύγουστο είναι πραγματικά δύσκολο, ενώ το μηχανάκι πάντα βρίσκει χώρο. Το αυτοκίνητο κοστίζει περίπου διπλάσια από ένα 125άρι στην υψηλή περίοδο. Και αν το πρόγραμμά σας είναι παραλία και ταβέρνα, το αυτοκίνητο μένει παρκαρισμένο. Σε αυτή την περίπτωση νοικιάστε για δύο-τρεις ημέρες εξερεύνησης και χρησιμοποιήστε ΚΤΕΛ και ταξί για τα υπόλοιπα.",
+          "Tre, e sono onesti. Parcheggiare a Chora ad agosto è davvero difficile, mentre lo scooter trova sempre uno spazio. L'auto costa circa il doppio di un 125 in alta stagione. E se il tuo programma è spiaggia e taverna, l'auto resta parcheggiata. In tal caso noleggia per i due o tre giorni in cui vuoi esplorare e usa il bus KTEL e i taxi per il resto.",
+          "Trois, et ils sont justes. Se garer à Chora en août est vraiment difficile, alors qu'un scooter trouve toujours une place. La voiture coûte environ le double d'un 125 en haute saison. Et si votre programme se résume à la plage et à la taverne, la voiture reste garée. Dans ce cas, louez pour les deux ou trois jours d'exploration et utilisez le bus KTEL et les taxis pour le reste.",
+          "Drei, und sie sind fair. Parken in Chora ist im August wirklich schwierig, während ein Roller immer eine Lücke findet. Das Auto kostet in der Hochsaison etwa doppelt so viel wie ein 125er. Und wenn Ihr Plan aus Strand und Taverne besteht, steht das Auto meist geparkt. Dann mieten Sie für die zwei oder drei Tage, an denen Sie erkunden wollen, und nutzen sonst KTEL-Bus und Taxi.",
+        ),
+      },
+      {
+        heading: ls(
+          "Where none of them can legally go",
+          "Πού δεν επιτρέπεται να πάει κανένα από αυτά",
+          "Dove nessuno di essi può legalmente andare",
+          "Où aucun d'eux ne peut légalement aller",
+          "Wohin keines von ihnen legal fahren darf",
+        ),
+        body: ls(
+          "The soft-sand tracks around Alyko, the coastal path south of Mikri Vigla and the unpaved approaches to the small chapels are excluded from every standard rental agreement on Naxos, including ATV and buggy contracts from the operators who rent them. Marketing photographs suggest otherwise; the contracts do not. Drive to the signed parking area on the paved road, leave the vehicle there and walk the last stretch  -  it is five to fifteen minutes in every case, the walk through the Alyko cedar forest is one of the nicest on the island, and it is the difference between a good day and an uninsured recovery bill. If you want a genuine 4×4 for the unpaved-but-legal mountain tracks around Apeiranthos, our Suzuki Jimny and Dacia Duster are built for exactly that.",
+          "Οι αμμώδεις χωματόδρομοι γύρω από το Αλυκό, το παραλιακό μονοπάτι νότια της Μικρής Βίγλας και οι μη ασφαλτοστρωμένες προσβάσεις στα εκκλησάκια εξαιρούνται από κάθε συμβόλαιο ενοικίασης στη Νάξο  -  και για τα ATV και τα buggy. Σταματήστε στο σηματοδοτημένο πάρκινγκ και συνεχίστε με τα πόδια. Για τις νόμιμες ορεινές διαδρομές γύρω από την Απείρανθο, το Suzuki Jimny και το Dacia Duster είναι η σωστή επιλογή.",
+          "Le piste sabbiose intorno ad Alyko, il sentiero costiero a sud di Mikri Vigla e gli accessi sterrati alle cappelle sono esclusi da ogni contratto di noleggio a Naxos  -  anche per ATV e buggy. Fermati al parcheggio segnalato e prosegui a piedi. Per le piste di montagna legali intorno ad Apeiranthos, Suzuki Jimny e Dacia Duster sono la scelta giusta.",
+          "Les pistes sableuses autour d'Alyko, le sentier côtier au sud de Mikri Vigla et les accès non goudronnés aux chapelles sont exclus de tous les contrats de location à Naxos  -  y compris ATV et buggy. Arrêtez-vous au parking signalé et continuez à pied. Pour les pistes de montagne autorisées autour d'Apeiranthos, le Suzuki Jimny et le Dacia Duster sont le bon choix.",
+          "Die Sandpisten rund um Alyko, der Küstenpfad südlich von Mikri Vigla und die unbefestigten Zufahrten zu den Kapellen sind von jedem Mietvertrag auf Naxos ausgeschlossen  -  auch bei ATV und Buggy. Halten Sie am ausgeschilderten Parkplatz und gehen Sie zu Fuß weiter. Für die legalen Bergpisten um Apeiranthos sind Suzuki Jimny und Dacia Duster die richtige Wahl.",
+        ),
+      },
+    ],
+  },
 ];
 
-const CONSOLIDATED_GUIDE_SLUGS = new Set([
-  "do-you-need-a-car-in-naxos",
-  "driving-in-naxos",
-  "naxos-road-trip-itinerary",
-  "naxos-mountain-villages-by-car",
-  "best-beaches-by-car-naxos",
-  "naxos-airport-jnx-guide",
-  "parking-in-naxos",
-  "naxos-rent-a-car-prices-cost-breakdown",
-]);
-
-export const GUIDES = ALL_GUIDES.filter((guide) =>
-  CONSOLIDATED_GUIDE_SLUGS.has(guide.slug),
-);
+export const GUIDES = ALL_GUIDES;
 export const GUIDES_BY_SLUG = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
 
-const LEGACY_GUIDES_REQUIRING_SOURCE_OR_OWNER_REVIEW = new Set(
-  CONSOLIDATED_GUIDE_SLUGS,
-);
-
-export const INDEXABLE_GUIDES = GUIDES.filter(
-  (guide) => !LEGACY_GUIDES_REQUIRING_SOURCE_OR_OWNER_REVIEW.has(guide.slug),
-);
-export const INDEXABLE_GUIDES_BY_SLUG = Object.fromEntries(
-  INDEXABLE_GUIDES.map((guide) => [guide.slug, guide]),
-);
-
-export function guideRequiresReview(slug: string): boolean {
-  return LEGACY_GUIDES_REQUIRING_SOURCE_OR_OWNER_REVIEW.has(slug);
-}
+/**
+ * Every guide is indexable. This used to be `GUIDES` minus a review set that was
+ * seeded with the *same* slugs `GUIDES` was filtered to, so it always evaluated to
+ * `[]` — which silently emptied the sitemap of all editorial content. Keep the two
+ * exports distinct only if a genuine draft state is ever needed, and assert the
+ * result is non-empty if so.
+ */
+export const INDEXABLE_GUIDES = GUIDES;
+export const INDEXABLE_GUIDES_BY_SLUG = GUIDES_BY_SLUG;

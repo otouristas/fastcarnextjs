@@ -12,7 +12,7 @@ import { REVIEWS } from "@/content/reviews";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
-import { graph, localBusinessSchema, organizationSchema, websiteSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
+import { graph, faqPageSchema, breadcrumbSchema, itemListSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
   ArrowRight, Star, MapPin, Plane, Anchor, MessageCircle, ShieldCheck, Wallet, Clock, Sparkles,
@@ -36,12 +36,21 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
+      {/* Organization, LocalBusiness and WebSite are emitted once in the locale
+          layout. Repeating them here produced two @graph blocks with the same
+          @id nodes on every page load. Only page-specific types belong here. */}
       <JsonLd
         data={graph([
-          localBusinessSchema(locale),
-          organizationSchema(),
-          websiteSchema(locale),
           faqPageSchema(heroFaqs, locale),
+          itemListSchema(
+            featuredCars.map((v) => ({
+              name: v.name[locale],
+              url: `${SITE.domain}${localePath(locale, `fleet/${v.category}/${v.slug}`)}`,
+              image: v.image,
+              description: v.tagline[locale],
+            })),
+            { name: "Rental cars on Naxos" },
+          ),
           breadcrumbSchema([{ name: dict.nav.home, url: `${SITE.domain}${localePath(locale)}` }]),
         ])}
       />
@@ -197,7 +206,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">{dict.fleetTeaser.title}</p>
+              <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.fleetTeaser.title}</p>
               <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.nav.cars}</h2>
             </div>
             <Link
@@ -219,7 +228,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="bg-background border-y border-border/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">{dict.fleetTeaser.title}</p>
+            <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.fleetTeaser.title}</p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">
               {dict.fleetHub.title}
             </h2>
@@ -258,7 +267,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="wave-bg border-y border-border/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">{dict.delivery.title}</p>
+            <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.delivery.title}</p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.delivery.subtitle}</h2>
             <ul className="mt-6 space-y-3">
               {dict.delivery.points.map((p) => (
@@ -307,7 +316,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="bg-background border-b border-border/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">Discover Naxos</p>
+            <p className="text-sm uppercase tracking-widest text-[var(--link)]">Discover Naxos</p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">
               {dict.naxos.pageTitle}
             </h2>
@@ -344,7 +353,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div aria-hidden className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-[var(--brand-1)] opacity-10 blur-3xl" />
         <div aria-hidden className="pointer-events-none absolute -right-40 -bottom-40 h-80 w-80 rounded-full bg-[var(--sea)] opacity-10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">{dict.ai.trigger}</p>
+          <p className="text-sm uppercase tracking-widest text-[var(--sea-2)]">{dict.ai.trigger}</p>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">{dict.ai.title}</h2>
           <p className="mt-4 max-w-xl mx-auto text-white/70 leading-relaxed">{dict.ai.subtitle}</p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
@@ -357,7 +366,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-7 py-3.5 text-sm font-bold text-white shadow-lg cursor-pointer select-none" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.30)' }}>
             <Sparkles className="h-4 w-4" /> {dict.ai.trigger}
           </div>
-          <p className="mt-3 text-xs text-white/40">{dict.ai.placeholder}</p>
+          <p className="mt-3 text-xs text-white/70">{dict.ai.placeholder}</p>
         </div>
       </section>
 
@@ -391,7 +400,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">{dict.nav.guides}</p>
+              <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.nav.guides}</p>
               <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.guidesHub.title}</h2>
             </div>
             <Link href={localePath(locale, "guides")} className="text-sm font-semibold text-[var(--sea)] hover:text-[var(--brand-2)] inline-flex items-center gap-2">

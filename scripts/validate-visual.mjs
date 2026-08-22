@@ -10,7 +10,14 @@ const OUTPUT = process.env.VISUAL_OUTPUT ?? "/tmp/fastcar-visual";
 const ROUTES = [
   { name: "home-el", path: "/el" },
   { name: "fleet-en", path: "/en/fleet/cars" },
+  { name: "vehicle-en", path: "/en/fleet/cars/hyundai-i10" },
   { name: "guide-el", path: "/el/guides/do-you-need-a-car-in-naxos" },
+  // The new editorial layer: hub, an article with a comparison table, and the
+  // scooter page. All three introduce surfaces the old routes never covered.
+  { name: "naxos-hub-en", path: "/en/naxos" },
+  { name: "naxos-article-en", path: "/en/naxos/naxos-vs-paros" },
+  { name: "scooters-en", path: "/en/fleet/scooters" },
+  { name: "location-en", path: "/en/locations/agios-prokopios" },
 ];
 const VIEWPORTS = [
   { name: "desktop", width: 1440, height: 1000 },
@@ -29,7 +36,12 @@ try {
         const page = await browser.newPage();
         const runtimeErrors = [];
         page.on("console", (message) => {
-          if (message.type() === "error") runtimeErrors.push(message.text());
+          const text = message.text();
+          // next start still advertises the HMR socket; the failed handshake is
+          // a harness artifact, not a defect in the page.
+          if (message.type() === "error" && !/webpack-hmr|WebSocket connection/.test(text)) {
+            runtimeErrors.push(text);
+          }
         });
         page.on("pageerror", (error) => runtimeErrors.push(error.message));
 

@@ -24,9 +24,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, slug } = await params;
   const g = GUIDES_BY_SLUG[slug];
   if (!isLocale(locale) || !g) return {};
+  // Several non-English excerpts are one-line summaries well under the ~155
+  // characters Google renders, which wastes most of the snippet. Top up from the
+  // opening section until the description is a usable length.
+  let description = g.excerpt[locale];
+  if (description.length < 110 && g.sections[0]) {
+    description = `${description} ${g.sections[0].body[locale]}`;
+  }
+
   return buildMetadata({
-    locale, path: `guides/${slug}`, title: g.title[locale], description: g.excerpt[locale],
-    image: g.hero, type: "article", publishedTime: g.publishedAt, modifiedTime: g.updatedAt,
+    locale,
+    path: `guides/${slug}`,
+    title: g.title[locale],
+    description,
+    image: g.hero,
+    type: "article",
+    publishedTime: g.publishedAt,
+    modifiedTime: g.updatedAt,
   });
 }
 
@@ -89,10 +103,10 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
           </article>
           <aside className="hidden lg:block">
             <div className="island-card sticky top-28 rounded-3xl p-4">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-2)]">{dict.toc}</p>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--link)]">{dict.toc}</p>
               <ul className="space-y-2 text-sm">
                 {g.sections.map((s, i) => (
-                  <li key={i}><a href={`#s${i}`} className="text-muted-foreground hover:text-[var(--sea)]">{s.heading[locale]}</a></li>
+                  <li key={i}><a href={`#s${i}`} className="text-[var(--prose-body)] hover:text-[var(--link)]">{s.heading[locale]}</a></li>
                 ))}
               </ul>
             </div>

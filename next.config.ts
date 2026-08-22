@@ -12,40 +12,11 @@ const withMDX = createMDX({
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  async redirects() {
-    return [
-      {
-        source: "/:locale/guides/atv-vs-buggy-vs-car",
-        destination: "/:locale/guides/do-you-need-a-car-in-naxos",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/best-car-rental-naxos-reviews-comparison",
-        destination: "/:locale/about",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/idp-greece-rules",
-        destination: "/:locale/guides/driving-in-naxos",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/new-greek-traffic-code-2026",
-        destination: "/:locale/guides/driving-in-naxos",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/naxos-car-rental-without-credit-card-insurance",
-        destination: "/:locale/guides/naxos-rent-a-car-prices-cost-breakdown",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/rent-a-car-naxos-port-vs-airport-pickup-guide",
-        destination: "/:locale/guides/naxos-airport-jnx-guide",
-        permanent: true,
-      },
-    ];
-  },
+  // No guide redirects. Every guide here used to be 301'd into an unrelated page
+  // (the reviews comparison went to /about), which threw away ~65 clicks and
+  // ~4,600 impressions a quarter of already-earned ranking. They are live pages
+  // again. Locale-less paths are handled by the accept-language proxy in
+  // src/proxy.ts, so they do not need static redirect rules either.
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

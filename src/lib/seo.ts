@@ -29,12 +29,37 @@ function clamp(text: string, max: number): string {
   return text.slice(0, max - 1).trimEnd() + "…";
 }
 
+/**
+ * Routes with a hand-made OG image in /public/og. Everything else falls through
+ * to the dynamic generator: the previous code assumed a file existed for every
+ * path, so every guide, vehicle, location and collection URL pointed at a 404
+ * and shared as a broken card on social and in Discover.
+ */
+const PRERENDERED_OG = new Set([
+  "home",
+  "about",
+  "book",
+  "contact",
+  "faq",
+  "fleet",
+  "fleet-cars",
+  "guides",
+  "insurance",
+  "locations",
+  "pricing",
+  "terms",
+]);
+
 export function buildMetadata(input: SeoInput): Metadata {
   const url = absoluteUrl(input.locale, input.path);
-  
+
   const cleanPath = input.path.replace(/^\/+|\/+$/g, "");
   const ogFilename = cleanPath ? cleanPath.replace(/\//g, "-") : "home";
-  const image = input.image ?? `${SITE.domain}/og/${ogFilename}.png`;
+  const image =
+    input.image ??
+    (PRERENDERED_OG.has(ogFilename)
+      ? `${SITE.domain}/og/${ogFilename}.png`
+      : `${SITE.domain}/api/og?title=${encodeURIComponent(input.title)}`);
 
   const rawTitle = input.title.includes(SITE.brand) ? input.title : `${input.title} | ${SITE.brand}`;
   const titleFull = clamp(rawTitle, 65);

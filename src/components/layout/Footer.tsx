@@ -4,6 +4,7 @@ import { SITE, type Locale, localePath, LOCALES, LOCALE_META } from "@/lib/site"
 import type { Dict } from "@/i18n/types";
 import { LOCATIONS } from "@/content/locations";
 import { whatsappUrl } from "@/lib/whatsapp";
+import { DISCOVER_LABELS, getDiscoverHubLinks, tripPlannerUrl } from "@/lib/discover-cyclades";
 import {
   Mail, Phone, MapPin, ShieldCheck, Gauge, Baby, Route,
   ChevronDown, Globe2,
@@ -41,10 +42,26 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
     { href: localePath(locale, "about"), label: dict.nav.about },
     { href: localePath(locale, "contact"), label: dict.nav.contact },
   ];
-  const exploreLinks = LOCATIONS.slice(0, 6).map((l) => ({
-    href: localePath(locale, `locations/${l.slug}`),
-    label: l.shortName,
+  const exploreLinks = [
+    { href: localePath(locale, "naxos"), label: "Naxos guide" },
+    { href: localePath(locale, "naxos/beaches"), label: "Naxos beaches" },
+    ...LOCATIONS.slice(0, 5).map((l) => ({
+      href: localePath(locale, `locations/${l.slug}`),
+      label: l.shortName,
+    })),
+  ];
+  // Deduped by href: several Discover Cyclades helpers alias to one destination,
+  // so building this list by hand renders the same URL twice under two labels.
+  const discoverLinks = getDiscoverHubLinks(locale).map((l) => ({
+    href: l.href,
+    label: DISCOVER_LABELS[l.labelKey],
+    external: true,
   }));
+  discoverLinks.push({
+    href: tripPlannerUrl(locale, "Plan a Naxos trip with a rental car"),
+    label: DISCOVER_LABELS.planner,
+    external: true,
+  });
   const legalLinks = [
     { href: localePath(locale, "terms"), label: "Terms & Conditions" },
     { href: localePath(locale, "cancellation"), label: "Cancellation Policy" },
@@ -114,7 +131,8 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
           <FooterCol title={dict.footer.fleet} links={fleetLinks} className="lg:col-span-2" />
           <FooterCol title={dict.footer.company} links={infoLinks} className="lg:col-span-2" />
           <FooterCol title={dict.footer.explore} links={exploreLinks} className="lg:col-span-2" />
-          <FooterCol title="Legal & Info" links={legalLinks} className="lg:col-span-3" />
+          <FooterCol title="Discover Cyclades" links={discoverLinks} className="lg:col-span-2" />
+          <FooterCol title="Legal & Info" links={legalLinks} className="lg:col-span-2" />
         </div>
 
         {/* Credit / attribution row */}
