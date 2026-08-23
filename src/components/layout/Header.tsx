@@ -8,7 +8,7 @@ import { SITE, type Locale, localePath, LOCALES, LOCALE_META, swapLocalePath } f
 import type { Dict } from "@/i18n/types";
 import { LOCATIONS } from "@/content/locations";
 import { NAXOS_GUIDE_ARTICLES } from "@/content/naxos-guide";
-import { VEHICLES } from "@/content/fleet";
+import { VEHICLES, minShoulderPrice } from "@/content/fleet";
 import { vehiclesForCollection } from "@/content/vehicle-collections";
 import { ScooterIcon } from "@/components/fleet/CategoryIcons";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -43,10 +43,10 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
   // "From" prices are the real minimum shoulder-season rate in each collection,
   // read from the fleet data rather than typed in, so a price change in
   // src/content/fleet.ts can never leave a stale number in the navigation.
-  const fromPrice = (vehicles: typeof VEHICLES) =>
-    vehicles.length > 0
-      ? `${dict.common.from} €${Math.min(...vehicles.map((v) => v.priceShoulder))}${dict.common.perDay}`
-      : undefined;
+  const fromPrice = (vehicles: typeof VEHICLES) => {
+    const min = minShoulderPrice(vehicles);
+    return min == null ? undefined : `${dict.common.from} €${min}${dict.common.perDay}`;
+  };
 
   const fleetLinks: MegaLink[] = [
     { href: localePath(locale, "fleet/cars"), label: dict.nav.cars, description: dict.fleetHub.categoryCars, icon: <Car className="h-5 w-5" />, meta: fromPrice(VEHICLES) },

@@ -6,6 +6,7 @@ import {
   VEHICLE_COLLECTION_SLUGS,
   vehiclesForCollection,
 } from "@/content/vehicle-collections";
+import { minShoulderPrice } from "@/content/fleet";
 import { getDict } from "@/i18n/dictionaries";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import {
@@ -47,8 +48,9 @@ export async function generateMetadata({
   const dict = await getDict(locale);
   const title = collectionTitle(slug, dict);
   const vehicles = vehiclesForCollection(slug);
-  const minPrice = vehicles.length ? Math.min(...vehicles.map((v) => v.priceShoulder)) : 0;
-  const description = `${title} on Naxos: ${vehicles.length} vehicles from €${minPrice}${dict.common.perDay}, ${dict.trust.delivery.toLowerCase()}. ${dict.trust.unlimited}, ${dict.trust.transparent.toLowerCase()}.`;
+  const minPrice = minShoulderPrice(vehicles);
+  const pricePhrase = minPrice != null ? ` from €${minPrice}${dict.common.perDay}` : "";
+  const description = `${title} on Naxos: ${vehicles.length} vehicles${pricePhrase}, ${dict.trust.delivery.toLowerCase()}. ${dict.trust.unlimited}, ${dict.trust.transparent.toLowerCase()}.`;
 
   return buildMetadata({
     locale,

@@ -7,7 +7,7 @@ import type { Dict } from "@/i18n/types";
 import { REVIEW_AGGREGATE } from "@/content/reviews";
 import { QUOTE_MARKERS, quoteFor, reviewForVehicle } from "@/content/vehicle-reviews";
 import { Stars } from "@/components/reviews/Stars";
-import { Users, Fuel, Gauge, DoorOpen, Mountain, ArrowUpRight, Cog } from "lucide-react";
+import { Users, Fuel, Gauge, DoorOpen, Mountain, ArrowUpRight, Cog, Briefcase } from "lucide-react";
 
 export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; locale: Locale; dict: Dict }) {
   const href = localePath(locale, `fleet/${v.category}/${v.slug}`);
@@ -39,10 +39,18 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
           <h3 className="text-lg font-bold leading-tight text-white drop-shadow-md">
             {v.name[locale]}
           </h3>
+          {/* Vehicles the booking engine prices are shown with the rate; the
+              rest say so plainly rather than rendering a made-up number. */}
           <span className="shrink-0 rounded-full border border-white/40 bg-white/95 px-3 py-1 text-xs font-bold text-[var(--ink)] shadow-md backdrop-blur">
-            <span className="text-[10px] uppercase tracking-wider text-muted-foreground mr-1">{dict.common.from}</span>
-            <span className="text-brand-gradient">€{v.priceShoulder}</span>
-            <span className="text-muted-foreground">{dict.common.perDay}</span>
+            {v.priceShoulder != null ? (
+              <>
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground mr-1">{dict.common.from}</span>
+                <span className="text-brand-gradient">€{v.priceShoulder}</span>
+                <span className="text-muted-foreground">{dict.common.perDay}</span>
+              </>
+            ) : (
+              <span className="text-brand-gradient">{dict.cta.priceOnRequest}</span>
+            )}
           </span>
         </div>
       </div>
@@ -81,6 +89,17 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
                 <DoorOpen className="h-3.5 w-3.5" />
               </span>
               <span className="font-medium text-[var(--ink)] dark:text-white">{v.doors}</span> {dict.common.doors}
+            </li>
+          )}
+          {/* Luggage capacity, straight from the booking engine's own listing —
+              the spec travellers actually decide on, and the sixth the vehicle
+              template calls for. */}
+          {v.luggageLarge != null && (
+            <li className="flex items-center gap-1.5">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
+                <Briefcase className="h-3.5 w-3.5" />
+              </span>
+              <span className="font-medium text-[var(--ink)] dark:text-white">{v.luggageLarge}</span> {dict.common.bags}
             </li>
           )}
           {/* Engine size is the one remaining spec recorded for all twelve cars,

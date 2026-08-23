@@ -146,7 +146,6 @@ export function localBusinessSchema(locale: Locale) {
  */
 export function vehicleSchema(v: Vehicle, locale: Locale) {
   const url = absoluteUrl(locale, `fleet/${v.category}/${v.slug}`);
-  const rating = verifiedValue(BUSINESS_FACTS.reputation.rating);
 
   return {
     "@type": ["Product", "Car"],
@@ -178,35 +177,37 @@ export function vehicleSchema(v: Vehicle, locale: Locale) {
         }
       : {}),
     modelDate: v.year,
-    offers: {
-      "@type": "Offer",
-      "@id": `${url}#offer`,
-      url,
-      price: v.priceShoulder,
-      priceCurrency: SITE.currency,
-      priceValidUntil: priceValidUntil(),
-      availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/UsedCondition",
-      seller: { "@id": LB_ID },
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: v.priceShoulder,
-        priceCurrency: SITE.currency,
-        unitCode: "DAY",
-        referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
-      },
-    },
-    ...(rating
+    // Offer is gated on two conditions, both required by Google's product
+    // snippet policy and by the workbook: there must be a visible price on the
+    // page, and the vehicle must actually be reservable. Emitting an InStock
+    // Offer for a car the booking engine does not carry, or at a price the page
+    // never shows, is markup that does not describe the page.
+    ...(v.priceShoulder != null && v.bookable !== false
       ? {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: rating.value,
-            reviewCount: rating.count,
-            bestRating: 5,
-            worstRating: 1,
+          offers: {
+            "@type": "Offer",
+            "@id": `${url}#offer`,
+            url,
+            price: v.priceShoulder,
+            priceCurrency: SITE.currency,
+            priceValidUntil: priceValidUntil(),
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/UsedCondition",
+            seller: { "@id": LB_ID },
+            priceSpecification: {
+              "@type": "UnitPriceSpecification",
+              price: v.priceShoulder,
+              priceCurrency: SITE.currency,
+              unitCode: "DAY",
+              referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "DAY" },
+            },
           },
         }
       : {}),
+    // No aggregateRating here on purpose. BUSINESS_FACTS.reputation.rating is a
+    // rating of the company, not of this vehicle; attaching it to a Product
+    // claims 222 people rated this specific car. It stays on the LocalBusiness
+    // entity, where it is true and where the reviews page shows it.
   };
 }
 

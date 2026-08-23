@@ -23,6 +23,7 @@ export const dict: Dict = {
     menu: "Menü",
   },
   common: {
+    bags: "Koffer",
     perDay: "/ Tag",
     from: "ab",
     week: "Woche",
@@ -249,6 +250,7 @@ export const dict: Dict = {
   },
   toc: "Auf dieser Seite",
   cta: {
+    priceOnRequest: "Verfügbarkeit prüfen",
     bookCar: "Dieses Fahrzeug buchen",
     whatsappQuote: "WhatsApp-Angebot",
     callNow: "Jetzt anrufen",

@@ -78,7 +78,7 @@ export function GET() {
   push("## Fleet");
   for (const v of VEHICLES) {
     push(
-      `- [${v.name.en}](${absoluteUrl("en", `fleet/${v.category}/${v.slug}`)}) — ${v.brand} ${v.model} ${v.year}, ${v.seats ?? "?"} seats, ${v.transmission ?? "?"}, from €${v.priceShoulder}/day`,
+      `- [${v.name.en}](${absoluteUrl("en", `fleet/${v.category}/${v.slug}`)}) — ${v.brand} ${v.model} ${v.year}, ${v.seats ?? "?"} seats, ${v.transmission ?? "?"}${v.priceShoulder != null ? `, from €${v.priceShoulder}/day` : ""}`,
     );
   }
   push();

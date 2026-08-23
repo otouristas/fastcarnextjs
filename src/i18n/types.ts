@@ -6,6 +6,7 @@ export interface Dict {
     book: string; bookNow: string; whatsapp: string; call: string; menu: string;
   };
   common: {
+    bags: string;
     perDay: string; from: string; week: string; days: string; seats: string;
     doors: string; transmission: string; fuel: string; automatic: string;
     manual: string; gasoline: string; diesel: string; hybrid: string;
@@ -60,7 +61,8 @@ export interface Dict {
   book: { title: string; subtitle: string; continue: string; talkToHuman: string };
   whatsAppFab: { label: string; message: string };
   toc: string;
-  cta: { bookCar: string; whatsappQuote: string; callNow: string; seeFleet: string };
+  cta: {
+    priceOnRequest: string; bookCar: string; whatsappQuote: string; callNow: string; seeFleet: string };
   theme: { light: string; dark: string; system: string; toggleLabel: string };
   a11y: { skipToContent: string; openMenu: string; closeMenu: string };
   trust: { delivery: string; unlimited: string; transparent: string; owner: string };

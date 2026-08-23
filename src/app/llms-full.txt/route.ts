@@ -93,7 +93,9 @@ export function GET() {
     push(`Features: ${v.features.map((f) => f.en).join(", ")}`);
     push(`Best for: ${v.bestFor.map((f) => f.en).join(", ")}`);
     push(
-      `Indicative daily rate: €${v.priceShoulder} shoulder season, €${v.priceHigh} high season, €${v.priceWeekly} per week.`,
+      v.priceShoulder != null
+        ? `Indicative daily rate: €${v.priceShoulder} shoulder season, €${v.priceHigh} high season, €${v.priceWeekly} per week.`
+        : "No published rate card; quote from the live booking engine for the requested dates.",
     );
   }
   push();

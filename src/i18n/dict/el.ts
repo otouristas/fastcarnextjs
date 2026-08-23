@@ -23,6 +23,7 @@ export const dict: Dict = {
     menu: "Μενού",
   },
   common: {
+    bags: "βαλίτσες",
     perDay: " / ημέρα",
     from: "από",
     week: "εβδομάδα",
@@ -249,6 +250,7 @@ export const dict: Dict = {
   },
   toc: "Σε αυτή τη σελίδα",
   cta: {
+    priceOnRequest: "Δείτε διαθεσιμότητα",
     bookCar: "Κράτηση οχήματος",
     whatsappQuote: "Ζητήστε προσφορά στο WhatsApp",
     callNow: "Καλέστε τώρα",

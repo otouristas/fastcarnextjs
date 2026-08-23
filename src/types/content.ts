@@ -20,18 +20,29 @@ export interface Vehicle {
   transmission?: "automatic" | "manual";
   fuelType?: "gasoline" | "diesel" | "hybrid" | "electric";
   engineCC?: number;
-  /**
-   * Large suitcases the boot takes. Unpopulated: the workbook's vehicle
-   * template asks for six consistent specs and this is the most useful
-   * candidate, but capacities are operational data the owner has not verified.
-   * Populate from the fact registry rather than estimating from the model.
-   */
-  luggage?: number;
   features: LocalizedString[];
   bestFor: LocalizedString[];
-  priceShoulder: number;
-  priceHigh: number;
-  priceWeekly: number;
+  /**
+   * Indicative daily rates, in euro. OPTIONAL on purpose: the booking engine is
+   * the only source of a real price, and a vehicle we cannot quote must show
+   * "check availability" rather than a number someone invented. Populate only
+   * from an owner-confirmed rate card.
+   */
+  priceShoulder?: number;
+  priceHigh?: number;
+  priceWeekly?: number;
+  /** Booking-engine group (A, B, BA, C, CA, D, DA). Vehicles share a rate card. */
+  bookingGroup?: string;
+  /** Large suitcases the boot takes, per the booking engine. */
+  luggageLarge?: number;
+  /** Cabin/small bags, per the booking engine. */
+  luggageSmall?: number;
+  /**
+   * Whether the vehicle is currently offered in the booking engine. False means
+   * the page stays live for its search demand but must not present itself as
+   * bookable, and must not emit an Offer.
+   */
+  bookable?: boolean;
   fourByFour?: boolean;
 }
 

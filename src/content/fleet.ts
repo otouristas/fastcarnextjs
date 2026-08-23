@@ -1,5 +1,21 @@
 import type { Vehicle } from "@/types/content";
 
+/**
+ * The fleet, reconciled against the live booking engine on 2026-08-23
+ * (fastmotorentalnaxos.cosmicbooker.com).
+ *
+ * Specs, booking group and luggage counts for every `bookable: true` vehicle
+ * come from that engine, which is the operator's own source of truth. Prices
+ * are deliberately absent on the vehicles the engine does not publish a rate
+ * card for in this repo — see the `priceShoulder` note in @/types/content.
+ *
+ * Eight vehicles are marked `bookable: false`. They are on the site but the
+ * engine does not offer them, so they must not present themselves as
+ * reservable. Their pages stay live because several hold search demand
+ * (/fleet/cars/suzuki-jimny earned 9 clicks and 58 impressions last quarter);
+ * retiring them is an owner decision, not a code one.
+ */
+
 const ls = (en: string, el?: string, it?: string, fr?: string, de?: string) => ({
   en, el: el ?? en, it: it ?? en, fr: fr ?? en, de: de ?? en,
 });
@@ -26,8 +42,9 @@ export const VEHICLES: Vehicle[] = [
       "Notre compacte la plus louée. Cinq portes, boîte auto facile, deux valises plus bagages à main, se faufile où les autres ne passent pas.",
       "Unser meistvermieteter Kleinwagen. Fünf Türen, einfache Automatik, zwei Koffer plus Handgepäck, passt wo größere Autos scheitern.",
     ),
-    image: "/images/fleet/toyota-aygo.png",
-    seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 998,
+    image: "/images/fleet/hyundai-i10.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1000,
+    bookingGroup: "B", luggageLarge: 2, luggageSmall: 2, bookable: true,
     features: [
       ls("Bluetooth & Apple CarPlay"),
       ls("Reverse camera", "Κάμερα οπισθοπορείας", "Telecamera posteriore", "Caméra de recul", "Rückfahrkamera"),
@@ -62,8 +79,9 @@ export const VEHICLES: Vehicle[] = [
       "La citadine Toyota la plus fiable, consommation minimale, direction légère.",
       "Toyotas zuverlässiger Stadtwagen mit dem niedrigsten Verbrauch.",
     ),
-    image: "/images/fleet/toyota-aygo.png",
-    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 998,
+    image: "/images/fleet/toyota-aygo.jpg",
+    seats: 4, doors: 3, transmission: "manual", fuelType: "gasoline", engineCC: 1000,
+    bookingGroup: "A", luggageLarge: 1, luggageSmall: 2, bookable: true,
     features: [
       ls("Bluetooth"),
       ls("Air conditioning", "Κλιματισμός", "Aria condizionata", "Climatisation", "Klimaanlage"),
@@ -97,8 +115,9 @@ export const VEHICLES: Vehicle[] = [
       "Haute, carrée, facile à garer, coffre légèrement plus grand que la i10.",
       "Hoch, kantig, leicht zu parken, etwas mehr Kofferraum als der i10.",
     ),
-    image: "/images/fleet/fiat-panda.png",
-    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1242,
+    image: "/images/fleet/fiat-panda.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "diesel", engineCC: 1300,
+    bookingGroup: "Β", luggageLarge: 2, luggageSmall: 3, bookable: true,
     features: [ls("Bluetooth"), ls("Air conditioning"), ls("Tall driving position"), ls("Roomy boot")],
     bestFor: [ls("Mountain villages"), ls("Couples"), ls("Light luggage")],
     priceShoulder: 32, priceHigh: 52, priceWeekly: 230,
@@ -126,6 +145,7 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/peugeot-208-a.png",
     seats: 4, doors: 3, transmission: "manual", fuelType: "gasoline", engineCC: 1242,
+    bookable: false,
     features: [ls("Folding cabrio roof"), ls("Bluetooth"), ls("Air conditioning"), ls("Sport mode")],
     bestFor: [ls("Couples"), ls("Beach photos"), ls("Sunset drives")],
     priceShoulder: 55, priceHigh: 95, priceWeekly: 480,
@@ -153,6 +173,7 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/c3-aircross.jpg",
     seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 1199,
+    bookable: false,
     features: [ls("Apple CarPlay & Android Auto"), ls("Reverse camera"), ls("Cruise control"), ls("Comfort suspension")],
     bestFor: [ls("Long drives"), ls("Families"), ls("Comfort")],
     priceShoulder: 45, priceHigh: 70, priceWeekly: 320,
@@ -180,6 +201,7 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/suzuki-celerio.png",
     seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 998,
+    bookable: false,
     features: [ls("Bluetooth"), ls("Reverse camera"), ls("Air conditioning"), ls("Cruise control")],
     bestFor: [ls("Couples"), ls("City driving")],
     priceShoulder: 35, priceHigh: 55, priceWeekly: 240,
@@ -206,7 +228,8 @@ export const VEHICLES: Vehicle[] = [
       "Ein Plus an Ausstattung und Technik.",
     ),
     image: "/images/fleet/peugeot-208-a.png",
-    seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 1199,
+    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1200,
+    bookingGroup: "C", luggageLarge: 3, luggageSmall: 4, bookable: true,
     features: [ls("Digital cluster"), ls("Lane assist"), ls("Apple CarPlay"), ls("Cruise control")],
     bestFor: [ls("Couples"), ls("Tech lovers"), ls("Long days driving")],
     priceShoulder: 50, priceHigh: 75, priceWeekly: 340,
@@ -234,6 +257,7 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/jeep-renegade.png",
     seats: 4, doors: 3, transmission: "manual", fuelType: "gasoline", engineCC: 1462, fourByFour: true,
+    bookable: false,
     features: [ls("True 4×4"), ls("Low-range gearbox"), ls("Allowed on dirt roads"), ls("Bluetooth")],
     bestFor: [ls("Mount Zas"), ls("Alyko dunes"), ls("Off-road chapels")],
     priceShoulder: 65, priceHigh: 95, priceWeekly: 480,
@@ -261,6 +285,7 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/suvseatarona.jpg",
     seats: 5, doors: 5, transmission: "manual", fuelType: "diesel", engineCC: 1461,
+    bookable: false,
     features: [ls("Big boot"), ls("Roof rails"), ls("High ground clearance"), ls("Cruise control")],
     bestFor: [ls("Families"), ls("Big luggage"), ls("Highway comfort")],
     priceShoulder: 55, priceHigh: 85, priceWeekly: 380,
@@ -288,6 +313,7 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/mg-zs-4-768x576.png",
     seats: 5, doors: 5, transmission: "automatic", fuelType: "hybrid", engineCC: 2487,
+    bookable: false,
     features: [ls("Hybrid powertrain"), ls("Large boot"), ls("Adaptive cruise"), ls("Apple CarPlay")],
     bestFor: [ls("Families"), ls("Comfort"), ls("Hybrid efficiency")],
     priceShoulder: 75, priceHigh: 110, priceWeekly: 520,
@@ -315,6 +341,7 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/suvseatarona.jpg",
     seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 1598,
+    bookable: false,
     features: [ls("12-inch screen"), ls("360 camera"), ls("Lane assist"), ls("Apple CarPlay")],
     bestFor: [ls("Comfort"), ls("Couples"), ls("Tech")],
     priceShoulder: 70, priceHigh: 105, priceWeekly: 500,
@@ -342,9 +369,286 @@ export const VEHICLES: Vehicle[] = [
     ),
     image: "/images/fleet/baleno.jpg",
     seats: 7, doors: 5, transmission: "manual", fuelType: "diesel", engineCC: 1499,
+    bookable: false,
     features: [ls("7 seats"), ls("Sliding rear doors"), ls("Massive boot"), ls("Cruise control")],
     bestFor: [ls("Big families"), ls("Group travel"), ls("Heavy luggage")],
     priceShoulder: 75, priceHigh: 115, priceWeekly: 540,
+  },
+  {
+    slug: "dacia-sandero-stepway",
+    category: "cars",
+    brand: "Dacia",
+    model: "Sandero Stepway",
+    year: 2024,
+    name: ls("Dacia Sandero Stepway Automatic"),
+    tagline: ls("Raised automatic hatch for the mountain roads", "Ψηλό αυτόματο για τους ορεινούς δρόμους"),
+    description: ls("The largest automatic in the fleet and the easiest choice for the Apeiranthos and Apollonas routes. Raised ride height copes with the rougher village approaches, and the boot takes three large cases without folding a seat.", "Το μεγαλύτερο αυτόματο του στόλου και η πιο άνετη επιλογή για τις διαδρομές προς Απείρανθο και Απόλλωνα. Το αυξημένο ύψος βοηθά στους πιο τραχείς δρόμους των χωριών, και το πορτμπαγκάζ παίρνει τρεις μεγάλες βαλίτσες χωρίς να διπλώσετε κάθισμα."),
+    image: "/images/fleet/dacia-sandero-stepway.jpg",
+    seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 1000,
+    bookingGroup: "DA", luggageLarge: 3, luggageSmall: 5, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Mountain villages", "Ορεινά χωριά"),
+      ls("Families", "Οικογένειες"),
+      ls("Long island days", "Μεγάλες διαδρομές"),
+    ],
+  },
+  {
+    slug: "renault-clio",
+    category: "cars",
+    brand: "Renault",
+    model: "Clio",
+    year: 2023,
+    name: ls("Renault Clio"),
+    tagline: ls("Comfortable manual hatch with a usable boot", "Άνετο χειροκίνητο με πρακτικό πορτμπαγκάζ"),
+    description: ls("A step up in space from the city cars without becoming awkward in Chora. Comfortable over distance, which matters on the longer runs to Apollonas and the east coast.", "Ένα σκαλί πιο ευρύχωρο από τα μικρά αστικά, χωρίς να δυσκολεύει στη Χώρα. Άνετο στις μεγάλες αποστάσεις, κάτι που μετράει στις διαδρομές προς Απόλλωνα και την ανατολική ακτή."),
+    image: "/images/fleet/renault-clio.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1000,
+    luggageLarge: 3, luggageSmall: 4, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Couples", "Ζευγάρια"),
+      ls("Beach days", "Ημέρες στην παραλία"),
+      ls("Longer drives", "Μεγαλύτερες διαδρομές"),
+    ],
+  },
+  {
+    slug: "renault-captur",
+    category: "cars",
+    brand: "Renault",
+    model: "Captur",
+    year: 2023,
+    name: ls("Renault Captur SUV"),
+    tagline: ls("Compact SUV with a high seating position", "Compact SUV με ψηλή θέση οδήγησης"),
+    description: ls("The high seating position is the real benefit on Naxos: better sightlines over stone walls on the village roads, and easier loading at the port. Compact enough to still park in Chora.", "Η ψηλή θέση οδήγησης είναι το πραγματικό πλεονέκτημα στη Νάξο: καλύτερη ορατότητα πάνω από τις πέτρινες μάντρες στους δρόμους των χωριών και ευκολότερο φόρτωμα στο λιμάνι. Αρκετά μικρό ώστε να παρκάρει ακόμη στη Χώρα."),
+    image: "/images/fleet/renault-captur.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1000,
+    bookingGroup: "D", luggageLarge: 3, luggageSmall: 5, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Villages", "Χωριά"),
+      ls("Families", "Οικογένειες"),
+      ls("Comfort", "Άνεση"),
+    ],
+  },
+  {
+    slug: "hyundai-i10-automatic",
+    category: "cars",
+    brand: "Hyundai",
+    model: "i10",
+    year: 2024,
+    name: ls("Hyundai i10 Automatic"),
+    tagline: ls("The easiest automatic to park in Chora", "Το πιο εύκολο αυτόματο για παρκάρισμα στη Χώρα"),
+    description: ls("Our most requested automatic. Small enough for the Chora alleys, light steering for unfamiliar roads, and no clutch on the switchbacks. Book early: automatic availability is the first thing to run out in August.", "Το πιο ζητούμενο αυτόματό μας. Αρκετά μικρό για τα στενά της Χώρας, ελαφρύ τιμόνι για άγνωστους δρόμους και χωρίς συμπλέκτη στις στροφές. Κάντε έγκαιρη κράτηση: τα αυτόματα εξαντλούνται πρώτα τον Αύγουστο."),
+    image: "/images/fleet/hyundai-i10-automatic.jpg",
+    seats: 4, doors: 3, transmission: "automatic", fuelType: "gasoline", engineCC: 1200,
+    bookingGroup: "BA", luggageLarge: 2, luggageSmall: 2, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Couples", "Ζευγάρια"),
+      ls("Chora parking", "Παρκάρισμα στη Χώρα"),
+      ls("First-time visitors", "Πρώτη επίσκεψη"),
+    ],
+  },
+  {
+    slug: "ford-fiesta-automatic",
+    category: "cars",
+    brand: "Ford",
+    model: "Fiesta EcoBoost",
+    year: 2023,
+    name: ls("Ford Fiesta Automatic EcoBoost"),
+    tagline: ls("Automatic with more pull for the hills", "Αυτόματο με περισσότερη δύναμη στους ανηφορικούς"),
+    description: ls("The EcoBoost has noticeably more pull than the small automatics, which shows on the climb to Apeiranthos with four people aboard. Still a compact footprint for the coastal villages.", "Ο EcoBoost έχει αισθητά περισσότερη δύναμη από τα μικρά αυτόματα, κάτι που φαίνεται στην ανάβαση προς Απείρανθο με τέσσερα άτομα. Παραμένει compact για τα παραλιακά χωριά."),
+    image: "/images/fleet/ford-fiesta-automatic.jpg",
+    seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 1000,
+    bookingGroup: "CA", luggageLarge: 3, luggageSmall: 4, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Four adults", "Τέσσερις ενήλικες"),
+      ls("Mountain routes", "Ορεινές διαδρομές"),
+      ls("Automatic comfort", "Άνεση αυτομάτου"),
+    ],
+  },
+  {
+    slug: "fiat-panda-hybrid",
+    category: "cars",
+    brand: "Fiat",
+    model: "Panda Hybrid",
+    year: 2024,
+    name: ls("Fiat Panda Hybrid"),
+    tagline: ls("The Naxos classic, now a hybrid", "Ο κλασικός της Νάξου, τώρα υβριδικό"),
+    description: ls("The car you see most on the island, for good reason: narrow, tall, and unbothered by a rough village lane. The hybrid drivetrain cuts fuel use on the stop-start coastal runs.", "Το αυτοκίνητο που θα δείτε περισσότερο στο νησί, και όχι τυχαία: στενό, ψηλό και αδιάφορο για έναν κακό δρόμο σε χωριό. Το υβριδικό σύνολο μειώνει την κατανάλωση στις παραλιακές διαδρομές με συχνές στάσεις."),
+    image: "/images/fleet/fiat-panda-hybrid.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "hybrid", engineCC: 1000,
+    bookingGroup: "B", luggageLarge: 2, luggageSmall: 3, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Couples", "Ζευγάρια"),
+      ls("Village lanes", "Δρόμοι χωριών"),
+      ls("Fuel economy", "Οικονομία καυσίμου"),
+    ],
+  },
+  {
+    slug: "peugeot-108",
+    category: "cars",
+    brand: "Peugeot",
+    model: "108",
+    year: 2023,
+    name: ls("Peugeot 108 Automatic"),
+    tagline: ls("Smallest automatic, easiest parking", "Το μικρότερο αυτόματο, το ευκολότερο παρκάρισμα"),
+    description: ls("If the plan is Chora, the west-coast beaches and no mountain days, this is the cheapest way to get an automatic. Two people and light luggage is the honest limit.", "Αν το πρόγραμμα είναι Χώρα, δυτικές παραλίες και χωρίς ορεινές διαδρομές, είναι ο πιο οικονομικός τρόπος να έχετε αυτόματο. Δύο άτομα με ελαφριές αποσκευές είναι το ρεαλιστικό όριο."),
+    image: "/images/fleet/peugeot-108.jpg",
+    seats: 4, doors: 3, transmission: "automatic", fuelType: "gasoline", engineCC: 1000,
+    bookingGroup: "A", luggageLarge: 1, luggageSmall: 2, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Two travellers", "Δύο άτομα"),
+      ls("Chora parking", "Παρκάρισμα στη Χώρα"),
+      ls("Short trips", "Σύντομες διαδρομές"),
+    ],
+  },
+  {
+    slug: "nissan-micra",
+    category: "cars",
+    brand: "Nissan",
+    model: "Micra",
+    year: 2023,
+    name: ls("Nissan Micra"),
+    tagline: ls("Five doors and a real boot, still compact", "Πέντε πόρτες και πραγματικό πορτμπαγκάζ, πάντα compact"),
+    description: ls("A practical middle ground: five doors for rear access, a boot that takes three large cases, and a footprint that still fits the beach car parks in August.", "Πρακτική μέση λύση: πέντε πόρτες για εύκολη πρόσβαση πίσω, πορτμπαγκάζ για τρεις μεγάλες βαλίτσες και διαστάσεις που χωρούν ακόμη στα παραλιακά πάρκινγκ τον Αύγουστο."),
+    image: "/images/fleet/nissan-micra.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1000,
+    bookingGroup: "C", luggageLarge: 3, luggageSmall: 4, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Small families", "Μικρές οικογένειες"),
+      ls("Beach days", "Ημέρες στην παραλία"),
+      ls("Luggage", "Αποσκευές"),
+    ],
+  },
+  {
+    slug: "opel-corsa",
+    category: "cars",
+    brand: "Opel",
+    model: "Corsa Turbo",
+    year: 2023,
+    name: ls("Opel Corsa Turbo"),
+    tagline: ls("Turbo pull in a city-car footprint", "Δύναμη turbo σε μέγεθος αστικού"),
+    description: ls("The turbo makes the difference on the inland climbs, where naturally aspirated city cars run out of breath with a full load. Parks like a small car in Chora.", "Ο turbo κάνει τη διαφορά στις ανηφόρες της ενδοχώρας, εκεί που τα μικρά αστικά χωρίς turbo δυσκολεύονται με πλήρες φορτίο. Παρκάρει σαν μικρό αυτοκίνητο στη Χώρα."),
+    image: "/images/fleet/opel-corsa.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1200,
+    bookingGroup: "C", luggageLarge: 1, luggageSmall: 2, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Couples", "Ζευγάρια"),
+      ls("Inland routes", "Διαδρομές ενδοχώρας"),
+      ls("Easy parking", "Εύκολο παρκάρισμα"),
+    ],
+  },
+  {
+    slug: "hyundai-i10-1200",
+    category: "cars",
+    brand: "Hyundai",
+    model: "i10 1.2",
+    year: 2024,
+    name: ls("Hyundai i10 1.2"),
+    tagline: ls("The i10 with the bigger engine", "Το i10 με τον μεγαλύτερο κινητήρα"),
+    description: ls("Same easy-to-park body as the standard i10 with more to give when the car is full and the road turns uphill. Manual gearbox, five seats.", "Το ίδιο ευκολοπάρκαρο αμάξωμα με το βασικό i10, με περισσότερα περιθώρια όταν το αυτοκίνητο είναι γεμάτο και ο δρόμος ανηφορίζει. Χειροκίνητο κιβώτιο, πέντε θέσεις."),
+    image: "/images/fleet/hyundai-i10-1200.jpg",
+    seats: 5, doors: 5, transmission: "manual", fuelType: "gasoline", engineCC: 1200,
+    bookingGroup: "Β", luggageLarge: 2, luggageSmall: 2, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Small families", "Μικρές οικογένειες"),
+      ls("Chora parking", "Παρκάρισμα στη Χώρα"),
+      ls("Hill routes", "Ανηφορικές διαδρομές"),
+    ],
+  },
+  {
+    slug: "hyundai-kona",
+    category: "cars",
+    brand: "Hyundai",
+    model: "Kona",
+    year: 2024,
+    name: ls("Hyundai Kona Automatic Turbo"),
+    tagline: ls("Automatic SUV with turbo pull", "Αυτόματο SUV με δύναμη turbo"),
+    description: ls("An automatic with genuine reserves: the turbo holds a comfortable speed on the long climb to Apeiranthos with a full car, and the raised body makes the village approaches less tense.", "Ένα αυτόματο με πραγματικά περιθώρια: ο turbo κρατά άνετη ταχύτητα στη μεγάλη ανάβαση προς Απείρανθο με γεμάτο αυτοκίνητο, και το ψηλό αμάξωμα κάνει τις προσβάσεις στα χωριά λιγότερο αγχωτικές."),
+    image: "/images/fleet/hyundai-kona.jpg",
+    seats: 5, doors: 5, transmission: "automatic", fuelType: "gasoline", engineCC: 99,
+    bookingGroup: "DA", luggageLarge: 3, luggageSmall: 5, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Mountain villages", "Ορεινά χωριά"),
+      ls("Families", "Οικογένειες"),
+      ls("Automatic comfort", "Άνεση αυτομάτου"),
+    ],
+  },
+  {
+    slug: "opel-frontera",
+    category: "cars",
+    brand: "Opel",
+    model: "Frontera",
+    year: 2025,
+    name: ls("Opel Frontera SUV Automatic Turbo"),
+    tagline: ls("Most luggage space in the fleet", "Ο μεγαλύτερος χώρος αποσκευών του στόλου"),
+    description: ls("The choice when luggage is the constraint: four large cases and eight cabin bags, which no other car in the fleet comes close to. Automatic, hybrid, and raised for the village roads.", "Η επιλογή όταν το θέμα είναι οι αποσκευές: τέσσερις μεγάλες βαλίτσες και οκτώ χειραποσκευές, νούμερα που δεν πλησιάζει κανένα άλλο αυτοκίνητο του στόλου. Αυτόματο, υβριδικό και ψηλό για τους δρόμους των χωριών."),
+    image: "/images/fleet/opel-frontera.jpg",
+    seats: 5, doors: 5, transmission: "automatic", fuelType: "hybrid", engineCC: 1200,
+    bookingGroup: "DA", luggageLarge: 4, luggageSmall: 8, bookable: true,
+    features: [
+      ls("Air conditioning", "Κλιματισμός"),
+      ls("Bluetooth", "Bluetooth"),
+      ls("USB charging", "Φόρτιση USB"),
+    ],
+    bestFor: [
+      ls("Maximum luggage", "Μέγιστες αποσκευές"),
+      ls("Families", "Οικογένειες"),
+      ls("Airport runs", "Μεταφορές αεροδρομίου"),
+    ],
   },
 ];
 
@@ -353,3 +657,22 @@ export const VEHICLES_BY_SLUG = Object.fromEntries(VEHICLES.map((v) => [v.slug, 
 export function vehiclesByCategory(category: Vehicle["category"]) {
   return VEHICLES.filter((v) => v.category === category);
 }
+
+/**
+ * Lowest published shoulder rate in a list, or undefined when none of the
+ * vehicles has an owner-confirmed price. Callers must render "check
+ * availability" for undefined rather than falling back to 0, which would
+ * advertise a free rental.
+ */
+export function minShoulderPrice(list: Vehicle[]): number | undefined {
+  const prices = list.map((v) => v.priceShoulder).filter((p): p is number => p != null);
+  return prices.length ? Math.min(...prices) : undefined;
+}
+
+export function maxHighPrice(list: Vehicle[]): number | undefined {
+  const prices = list.map((v) => v.priceHigh).filter((p): p is number => p != null);
+  return prices.length ? Math.max(...prices) : undefined;
+}
+
+/** Vehicles the booking engine currently offers. */
+export const BOOKABLE_VEHICLES = VEHICLES.filter((v) => v.bookable !== false);

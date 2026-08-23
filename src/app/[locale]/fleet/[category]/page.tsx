@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { vehiclesByCategory } from "@/content/fleet";
+import { vehiclesByCategory, minShoulderPrice, maxHighPrice } from "@/content/fleet";
 import { FleetBrowser } from "@/components/fleet/FleetBrowser";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -47,8 +47,8 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
   const faqs = categoryFaqMap[cat]
     .map((slug) => FAQS.find((f) => f.slug === slug))
     .filter((f): f is (typeof FAQS)[number] => Boolean(f));
-  const minPrice = vehicles.length ? Math.min(...vehicles.map((v) => v.priceShoulder)) : 0;
-  const maxPrice = vehicles.length ? Math.max(...vehicles.map((v) => v.priceHigh)) : 0;
+  const minPrice = minShoulderPrice(vehicles);
+  const maxPrice = maxHighPrice(vehicles);
   const heroVehicle = vehicles[0];
   const categoryDetails = getCategoryDetails(cat, locale);
 
@@ -91,7 +91,9 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
                 <div className="rounded-[1.5rem] sea-gradient p-6 text-white">
                   <Car className="h-9 w-9" />
                   <p className="mt-5 text-sm uppercase tracking-[0.2em] text-white/70">{navLabels[cat]}</p>
-                  <p className="mt-2 text-4xl font-extrabold">€{minPrice}–€{maxPrice}</p>
+                  <p className="mt-2 text-4xl font-extrabold">
+                    {minPrice != null && maxPrice != null ? `€${minPrice}–€${maxPrice}` : dict.cta.priceOnRequest}
+                  </p>
                   <p className="text-sm text-white/75">{dict.common.perDay}</p>
                 </div>
                 {heroVehicle && (

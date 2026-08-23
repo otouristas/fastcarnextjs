@@ -115,12 +115,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   ]
     .filter(Boolean)
     .join(" · ");
-  const description = `${v.tagline[locale]}. ${specs}. ${dict.common.from} €${v.priceShoulder}${dict.common.perDay} — ${dict.trust.delivery}.`;
+  const pricePart = v.priceShoulder != null ? `${dict.common.from} €${v.priceShoulder}${dict.common.perDay} — ` : "";
+  const description = `${v.tagline[locale]}. ${specs}. ${pricePart}${dict.trust.delivery}.`;
 
   return buildMetadata({
     locale,
     path: `fleet/${v.category}/${v.slug}`,
-    title: `${v.name[locale]}  -  ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`,
+    title:
+      v.priceShoulder != null
+        ? `${v.name[locale]}  -  ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`
+        : `${v.name[locale]}  -  ${dict.cta.priceOnRequest}`,
     description,
     image: v.image,
     type: "product",
@@ -147,8 +151,11 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
   const vehicleReview = reviewForVehicle(v.slug);
   const wm = whatsappVehicleMessage(v.name[locale], locale);
 
-  const weeklyPerDay = Math.round((v.priceWeekly / 7) * 10) / 10;
-  const savePct = v.priceShoulder > 0 ? Math.max(0, Math.round((1 - weeklyPerDay / v.priceShoulder) * 100)) : 0;
+  const weeklyPerDay = v.priceWeekly != null ? Math.round((v.priceWeekly / 7) * 10) / 10 : undefined;
+  const savePct =
+    weeklyPerDay != null && v.priceShoulder != null && v.priceShoulder > 0
+      ? Math.max(0, Math.round((1 - weeklyPerDay / v.priceShoulder) * 100))
+      : 0;
 
   return (
     <>
@@ -226,29 +233,43 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 </div>
 
                 <div className="px-6 py-5">
-                  <div className="flex items-end justify-between gap-4">
-                    <div>
-                      <span className="text-xs uppercase tracking-wider text-muted-foreground">{dict.common.from}</span>
-                      <div className="text-5xl font-extrabold leading-none text-brand-gradient">€{v.priceShoulder}</div>
-                      <span className="text-sm text-muted-foreground">{dict.common.perDay}</span>
-                    </div>
-                    {savePct > 0 && (
-                      <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--link)] dark:bg-white/10">
-                        {labels.saveBadge(savePct)}
-                      </span>
-                    )}
-                  </div>
+                  {/* Only vehicles with an owner-confirmed rate card show
+                      numbers. For the rest the booking engine is the only place
+                      a real price exists, and the panel says so. */}
+                  {v.priceShoulder != null ? (
+                    <>
+                      <div className="flex items-end justify-between gap-4">
+                        <div>
+                          <span className="text-xs uppercase tracking-wider text-muted-foreground">{dict.common.from}</span>
+                          <div className="text-5xl font-extrabold leading-none text-brand-gradient">€{v.priceShoulder}</div>
+                          <span className="text-sm text-muted-foreground">{dict.common.perDay}</span>
+                        </div>
+                        {savePct > 0 && (
+                          <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--link)] dark:bg-white/10">
+                            {labels.saveBadge(savePct)}
+                          </span>
+                        )}
+                      </div>
 
-                  <dl className="mt-5 grid grid-cols-2 gap-2 rounded-2xl bg-secondary/60 p-3 text-sm dark:bg-white/5">
-                    <div>
-                      <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.high}</dt>
-                      <dd className="mt-0.5 font-semibold text-foreground">€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></dd>
+                      <dl className="mt-5 grid grid-cols-2 gap-2 rounded-2xl bg-secondary/60 p-3 text-sm dark:bg-white/5">
+                        <div>
+                          <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.high}</dt>
+                          <dd className="mt-0.5 font-semibold text-foreground">€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></dd>
+                        </div>
+                        <div>
+                          <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.weekly}</dt>
+                          <dd className="mt-0.5 font-semibold text-foreground">€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></dd>
+                        </div>
+                      </dl>
+                    </>
+                  ) : (
+                    <div className="rounded-2xl bg-secondary/60 p-4 dark:bg-white/5">
+                      <p className="text-2xl font-extrabold leading-tight text-brand-gradient">
+                        {dict.cta.priceOnRequest}
+                      </p>
+                      <p className="mt-1 text-sm text-muted-foreground">{dict.pricing.note}</p>
                     </div>
-                    <div>
-                      <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.weekly}</dt>
-                      <dd className="mt-0.5 font-semibold text-foreground">€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></dd>
-                    </div>
-                  </dl>
+                  )}
 
                   <div className="mt-5 grid gap-2">
                     <a
@@ -401,9 +422,9 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                   </thead>
                   <tbody>
                     <tr className="border-t border-border dark:border-white/10">
-                      <td className="px-4 py-3 font-bold text-[var(--link)]">€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></td>
-                      <td className="px-4 py-3 font-semibold text-foreground">€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></td>
-                      <td className="px-4 py-3 font-semibold text-foreground">€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></td>
+                      <td className="px-4 py-3 font-bold text-[var(--link)]">{v.priceShoulder != null ? <>€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></> : "—"}</td>
+                      <td className="px-4 py-3 font-semibold text-foreground">{v.priceHigh != null ? <>€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></> : "—"}</td>
+                      <td className="px-4 py-3 font-semibold text-foreground">{v.priceWeekly != null ? <>€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></> : "—"}</td>
                     </tr>
                   </tbody>
                 </table>
