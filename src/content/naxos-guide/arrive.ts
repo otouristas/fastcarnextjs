@@ -33,7 +33,7 @@ export const ARRIVE_ARTICLES: NaxosGuideArticle[] = [
     ],
     related: ["naxos-port-guide", "naxos-airport-jnx", "naxos-travel-guide", "naxos-vs-paros"],
     vehiclePicks: ["hyundai-i10", "peugeot-208", "citroen-berlingo-7"],
-    locationPicks: ["port-pickup", "airport-pickup-jnx", "naxos-town"],
+    locationPicks: ["port-pickup", "airport-pickup", "naxos-town"],
     table: {
       caption: ls("Routes to Naxos compared"),
       columns: [ls("From"), ls("Mode"), ls("Time"), ls("Typical fare"), ls("Frequency")],
@@ -207,7 +207,7 @@ export const ARRIVE_ARTICLES: NaxosGuideArticle[] = [
     ],
     related: ["how-to-get-to-naxos", "naxos-port-guide", "naxos-travel-guide", "naxos-itinerary"],
     vehiclePicks: ["hyundai-i10", "toyota-aygo", "peugeot-208"],
-    locationPicks: ["airport-pickup-jnx", "agios-prokopios", "naxos-town"],
+    locationPicks: ["airport-pickup", "agios-prokopios", "naxos-town"],
     sections: [
       {
         heading: ls("What kind of airport this is"),

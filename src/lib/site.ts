@@ -54,7 +54,8 @@ export const SITE = {
     facebook: "https://www.facebook.com/fastmotorentalnaxos",
     instagram: "https://www.instagram.com/fastmotorentalnaxos",
   },
-  rating: { value: "4.9", count: "187" },
+  // Mirrors BUSINESS_FACTS.reputation.rating; see reviews-google.json.
+  rating: { value: "4.9", count: "222" },
   flags: {
     touristasEnabled: false,
     cookieBannerEnabled: true,

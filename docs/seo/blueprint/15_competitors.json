@@ -1,0 +1,57 @@
+{
+  "sheet": "Competitors",
+  "title": "Live SERP Competitor Benchmark",
+  "note": "Observed pages and positioning patterns on 2026-08-22. Competitor claims are not facts about Fast Motor Rental Naxos.",
+  "columns": [
+    "Competitor",
+    "URL",
+    "Observed strength",
+    "Response strategy",
+    "Threat"
+  ],
+  "rows": [
+    {
+      "Competitor": "Naxos Auto Rent",
+      "URL": "https://naxos-car-rental.com/",
+      "Observed strength": "Booking form above fold; strong trust proof; clear inclusions; journal cluster",
+      "Response strategy": "Verify every local claim; build equal or better booking clarity plus deeper bilingual guide cluster",
+      "Threat": "High"
+    },
+    {
+      "Competitor": "Golden Dove",
+      "URL": "https://goldendove.gr/",
+      "Observed strength": "Above-fold booking; port/airport delivery message; visible Google review proof",
+      "Response strategy": "Add real review proof and pickup clarity only after verification",
+      "Threat": "High"
+    },
+    {
+      "Competitor": "Naction Rent a Car",
+      "URL": "https://nactionrentacar.com/el/",
+      "Observed strength": "Strong Greek transactional page; booking module; payment/deposit explanations; reviews",
+      "Response strategy": "Greek page needs fully native commercial copy, not translated boilerplate",
+      "Threat": "High"
+    },
+    {
+      "Competitor": "Wheelso Naxos",
+      "URL": "https://wheelso.gr/el/car-rental/naxos/",
+      "Observed strength": "Localized transactional landing; visible booking module; trust and FAQ coverage",
+      "Response strategy": "Win with local entity evidence, precise fleet facts and unique Naxos routes",
+      "Threat": "Medium"
+    },
+    {
+      "Competitor": "Discover Greece",
+      "URL": "https://www.discovergreece.com/cyclades/naxos",
+      "Observed strength": "Broad destination authority; deep things-to-do and beach coverage",
+      "Response strategy": "Compete through car-led decision utility, original local evidence and internal commercial paths",
+      "Threat": "High"
+    },
+    {
+      "Competitor": "Naxos Insider",
+      "URL": "https://naxosinsider.com/",
+      "Observed strength": "Distinctive on-island voice; six clear guide pillars; first-hand editorial positioning",
+      "Response strategy": "Use named local authors, checked dates, original photos and route-specific experience",
+      "Threat": "High"
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}

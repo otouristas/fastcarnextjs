@@ -10,7 +10,12 @@
     "typecheck": "tsc --noEmit",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:site": "node scripts/validate-site.mjs",
-    "validate:visual": "node scripts/validate-visual.mjs"
+    "validate:visual": "node scripts/validate-visual.mjs",
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "reviews:scrape": "node scripts/scrape-google-reviews.mjs",
+    "reviews:import": "node scripts/import-reviews.mjs",
+    "blueprint:extract": "python3 scripts/extract-blueprint.py && node scripts/generate-blueprint-copy.mjs",
+    "generate:hero": "node scripts/generate-hero.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

@@ -4,10 +4,15 @@ import type { Vehicle } from "@/types/content";
 import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
-import { Users, Fuel, Gauge, DoorOpen, Mountain, ArrowUpRight } from "lucide-react";
+import { REVIEW_AGGREGATE } from "@/content/reviews";
+import { QUOTE_MARKERS, quoteFor, reviewForVehicle } from "@/content/vehicle-reviews";
+import { Stars } from "@/components/reviews/Stars";
+import { Users, Fuel, Gauge, DoorOpen, Mountain, ArrowUpRight, Cog } from "lucide-react";
 
 export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; locale: Locale; dict: Dict }) {
   const href = localePath(locale, `fleet/${v.category}/${v.slug}`);
+  const vehicleReview = reviewForVehicle(v.slug);
+
   return (
     <Link
       href={href}
@@ -22,7 +27,7 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,37,51,0.85)] via-[rgba(15,37,51,0.18)] to-transparent" />
-        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-lg" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>
+        <span className="absolute top-3 left-3 inline-flex items-center rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-lg" style={{ boxShadow: '0 4px 12px rgba(7,27,42,0.25)' }}>
           {v.category.replace("-", " ")}
         </span>
         {v.fourByFour && (
@@ -78,10 +83,44 @@ export function VehicleCard({ vehicle: v, locale, dict }: { vehicle: Vehicle; lo
               <span className="font-medium text-[var(--ink)] dark:text-white">{v.doors}</span> {dict.common.doors}
             </li>
           )}
+          {/* Engine size is the one remaining spec recorded for all twelve cars,
+              and on Naxos it is decision-relevant: a 1.0 and a 2.5 behave very
+              differently on the Apeiranthos switchbacks. Luggage capacity would
+              be the more useful sixth spec but is not in the fact registry, and
+              guessing suitcase counts is not something to publish. */}
+          {v.engineCC != null && (
+            <li className="flex items-center gap-1.5">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
+                <Cog className="h-3.5 w-3.5" />
+              </span>
+              <span className="font-medium text-[var(--ink)] dark:text-white">
+                {(v.engineCC / 1000).toFixed(1)}L
+              </span>
+            </li>
+          )}
         </ul>
+        {/* Trust proof. The aggregate is the Google Business Profile figure and
+            applies to the business, not this car. A quote only appears on the
+            three vehicles a reviewer actually named. */}
+        <div className="mt-3 flex items-center gap-1.5 border-t border-border pt-3">
+          <Stars rating={REVIEW_AGGREGATE.rating} className="h-3 w-3" label={`${REVIEW_AGGREGATE.rating} ${dict.reviews.ofFive}`} />
+          <span className="text-[11px] font-semibold text-muted-foreground">
+            {REVIEW_AGGREGATE.rating} · {REVIEW_AGGREGATE.total} {dict.reviews.google}
+          </span>
+        </div>
+        {vehicleReview && (
+          <figure className="mt-2 border-l-2 border-[var(--sea)]/40 pl-2.5">
+            <blockquote className="text-[11px] italic leading-snug text-muted-foreground">
+              “{quoteFor(vehicleReview.review, QUOTE_MARKERS[v.slug])}”
+            </blockquote>
+            <figcaption className="mt-1 text-[10px] font-semibold text-muted-foreground">
+              {vehicleReview.review.author}
+            </figcaption>
+          </figure>
+        )}
         <div className="mt-auto flex items-center justify-between border-t border-border pt-3 text-sm">
           <span className="font-semibold text-[var(--ink)] dark:text-white">{dict.common.seeDetails}</span>
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-gradient text-white shadow-md transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-gradient text-white shadow-md transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ boxShadow: '0 4px 12px rgba(7,27,42,0.25)' }}>
             <ArrowUpRight className="h-4 w-4" />
           </span>
         </div>

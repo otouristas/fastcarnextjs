@@ -18,6 +18,10 @@ const ROUTES = [
   { name: "naxos-article-en", path: "/en/naxos/naxos-vs-paros" },
   { name: "scooters-en", path: "/en/fleet/scooters" },
   { name: "location-en", path: "/en/locations/agios-prokopios" },
+  // The rebuilt reviews platform: 185 real Google reviews behind sort/filter
+  // controls, with hashed avatar colours that have to clear AA in both themes.
+  { name: "reviews-en", path: "/en/reviews" },
+  { name: "reviews-el", path: "/el/reviews" },
 ];
 const VIEWPORTS = [
   { name: "desktop", width: 1440, height: 1000 },

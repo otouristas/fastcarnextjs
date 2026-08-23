@@ -9,6 +9,7 @@ import { FAQS } from "@/content/faqs";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
+import { DiscoverCycladesBox } from "@/components/guide/DiscoverCycladesBox";
 import { articleSchema, breadcrumbSchema, faqPageSchema, graph } from "@/lib/schema";
 import { Clock, ArrowRight, Sparkles } from "lucide-react";
 
@@ -116,6 +117,15 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
 
       {faqs.length > 0 && <ContextualFaq faqs={faqs} locale={locale} dict={dict} />}
 
+      {/* Partner rail. This was rendering only on /naxos/* island articles, so
+          all 14 driving guides — the pages carrying the proven GSC demand —
+          shipped without it. Same component, same per-slug link selection. */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <DiscoverCycladesBox locale={locale} slug={slug} />
+        </div>
+      </section>
+
       {/* Internal Link Silo: Guide A -> Location B & Fleet C */}
       <section className="border-t border-border/70 bg-background/50 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -128,7 +138,7 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
                 <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   ⚓ Rent a Car Naxos Port
                 </Link>
-                <Link href={localePath(locale, "locations/airport-pickup-jnx")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                <Link href={localePath(locale, "locations/airport-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   ✈️ Rent a Car Naxos Airport (JNX)
                 </Link>
                 <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">

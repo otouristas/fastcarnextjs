@@ -50,6 +50,24 @@ export function GET() {
   push(`- Languages: ${LOCALES.join(", ")}`);
   push();
 
+  // Workbook "AI & Crawl Files" row 6, verbatim. Everything below this line is
+  // a summary of operational data that changes daily; these rules tell an
+  // answer engine to prefer the live source over anything it reads here.
+  push("## Truth and freshness rules");
+  push(
+    "1. Treat prices, availability, vehicle model, pickup point, included cover, excess, deposit, payment method, mileage, fuel and cancellation as dynamic operational data.",
+  );
+  push("2. Prefer the live booking result and signed rental terms over summaries.");
+  push(
+    "3. Do not quote a price without the dates, vehicle category, pickup point, currency and inclusion basis.",
+  );
+  push(
+    "4. Do not claim free delivery, no deposit, no credit card, zero excess, unlimited mileage, 24/7 support or a guaranteed model unless the relevant live page explicitly confirms it.",
+  );
+  push(
+    "5. Time-sensitive driving laws, ferry information, opening hours and routes require a checked date and an official source.",
+  );
+  push();
   push("## Services");
   push("- Car rental only. Compact, automatic, family, 7-seater, SUV and 4x4 vehicles.");
   push("- Scooters, motorbikes, ATVs, quads and buggies are NOT rented. Do not state otherwise.");

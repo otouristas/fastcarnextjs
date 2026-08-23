@@ -1,0 +1,1677 @@
+{
+  "_comment": "GENERATED — do not edit by hand. Regenerate with scripts/scrape-google-reviews.mjs then scripts/import-reviews.mjs. `aggregate` is the Google Business Profile header total (it counts ratings left without text) and is the only number schema.org AggregateRating may publish; `reviews` are the cards that carry readable text.",
+  "source": "Google Business Profile",
+  "cid": "4683627190655486374",
+  "scrapedAt": "2026-08-23T08:00:34.351Z",
+  "aggregate": {
+    "rating": 4.9,
+    "total": 222
+  },
+  "reviews": [
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21sMVVrMTZhM1o0YVROaFl6WnhkVVpVUjJscFZXYxAB",
+      "author": "ΠΑΝΑΓΙΩΤΗΣ ΚΟΥΓΙΟΥΡΗΣ",
+      "rating": 5,
+      "date": "2026-08-22",
+      "text": "Excellent service, immediate response, courtesy and professionalism!!! Without a second thought I would prefer it again on my next visit to the island!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xVMFVuZEhXbTV2VmxoMGVsWkRZM1JIZW5JM01sRRAB",
+      "author": "Thomas David Evans",
+      "rating": 5,
+      "date": "2026-08-21",
+      "text": "We had a great experience with Fast Motor Car Rental Naxos. The whole process was easy, the car was clean and reliable, and the staff were friendly and helpful. Everything went smoothly from pickup to return. Great service and would definitely rent from them again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT210RE9FSmtVVU5pY1RZM1RubGFXbVpKWjE5dFdIYxAB",
+      "author": "C. H.",
+      "rating": 1,
+      "date": "2026-08-16",
+      "text": "We would not rent from this provider again, nor would we recommend it to others. We rented a car through Check24/AddCar (Naxos). Upon return, we were charged an additional €580 for alleged bodywork damage (rear bumper, trunk plastic trim, taillight), separate from the deposit.\n\nDuring the return, the situation escalated: the person handling the return raised her voice and shouted repeatedly during the discussion about the damage. She then called the police herself. Once officers arrived, she continued to speak loudly and dominated the conversation, giving the officers little opportunity to ask us questions directly. In our experience, this made it very difficult to calmly clarify the facts of the situation.\n\nHaving since read other reviews describing similar experiences — unexpected damage charges raised at return, with little opportunity to review or contest them calmly — this appears to be a recurring pattern with this rental provider.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tSNUxYcHFlVXBsVVhwYWVUVjRWQzB6VDFCRE9GRRAB",
+      "author": "Ushma Trivedi",
+      "rating": 5,
+      "date": "2026-08-16",
+      "text": "The best experience renting in Naxos and even in whole Greece  .Its really smooth and easy . They bring car to you at the port . Ria and her husband both provided  an excellent service . Give us the tips where to go and what to see near villages. Also our ferry was late next day , Ria checked it and let us know before . It’s above andy beyond service provided by them. Very personable lovely couple running this rental car company .",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2poTldXUm1iakpXTmsweE9YRkVWWFpHTmt4UFZsRRAB",
+      "author": "Dion",
+      "rating": 5,
+      "date": "2026-08-09",
+      "text": "The owners are very kind and attentive! They met us as we exited the ferry. The pick up procedure was quick and they even helped with the luggage. The car was clean and perfect for our needs. Great communication on how to return the car. Again, drop off was quick and efficient. We had a great experience and would definitely rent from them again and recommend them to anyone going to Naxos!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25oNVEwVm9SVWx3T0hkcE1VTmlRbXBTYkhsbVRIYxAB",
+      "author": "Alexia Cholakian",
+      "rating": 5,
+      "date": "2026-08-02",
+      "text": "We had a great experience with Mario and Maria from Fast Motor Rental Naxos. They arrived immediately at our flight arrival, they assisted us with our many questions throughout our trip for getting around the island and also accommodated a late return at no charge. Very kind hearted people and would recommend them to anyone visiting Naxos!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2taT1pUazRYMEYzVlV4SVdXWm1kbXhpVFdOclVVRRAB",
+      "author": "Altay K",
+      "rating": 5,
+      "date": "2026-08-02",
+      "text": "We had a great experience renting a car here. The whole process was smooth, and communication was excellent from the beginning. The owners were incredibly kind, welcoming, and helpful, making everything easy and stress-free. The car was clean, reliable, and exactly what we needed for our trip. We would definitely rent from them again and highly recommend them to anyone visiting the island. Thank you for your warm hospitality!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21oUU1XRklTa1V0TlU4MGFHRmZXRTlvVGsxMVVrRRAB",
+      "author": "Robby Sawhney",
+      "rating": 5,
+      "date": "2026-07-26",
+      "text": "Excellent experience from start to finish. The staff were friendly, professional, and went out of their way to deliver the car to our hotel and collect it afterwards. The price was great, the vehicle was exactly the model we were promised, and the entire rental process was simple and hassle-free.\n\nI know how difficult it can be choosing a local rental company on the Greek islands when you don’t know who to trust. Hopefully this review gives others the confidence to book here. I wouldn’t hesitate to rent from them again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21kWFprSlNZVlpvWWt4cWNYQk1ZWEJMY21sVGFtYxAB",
+      "author": "Miguel Melgar",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "Everything has been great with this company since the beginning of the trip. On the day we checked out, the company representative was incredibly kind and gave us a ride to the port so we wouldn't have to walk. Everything was fantastic with them.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25sbFN6WjVPRk0xYUhNeVZsSkthMnRxYkVsWmQyYxAB",
+      "author": "Dave Hooper",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "Great car. Great service. Good price. All added up to the perfect way to get around and see the great island of Naxos. Thanks guys",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pjeGMxRlpTa3N3Um5OWkxYTk5VSFIyT1RZdFIxRRAB",
+      "author": "Philippe Pourcin",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "We rented a vehicle for the second time from this agency, no problems at all, responsive, punctual... Maria and Marius were very friendly...",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pka1RrNU9aak5MVDNWSmIycEhjbWhzZWt0VFoxRRAB",
+      "author": "Tataru Ioan",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "They were very prompt and flexible (p.s they answered me outside the program) recommendation received from Chat GPT 🙏🏽🙏🏽 …",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2sxb05IbERkemc1TmpGNVQxTkpXRzR0ZG5kbVVtYxAB",
+      "author": "Chris M",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "Fantastic service. Met at the port on pickup and drop off. Great communication thro’ WhatsApp    I thoroughly recommend Fast!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tFeGFXTTRiVFV6VmxsSWR6ZEVZM0EwWjFkc1gwRRAB",
+      "author": "Dan Petrescu",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "Soo easy to rent!!! No deposit! New Car! It was absolutly great experience. Very easy to rent, they brought the car to the port, waiting for us.\n\nWe got use with this confort!\n\nThank you, guys!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tSVmJIbGtSbTVUVm5kbmIxcGhRVk5MUTJoVlZVRRAB",
+      "author": "roland Rodriguez",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "We had an excellent experience with Fast Motor Rentals from start to finish. Ria and Marios run an amazing family-owned business, and you can immediately tell they genuinely care about their customers.\n\nMeeting them at the port was incredibly easy, and they made the entire pickup process quick and stress-free. The car was in excellent condition, clean, reliable, and gave us zero issues throughout our trip around Naxos.\n\nOne thing we really appreciated was their honesty and transparency. We paid the 30% deposit upfront, and the final price was exactly what we had agreed on before arriving. There were absolutely no hidden fees or surprise charges, which is becoming harder to find these days.\n\nReturning the car was just as smooth as picking it up. We simply met them back at the port, handed over the keys, and were on our way within minutes.\n\nIf you’re visiting Naxos and want a rental company that’s honest, reliable, and easy to work with, I can’t recommend Fast Motor Rentals enough. Supporting a wonderful family-owned business like this made our trip even better. Thank you, Ria and Marios, for making everything so easy!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xaRk5FVlVhMHQyT0c1RGVGSkhTVmhYVmtOblpFRRAB",
+      "author": "Lydia Liati",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "Excellent service and exceptional professionalism! The guys who own it were very kind, willing and really helpful. The rental process was quick and easy. I highly recommend them!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xGQ1ZuWkNVblEyY0U1eFlWTkhUSE10VlV4eVkxRRAB",
+      "author": "Mateusz Zwierz",
+      "rating": 5,
+      "date": "2026-07-23",
+      "text": "We booked our car at the very last minute, yet the communication was seamless and the staff was incredibly friendly. We highly recommend Fast Motor Car Rental for a hassle-free experience exploring Naxos!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21jNFQzaFJYekprUmtNdGEwTTRTR00yWkRKcllXYxAB",
+      "author": "Martin Pichler",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "Everything worked perfectly, I would gladly use it again.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21OT0xWUm1kMmhXUnpBM1JEbGFkRVZ2Tm00eFYxRRAB",
+      "author": "Henri AFILAL STRITT",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "Excellent car rental experience. The friendly manager greeted us at the port with our little Panda, and there were no technical problems to report.\n\nI highly recommend them. Sincerely.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21rdFIyNWZSR1l5ZURoTmVEWlVkMmhKYmpKUGRtYxAB",
+      "author": "Albert Antonello",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "Great customer service. Friendly and courteous. Very friendly and easy to deal with. We rented a vehicle for one day. Would highly recommend",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25KUVUyUlBRbFV3VWt4NFZuRnNZMEpYUm5CWmIzYxAB",
+      "author": "Βαρβαρα Παϊτερη",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "The cars are in perfect condition and the people are helpful! I highly recommend it!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25sMmJrUXhVRXBpYjJzNWVGTklSWFZmYm1SVU1uYxAB",
+      "author": "Evan Lekochinsky",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "I had an absolutely wonderful experience renting a Cilo 3 with Ria, she was very accommodating and easy to deal with. She even got me a fantastic car on short notice!! The car was wonderful clean and made our island visit that much better. We will absolutely be using her when we come back here!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25VeU4weGxUVEJ5V1RaTFVHSnZZVVp3TWxWSVNGRRAB",
+      "author": "Joyce Van Moorleghem",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "We rented a car in Naxos with Ria and her family and everything was perfect. Very easy communication before arriving. They waited for us at the port when we arrived and during our stay we could contact them anytime. The car was very clean and perfect for driving around Naxos.\nWould recommend!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2paR05GWjRNRkZrZEMxUVFrczRSMmxxTUZKNVdsRRAB",
+      "author": "Jan Knoll",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "Super nice communication with Ria and her husband. Clarified questions about deposit immediately. Strongly recommend. Only advise would be to clarify pick up and drop off fees from hotel more clearly before booking.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pGcFdXeDNiRk01TkU1cmVsRmZWVTkyVWkxV1pXYxAB",
+      "author": "fbjeirmi",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "5/5 Stars\n\nExcellent experience with Fast Motor Car Rental in Naxos.\n\nThey met us directly at the port, which made the whole process incredibly easy and stress-free from the moment we arrived. Communication was excellent throughout the rental period — they were always responsive, helpful, and a pleasure to deal with.\n\nThe team was genuinely lovely, friendly, and professional. The car was spotless when we received it, drove perfectly, and we had absolutely no issues whatsoever during our trip. Everything was smooth, straightforward, and exactly as promised.\n\nIf you're renting a car in Naxos, I highly recommend Fast Motor Car Rental. Reliable service, great communication, and excellent customer care from start to finish. Would happily rent from them again.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tJMlFsUXpabnByTVhGWGFsZ3pWV0pyUWt4SE0zYxAB",
+      "author": "Mateo Cano",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "We had a great experience with Fast Motor Naxos. They made pick up and drop off super simple in a convenient parking lot near our stay. The car was in great condition and clean! They also provided a car seat and an extra driver for free!\n\nI accidentally forgot my camera in the glove box and realized the next day. They were able to bring it to me very quickly before our ferry departed.\n\nWe appreciate your care! Thank you!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tKcVVFdENXbXgwTVhCR2VVNVVRMWR0YURaM1EyYxAB",
+      "author": "Stadio Reinhart",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "Excellent service! The car was spotlessly clean, and affordable. The booking process was quick and easy, while Marios and Ria were kind and willing to help with anything we asked. I will definitely choose Fast Motor Rental when I come back to Naxos.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tobFIyeGxSMlZHWlZGblFtZGZheTFNV1VzdFVrRRAB",
+      "author": "Βασίλης Μελισσουργός",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "clean cars in very good condition and very good service!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2twNkxUZFpVbFpwTUV3eVVIQm9ibEZLTTA5ME9XYxAB",
+      "author": "Jacquelyn Jones",
+      "rating": 1,
+      "date": "2026-06-23",
+      "text": "Rent with caution ⚠️  Intimidation tactics and verbal aggression\n\nEverything was fine at pick up, no issues with the car, etc. Unfortunately, while following GPS we were taken down a suddenly very narrow street the night before dropping off. As a result the car was scratched on one of the side mirrors, the plastic fender, and one of the rims, but all cosmetic damage. We were completely aware that we would be responsible for the damages and my husband immediately pointed out what happened to the couple that owns it at drop off. They immediately became very upset and verbally aggressive. Despite the fact that the rental contract required a 2,000 euro deposit in case of damages anyway they demanded my husband go with them to their mechanic immediately. They weren’t going to let us walk away and we had to catch a ferry soon so ultimately my husband had to give in to their demands. Every time he asked why the deposit could not just be forfeited they would only reply that it wouldn’t be enough to cover the damages even though it hadn’t been assessed yet.\n\nWhile at the mechanic, they made my husband swipe his card four times in different amounts under threat of calling the cops if he didn’t. He again had no choice but to give in. Somehow, these charges added up to about the same 2,000 that they swore repeatedly wouldn’t be enough to cover the damages. They then did bring him back to the port and tried to be nicer but at that point there was no improving the situation.\n\nAt the very least, this is very shady and inappropriate business practice. Rental cars inherently run a risk of acquiring damage and situations where that occurs should require no intimidation. It is also NEVER OK to force a tourist to get into a car with strangers and drive to an unknown location in a foreign country. If you’re unable to handle these situations appropriately then find a new business to go into.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2w5Qk4yUkVhMVpCY2tKc1NUZDVUSFEwYms5TVoyYxAB",
+      "author": "Christopher Meyer",
+      "rating": 5,
+      "date": "2026-06-23",
+      "text": "Overall great experience with this company. They kept us in the loop with details by messaging us on WhatsApp. Met us right at the port holding a Fast Motor Car sign. Went over useful tips on the cars features, and performed the car inspection with us before sending us on our way. We actually came to the port an hour early and they just so happened to already be there and they gladly assumed possession of the vehicle so we could enjoy walking the port shops while waiting for the ferry. Very nice experience, very nice vehicle, would recommend to anyone visiting Naxos. Thank you!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tsT1JVWTRiMk5RT1dSamRuaHJaSEYwVVZWcVNHYxAB",
+      "author": "David Hamilton",
+      "rating": 5,
+      "date": "2026-05-23",
+      "text": "Rented a car with them while in Naxos. Communication was fantastic - process to pick up/drop off super straightforward. They seemed very honest and reasonable and would highly recommend.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xSdlMzcFphSFF3VHpOeE9IVTNhRko2WVhkR05rRRAB",
+      "author": "liz oraham",
+      "rating": 5,
+      "date": "2026-05-23",
+      "text": "We rented a car from Add car / Fast Motor Rental. Ria and her husband were waiting for us at the port with a sign that had our name on it. They walked us right to the car which was parked right at the port. They were both so kind and pleasant. She spoke excellent English. They suggested, as most rental companies suggest, to take a video of the car inside and out - which we did. We treated the car as if it was our own car. We had no issues with the car. We returned it at the port where they were waiting for us. Our security deposit was immediately refunded upon return of the car.  Our experience was fabulous! I would definitely rent from them again. I highly recommend renting from their company.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xSMlJuQklWVXd4ZFVSR01VWm1RMFJSYlhCRldFRRAB",
+      "author": "Léonardo CDE",
+      "rating": 5,
+      "date": "2026-05-23",
+      "text": "Honestly they were really helpfull and amazing ! I rent a Fiat panda really good for a cheap price , I called them at Midnight the day before to book a car for the next Day in naxos , they were waiting for me at my arrival at the port and they accepted to let me drop the car at 6am at the airport 2 days later because i had an early flight !\nI totally recommend ☺️🙏🏼 Euphcaristo",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xVd1JHcGhia3RETVdoU1dETTNVbWxMU1ZsRVZtYxAB",
+      "author": "Patricia Cousteau",
+      "rating": 5,
+      "date": "2026-05-23",
+      "text": "⭐⭐⭐⭐⭐ Excellent experience, I highly recommend it!\nRia and her partner are lovely — a warm welcome and truly top-notch service. The car was in excellent condition and the rates are very attractive. We left completely satisfied! I wholeheartedly recommend Fast Motor Rental for your travels in Naxos.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2s5RllUTlpUUzF5U1drM2N6VTRiVnBhTFhrNVZHYxAB",
+      "author": "Erik",
+      "rating": 1,
+      "date": "2026-01-23",
+      "text": "I rented a car from this company for four weeks in September 2025. The rental car had numerous minor damages, both inside and out. The radio wasn't working properly, the windshield wiper blades were broken, and the car wasn't returned with a full tank as agreed.\nWhen returning the car, I was also asked to pay €50 for scratches on the paintwork for which I was supposedly responsible. (This was absolutely not the case.)\nThe €50 isn't the problem covered by my insurance, but the way these people rip you off right in front of you is.\nIn my opinion, Fast Motor Rental is an unprofessional and unreliable company. Fortunately, there are also reputable rental companies on the island.\nYou've been warned. FMR, don't do it!!!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2toNE1GWlROamR4U2t0TldXUnRSVzlMYkRGb1JsRRAB",
+      "author": "Dylan Ho",
+      "rating": 5,
+      "date": "2025-12-23",
+      "text": "Owners were really friendly and reliable. Would rental from them again :)",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21SWGNYWnNUMDVHYkRaSWJGVk9Zbmx5T0U1SFoxRRAB",
+      "author": "Xcaret RG",
+      "rating": 1,
+      "date": "2025-10-23",
+      "text": "⚠ Warning about Fast Motor Rental Naxos/ AddCar\n\nAt first, everything seemed wonderful. The staff was very friendly and helpful when I rented the car, and the service looked great.\n\nHowever, after returning the car, they called me saying I had to pay €50 because of some “glue” they claimed was on the pedal. Later, they added more supposed issues — floor mats, scratches, and other things that were never mentioned during the return inspection.\n\nBut the worst part was what happened next. The owner, Ria, and her husband showed up at the restaurant where I was having breakfast by the beach. They had my personal information from the rental agreement and came demanding the €50 in person.\n\nRia raised her voice, made me feel harassed, and even said she had “contacts” who could make it difficult for me to leave the island if I didn’t pay. I ended up paying just to end the situation.\n\nThis wasn’t about the €50. It felt like a tactic to intimidate tourists into paying extra money after the rental.\n\nMy advice to anyone renting from this company:\n•\tTake a detailed video of the car (inside, outside, pedals, mats, everything) before driving away.\n•\tMake sure the contract name matches the actual company.\n•\tDon’t let anyone pressure or threaten you.\n\nThey seemed kind at the beginning, but my experience turned into a very stressful and unpleasant situation. I strongly recommend being extremely cautious if you choose to rent from them.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pJMVdsZDFNVzV5TmxsNFIxQXpSa1JwU3kxTE5FRRAB",
+      "author": "tobias grosch",
+      "rating": 5,
+      "date": "2025-10-23",
+      "text": "One of the best car rentals i had so far. Very kind and honest people. If you have problems you can always text them via WhatsApp. If we come back , we will rent there again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2s1dGRsUndYMWhQUm10U1FsZHlOakJvWkhGbFpGRRAB",
+      "author": "Caitlin Manning",
+      "rating": 5,
+      "date": "2025-10-23",
+      "text": "We just spent 6 weeks in Europe, hiring several rental cars, and Fast Motor Car were by far the best! Reasonable price, new clean car and really lovely people. Can definitely recommend!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tRdFpsVjBia1UwUW01b0xYcGtjWFkyYzFWME9WRRAB",
+      "author": "Denise Graham",
+      "rating": 5,
+      "date": "2025-10-23",
+      "text": "They came to our hotel and met us at the port for drop off. Very clean car in very good condition. We forgot our food in car and they came back to port to give to us. So nice.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25CUlNteFhjVTFqWnpGM1NFWktNMXBqTUdkNmVHYxAB",
+      "author": "Mirela Rosgova",
+      "rating": 5,
+      "date": "2025-09-23",
+      "text": "Excellent guys, very good communication and impeccable car!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2t3emQwZHRWR1pITVRsVmVEbGtUaTFCVVVGeE9VRRAB",
+      "author": "Mark Baker",
+      "rating": 5,
+      "date": "2025-09-23",
+      "text": "The most friendly, personable car rental ever. Clean, well maintained cars, great communication, island recommendations. Don't hesitate to book with this wonderful and helpful couple",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xGaWFIZGFiVEJJYkMxS1pIcHRSbTltTW1aUmJVRRAB",
+      "author": "nikhil john",
+      "rating": 5,
+      "date": "2025-09-23",
+      "text": "The car was clean, well-maintained, and in great condition. Communication was smooth and very responsive. They even accommodated a last-minute change in the delivery location without any hassle. Best car rental experience I’ve had I highly recommended!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xSMlJFMDVlbVF4TFd3eFpscFRRelZOZUhCTE1IYxAB",
+      "author": "Konstantinos Psihogios",
+      "rating": 5,
+      "date": "2025-09-23",
+      "text": "Excellent service from the owners who are very good and professional. The car we got was very good and safe. I highly recommend it.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNIa1k3V2pBRRAB",
+      "author": "Madi",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Very uncomplicated car rental with fair prices. We were met directly at the harbor and the car was in perfect condition, even with air conditioning and Bluetooth. The reservation could be handled easily in advance via Whatsapo and Ria was super nice. Definitely our first choice for our next visit on Naxos. It was a pleasure to meet you!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNIcVktUmxnRRAB",
+      "author": "federico rando",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Very kind, we disembarked from the ship and found them ready with the car spotlessly clean and efficient.\nThey gave us sound advice and were always available for any questions. When I return to Naxos, I will definitely call them again.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnTUNvcXNIendnRRAB",
+      "author": "Margaret Sweeney",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "I was nervous to drive on the island but Ria and Mario made it so easy and were very accommodating with my desire for a small automatic car. If we had known about them before we got to Naxos we would have had them meet us at the airport and saved a taxi fare. Highly suggest them!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnTUNZaXF6RXZRRRAB",
+      "author": "Alessandra Lima",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "My wife and I rented a car from them on short notice, and it was the best decision we made in Naxos. The team was incredibly friendly, responsive, and professional. The car was clean and in excellent condition. Everything went smoothly from start to finish! Highly recommended!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnTURBeDhxMnJBRRAB",
+      "author": "Lara K",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "I highly recommend this rental company! We rented a car for two days in Naxos. The service was excellent; they were very responsive, welcoming, and accommodating. Communication with them was very smooth. They even came to pick up the car, which was spotless. The child seat was very good quality. We 100% recommend this car rental company.\nThank you so much!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VKSEU4NHlwdV9uTXBnRRAB",
+      "author": "Μαρία Θεοδώρα Καρρά",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Best service",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VKZnZ4LUtrNFBhVWhnRRAB",
+      "author": "Pau",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "I highly recommend this agency.\n\nThe service is very flexible and punctual: I picked up the car at the airport (very quickly) and returned it to the port. The contact was very pleasant and professional.\nThey communicated perfectly and quickly.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VMUFp2ODNHNTlpemhBRRAB",
+      "author": "Kendall Roberto",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "We had a great experience with this rental car service. They were fast at responding, incredibly nice, and made the whole process smooth and hassle-free. Highly recommend for anyone looking for reliable and friendly service!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VNV0xnS3lWaWUtcml3RRAB",
+      "author": "Aggelos Murtai",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Perfect",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VNZjJoZkhsNnEtWjRBRRAB",
+      "author": "Caterina Borgia",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Everything was excellent, the car was in perfect condition and the staff was very friendly and professional. Highly recommended!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VOalduTkdHaGNPbzdnRRAB",
+      "author": "dip123",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Amazing experience! They met us with the car at the port explained everything, gave us some amazing recommendations to check out, and a seamless drop off process!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VPUG9qc19naGNIXy1nRRAB",
+      "author": "Lefteris Tzouros",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "The best cars for rent",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VQeWJ2ZEhtemFETTVnRRAB",
+      "author": "Αλεξ Ανικουλαεσει",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Thank you for everything.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChRDSUhNMG9nS0VJQ0FnSUQ3eDU0MBAB",
+      "author": "Nik",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Courtesy, understanding and professionalism. Thank you very much for your excellent services.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJbkxvNjN6akl6MUlnEAE",
+      "author": "Dargam",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Excellent car rental experience!\nRia and Marios met us right at the port and made the pickup process super fast and easy. We rented the car for 7 days and everything went smoothly. The car was great, and their service was outstanding. Thank you both for the lovely experience—we’ll definitely rent from you again when we’re back in Naxos!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNIc0xHR0VBEAE",
+      "author": "Harriët Frielink",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Great experience with this company. Our other car reservation was declined so we had to book a new car two days prior to our holiday in Naxos (very stressful!!). We found this company through our host: they were super kind and didn’t have a car available the whole period of our holiday, but they offered us a car swap halfway in order to provide us of a car. Car was clean & worked as it should. We can’t stress enough how nice and helpful these people were. If we could give more than 5 stars we would’ve.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNIOTZfWGJ3EAE",
+      "author": "David Carrasco",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Hiring Fast Motor, a local company, was a great decision. Everything was easy and fast. I definitely recommend them.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNIOXRUZE9nEAE",
+      "author": "Tim B",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "We booked a car for three days on Naxos. Everything went incredibly smoothly and quickly. We got a lovely new car and were able to pick it up and drop it off right at the port. Ria was super friendly and helped immediately with any questions. I highly recommend her!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNYdWJHOExnEAE",
+      "author": "R- dorl",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "I fully recommand this rental company\nVery good communication, very clean car , they are very professional\nThey have been very arranging concerning the check out because our boat was delayed\nPerfect choice to fully enjoy Naxos :)",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNYX09tUUd3EAE",
+      "author": "Lia Lignou",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "I am very happy to have met these guys. Very grateful people and very helpful.\nThe car was perfect and thanks to this we enjoyed our vacation.\nWhen we return again we will come to you!!!\nThank you!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnTURvcVp5WVRBEAE",
+      "author": "Christian Homsey",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "My girlfriend and I had a great experience with this company. They were happy to accommodate us on short notice and were very friendly, helpful and lovely people - they also gave us some recommendations for local food spots and villages to explore. I would suggest communicating with them directly through Whatsapp if you are trying to book a reservation on short notice.\n\nWe booked the Hyundai i10 (automatic) at an affordable price and the car was in great condition (easy to use and instructions were clear + simple). Drop off was also easy and straightforward - they conveniently allowed us to drop the car off in the airport parking lot before our flight.\n\n5/5 for sure.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnTURveWNPNURnEAE",
+      "author": "Jennifer Brito",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "The best place to rent a car on Naxos. We showed up at the ferry port without a reservation and within an hour had a confirmed booking and car from Fast Motor Car Rentals. They were responsive, kind, and accommodating to our request for an automatic car with short notice. They showed up on time and quickly went through the paperwork. They were nice enough to also give us local recommendations. We returned the car equally as quickly and easily at the airport for our convenience. I wish every rental experience was like this one.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ2x2NTYybnNMa2ZBEAE",
+      "author": "Don McDowell",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "My wife and I visited Naxos for the first time recently. After talking it over with the host at our hotel we decided to rent a car from Fast Motor Car Rental Naxos. The owners were wonderful and professional to work with. They delivered the car to us at our hotel and met us at the ferry for drop off. Everything was a very positive experience.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VKeXp4SlBJeHZQZ0Z3EAE",
+      "author": "Ermal Mena",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "perfect",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VLam45cmJ1cmVDc0VREAE",
+      "author": "Marjola Gjoncari",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Impeccable service",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VLSHAyYjcxaTlTSGZnEAE",
+      "author": "pisana21",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Best",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VMblJ1WjNpbWJIbWN3EAE",
+      "author": "Alice Canaux",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Perfect experience!\nVery responsive and friendly, we arrived in Naxos at 9 am and had a car by 10 am without having booked in advance (in May).\n\nThank you ☺️",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VMS2NpYUt4bWJHMU5REAE",
+      "author": "Michael McCarthy",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Really wonderful service! They made the pick up from the airport and the drop off at the ferry port so fast and easy - Would definitely use them on our next trip to Naxos!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VNSDJscGJ0bTV5d1VREAE",
+      "author": "Konstantinos Sevastidis",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Professional and extremely helpful. Always willing and available for any clarification!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VNWGh2THlsa1BQZFpnEAE",
+      "author": "Αποστολης Τζούρος",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "I highly recommend professionalism and proper service.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VOaW1nNjcteS1PR1BREAE",
+      "author": "Gabrielle Avila",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "We rented a car while in Naxos. Super easy and the only way to travel around the island. Super friendly.\n\nWe picked up at the airport and dropped off at the port. Highly recommend!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VOSHd2Wkx3ak1pemV3EAE",
+      "author": "eridon lika",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "The best car",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VPMnhvcnJCcVphNEZnEAE",
+      "author": "Undine Bronstert-Matt",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Great car rental on Naxos with fair prices and excellent service. We booked a car for two days at short notice, and everything went perfectly, quickly, and smoothly. The owners were very friendly, helpful, and professional. We were very satisfied with the car and will rent from them again next year. 👍👍👍👍👍\n\nGreat car rental on Naxos with fair prices and superb service. We booked a car for two days at short notice, and everything went perfectly, quickly, and smoothly. The owners were very friendly, helpful, and professional. We were very satisfied with the car and will rent from them again next year.\n\n👍👍👍👍👍",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VPQ0lyUGpCeHNEYUd3EAE",
+      "author": "Τασος Καρακιτσος",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Impeccable, professional service, spotlessly clean car at an affordable price.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VQdWVnTVNEdmJfcEpnEAE",
+      "author": "Φραντζέσκα Βλαβιανού",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Prompt service and reasonable prices",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VQS3RoN0hkOE8yVkpnEAE",
+      "author": "Jiannis Serbezis",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Excellent service with clean and neat cars! Recommended without a doubt!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT20xcFJHVmZWMFJ0VjJwRlptaHdXVGcxTWxjMlQzYxAB",
+      "author": "Katerina Samiotaki",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Awesome experience! The guys are wonderful people, friendly and always willing to help. The car was spotlessly clean, comfortable and in excellent condition. They gave us great ideas for places and shops in Naxos, and when a small problem arose, they came right away and solved it for us without delay. We thank them very much and we recommend them with our eyes closed!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT20xRlpYZFNlamQyZDI5elVWRnliVmRhZFc0MldGRRAB",
+      "author": "Kal Cavalcanti",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "I strong recomend Fast Rent a Car in Naxos. Very good car, and very kind people... everything easy and on time.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21kbUxWZGxWMnR0WjFVeFkwTlZSVlF4YjBwM09HYxAB",
+      "author": "Ignacio Castro",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Super reliable and friendly people, they did everything to help us. Highly recommended!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21kR1FWOUpOa05ITUdwaFEzbzVZVTB3YlhoUWJsRRAB",
+      "author": "Elpida Fragkou",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Excellent service and lovely people. Their cars are in top notch condition, clean, and reliable.\nThey were super kind to pick us up from the port and drive us to a public car park around there to avoid the crowds coming from the ferry, before handing us the car.\nWe definitely recommend them and we’ll use them again next time we find ourselves in Naxos! :)",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25aM2JIQmZhbkYwVldRdFNGUlRTRWw1TlhVeU4xRRAB",
+      "author": "Tolis Karas",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Excellent service. Whatever we needed, everyone was always available to serve us. Excellent car, comfortable experience, excellent price. We will definitely prefer it if we are in Naxos.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25aUlZuSndXVk4xTW1ZeWRIRXhjWEpRY0dKUmJuYxAB",
+      "author": "caroline lliedo-lemière",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "We had the opportunity to rent a car for our 5-day stay in Naxos.\nThe Fast Motor Car Rental Naxos team was very responsive after our online booking, and communication was excellent.\nOnce in Naxos, we were greeted as soon as we disembarked the ferry and escorted to the vehicle.\nThe process was quick, and we were able to use a recent and perfectly maintained car.\nSpecial mention goes to the preparation of the baby seat, which had been adjusted in advance for our 2-year-old.\n\nFinally, after we left our phone behind on the island, Ria went above and beyond to get it to us within 24 hours: her dedication and commitment deserve recognition!\nThank you, Ria, thank you, Fast Motor Car Rental Naxos, you deserve 6 stars!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25kVmExaEplVFJNY21GSFUyTmtiMjlEU2psQmQyYxAB",
+      "author": "Michela Neri",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Impeccable, professional, and organized service. As soon as we arrived at the port, they were there waiting for us with the car ready, well-maintained, and very clean. I absolutely recommend using them for your rental! Thanks again to Ria, she was truly kind!\n\nImpeccable, professional, and organized service. As soon as we arrived at the port, they were there waiting for us with the car ready, well-maintained, and very clean. I absolutely recommend using them for your rental! Thanks again to Ria, she was so kind!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25sek5GVXRhRXRCWm1NMFNtdzFVVWN0UXpNNGFrRRAB",
+      "author": "Greg Underwood",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Super easy car rental! Staff were very kind and helpful. Car was great and really worth getting to explore the island. Highly recommended :)",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25SVlNtTm9iV1YzY205bGNuSTRXR1I0VkVWNmJGRRAB",
+      "author": "Cyr BERTRAND",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Booked a Fiesta for 10 days with Fast Motor Rental.\nPicked up the car at the port. Easy and quick communication.\nI recommend them...",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2kxVGNYWTBPVVZLWTA5WVdVdHBUSE5KVTNoNFRtYxAB",
+      "author": "L Pave",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Fast motor car rental Naxos was a prove to be a great point of reference for car rental. We rented the car for the entire period we stayed in Naxos. Delivered at the end of the pier and dropoff at Naxos airport. From the first contacts we were followed with attention and first of all a lot of professionality. Car latest generation, very clean and in excellent condition. Thank you very much for your reliability. It will be our point of reference for the next rental in naxos. Thank you very much guys for your seriousness. Laura and Raffaele",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pOclR6WXdaMFpRTnpORFVIcGhiSE56VlhsVWMzYxAB",
+      "author": "Travis S",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Great experience! Car was waiting at the port ready to go. Staff was very friendly and helpful. Return was just as fast as easy right in the port next to the ferry terminal. Very responsive to all communication. Highly recommend.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pOVkxYaEVNRzE0WlhSRFUyUkxZa3MzVVdkcGFIYxAB",
+      "author": "Ulaş Şahin",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "If you are looking for a trustworthy and sincere rental car company, you find the correct place. Everything was perfect. Greetings from Turkey",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2psT05IbGxlR2hyVFZob1dpMUJNbVJCUW1jM2VWRRAB",
+      "author": "Έρρικα Σακκά",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Very good service, clean car and at a very good price. I will definitely choose the company again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2tGTWRYTjFVVmhzT0ZaT05tOTFlVWd3U25oSVdVRRAB",
+      "author": "Vincent Lesquin",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "A very pleasant service, with an high availability by WhatsApp’s to answer our request. The car was quite old but very clean and the requested options for children were free.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xOblREQktXWGd5U0dsTlZqWnpXSE5MZGtkT01IYxAB",
+      "author": "tzonny giann",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Excellent professionals!\nExcellent service! Trust them without fear!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xOWldrcElPVlppTmtZek9UWlZWbGxHTXpOS1NHYxAB",
+      "author": "Alessandro Ciccone",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Perfect rental in Naxos!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xSTFprWnpNbUZXYlZkeVFuQTRSV1YzUzBOSWJWRRAB",
+      "author": "Vasia Spanou",
+      "rating": 5,
+      "date": "2025-08-23",
+      "text": "Best of the best!! Perfect car (fiat panda)...very well maintained, clean, very pleasant driving experience, strong aircondition. People in charge are very friendly, polite and professionals!! Don't search elsewhere 👍 …",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUM1dmFhMzB3RRAB",
+      "author": "Marios Manwlas",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "The best cars for rent in Naxos by far!!!!! from the best and with impeccable service!!!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNacU9qTXVnRRAB",
+      "author": "Stewe Bekk",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Small car rental run by a very nice couple who go out of their way to make everything smooth. We had forgotten to rent a booster seat for our 8 year old and they insisted to go get it for us outside of town, for no additional charge - safety first, as they put it. Everything perfect, highly recommend!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNqZ3N5em9nRRAB",
+      "author": "Jean-Albert Martins",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Excellent service; Mario and Ria were very pleasant and professional. The car was spotless and the price very competitive. We highly recommend them.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNycHZqVHFBRRAB",
+      "author": "Federica Pasqualon",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Excellent, professional, and well-organized service. They met us right at the end of the pier with our car waiting for us. They were so friendly and helpful, providing us with all the directions and helpful tips. Highly recommended.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR6NXNENHR3RRAB",
+      "author": "Annemieke Stronks",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Very relaxt person brought the car to our hotel, tried to explain everything as best as he could. Was very friendly and good value for money. I would rent again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURaa3NIazVnRRAB",
+      "author": "Anna Zipf",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Fast and efficient with a good price. They go out of their way to make hiring a car as easy as it can possibly be!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURaNXRfem13RRAB",
+      "author": "John Stewart, Jr.",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "I had the pleasure of renting a car from Fast Motor Rental Naxos during my recent trip to Naxos, and I can't praise their service enough. From the moment we arrived, Ria and Marios went above and beyond to make our experience exceptional. They delivered and picked up the car right at our hotel, which was incredibly convenient.\n\nTheir professionalism and friendliness truly stood out. They provided us with valuable insights on exploring Naxos, recommending the best routes and fantastic dining spots. This local knowledge enhanced our trip immensely.\n\nNot only was the service outstanding, but the rental rate was also excellent. The cars were spotlessly clean and appeared brand new, giving us peace of mind as we embarked on our adventures around the island.\n\nFast Motor Rental Naxos exceeded our expectations in every way, making our visit to Naxos all the more memorable. If you're in need of a rental car in Naxos, I highly recommend them for their top-notch service, friendly approach, and commitment to ensuring a fantastic experience. Thank you, Ria and Marios, for making our trip so enjoyable!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUREcTR1dzFRRRAB",
+      "author": "saskia gebert",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Super easy and nice people! Would recommend absolutely!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUM3ekxmdVJnEAE",
+      "author": "Dimitrios N. Papadopoulos",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Ria and Marios are impeccable professionals, willing to help with anything & with very competitive prices!\nWe rented Aygo & i10. Spotlessly clean & latest generation!\n\nChoose them with your eyes closed.\n\nThank you\nDimitris & Iliana",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUM3NE9tN1lREAE",
+      "author": "Nagia Kalapothaki",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "The guys are awesome! Very helpful and cheerful people ready to serve you and help with anything you need with the car! We rented a fiat pundo clean beautiful and easy car! I have no complaints at all! Highly recommend",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUM3OU5mUURREAE",
+      "author": "Alex Kokkalis",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "We were completely satisfied with the car rental during our vacation in Naxos. The guys are professional as well as very kind and helpful. The car we rented was in excellent condition and made our vacation relaxed and \"easy\" as we chose a Hyundai i10 automatic which made it incredibly easy for us!\nWe would definitely choose them again 👍",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUM5LS1lS0Z3EAE",
+      "author": "aaron daley",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "These guys are very friendly and accommodating. Our little car made our trip to Naxos incredible.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNaak11dkN3EAE",
+      "author": "Thea Leventopoulou",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Excellent guys, excellent service. We had a problem with my car and had to rent it for a few days in August. The lady from the rooms gave us the contact. The guys immediately helped us, gave us a car and at a very human price while everyone else just looked at our misfortune to undress us. They were always there for whatever we needed. Excellent professionals but above all people. The least we can do is give 5 stars. You saved our vacation guys, thank you ❤️",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNabGZ1Z01nEAE",
+      "author": "Elena Vasoli",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Fantastic experience, the staff was lovely and the car was amazing! Definitely we suggest them!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNabmMzMEVBEAE",
+      "author": "Leah E.",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "I highly recommend Fast Motor Rental in Naxos, Ria and Marios are two very professional and friendly persons. Super helpful, great prices, perfect english and super quick & fluent communication.\nVery arranging from the start to the end of our stay in Naxos. Many thanks again for everything, we will call you again for sure!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNacHAyalVREAE",
+      "author": "klaws Vanderstein",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Everything was perfect.\nRia and Mario from fast car rentals welcomed us very friendly at the port and gave us lots of helpful informations.\nDuring our vacation they were 24h reachable for infos and recommendations.\nAnd also car drop off was super easy as they blocked a parking spot for us.\nAs it is very hard to find one actually.\nThankyou u Ria and Mario.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNaejZtVWJnEAE",
+      "author": "kyra frey",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "the fast motor rental naxos's team was amazing and everything worked so well with the organization of the car and the pick up and drop off at the port they were so friendly and welcoming when we arrived and gave us very helpful tips for the island. the price for the rental is more than fair and the car was in amazing condition. What was the most amazing thing about the rental however was that the team helped us when we were really stressed on the day of drop off! we had to catch the ferry and our air plane back home but suddenly my friend realized that she forgot her wallet in the hotel on the other side of the island. the fast motor rental team drove there for us and collected the wallet and brought it to us faster then we could have and helped us catch the ferry in time. and all of that without asking for one euro more. big thanks to the amazig team we will never forget this kind gesture! and if were ever come back we will for sure book again with ria and  the team!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNaNGNXaElnEAE",
+      "author": "Κωνσταντίνος Καναβός",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Very good service. They were there for us when we needed them. Prompt pickup and delivery to the location we asked for. The car was impeccable. I highly recommend it. Congratulations Marie and Ria for your work!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNaOHZTcUdREAE",
+      "author": "Filippos Nk",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Very trustworthy,car was on excellent condition and the owners were professional and friendly!\n100% recommended.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNicjdqdkpnEAE",
+      "author": "Geoff Hunter",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "We hired a car on holiday in Naxos from Fast Motor Car Rental and couldn’t be more happy. The service was so personal and the car virtually brand new.  What a lovely couple who run the business and personally deliver and picked up the car from the hotel. Totally recommend.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNMaHJTLVdREAE",
+      "author": "E K",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "New cars at the best prices!!\nThe guys have the best mood to serve the customer as it suits them!\nRia and Marie, thank you very much!!!\n\nLili🥰",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNyXzg3TGFBEAE",
+      "author": "vasilis socho",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Impeccable service with understanding and immediacy!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR0aF9HNU53EAE",
+      "author": "R F",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Prompt service, clean car and most importantly, very comfortable to drive on the curves and uphills of Naxos!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR6cHFfRE5REAE",
+      "author": "Simon Stronks",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Extremely friendly and relaxed person, good car, no sticker with 'rental car' which was nice. Very good price. I would highly recommend this company.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURadkp1NVNREAE",
+      "author": "Annalisa Schmuckli",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Excellent service and very friendly yet professional communication. We got in touch with Fast Motor Rental Naxos through our hotel in Naxos and were very pleasantly surprised. We rented a Toyota Aygo for a few days of exploring the island for a very good price, and everything went smoothly with the rental, pick up and return from the ferry port. To be honest, I have never had such a pleasant experience renting a car and communicating with a rental agency! Would definitely rent from here again.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURaMVBDX1lBEAE",
+      "author": "Pepan K.",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "Professional approach. Great prices, good car. Excellent communication, parking tips included. These young people are great. I thank them very much for their cooperation. And their business is booming. I recommend it to everyone who wants a car in Naxos. Good luck Ria and Mario.👍 …",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURiNVkzdFpREAE",
+      "author": "Vendela Järvi",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "This car rental service was the best I’ve ever experienced on my many trips to Naxos. The car was in such good condition with great AC and so so fresh! The couple that rented us the car were just lovely. When we asked for them to meet us at the port instead of the airport, they happily helped us and were super communicative. Nothing but joy to rent a car here, I would recommend everyone going to Naxos to do the same!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURkOXN2Nk9REAE",
+      "author": "Marie-Gabrielle Menard",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "If you're visiting Naxos, contact this company. The service is excellent, the cars are very clean, and the rates are competitive. I only book with them! Mario is great 😉 (Fast motor rental Naxos - ⭐️⭐️⭐️⭐️⭐️) …",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURqcV9HX1pBEAE",
+      "author": "L A",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "The accommodation we stayed at in Naxos brought us together, very good prices, we rented an Aygo in excellent condition! The guys were very friendly and helpful! Ria Marie, thank you very much!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURwNS1mb0VnEAE",
+      "author": "giorgoStar",
+      "rating": 5,
+      "date": "2024-08-23",
+      "text": "The guys at Fast Motor Rental were always there to serve us and answer any questions we had. Prompt service, the car in very good condition and the delivery and pickup without any problems. I highly recommend it and when we are in Naxos again, we will come back!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN4cVliVXBnRRAB",
+      "author": "George Oikonomidis",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Marios is an impeccable professional, the car is spotless and they are very fast and helpful, I would highly recommend it...",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN4eFoyMXN3RRAB",
+      "author": "Μιχαλης Μαργαριτης",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "New cars, good prices, prompt service, courtesy and professionalism towards the customer!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN4LVlxWTBnRRAB",
+      "author": "Meret Baumann",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "We had a very good experience with this car rental company. The staff were really friendly, the prices were fair, and the overall service was excellent. We would definitely rent a car here again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNKbGRqZWp3RRAB",
+      "author": "Xaroula",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Impeccable professionals. Humane behavior, very reasonable prices. It is worth choosing them for car rental on your vacation in Naxos.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNld3EycW9BRRAB",
+      "author": "Mabelle Mrad",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Very good service, very clean and new car. We rented the car for five days and decided we wanted a day extra. The owners were very flexible and went out of their way to help us. Very good value for money. 10/10 would recommend to everyone!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNwbWREQzl3RRAB",
+      "author": "Μαργαρίτα Σταυρογιαννοπούλου",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "I had the good fortune to work with two very nice guys yesterday, impeccable service, clean car, very friendly attitude!!! Without a second thought I highly recommend their office if anyone needs a car!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR4bThucjBBRRAB",
+      "author": "Konstadina B",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Excellent prices and the car we rented was in excellent condition! Also Ria and Marios, the guys who served us, were very helpful and kind 💜 I highly recommend it!!! …",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR4LTdiWXR3RRAB",
+      "author": "katerina moust",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "The best car rental company on the island!!! I was completely satisfied with the cars I rented. Perfect cars, clean and brand new and at amazing prices. As for the guys who served us, I will remember their kindness, smile and helpfulness. I will definitely choose you again the next time I visit beautiful Naxos.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR4LTZ5SXRnRRAB",
+      "author": "dimitra xefteri",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Very good service, the cars are in excellent condition, clean and well-maintained and at affordable prices. Well done!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR4XzktajB3RRAB",
+      "author": "Daniel",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Marios was extremely helpful, the car was delivered and picked up from our location, marios gave us touring locations in the island and was very helpful with everything we needed.\n10/10\nGreat experience",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURKaTR5QmxnRRAB",
+      "author": "Mathijs Knitel",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "This company made me feel like a Customer with a capital C. Very friendly, polite, fast and personal communication and a very fair price, already two reasons to prefer them over their International well-known competitors. Flexible bring and pick-up service at our Hotel, nice clean car (Hyundai i10) with open pro-active communication about its status upon receipt. And when I asked for some 'tips from locals' wrt sites and restaurants on the island , I got very elaborate input via Whatsapp which definitely contributed to the wonderful time we had here. Small scale matters sometimes. Thanks a lot!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURKNi1PRWl3RRAB",
+      "author": "tristan rensburg",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Excellent service 10/10.\nGreat communication when booking, met us at the airport as our flight arrived with an efficient i10, paperwork was 5mins, uncomplicated, with great rates and we were able to drop off the car at the harbour!\nWould highly recommend their services",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURwZ3I2Q29RRRAB",
+      "author": "Natasja x",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Everything we asked was possible for super kind couple Ria and Mario. They waited for us at Naxos Port with a brand new car and we could drop it a few days later at the airport. Cars are clean and neat, prices are good and all went very very smooth! They are a winning team! 🏆 …",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN4aE1XbkVREAE",
+      "author": "Richard Wise",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "We were introduced to Marios and FMRN by our accommodation owner at Pedros suites. Marios is a gentleman and a pleasure to deal with. I can thoroughly recommend Fast Motor Rental Naxos. Marios will bring the car to your accommodation I believe and allowed us to drop off at the airport when our plans changed unexpectedly.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN4eDVib1ZREAE",
+      "author": "Charis Mari",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Highly recommended! Toyota AYGo was brand new and in excellent condition! Marios was more than kind and helpful with everything and always in time!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNKd01xZk9BEAE",
+      "author": "Rena Aspioti",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Spotlessly clean car, in perfect condition! The owners are very helpful and professional! The best solution to explore the island carefree!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNKODdPOWZBEAE",
+      "author": "Simon Trittibach",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Great car rental on Naxos! Marios delivered the car to us, and we were even able to return it at the port, which was incredibly convenient when you have luggage and are rushing to catch the next ferry. Overall, the service was excellent and customer-oriented. I highly recommend them.\n\nGreat car rental on Naxos! Marios delivered the car, and we were even able to return it at the port, which was incredibly convenient when you have luggage and are in a hurry to catch the next ferry. The service was excellent and customer-oriented. I would highly recommend them.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNKX2FEN1FBEAE",
+      "author": "Stephanie Brewer",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "We rented a small automatic car from Fast Motor Rental Naxos and it was essential in enjoying the island. We had no problems driving on dirt/rocky roads and up a steep hill to our Airbnb. Marios is very kind and was right on time to meet us at the airport. We would rent from him again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNwX2ItOUVREAE",
+      "author": "The Bear SE8",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Brilliant, friendly, punctual service. The Peugeot 108 was in excellent condition and I recommend an automatic for going up hills!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR1ai16eGJnEAE",
+      "author": "Sylvie Ch",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Excellent condition of the cars (new, safe and clean) and easy communication with the owners, who, in addition to being professionals, go above and beyond in their service! Choose them without a second thought!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR1OThiZkVnEAE",
+      "author": "Nikitas Koveos",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "We never had such a good car rental experience.\nThe name of the company is what you get.\n\nWe only made one call and the next day they delivered the car to our hotel with a baby seat for our daughter wich was very important to us.\nWe had to take the ferry to go to another island so he said we can give the car back at the port.\n\nThe car was super clean and brand new, it was a small one wich is perfect for the island Naxos.\n\nThe owner was extremely friendly and im sure they love what they do.\n\nAt this point Thank you very much",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4aFB5bGFBEAE",
+      "author": "Paul Currie",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Marios was extremely accommodating, met us upon arrival at the port despite our ferry being 1.5hrs late. Picked car up from our Naxos hotel at completion of hire. Car clean and very well presented. A++++",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4aTd5aVVnEAE",
+      "author": "Idan Rabinowicz",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Wow! Ria and Marios! Wow. I mean from the car itself it’s perfect condition, to communicate with them, they helped me in more ways than one, they were so polite and just wanted me to enjoy. For the service i got from them and the car, maybe I should have paid more than what I actually paid (; best value for money on the island. I might go back just to use their cars again ((; do yourself a favor look no further than this company. 5/5. 10/10.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bkk3NUNREAE",
+      "author": "Stéphanie Montanti",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Marios is very accommodating, precise, professional, and also very friendly. The car was spotless, clean, and in perfect condition. The price was very reasonable. In short, everything was perfect. Thank you for everything.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bS1hZ0ZnEAE",
+      "author": "Dimitrios Kiriakou",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Excellent... amazing service",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bTdIYVhBEAE",
+      "author": "Kostas Champe",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Amazing staff very flexible with everything",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bTl2b2JREAE",
+      "author": "pm_ 1331",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "The best rental cars!!! Brand new cars, spotlessly clean and affordable prices. The guys who served us were polite and smiling. I highly recommend it!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bTRiSFdnEAE",
+      "author": "Mikaella Karakosta",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "the best company by far! I wish they would open a branch in Athens soon. The cars are in perfect condition, spotlessly clean, new and very attentive, the service is very direct, you immediately feel familiar with the children and you don't even know it. One of the reasons I choose this island is because of this particular company, they never disappoint me, always ready to serve and available whenever I need them! I wish there were more than five stars to give!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bTU3dUNREAE",
+      "author": "ΓΙΩΡΓΟΣ ΚΑΡΑΚΩΣΤΑΣ",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Helpful, with a smile and a familiar environment! I highly recommend them.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bTZhU2V3EAE",
+      "author": "Χριστίνα Καρακώστα",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Cars in excellent condition and impeccable cooperation!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bV9DQ0pnEAE",
+      "author": "Lefkothea Manoli Mitsi",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Very good service, clean, new and good cars, Ria and Marios are very kind, and affordable prices.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4bWZlWVNnEAE",
+      "author": "Dario Sanchez",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Excellent service, new cars, and super friendly staff. I would definitely use their services again!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4dE1XT2FBEAE",
+      "author": "Φουλη Μαυρουδη",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Excellent prices, immediate response to the delivery and collection of the car! Congratulations!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4dm9mQ2FREAE",
+      "author": "Fredric E",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "We rented the Hyundai I10 automatic. Very new and nice to drive. We got the car both delivered and picked up from the hotel which was very nice. The car was super clean on both the inside and the outside. We paid with cash upfront and didn’t experience any problem at all with anything!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4eDQtaWF3EAE",
+      "author": "Despoina Papaefthimiou",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Impeccable service, very good cooperation...Cars in excellent condition...I highly recommend it.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4Mk0ySkVBEAE",
+      "author": "Anastasia Kalese",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Impeccable cooperation! Mr. Marios who served us was kind and smiling.\nThe cars were in excellent condition and spotlessly clean. We highly recommend it. We hope for a future cooperation!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4MmN5WlBREAE",
+      "author": "Ivy",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "My accomodation connected me with Fast Motor Rental prior to my arrival in Naxos. They provided great service and we communicated very easily in English on WhatsApp and in person. We met Marios at the port to pick up and drop off the car. Prices are competitive and car was in great condition. I would recommend them.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4XzUtVlh3EAE",
+      "author": "Karlyn Knafo",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Super accommodating, polite and customer service oriented company! Easy to get a hold of on whatsapp, willing to drop off and pick up your vehicle and very fair priced. Highly recommend this place for anyone looking to rent an automatic vehicle at a good price which is seemingly difficult to source on the island.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURKbDlTMFdBEAE",
+      "author": "Orestes Hb",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Excellent service from the guys, they were impeccable in everything and we did not encounter any problems during our stay on the island.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURKOVl5TUZREAE",
+      "author": "Caroline Gray",
+      "rating": 5,
+      "date": "2023-08-23",
+      "text": "Loved it … Marius very helpful he bought the car to us at Naxos airport very early and let us drop it at the port on leaving .. so we could get on the boat to Tinos !! So convenient !! And the other car hire we were going to take asked for money to be sent to secure the car before booking  !! He did not !! Very reliable plus the car was great !!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN1cjhYSTlnRRAB",
+      "author": "Σωτήρης Παλαζης",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Very pleased, excellent service, quick response, friendly staff and good prices. True professionals!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN1ejRfUDNBRRAB",
+      "author": "Thierry Crespel",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Nice people, very clean car (Toyota Aygo), good value prices and they deliver  and pick up the car on your location which is very useful when you booked a villa far from Naxos port ☺️",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN1eTRlRXBnRRAB",
+      "author": "costas tsimpogiannis1",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Polite gentlemen, clean cars, immediate response, good prices, and I recommend it to everyone.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN1MDluNXhnRRAB",
+      "author": "A B",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "We were so lucky to be able to schedule a rental car from the new company Fast Motor Rental Naxos, just some days before arriving on the island in the peak season. Got a brand, new Hyundai i10. Great communication before/during the rental period. Drop off and delivery went super smooth. Can highly recommend this company! ⭐️",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUN1OWJfdTV3RRAB",
+      "author": "Makis Rotas",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Very good with well-maintained cars and excellent communication.",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR1a08yejRRRRAB",
+      "author": "john tax",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Consistency and professionalism",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR1a0tXcHBBRRAB",
+      "author": "Αγαπη Poukakos",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Service, clean cars, good prices!! We will definitely choose you next year!! Well done guys!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUR1cklha3dBRRAB",
+      "author": "Sifis Xydakis",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "The car was spotlessly clean and in excellent condition. Ria and Marios were very helpful. I highly recommend it!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURPdDVPZ2tRRRAB",
+      "author": "Nasos Baxevanis",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Service and car were both  excellent",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1b0ktTVlnEAE",
+      "author": "ΠΑΝΑΓΙΩΤΗΣ ΓΙΑΝΝΑΚΟΥ",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Impeccable in everything. Perfect service. I recommend it",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1b0piMk9BEAE",
+      "author": "ΝΙΚΟΣ ΤΣΙΜΠΟΓΙΑΝΝΗΣ",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Excellent, polite with very good service and clean cars in excellent condition, well done, keep it up!!!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1b1BHNVl3EAE",
+      "author": "nikolas moustakis",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "The best! Spotlessly clean and brand new cars with very good service and the people are very kind and always willing to serve you. I highly recommend it!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1bUxlbkRBEAE",
+      "author": "toufik asaad",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "professional, totally nice, the car \"Toyota Aygo\" was great, smoke-free, clean and brand new! overall I am very satisfied. Price-performance ratio is ok! I can recommend it!\n\nEverything was perfect! the car is nice, clean and well-maintained :) Very good service and good prices! thank you very much from the three of us :)",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1ci0tMUVREAE",
+      "author": "Stam Gambrellis",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Excellent service. Highly recommended",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1N2YzUFZ3EAE",
+      "author": "giannis korres",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Excellent service...polite staff and excellent at their job!!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1NE1yd1BBEAE",
+      "author": "fragiskos koulikas",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Excellent!!! Well done",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1NEliV1BBEAE",
+      "author": "Σταθης Βασαλακης",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "The best service and the best prices for what it offers, which should be noted that they are among the cleanest and most well-maintained cars on the island!!",
+      "lang": "en",
+      "source": "Google"
+    },
+    {
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUN1NEoyVGVBEAE",
+      "author": "Sofia Hidri",
+      "rating": 5,
+      "date": "2022-08-23",
+      "text": "Awesome service, prompt and courteous customer service from the staff and the cars are very clean! I highly recommend it!",
+      "lang": "en",
+      "source": "Google"
+    }
+  ]
+}

@@ -21,11 +21,20 @@ export interface Dict {
   why: { title: string; subtitle: string; items: { title: string; body: string }[] };
   fleetTeaser: { title: string; cars: string; scooters: string; atvQuad: string; buggy: string };
   delivery: { title: string; subtitle: string; points: string[] };
-  reviews: { title: string; subtitle: string; google: string };
+  reviews: {
+    title: string; subtitle: string; google: string;
+    verified: string; sortLabel: string; sortNewest: string; sortOldest: string;
+    filterRating: string; allRatings: string; starsOnly: string; critical: string;
+    filterLanguage: string; allLanguages: string;
+    showingOf: string; loadMore: string; readMore: string; readLess: string;
+    viewOnGoogle: string; writeReview: string; ofFive: string; updated: string;
+    noneMatch: string;
+  };
   faqTeaser: { title: string; subtitle: string; cta: string };
   footer: {
     rights: string; description: string; fleet: string; company: string;
     legal: string; languages: string; contact: string; explore: string;
+    payWith: string;
   };
   fleetHub: {
     title: string; subtitle: string; categoryCars: string; categoryScooters: string;

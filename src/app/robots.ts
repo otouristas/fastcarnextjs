@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
+import { SITEMAP_INDEX_URL } from "@/lib/sitemaps";
 
 /**
  * Answer engines are a first-class traffic source for this site, so their
@@ -37,7 +38,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "*", allow: "/", disallow: ["/api/"] },
       ...AI_AGENTS.map((userAgent) => ({ userAgent, allow: "/", disallow: ["/api/"] })),
     ],
-    sitemap: `${SITE.domain}/sitemap.xml`,
+    sitemap: SITEMAP_INDEX_URL,
     host: SITE.domain,
   };
 }

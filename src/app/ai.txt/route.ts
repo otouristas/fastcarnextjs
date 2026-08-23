@@ -54,7 +54,7 @@ export function GET() {
     ["Insurance and excess", "insurance"],
     ["FAQ", "faq"],
     ["Reviews", "reviews"],
-    ["Airport delivery (JNX)", "locations/airport-pickup-jnx"],
+    ["Airport delivery (JNX)", "locations/airport-pickup"],
     ["Port delivery", "locations/port-pickup"],
     ["Naxos island guide", "naxos"],
     ["Naxos beaches", "naxos/beaches"],

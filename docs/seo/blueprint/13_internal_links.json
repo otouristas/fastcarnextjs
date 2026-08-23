@@ -1,0 +1,768 @@
+{
+  "sheet": "Internal Links",
+  "title": "Exact Internal-Link Map",
+  "note": "Use contextual links in visible copy; vary anchors naturally and preserve one canonical target per cluster.",
+  "columns": [
+    "Language",
+    "Source URL",
+    "Target URL",
+    "Recommended anchor",
+    "Placement",
+    "Status"
+  ],
+  "rows": [
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en",
+      "Target URL": "https://naxos-carrentals.com/en/fleet/cars",
+      "Recommended anchor": "compare Naxos rental cars",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en",
+      "Target URL": "https://naxos-carrentals.com/en/pricing",
+      "Recommended anchor": "Naxos car rental prices",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en",
+      "Target URL": "https://naxos-carrentals.com/en/naxos",
+      "Recommended anchor": "complete Naxos guide",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars",
+      "Target URL": "https://naxos-carrentals.com/en/pricing",
+      "Recommended anchor": "Naxos car rental prices",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/pricing",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/pricing",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/locations",
+      "Target URL": "https://naxos-carrentals.com/en/locations/port-pickup",
+      "Recommended anchor": "Naxos Port car pickup",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/locations",
+      "Target URL": "https://naxos-carrentals.com/en/locations/airport-pickup",
+      "Recommended anchor": "Naxos Airport car pickup",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/naxos",
+      "Target URL": "https://naxos-carrentals.com/en/naxos/beaches",
+      "Recommended anchor": "Naxos beaches by car",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/naxos",
+      "Target URL": "https://naxos-carrentals.com/en/guides/naxos-mountain-villages-by-car",
+      "Recommended anchor": "mountain villages road trip",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/naxos",
+      "Target URL": "https://naxos-carrentals.com/en/guides/do-you-need-a-car-in-naxos",
+      "Recommended anchor": "do you need a car in Naxos?",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/naxos/beaches",
+      "Target URL": "https://naxos-carrentals.com/en/guides/best-beaches-by-car-naxos",
+      "Recommended anchor": "Naxos beaches by car",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/naxos/beaches",
+      "Target URL": "https://naxos-carrentals.com/en/fleet/cars",
+      "Recommended anchor": "compare Naxos rental cars",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/guides/parking-in-naxos",
+      "Target URL": "https://naxos-carrentals.com/en/locations/naxos-town",
+      "Recommended anchor": "car pickup in Naxos Town",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/guides/naxos-road-trip-itinerary",
+      "Target URL": "https://naxos-carrentals.com/en/guides/naxos-mountain-villages-by-car",
+      "Recommended anchor": "mountain villages road trip",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/guides/best-car-rental-naxos-reviews-comparison",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/guides/best-car-rental-naxos-reviews-comparison",
+      "Target URL": "https://naxos-carrentals.com/en/pricing",
+      "Recommended anchor": "Naxos car rental prices",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/collections/automatic",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/collections/family-7-seater",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/collections/suv-4x4",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/hyundai-i10",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/hyundai-i10",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/toyota-aygo",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/toyota-aygo",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/fiat-panda",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/fiat-panda",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/fiat-500-cabrio",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/fiat-500-cabrio",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/citroen-c3",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/citroen-c3",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/kia-picanto",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/kia-picanto",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/peugeot-208",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/peugeot-208",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/suzuki-jimny",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/suzuki-jimny",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/dacia-duster",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/dacia-duster",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/toyota-rav4",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/toyota-rav4",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/kia-sportage",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/kia-sportage",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/citroen-berlingo-7",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Recommended anchor": "rental insurance and excess",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "en",
+      "Source URL": "https://naxos-carrentals.com/en/fleet/cars/citroen-berlingo-7",
+      "Target URL": "https://naxos-carrentals.com/en/book",
+      "Recommended anchor": "check live availability",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el",
+      "Target URL": "https://naxos-carrentals.com/el/fleet/cars",
+      "Recommended anchor": "συγκρίνετε αυτοκίνητα στη Νάξο",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el",
+      "Target URL": "https://naxos-carrentals.com/el/pricing",
+      "Recommended anchor": "τιμές ενοικίασης αυτοκινήτου",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el",
+      "Target URL": "https://naxos-carrentals.com/el/naxos",
+      "Recommended anchor": "πλήρης οδηγός Νάξου",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars",
+      "Target URL": "https://naxos-carrentals.com/el/pricing",
+      "Recommended anchor": "τιμές ενοικίασης αυτοκινήτου",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/pricing",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/pricing",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/locations",
+      "Target URL": "https://naxos-carrentals.com/el/locations/port-pickup",
+      "Recommended anchor": "παραλαβή στο λιμάνι Νάξου",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/locations",
+      "Target URL": "https://naxos-carrentals.com/el/locations/airport-pickup",
+      "Recommended anchor": "παραλαβή στο αεροδρόμιο Νάξου",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/naxos",
+      "Target URL": "https://naxos-carrentals.com/el/naxos/beaches",
+      "Recommended anchor": "παραλίες Νάξου με αυτοκίνητο",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/naxos",
+      "Target URL": "https://naxos-carrentals.com/el/guides/naxos-mountain-villages-by-car",
+      "Recommended anchor": "διαδρομή στα ορεινά χωριά",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/naxos",
+      "Target URL": "https://naxos-carrentals.com/el/guides/do-you-need-a-car-in-naxos",
+      "Recommended anchor": "χρειάζεται αυτοκίνητο στη Νάξο;",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/naxos/beaches",
+      "Target URL": "https://naxos-carrentals.com/el/guides/best-beaches-by-car-naxos",
+      "Recommended anchor": "παραλίες Νάξου με αυτοκίνητο",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/naxos/beaches",
+      "Target URL": "https://naxos-carrentals.com/el/fleet/cars",
+      "Recommended anchor": "συγκρίνετε αυτοκίνητα στη Νάξο",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/guides/parking-in-naxos",
+      "Target URL": "https://naxos-carrentals.com/el/locations/naxos-town",
+      "Recommended anchor": "παραλαβή αυτοκινήτου στη Χώρα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/guides/naxos-road-trip-itinerary",
+      "Target URL": "https://naxos-carrentals.com/el/guides/naxos-mountain-villages-by-car",
+      "Recommended anchor": "διαδρομή στα ορεινά χωριά",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/guides/best-car-rental-naxos-reviews-comparison",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/guides/best-car-rental-naxos-reviews-comparison",
+      "Target URL": "https://naxos-carrentals.com/el/pricing",
+      "Recommended anchor": "τιμές ενοικίασης αυτοκινήτου",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/collections/automatic",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/collections/family-7-seater",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/collections/suv-4x4",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/hyundai-i10",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/hyundai-i10",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/toyota-aygo",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/toyota-aygo",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/fiat-panda",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/fiat-panda",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/fiat-500-cabrio",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/fiat-500-cabrio",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/citroen-c3",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/citroen-c3",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/kia-picanto",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/kia-picanto",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/peugeot-208",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/peugeot-208",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/suzuki-jimny",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/suzuki-jimny",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/dacia-duster",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/dacia-duster",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/toyota-rav4",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/toyota-rav4",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/kia-sportage",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/kia-sportage",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/citroen-berlingo-7",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Recommended anchor": "ασφάλεια και απαλλαγή",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    },
+    {
+      "Language": "el",
+      "Source URL": "https://naxos-carrentals.com/el/fleet/cars/citroen-berlingo-7",
+      "Target URL": "https://naxos-carrentals.com/el/book",
+      "Recommended anchor": "ελέγξτε live διαθεσιμότητα",
+      "Placement": "In-body contextual link",
+      "Status": "Add/verify"
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}

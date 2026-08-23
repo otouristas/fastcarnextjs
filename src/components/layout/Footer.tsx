@@ -4,10 +4,10 @@ import { SITE, type Locale, localePath, LOCALES, LOCALE_META } from "@/lib/site"
 import type { Dict } from "@/i18n/types";
 import { LOCATIONS } from "@/content/locations";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { DISCOVER_LABELS, getDiscoverHubLinks, tripPlannerUrl } from "@/lib/discover-cyclades";
+import { DISCOVER_LABELS, discoverCycladesHome, getDiscoverHubLinks, tripPlannerUrl, withUtm } from "@/lib/discover-cyclades";
 import {
   Mail, Phone, MapPin, ShieldCheck, Gauge, Baby, Route,
-  ChevronDown, Globe2,
+  ChevronDown,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
@@ -58,7 +58,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
     external: true,
   }));
   discoverLinks.push({
-    href: tripPlannerUrl(locale, "Plan a Naxos trip with a rental car"),
+    href: withUtm(tripPlannerUrl(locale, "Plan a Naxos trip with a rental car"), "planner"),
     label: DISCOVER_LABELS.planner,
     external: true,
   });
@@ -79,14 +79,14 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
   ];
 
   return (
-    <footer className="relative overflow-hidden border-t bg-[#0a1628] text-white" style={{ borderColor: 'rgba(26,143,197,0.15)' }}>
+    <footer className="relative overflow-hidden border-t bg-[#071b2a] text-white" style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Trust strip */}
         <div className="mb-12 grid gap-4 rounded-[2rem] p-4 sm:grid-cols-2 lg:grid-cols-4 border border-white/10 bg-[#0e2240]/40 backdrop-blur-md">
           {trustItems.map((item) => (
-            <div key={item.title} className="flex items-center gap-3 rounded-3xl bg-[#0a1628]/60 border border-white/5 p-4 shadow-sm">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl sea-gradient text-white" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>{item.icon}</span>
+            <div key={item.title} className="flex items-center gap-3 rounded-3xl bg-[#071b2a]/60 border border-white/5 p-4 shadow-sm">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl sea-gradient text-white" style={{ boxShadow: '0 4px 12px rgba(7,27,42,0.25)' }}>{item.icon}</span>
               <span className="text-sm font-bold leading-snug text-white">{item.title}</span>
             </div>
           ))}
@@ -96,26 +96,41 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           {/* Brand block */}
           <div className="lg:col-span-3">
-            <Link href={localePath(locale)} className="flex items-center gap-2" aria-label={SITE.brand}>
-              <Image src={SITE.logo} alt={SITE.brand} width={280} height={84} className="h-14 w-auto sm:h-16" unoptimized />
+            {/* The logo is a dark charcoal banner with the wordmark knocked out
+                of it in white and orange. On the navy footer it needs a light
+                ground: a brightness/invert filter flattens every opaque pixel
+                to one colour and erases the wordmark entirely. */}
+            <Link
+              href={localePath(locale)}
+              className="inline-flex items-center rounded-2xl bg-white px-4 py-3 shadow-sm"
+              aria-label={SITE.brand}
+            >
+              <Image
+                src={SITE.logo}
+                alt={SITE.brand}
+                width={280}
+                height={84}
+                className="h-12 w-auto sm:h-14"
+                unoptimized
+              />
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">{dict.footer.description}</p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">{dict.footer.description}</p>
 
             <div className="mt-5 rounded-3xl border border-white/10 bg-[#0e2240]/40 p-4 text-sm shadow-sm">
-              <a href={`tel:${SITE.phones[0]}`} className="flex items-center gap-2 py-1 font-semibold hover:text-[var(--sea)]">
+              <a href={`tel:${SITE.phones[0]}`} className="flex items-center gap-2 py-1 font-semibold hover:text-[var(--sea-2)]">
                 <Phone className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.phones[0]}
               </a>
-              <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 py-1 font-semibold hover:text-[var(--sea)]">
+              <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 py-1 font-semibold hover:text-[var(--sea-2)]">
                 <Mail className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.email}
               </a>
-              <span className="flex items-center gap-2 py-1 text-muted-foreground">
+              <span className="flex items-center gap-2 py-1 text-white/70">
                 <MapPin className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.address.locality}, Greece
               </span>
               <a
                 href={whatsappUrl(dict.whatsAppFab.message)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-4 py-2 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
+                className="mt-3 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-4 py-2 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 {dict.nav.whatsapp}
@@ -136,26 +151,39 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
         </div>
 
         {/* Credit / attribution row */}
-        <div className="mt-8 flex flex-col items-center gap-3 border-t border-border pt-6 text-center sm:flex-row sm:justify-center dark:border-white/10">
-          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
-            <a href="https://anotherseoGuru.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--sea)] transition-colors group">
-              <span>Designed &amp; Developed by</span>
+        <div className="mt-8 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center sm:flex-row sm:justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-white/70">
+            <a href="https://anotherseoGuru.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--sea-2)] transition-colors group">
+              <span>Designed by</span>
               <span className="font-semibold group-hover:underline">AnotherSEOGuru</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             </a>
-            <span className="hidden sm:inline text-border">•</span>
-            <a href="https://touristas.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--sea)] transition-colors group">
+            <span className="hidden sm:inline text-white/30">•</span>
+            <a href="https://touristas.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--sea-2)] transition-colors group">
               <span>Powered by</span>
               <span className="font-semibold group-hover:underline">Touristas AI</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             </a>
-            <span className="hidden sm:inline text-border">•</span>
-            <a href="https://discovercyclades.gr/en" target="_blank" rel="noopener noreferrer" className="group relative flex-shrink-0">
+            <span className="hidden sm:inline text-white/30">•</span>
+            <a href={withUtm(discoverCycladesHome(locale), "credit")} target="_blank" rel="noopener noreferrer" className="group relative flex-shrink-0">
               <div className="flex items-center gap-1.5 transition-transform duration-300 group-hover:-translate-y-0.5">
-                <Globe2 className="h-[18px] w-[18px] text-[var(--sea-2)]" aria-hidden="true" />
+                {/* The partner mark is a dark navy disc with pale islands on
+                    it — on this footer that is dark-on-dark, so it sits on a
+                    light chip to stay legible. */}
+                <span className="grid h-6 w-6 shrink-0 place-items-center overflow-hidden rounded-full bg-white">
+                  <Image
+                    src="/images/discover-cyclades-mark.png"
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="h-6 w-6"
+                    aria-hidden="true"
+                    unoptimized
+                  />
+                </span>
                 <div className="flex flex-col text-left">
-                  <span className="text-xs font-bold leading-tight text-[var(--ink)] dark:text-white group-hover:text-[var(--sea)] transition-colors">Discover Cyclades</span>
-                  <span className="text-[9px] uppercase tracking-wider text-muted-foreground">Partner</span>
+                  <span className="text-xs font-bold leading-tight text-white group-hover:text-[var(--sea-2)] transition-colors">Discover Cyclades</span>
+                  <span className="text-[9px] uppercase tracking-wider text-white/70">Partner</span>
                 </div>
               </div>
             </a>
@@ -163,30 +191,34 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 md:flex-row md:items-center md:justify-between dark:border-white/10">
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
-            <ShieldCheck className="h-4 w-4 text-[var(--sea)]" />
+        <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-3 text-sm text-white/70">
+            <ShieldCheck className="h-4 w-4 text-[var(--sea-2)]" />
             <span>© {new Date().getFullYear()} {SITE.brand}.</span>
             <span>{dict.footer.rights}</span>
           </div>
 
           {/* Payment badges */}
-          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-            <span>Pay with:</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-blue-800 dark:border-white/10 dark:bg-white/10 dark:text-blue-300">VISA</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-red-700 dark:border-white/10 dark:bg-white/10 dark:text-red-400">MC</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-blue-900 dark:border-white/10 dark:bg-white/10 dark:text-blue-200">AMEX</span>
-            <span className="rounded border border-border bg-white px-2 py-0.5 font-bold text-green-700 dark:border-white/10 dark:bg-white/10 dark:text-green-400">CASH</span>
+          <div className="flex flex-wrap items-center gap-3 text-xs text-white/70">
+            <span>{dict.footer.payWith}</span>
+            <Image
+              src="/images/payment-methods.webp"
+              alt="Visa, Mastercard, Maestro, American Express"
+              width={871}
+              height={150}
+              className="h-8 w-auto rounded"
+              unoptimized
+            />
           </div>
 
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="mr-1 text-muted-foreground">{dict.footer.languages}:</span>
+            <span className="mr-1 text-white/70">{dict.footer.languages}:</span>
             {LOCALES.map((l) => (
               <Link
                 key={l}
                 href={localePath(l)}
                 hrefLang={LOCALE_META[l].htmlLang}
-                className={`rounded-full px-2 py-1 uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "border border-border bg-white/60 text-muted-foreground hover:text-[var(--ink)] dark:border-white/10 dark:bg-white/10 dark:hover:text-white"}`}
+                className={`rounded-full px-2 py-1 uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "border border-white/15 bg-white/10 text-white/80 hover:bg-white/20 hover:text-white"}`}
               >
                 {LOCALE_META[l].flag} {l}
               </Link>
@@ -218,13 +250,13 @@ function FooterCol({
           {links.map((l) =>
             l.external ? (
               <li key={l.href}>
-                <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[var(--sea)]">
+                <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[var(--sea-2)]">
                   {l.label}
                 </a>
               </li>
             ) : (
               <li key={l.href}>
-                <Link href={l.href} className="text-muted-foreground hover:text-[var(--sea)]">
+                <Link href={l.href} className="text-white/70 hover:text-[var(--sea-2)]">
                   {l.label}
                 </Link>
               </li>

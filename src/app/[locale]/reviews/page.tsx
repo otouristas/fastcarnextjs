@@ -1,15 +1,27 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { isLocale, localePath, SITE } from "@/lib/site";
+import { isLocale, localePath, LOCALES, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { buildMetadata } from "@/lib/seo";
-import { REVIEWS } from "@/content/reviews";
-import { LOCALES } from "@/lib/site";
-import { Star } from "lucide-react";
+import {
+  REVIEWS,
+  REVIEW_AGGREGATE,
+  REVIEW_LANGUAGES,
+  REVIEWS_SOURCE_URL,
+  REVIEWS_UPDATED_AT,
+} from "@/content/reviews";
+import { RatingSummary } from "@/components/reviews/RatingSummary";
+import { ReviewsList } from "@/components/reviews/ReviewsList";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, graph } from "@/lib/schema";
+import { ArrowRight } from "lucide-react";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
+
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -19,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     locale,
     path: "reviews",
     title: dict.reviews.title,
-    description: "Customer reviews for Fast Motor Rental Naxos. Read what guests say about renting cars on Naxos.",
+    description: `${REVIEW_AGGREGATE.total} verified Google reviews for Fast Motor Rental Naxos, rated ${REVIEW_AGGREGATE.rating} out of 5. Read what guests say about renting a car on Naxos.`,
   });
 }
 
@@ -28,81 +40,71 @@ export default async function ReviewsPage({ params }: { params: Promise<{ locale
   if (!isLocale(locale)) notFound();
   const dict = await getDict(locale);
 
-  const totalReviews = REVIEWS.length;
-  const avgRating = SITE.rating.value;
-
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#fffaf1] border-b border-border dark:bg-[var(--ink)]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <p className="text-sm uppercase tracking-widest text-[var(--brand-1)]">Google Reviews</p>
-          <h1 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white">
-            {dict.reviews.title}
-          </h1>
-          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">{dict.reviews.subtitle}</p>
+      {/* No Review or AggregateRating node here.
+          The aggregate already ships on the business entity in the root layout
+          (localBusinessSchema), and repeating it on a page whose only purpose is
+          to display our own rating is exactly the self-serving markup Google
+          disallows. The reviews below are real, attributable and visible — the
+          proof is the link to the Google profile, not a second schema block. */}
+      <JsonLd
+        data={graph([
+          breadcrumbSchema([
+            { name: dict.nav.home, url: `${SITE.domain}${localePath(locale)}` },
+            { name: dict.reviews.title, url: `${SITE.domain}${localePath(locale, "reviews")}` },
+          ]),
+        ])}
+      />
 
-          {/* Rating summary */}
-          <div className="mt-8 inline-flex flex-col items-center gap-2 rounded-3xl border border-border bg-white/80 px-8 py-5 shadow-sm dark:bg-white/10">
-            <div className="flex items-center gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="h-6 w-6 fill-[var(--brand-1)] text-[var(--brand-1)]" />
-              ))}
+      <section className="wave-bg border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            label={dict.common.breadcrumb}
+            items={[{ label: dict.nav.home, href: localePath(locale) }, { label: dict.reviews.title }]}
+          />
+          <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <h1 className="max-w-3xl font-heading text-4xl font-extrabold tracking-tight text-[var(--prose-heading)] md:text-5xl">
+                {dict.reviews.title}
+              </h1>
+              <p className="mt-3 max-w-2xl text-muted-foreground">{dict.reviews.subtitle}</p>
             </div>
-            <p className="text-3xl font-extrabold text-[var(--ink)] dark:text-white">{avgRating} / 5</p>
-            <p className="text-sm text-muted-foreground">{totalReviews}+ {dict.reviews.google}</p>
+            <RatingSummary
+              aggregate={REVIEW_AGGREGATE}
+              sourceUrl={REVIEWS_SOURCE_URL}
+              dict={dict}
+              locale={locale}
+              updatedAt={REVIEWS_UPDATED_AT}
+            />
           </div>
         </div>
       </section>
 
-      {/* Reviews grid */}
       <section className="bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {REVIEWS.map((r) => (
-              <figure key={`${r.author}-${r.date}`} className="island-card rounded-3xl p-6 flex flex-col">
-                {/* Stars + source */}
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex">
-                    {[...Array(r.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[var(--brand-1)] text-[var(--brand-1)]" />
-                    ))}
-                  </div>
-                  <span className="rounded-full bg-[var(--sea-soft)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--sea)] dark:bg-white/10">
-                    {r.source}
-                  </span>
-                </div>
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <ReviewsList
+            reviews={REVIEWS}
+            languages={REVIEW_LANGUAGES}
+            locale={locale}
+            dict={dict}
+          />
 
-                <blockquote className="flex-1 text-sm text-muted-foreground leading-relaxed">
-                  &ldquo;{r.body[locale]}&rdquo;
-                </blockquote>
-
-                <figcaption className="mt-4 flex items-center justify-between">
-                  <span className="text-sm font-bold text-[var(--ink)] dark:text-white"> -  {r.author}</span>
-                  <time className="text-xs text-muted-foreground">
-                    {new Date(r.date).toLocaleDateString(locale === "el" ? "el-GR" : locale === "fr" ? "fr-FR" : locale === "de" ? "de-DE" : locale === "it" ? "it-IT" : "en-US", { month: "short", year: "numeric" })}
-                  </time>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-14 text-center">
-            <p className="text-muted-foreground mb-4">Ready to experience it yourself?</p>
+          <div className="mt-12 flex flex-wrap gap-3 border-t border-border pt-8">
             <a
-              href={SITE.bookingUrl}
+              href={REVIEWS_SOURCE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white shadow-xl shadow-orange-500/25"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-bold text-[var(--prose-heading)] transition hover:border-[var(--sea)] hover:text-[var(--link)]"
             >
-              {dict.nav.bookNow}
+              {dict.reviews.writeReview}
             </a>
-            <div className="mt-4">
-              <Link href={localePath(locale)} className="text-sm text-muted-foreground hover:text-[var(--sea)]">
-                ← {dict.nav.home}
-              </Link>
-            </div>
+            <Link
+              href={localePath(locale, "fleet/cars")}
+              className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white transition hover:brightness-110"
+            >
+              {dict.cta.seeFleet} <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

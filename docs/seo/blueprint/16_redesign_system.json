@@ -1,0 +1,248 @@
+{
+  "sheet": "Redesign System",
+  "title": "Premium Next-Generation Redesign Blueprint",
+  "note": "Remarkable means clearer decisions, verified trust and a memorable Naxos identity—not more visual effects.",
+  "columns": [
+    "Surface",
+    "Component",
+    "Exact specification",
+    "Implementation rule"
+  ],
+  "rows": [
+    {
+      "Surface": "Positioning",
+      "Component": "Core idea",
+      "Exact specification": "Naxos, on your terms",
+      "Implementation rule": "Local certainty + premium island freedom. Avoid generic luxury language and unsupported superlatives."
+    },
+    {
+      "Surface": "Visual",
+      "Component": "Palette",
+      "Exact specification": "Aegean Navy #071B2A · Electric Cyan #12BCEB · Sunset Orange #FF6B35 · Limestone #F5F0E8",
+      "Implementation rule": "Use navy for authority, cyan for booking actions, orange only for urgency/highlights and limestone for editorial calm."
+    },
+    {
+      "Surface": "Visual",
+      "Component": "Typography",
+      "Exact specification": "Display: Manrope or Geist Sans 700 · Body: Inter/Geist 400–500 · Greek tested",
+      "Implementation rule": "H1 64/68 desktop, 40/44 mobile; body 18/30; avoid letterspaced all-caps for long labels."
+    },
+    {
+      "Surface": "Visual",
+      "Component": "Photography",
+      "Exact specification": "Original Naxos routes, handover moments, real fleet, people and luggage scale",
+      "Implementation rule": "No generic stock hero. Preferred image crops 1:1, 4:3 and 16:9; consistent vehicle angles and background."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "1. Utility header",
+      "Exact specification": "Phone · WhatsApp · languages · verified support hours",
+      "Implementation rule": "Keep compact; no duplicated nav labels."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "2. Primary header",
+      "Exact specification": "Logo · Cars · Locations · Naxos Guide · Help · Book",
+      "Implementation rule": "Single-level mobile menu; sticky Book/Check availability CTA."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "3. Hero",
+      "Exact specification": "H1 + 2-line value proposition + embedded date/pickup search",
+      "Implementation rule": "Desktop two-column 55/45. Mobile image 42vh then four-field booking drawer. Current generic CTA is insufficient."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "4. Proof bar",
+      "Exact specification": "Verified rating/profile · exact inclusions · secure booking · local support",
+      "Implementation rule": "Render only approved, attributable facts. Each proof links to its source or policy."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "5. Vehicle finder",
+      "Exact specification": "Passenger · luggage · automatic · trip type → 3 recommended cars",
+      "Implementation rule": "Explain why each result fits; carry dates into booking."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "6. Pickup map",
+      "Exact specification": "Port · Airport · Chora · Beach areas",
+      "Implementation rule": "Interactive but server-rendered text links remain crawlable."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "7. Fleet cards",
+      "Exact specification": "Real images, 6 consistent specs, live status, total-price basis",
+      "Implementation rule": "No mismatched model photos or generic description."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "8. Naxos planner",
+      "Exact specification": "Beach day · village loop · 3-day trip · no-car trip",
+      "Implementation rule": "Editorial cards answer planning intent and link to vehicle categories."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "9. Terms made clear",
+      "Exact specification": "Insurance · excess · deposit/payment · cancellation · fuel",
+      "Implementation rule": "Plain-language summaries link to the signed terms."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "10. Reviews",
+      "Exact specification": "Real source, reviewer, date and disclosure",
+      "Implementation rule": "Do not mark up self-serving LocalBusiness ratings for stars; never fabricate."
+    },
+    {
+      "Surface": "Homepage",
+      "Component": "11. Final booking dock",
+      "Exact specification": "Dates retained · chosen pickup · selected category · Check availability",
+      "Implementation rule": "Sticky mobile dock, no modal obstruction, accessible close behavior."
+    },
+    {
+      "Surface": "Guide template",
+      "Component": "Hero",
+      "Exact specification": "Breadcrumb · category · H1 · direct answer · author/check date · hero map/photo",
+      "Implementation rule": "Move source/licence note below the answer, not over the hero copy."
+    },
+    {
+      "Surface": "Guide template",
+      "Component": "Decision summary",
+      "Exact specification": "3–5 key takeaways + comparison table",
+      "Implementation rule": "Answer-first layout for users and retrieval systems."
+    },
+    {
+      "Surface": "Guide template",
+      "Component": "Body",
+      "Exact specification": "Sticky TOC · scannable H2s · original photos/maps · route facts",
+      "Implementation rule": "One primary topic, evidence, exceptions and last-checked labels."
+    },
+    {
+      "Surface": "Guide template",
+      "Component": "Commercial bridge",
+      "Exact specification": "Recommended vehicle logic + contextual availability search",
+      "Implementation rule": "Useful and restrained; do not interrupt every section."
+    },
+    {
+      "Surface": "Vehicle template",
+      "Component": "Above fold",
+      "Exact specification": "Gallery · model/category rule · 6 specs · dates/pickup · live total",
+      "Implementation rule": "Product + Car schema only; Offer only when visible and valid."
+    },
+    {
+      "Surface": "Vehicle template",
+      "Component": "Decision support",
+      "Exact specification": "Best for · luggage proof · route fit · included terms · alternatives",
+      "Implementation rule": "Use measured facts and side-by-side alternatives."
+    },
+    {
+      "Surface": "Performance",
+      "Component": "Budgets",
+      "Exact specification": "LCP ≤2.5s · INP ≤200ms · CLS ≤0.10 at p75",
+      "Implementation rule": "Hero image ≤180KB AVIF/WebP, preload one hero, reserve media dimensions, third-party booking lazy until intent."
+    },
+    {
+      "Surface": "Accessibility",
+      "Component": "Baseline",
+      "Exact specification": "WCAG 2.2 AA; 44px targets; visible focus; reduced motion; Greek labels",
+      "Implementation rule": "Contrast ≥4.5:1 body; form errors tied to fields; menu and booking usable by keyboard."
+    },
+    {
+      "Surface": "Measurement",
+      "Component": "Events",
+      "Exact specification": "view_vehicle · start_booking · select_pickup · quote_result · outbound_booking · whatsapp_click",
+      "Implementation rule": "Pass locale, source URL, vehicle/category and non-sensitive campaign context; do not send personal data to analytics."
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "DESKTOP HOMEPAGE WIREFRAME"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "UTILITY + PRIMARY NAV"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "NAXOS VALUE\nH1 + PROOF\nORIGINAL HERO"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "BOOKING MODULE\nDATES · PICKUP · DRIVER\nCHECK AVAILABILITY"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "VERIFIED PROOF BAR"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "VEHICLE FINDER + LIVE FLEET CARDS"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "PICKUP MAP"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "NAXOS PLANNER"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "TERMS MADE CLEAR + REAL REVIEWS"
+      ]
+    },
+    {
+      "Surface": "",
+      "Component": "",
+      "Exact specification": "",
+      "Implementation rule": "",
+      "_overflow": [
+        "FINAL BOOKING DOCK + FOOTER"
+      ]
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}

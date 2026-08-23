@@ -13,6 +13,26 @@ import type { Locale } from "./site";
 
 const DC = "https://discovercyclades.gr";
 
+/**
+ * Surfaces that link out to Discover Cyclades. Used as utm_campaign so the
+ * partner can tell a guide-rail click from a footer click; without it every
+ * referral from this domain lands in one undifferentiated bucket.
+ */
+export type DiscoverSurface = "guide-rail" | "footer" | "credit" | "planner";
+
+/**
+ * Tag an outbound partner URL. Applied last, after dedupe: the dedupe map keys
+ * on href, so stamping a per-surface campaign earlier would make the same
+ * destination look like two different links.
+ */
+export function withUtm(href: string, surface: DiscoverSurface): string {
+  const url = new URL(href);
+  url.searchParams.set("utm_source", "naxos-carrentals");
+  url.searchParams.set("utm_medium", "referral");
+  url.searchParams.set("utm_campaign", surface);
+  return url.toString();
+}
+
 export type DiscoverLabelKey =
   | "island"
   | "rentACar"
@@ -70,6 +90,10 @@ function canonicalLabelForUrl(locale: Locale): Map<string, DiscoverLabelKey> {
   ]);
 }
 
+function tagAll(links: DiscoverLink[], surface: DiscoverSurface): DiscoverLink[] {
+  return links.map((link) => ({ ...link, href: withUtm(link.href, surface) }));
+}
+
 function dedupeByHref(links: DiscoverLink[], locale: Locale): DiscoverLink[] {
   const canonical = canonicalLabelForUrl(locale);
   const byHref = new Map<string, DiscoverLink>();
@@ -86,21 +110,31 @@ function dedupeByHref(links: DiscoverLink[], locale: Locale): DiscoverLink[] {
 }
 
 /** The shared hub set, used by the footer column and the guide index. */
-export function getDiscoverHubLinks(locale: Locale): DiscoverLink[] {
-  return dedupeByHref(
-    [
-      { href: naxosIslandUrl(locale), labelKey: "island" },
-      { href: naxosRentACarUrl(locale), labelKey: "rentACar" },
-      { href: ferryTicketsUrl(locale), labelKey: "ferries" },
-      { href: athensToNaxosUrl(locale), labelKey: "howToGet" },
-      { href: naxosBeachesUrl(locale), labelKey: "beaches" },
-    ],
-    locale,
+export function getDiscoverHubLinks(
+  locale: Locale,
+  surface: DiscoverSurface = "footer",
+): DiscoverLink[] {
+  return tagAll(
+    dedupeByHref(
+      [
+        { href: naxosIslandUrl(locale), labelKey: "island" },
+        { href: naxosRentACarUrl(locale), labelKey: "rentACar" },
+        { href: ferryTicketsUrl(locale), labelKey: "ferries" },
+        { href: athensToNaxosUrl(locale), labelKey: "howToGet" },
+        { href: naxosBeachesUrl(locale), labelKey: "beaches" },
+      ],
+      locale,
+    ),
+    surface,
   );
 }
 
 /** Per-article contextual set, matched to what the reader is actually reading. */
-export function getArticleDiscoverLinks(locale: Locale, slug: string): DiscoverLink[] {
+export function getArticleDiscoverLinks(
+  locale: Locale,
+  slug: string,
+  surface: DiscoverSurface = "guide-rail",
+): DiscoverLink[] {
   const island = { href: naxosIslandUrl(locale), labelKey: "island" as const };
   const cars = { href: naxosRentACarUrl(locale), labelKey: "rentACar" as const };
   const beaches = { href: naxosBeachesUrl(locale), labelKey: "beaches" as const };
@@ -114,6 +148,25 @@ export function getArticleDiscoverLinks(locale: Locale, slug: string): DiscoverL
   };
 
   const bySlug: Record<string, DiscoverLink[]> = {
+    // ── Driving guides (/guides/[slug]) ──
+    // These carry the proven GSC demand, so their rails are matched to intent
+    // rather than falling through to the generic set.
+    "driving-in-naxos": [island, cars, beaches, planner],
+    "parking-in-naxos": [island, beaches, cars, planner],
+    "do-you-need-a-car-in-naxos": [island, cars, ferries, planner],
+    "naxos-road-trip-itinerary": [island, beaches, cars, planner],
+    "naxos-mountain-villages-by-car": [island, cars, beaches, planner],
+    "best-beaches-by-car-naxos": [beaches, island, cars, planner],
+    "idp-greece-rules": [island, cars, howTo, planner],
+    "new-greek-traffic-code-2026": [island, cars, howTo, planner],
+    "naxos-airport-jnx-guide": [howTo, ferries, island, planner],
+    "rent-a-car-naxos-port-vs-airport-pickup-guide": [howTo, ferries, island, planner],
+    "naxos-rent-a-car-prices-cost-breakdown": [cars, island, ferries, planner],
+    "naxos-car-rental-without-credit-card-insurance": [cars, island, ferries, planner],
+    "best-car-rental-naxos-reviews-comparison": [cars, island, beaches, planner],
+    "atv-vs-buggy-vs-car": [cars, island, beaches, planner],
+
+    // ── Island guide articles (/naxos/[slug]) ──
     "how-to-get-to-naxos": [howTo, ferries, island, planner],
     "naxos-port-guide": [ferries, howTo, island, planner],
     "naxos-airport-jnx": [howTo, ferries, island, planner],
@@ -124,5 +177,8 @@ export function getArticleDiscoverLinks(locale: Locale, slug: string): DiscoverL
     "things-to-do-in-naxos": [island, beaches, cars, planner],
   };
 
-  return dedupeByHref(bySlug[slug] ?? [island, cars, beaches, ferries, planner], locale);
+  return tagAll(
+    dedupeByHref(bySlug[slug] ?? [island, cars, beaches, ferries, planner], locale),
+    surface,
+  );
 }

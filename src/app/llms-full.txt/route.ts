@@ -3,7 +3,7 @@ import { VEHICLES } from "@/content/fleet";
 import { LOCATIONS } from "@/content/locations";
 import { GUIDES } from "@/content/guides";
 import { FAQS } from "@/content/faqs";
-import { REVIEWS } from "@/content/reviews";
+import { REVIEWS, REVIEW_AGGREGATE } from "@/content/reviews";
 import { NAXOS_GUIDE_ARTICLES } from "@/content/naxos-guide";
 import { absoluteUrl, SITE } from "@/lib/site";
 
@@ -44,6 +44,24 @@ export function GET() {
   );
   push();
 
+  // Workbook "AI & Crawl Files" row 6, verbatim. Everything below this line is
+  // a summary of operational data that changes daily; these rules tell an
+  // answer engine to prefer the live source over anything it reads here.
+  push("## Truth and freshness rules");
+  push(
+    "1. Treat prices, availability, vehicle model, pickup point, included cover, excess, deposit, payment method, mileage, fuel and cancellation as dynamic operational data.",
+  );
+  push("2. Prefer the live booking result and signed rental terms over summaries.");
+  push(
+    "3. Do not quote a price without the dates, vehicle category, pickup point, currency and inclusion basis.",
+  );
+  push(
+    "4. Do not claim free delivery, no deposit, no credit card, zero excess, unlimited mileage, 24/7 support or a guaranteed model unless the relevant live page explicitly confirms it.",
+  );
+  push(
+    "5. Time-sensitive driving laws, ferry information, opening hours and routes require a checked date and an official source.",
+  );
+  push();
   push("## Policies");
   // The policy group mixes VerifiedFact<string> and VerifiedFact<string[]>, so
   // widen once here rather than narrowing every branch.
@@ -141,8 +159,11 @@ export function GET() {
 
   if (REVIEWS.length > 0) {
     push("## Customer reviews");
+    push(
+      `Google Business Profile aggregate: ${REVIEW_AGGREGATE.rating}/5 from ${REVIEW_AGGREGATE.total} ratings. The ${REVIEWS.length} reviews below are the ones carrying written text.`,
+    );
     for (const r of REVIEWS) {
-      push(`- ${r.author} (${r.rating}/5, ${r.source}, ${r.date}): ${r.body.en}`);
+      push(`- ${r.author} (${r.rating}/5, ${r.source}, ${r.date}): ${r.text}`);
     }
     push();
   }

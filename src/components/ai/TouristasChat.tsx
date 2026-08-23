@@ -8,6 +8,7 @@ import { WELCOME_MESSAGE } from "@/lib/touristas-knowledge";
 import { ChatMessage, TypingIndicator } from "./ChatMessage";
 import { ChatVehicleList } from "./ChatVehicleCard";
 import type { Dict } from "@/i18n/types";
+import { withUtm } from "@/lib/discover-cyclades";
 
 interface Message {
   id: string;
@@ -262,7 +263,7 @@ export function TouristasChat({ dict }: { dict: Dict }) {
                     </a>
                   </p>
                   <a
-                    href="https://discovercyclades.gr/en"
+                    href={withUtm("https://discovercyclades.gr/en", "credit")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-[10px] text-muted-foreground hover:text-[var(--sea)]"

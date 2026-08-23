@@ -1,0 +1,208 @@
+{
+  "sheet": "PAA & Answers",
+  "title": "People Also Ask + Exact Answers",
+  "note": "Visible answers support users and retrieval. Google removed FAQ rich results in 2026, so no ranking promise is attached to FAQPage markup.",
+  "columns": [
+    "Language",
+    "Question",
+    "Exact answer",
+    "Target URL",
+    "Type",
+    "Schema note"
+  ],
+  "rows": [
+    {
+      "Language": "en",
+      "Question": "Do I need a car in Naxos?",
+      "Exact answer": "Not for every trip. Chora and the main west-coast beaches can work by bus, while a car is more useful for mountain villages, archaeological stops, early starts and multi-stop days.",
+      "Target URL": "https://naxos-carrentals.com/en/guides/do-you-need-a-car-in-naxos",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Χρειάζεται αυτοκίνητο στη Νάξο;",
+      "Exact answer": "Όχι για κάθε ταξίδι. Η Χώρα και οι βασικές δυτικές παραλίες εξυπηρετούνται με λεωφορείο, ενώ το αυτοκίνητο βοηθά για ορεινά χωριά, αρχαιολογικές στάσεις, πρωινές αναχωρήσεις και ημέρες με πολλές στάσεις.",
+      "Target URL": "https://naxos-carrentals.com/el/guides/do-you-need-a-car-in-naxos",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Can I pick up a rental car at Naxos Port?",
+      "Exact answer": "Use the booking engine to select an offered port option, then follow the confirmed meeting instructions. Add ferry details when requested so delays can be handled correctly.",
+      "Target URL": "https://naxos-carrentals.com/en/locations/port-pickup",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Μπορώ να παραλάβω αυτοκίνητο στο λιμάνι Νάξου;",
+      "Exact answer": "Επιλέξτε διαθέσιμη επιλογή λιμανιού στο booking engine και ακολουθήστε τις επιβεβαιωμένες οδηγίες συνάντησης. Προσθέστε στοιχεία πλοίου όταν ζητηθούν για σωστή διαχείριση καθυστέρησης.",
+      "Target URL": "https://naxos-carrentals.com/el/locations/port-pickup",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Can I pick up a car at Naxos Airport?",
+      "Exact answer": "Select Naxos Airport (JNX) only when it appears as an available pickup point for your dates. The confirmation must state the exact handover process.",
+      "Target URL": "https://naxos-carrentals.com/en/locations/airport-pickup",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Μπορώ να παραλάβω αυτοκίνητο στο αεροδρόμιο Νάξου;",
+      "Exact answer": "Επιλέξτε Αεροδρόμιο Νάξου (JNX) μόνο όταν εμφανίζεται ως διαθέσιμο σημείο για τις ημερομηνίες σας. Η επιβεβαίωση πρέπει να αναφέρει ακριβώς τη διαδικασία παράδοσης.",
+      "Target URL": "https://naxos-carrentals.com/el/locations/airport-pickup",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "How much does car rental in Naxos cost?",
+      "Exact answer": "The total changes with dates, rental length, vehicle category, transmission, pickup and cover. Compare live quotes with the same inclusions instead of relying on an undated daily rate.",
+      "Target URL": "https://naxos-carrentals.com/en/pricing",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Πόσο κοστίζει η ενοικίαση αυτοκινήτου στη Νάξο;",
+      "Exact answer": "Το σύνολο αλλάζει με ημερομηνίες, διάρκεια, κατηγορία, κιβώτιο, παραλαβή και κάλυψη. Συγκρίνετε ζωντανές προσφορές με ίδια περιλαμβανόμενα αντί για παλιά ημερήσια τιμή.",
+      "Target URL": "https://naxos-carrentals.com/el/pricing",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Can I rent a car in Naxos without a credit card?",
+      "Exact answer": "Payment and deposit rules must be confirmed for the selected vehicle and dates. A debit-card payment option does not automatically mean there is no deposit or card requirement at pickup.",
+      "Target URL": "https://naxos-carrentals.com/en/guides/naxos-car-rental-without-credit-card-insurance",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Μπορώ να νοικιάσω αυτοκίνητο στη Νάξο χωρίς πιστωτική κάρτα;",
+      "Exact answer": "Οι κανόνες πληρωμής και εγγύησης πρέπει να επιβεβαιώνονται για όχημα και ημερομηνίες. Η δυνατότητα πληρωμής με χρεωστική δεν σημαίνει αυτόματα ότι δεν υπάρχει εγγύηση ή απαίτηση κάρτας στην παραλαβή.",
+      "Target URL": "https://naxos-carrentals.com/el/guides/naxos-car-rental-without-credit-card-insurance",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "What insurance is included?",
+      "Exact answer": "Read the booking summary and signed terms for the exact cover, excess and exclusions. Marketing copy must use the same definitions and euro amounts.",
+      "Target URL": "https://naxos-carrentals.com/en/insurance",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Τι ασφάλεια περιλαμβάνεται;",
+      "Exact answer": "Διαβάστε τη σύνοψη κράτησης και τους υπογεγραμμένους όρους για ακριβή κάλυψη, απαλλαγή και εξαιρέσεις. Το marketing πρέπει να χρησιμοποιεί τους ίδιους ορισμούς και ποσά.",
+      "Target URL": "https://naxos-carrentals.com/el/insurance",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Do I need an International Driving Permit in Greece?",
+      "Exact answer": "Requirements depend on the licence-issuing country and the rental company's acceptance rules. Verify with an official source and the rental company before travel.",
+      "Target URL": "https://naxos-carrentals.com/en/guides/idp-greece-rules",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Χρειάζομαι Διεθνές Δίπλωμα Οδήγησης στην Ελλάδα;",
+      "Exact answer": "Οι απαιτήσεις εξαρτώνται από τη χώρα έκδοσης και τους κανόνες αποδοχής της εταιρείας. Επιβεβαιώστε με επίσημη πηγή και την εταιρεία πριν το ταξίδι.",
+      "Target URL": "https://naxos-carrentals.com/el/guides/idp-greece-rules",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Is an automatic car worth it in Naxos?",
+      "Exact answer": "An automatic can reduce workload on unfamiliar roads and in stop-start traffic. Book early in busy periods because automatic availability may be more limited.",
+      "Target URL": "https://naxos-carrentals.com/en/fleet/collections/automatic",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Αξίζει αυτόματο αυτοκίνητο στη Νάξο;",
+      "Exact answer": "Ένα αυτόματο μειώνει την κόπωση σε άγνωστους δρόμους και κίνηση. Κάντε έγκαιρη κράτηση σε περιόδους αιχμής, επειδή η διαθεσιμότητα μπορεί να είναι περιορισμένη.",
+      "Target URL": "https://naxos-carrentals.com/el/fleet/collections/automatic",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Which car is best for Naxos?",
+      "Exact answer": "Choose by passengers, luggage, transmission and itinerary. Compact cars make parking easier; family vehicles add space; an SUV should be selected for space or clearance, not as permission for prohibited roads.",
+      "Target URL": "https://naxos-carrentals.com/en/fleet/cars",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Ποιο αυτοκίνητο είναι καλύτερο για τη Νάξο;",
+      "Exact answer": "Επιλέξτε με βάση επιβάτες, αποσκευές, κιβώτιο και πρόγραμμα. Τα μικρά παρκάρουν ευκολότερα, τα οικογενειακά δίνουν χώρο και ένα SUV δεν αποτελεί άδεια για απαγορευμένους δρόμους.",
+      "Target URL": "https://naxos-carrentals.com/el/fleet/cars",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Can I take a Naxos rental car on a ferry?",
+      "Exact answer": "Only with explicit written permission when the rental terms allow it. Insurance and roadside assistance may not apply off-island, so confirm before booking any ferry.",
+      "Target URL": "https://naxos-carrentals.com/en/faq",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Μπορώ να πάρω το ενοικιαζόμενο σε πλοίο;",
+      "Exact answer": "Μόνο με ρητή γραπτή άδεια όταν το επιτρέπουν οι όροι. Ασφάλιση και οδική βοήθεια μπορεί να μην ισχύουν εκτός νησιού, άρα επιβεβαιώστε πριν κλείσετε πλοίο.",
+      "Target URL": "https://naxos-carrentals.com/el/faq",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "Where should I park in Naxos Town?",
+      "Exact answer": "Use signed public parking and respect pedestrian, port and access restrictions. Publish a checked map and arrival plan rather than promising a space in peak season.",
+      "Target URL": "https://naxos-carrentals.com/en/guides/parking-in-naxos",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Πού παρκάρω στη Χώρα Νάξου;",
+      "Exact answer": "Χρησιμοποιήστε σημασμένους δημόσιους χώρους και σεβαστείτε πεζοδρομήσεις, λιμάνι και περιορισμούς πρόσβασης. Δημοσιεύστε ελεγμένο χάρτη—not υπόσχεση θέσης στην αιχμή.",
+      "Target URL": "https://naxos-carrentals.com/el/guides/parking-in-naxos",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    },
+    {
+      "Language": "en",
+      "Question": "What is the best Naxos road trip?",
+      "Exact answer": "For a first inland day, combine Chalki, Filoti and Apeiranthos with realistic stops and daylight. Keep beach and mountain loops separate if you want time outside the car.",
+      "Target URL": "https://naxos-carrentals.com/en/guides/naxos-road-trip-itinerary",
+      "Type": "PAA/FAQ",
+      "Schema note": "Visible Q&A only; FAQ rich result removed by Google in 2026"
+    },
+    {
+      "Language": "el",
+      "Question": "Ποιο είναι το καλύτερο road trip στη Νάξο;",
+      "Exact answer": "Για πρώτη ημέρα στην ενδοχώρα συνδυάστε Χαλκί, Φιλώτι και Απείρανθο με ρεαλιστικές στάσεις και φως ημέρας. Κρατήστε χωριστά παραλίες και βουνό για περισσότερο χρόνο εκτός αυτοκινήτου.",
+      "Target URL": "https://naxos-carrentals.com/el/guides/naxos-road-trip-itinerary",
+      "Type": "PAA/FAQ",
+      "Schema note": "Ορατό Q&A· χωρίς προσδοκία FAQ rich result"
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}

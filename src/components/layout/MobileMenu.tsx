@@ -14,6 +14,10 @@ export interface MenuLink {
   label: string;
   description: string;
   badge?: string;
+  /** Category glyph, rendered in a tile ahead of the label. */
+  icon?: React.ReactNode;
+  /** Short factual line — a real "from" price, never a marketing claim. */
+  meta?: string;
 }
 
 export function MobileMenu({
@@ -212,6 +216,14 @@ function MobileSection({
             onClick={onNavigate}
             className="flex items-start gap-2 rounded-2xl px-3 py-2.5 transition-colors hover:bg-[var(--sea-soft)] dark:hover:bg-white/10"
           >
+            {link.icon && (
+              <span
+                aria-hidden="true"
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]"
+              >
+                {link.icon}
+              </span>
+            )}
             <span className="min-w-0">
               <span className="flex items-center gap-1.5 text-sm font-semibold text-[var(--ink)] dark:text-white">
                 {link.label}
@@ -222,6 +234,11 @@ function MobileSection({
                 )}
               </span>
               <span className="mt-0.5 line-clamp-2 block text-xs leading-5 text-muted-foreground">{link.description}</span>
+              {link.meta && (
+                <span className="mt-1 block text-[11px] font-bold text-[var(--link)] dark:text-[var(--sea-2)]">
+                  {link.meta}
+                </span>
+              )}
             </span>
           </Link>
         ))}

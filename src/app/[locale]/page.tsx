@@ -8,7 +8,8 @@ import { VEHICLES, vehiclesByCategory } from "@/content/fleet";
 import { LOCATIONS } from "@/content/locations";
 import { GUIDES } from "@/content/guides";
 import { FAQS } from "@/content/faqs";
-import { REVIEWS } from "@/content/reviews";
+import { REVIEWS, REVIEW_AGGREGATE } from "@/content/reviews";
+import { ReviewCard } from "@/components/reviews/ReviewCard";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
@@ -59,16 +60,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="relative flex min-h-[100dvh] flex-col overflow-hidden">
         <div className="absolute inset-0">
           <Image
-             src="/images/naxos/portara-detail.jpg"
-            alt="Portara, Naxos - Fast Motor Rental Naxos"
+            // 2400px master. The original agia-anna.jpg is 1000x617, which
+            // capped next/image at 1000px on a full-bleed hero — roughly a 3x
+            // browser upscale on a retina 1440 display, and the reason it read
+            // soft. Regenerate with scripts/generate-hero.mjs. A genuinely
+            // sharp hero still needs an original photo at 2400px or wider;
+            // nothing in public/images currently exceeds 1600px.
+            src="/images/naxos/agia-anna-hero.webp"
+            alt="Naxos Chora and the causeway to the Portara islet, seen across the bay"
             fill
             priority
+            // The subject sits centre-right and the text column occupies the
+            // left third, so the crop holds the town and causeway in view as
+            // the viewport narrows.
             sizes="100vw"
-            className="object-cover object-center"
+            quality={82}
+            className="object-cover object-[center_40%]"
           />
         </div>
         {/* Gradient overlays */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(7,32,78,0.68) 0%, rgba(7,32,78,0.50) 44%, rgba(7,32,78,0.28) 60%, rgba(7,32,78,0.08) 72%, rgba(7,32,78,0) 94%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(7,27,42,0.68) 0%, rgba(7,27,42,0.50) 44%, rgba(7,27,42,0.28) 60%, rgba(7,27,42,0.08) 72%, rgba(7,27,42,0) 94%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,7,12,0.30) 0%, rgba(4,7,12,0.10) 42%, transparent 66%)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,6,12,0.26) 0%, rgba(4,6,12,0.10) 52%, transparent 82%)' }} />
 
@@ -85,7 +96,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {/* Title */}
             <h1 className="mb-5 text-[2.8rem] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-bold leading-[1.05]" style={{ color: 'rgba(245,250,255,0.98)' }}>
               {dict.hero.title.split(" ").slice(0, -1).join(" ")}{" "}
-              <span className="text-brand-gradient" style={{ background: 'linear-gradient(135deg, #00b4d8, #48cae4)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
+              <span className="text-brand-gradient" style={{ background: 'linear-gradient(135deg, #12bceb, #5fd8f7)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
                 {dict.hero.title.split(" ").slice(-1)[0]}
               </span>
             </h1>
@@ -100,7 +111,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <Link
                 href={localePath(locale, "fleet")}
                 className="inline-flex min-h-[60px] items-center gap-2.5 rounded-full border-none px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-all duration-200 hover:brightness-110 glow-brand"
-                style={{ background: 'linear-gradient(135deg, #0077b6 0%, #00b4d8 100%)', boxShadow: '0 4px 20px rgba(0,119,182,0.25), 0 2px 8px rgba(0,180,216,0.15)' }}
+                style={{ background: 'linear-gradient(135deg, #0a6c8a 0%, #12bceb 100%)', boxShadow: '0 4px 20px rgba(7,27,42,0.25), 0 2px 8px rgba(18,188,235,0.15)' }}
               >
                 {dict.hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
               </Link>
@@ -147,7 +158,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
           {/* Scroll cue */}
           <div className="mt-auto flex justify-center pt-8 lg:hidden">
-            <ChevronDown className="h-6 w-6 animate-scroll-cue" style={{ color: 'rgba(0,180,216,0.8)' }} />
+            <ChevronDown className="h-6 w-6 animate-scroll-cue" style={{ color: 'rgba(18,188,235,0.8)' }} />
           </div>
         </div>
       </section>
@@ -279,7 +290,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href={localePath(locale, "locations/airport-pickup-jnx")}
+                href={localePath(locale, "locations/airport-pickup")}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-2 text-sm font-semibold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white"
               >
                 <Plane className="h-4 w-4 text-[var(--brand-1)]" /> JNX Airport
@@ -324,7 +335,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href={localePath(locale, "naxos")}
-                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
+                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
               >
                 {dict.naxos.readMoreAbout} Naxos <ArrowRight className="h-4 w-4" />
               </Link>
@@ -363,7 +374,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               </span>
             ))}
           </div>
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-7 py-3.5 text-sm font-bold text-white shadow-lg cursor-pointer select-none" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.30)' }}>
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-7 py-3.5 text-sm font-bold text-white shadow-lg cursor-pointer select-none" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.30)' }}>
             <Sparkles className="h-4 w-4" /> {dict.ai.trigger}
           </div>
           <p className="mt-3 text-xs text-white/70">{dict.ai.placeholder}</p>
@@ -377,20 +388,21 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.reviews.title}</h2>
             <p className="mt-3 text-muted-foreground">{dict.reviews.subtitle}</p>
           </div>
-          <div className="mt-12 grid md:grid-cols-3 gap-5">
+          {/* Same card as /reviews, with expansion off so the three teasers
+              stay the same height. */}
+          <div className="mt-12 grid items-start gap-5 md:grid-cols-3">
             {REVIEWS.slice(0, 3).map((r) => (
-              <figure key={r.author} className="island-card rounded-3xl p-6">
-                <div className="flex">
-                  {[...Array(r.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-[var(--brand-1)] text-[var(--brand-1)]" />
-                  ))}
-                </div>
-                <blockquote className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  “{r.body[locale]}”
-                </blockquote>
-                <figcaption className="mt-4 text-sm font-semibold text-[var(--ink)] dark:text-white"> -  {r.author}</figcaption>
-              </figure>
+              <ReviewCard key={r.reviewId} review={r} locale={locale} dict={dict} expandable={false} />
             ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Link
+              href={localePath(locale, "reviews")}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-bold text-[var(--prose-heading)] transition hover:border-[var(--sea)] hover:text-[var(--link)]"
+            >
+              {REVIEW_AGGREGATE.rating} / 5 · {REVIEW_AGGREGATE.total} {dict.reviews.google}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -446,7 +458,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               href={SITE.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white glow-brand shadow-2xl" style={{ boxShadow: '0 6px 28px rgba(0,119,182,0.35)' }}
+              className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white glow-brand shadow-2xl" style={{ boxShadow: '0 6px 28px rgba(7,27,42,0.35)' }}
             >
               {dict.book.continue} <ArrowRight className="h-4 w-4" />
             </a>

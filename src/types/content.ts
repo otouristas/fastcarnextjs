@@ -20,6 +20,13 @@ export interface Vehicle {
   transmission?: "automatic" | "manual";
   fuelType?: "gasoline" | "diesel" | "hybrid" | "electric";
   engineCC?: number;
+  /**
+   * Large suitcases the boot takes. Unpopulated: the workbook's vehicle
+   * template asks for six consistent specs and this is the most useful
+   * candidate, but capacities are operational data the owner has not verified.
+   * Populate from the fact registry rather than estimating from the model.
+   */
+  luggage?: number;
   features: LocalizedString[];
   bestFor: LocalizedString[];
   priceShoulder: number;
@@ -67,12 +74,29 @@ export interface Guide {
   related: string[];
 }
 
+/**
+ * A review as the reviewer wrote it. `text` is deliberately a plain string, not
+ * a LocalizedString: a testimonial is a quotation, and translating one into
+ * five locales publishes words the named person never said. `lang` records the
+ * language it is in so the UI can filter rather than translate.
+ */
 export interface Review {
+  reviewId: string;
   author: string;
   rating: number;
+  /** ISO date. */
   date: string;
-  body: LocalizedString;
+  text: string;
+  /** BCP-47 primary subtag, detected at import time. */
+  lang: string;
   source: "Google" | "Tripadvisor" | "direct";
+}
+
+/** The Google Business Profile header aggregate — see reviews-google.json. */
+export interface ReviewAggregate {
+  rating: number;
+  /** Includes ratings left without text, so it is >= REVIEWS.length. */
+  total: number;
 }
 
 /** One fan-out question and its answer, in every locale. */

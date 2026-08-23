@@ -21,6 +21,9 @@ export function proxy(request: NextRequest) {
     pathname.startsWith("/.well-known") ||
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml" ||
+    pathname === "/sitemap-index.xml" ||
+    pathname.startsWith("/sitemap/") ||
+    pathname === "/ai.txt" ||
     pathname === "/llms.txt" ||
     pathname === "/llms-full.txt" ||
     pathname === "/manifest.webmanifest" ||

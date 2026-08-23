@@ -22,8 +22,8 @@ export async function GET(request: Request) {
             alignItems: "flex-start",
             justifyContent: "space-between",
             padding: "60px 80px",
-            backgroundColor: "#07204e",
-            backgroundImage: "radial-gradient(circle at 80% 20%, #00b4d8 0%, #07204e 60%)",
+            backgroundColor: "#071b2a",
+            backgroundImage: "radial-gradient(circle at 80% 20%, #12bceb 0%, #071b2a 60%)",
             color: "white",
             fontFamily: "sans-serif",
           }}
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
             <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
               <div
                 style={{
-                  background: "linear-gradient(135deg, #0077b6, #00b4d8)",
+                  background: "linear-gradient(135deg, #0a6c8a, #12bceb)",
                   padding: "10px 24px",
                   borderRadius: "30px",
                   fontSize: "20px",
@@ -46,7 +46,7 @@ export async function GET(request: Request) {
                 {category}
               </div>
             </div>
-            <div style={{ fontSize: "20px", color: "#48cae4", fontWeight: "600" }}>
+            <div style={{ fontSize: "20px", color: "#5fd8f7", fontWeight: "600" }}>
               naxos-carrentals.com
             </div>
           </div>

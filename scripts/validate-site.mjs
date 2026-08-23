@@ -1,4 +1,6 @@
 const ORIGIN = (process.env.SITE_ORIGIN ?? "http://127.0.0.1:3000").replace(/\/$/, "");
+import { readFile } from "node:fs/promises";
+
 const CANONICAL = "https://naxos-carrentals.com";
 const LOCALES = ["en", "el", "it", "fr", "de"];
 const errors = [];
@@ -16,22 +18,51 @@ async function text(path, init) {
   return { response, body: await response.text() };
 }
 
-const [robots, sitemapA, sitemapB, ai, llmsFull, llms] = await Promise.all([
+const [robots, indexA, indexB, ai, llmsFull, llms] = await Promise.all([
   text("/robots.txt"),
-  text("/sitemap.xml"),
-  text("/sitemap.xml"),
+  text("/sitemap-index.xml"),
+  text("/sitemap-index.xml"),
   text("/ai.txt"),
   text("/llms-full.txt"),
   text("/llms.txt"),
 ]);
 
+check(indexA.response.ok, "sitemap-index.xml must return 200");
+check(indexA.body === indexB.body, "sitemap-index.xml must be byte-stable between requests");
+
+// The sitemap is split by page group for per-group coverage reporting in Search
+// Console. Every child listed in the index must resolve, and the checks below
+// run against their concatenation so a URL moving between groups is invisible.
+const childLocs = [...indexA.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+check(childLocs.length > 0, "sitemap-index.xml lists no child sitemaps");
+for (const loc of childLocs) {
+  check(loc.startsWith(CANONICAL), `${loc}: sitemap index entry is not canonical-host-only`);
+}
+const children = await Promise.all(
+  childLocs.map((loc) => text(loc.slice(CANONICAL.length))),
+);
+for (let i = 0; i < children.length; i++) {
+  check(children[i].response.ok, `${childLocs[i]}: child sitemap returned ${children[i].response.status}`);
+}
+
+// The legacy single-file URL is the one currently submitted in Search Console,
+// so it must keep resolving rather than 404 and drop reported coverage.
+const legacy = await request("/sitemap.xml", { redirect: "manual" });
+check(
+  legacy.status === 301 || legacy.status === 308 || legacy.ok,
+  `/sitemap.xml must still resolve (got ${legacy.status})`,
+);
+
+const sitemapA = { response: indexA.response, body: children.map((c) => c.body).join("\n") };
+
 check(robots.response.ok, "robots.txt must return 200");
 check(/User-Agent:\s*\*/i.test(robots.body), "robots.txt needs one public wildcard group");
 check(/Disallow:\s*\/api\//i.test(robots.body), "robots.txt must exclude /api/");
-check(robots.body.includes(`${CANONICAL}/sitemap.xml`), "robots.txt must advertise the canonical sitemap");
+check(
+  robots.body.includes(`${CANONICAL}/sitemap-index.xml`),
+  "robots.txt must advertise the canonical sitemap index",
+);
 
-check(sitemapA.response.ok, "sitemap.xml must return 200");
-check(sitemapA.body === sitemapB.body, "sitemap.xml must be byte-stable between requests");
 check(!/(llms\.txt|llms-full\.txt|ai\.txt)/i.test(sitemapA.body), "sitemap.xml must not list the AI text endpoints");
 check(!sitemapA.body.includes("fastcarrentalsnaxos.gr"), "sitemap.xml contains a non-canonical host");
 // Only /fleet/scooters survives, as an editorial page at the URL that already
@@ -199,6 +230,12 @@ for (let index = 0; index < pageResults.length; index += 1) {
     const key = `${locale}::${title}`;
     check(!titles.has(key), `${path}: duplicate <title> shared with ${titles.get(key)}`);
     titles.set(key, path);
+    // The root layout's title template used to append the brand on top of what
+    // buildMetadata already produced, so 93 audited URLs shipped it twice.
+    const brandHits = title.split("Fast Motor Rental Naxos").length - 1;
+    check(brandHits <= 1, `${path}: <title> repeats the brand (${brandHits}x)`);
+    // A trailing ellipsis means the clamp ate the end of the title.
+    check(!/…\s*$/.test(title), `${path}: <title> was truncated by the length clamp`);
   }
   if (description) {
     const key = `${locale}::${description}`;
@@ -208,6 +245,21 @@ for (let index = 0; index < pageResults.length; index += 1) {
     );
     descriptions.set(key, path);
   }
+}
+
+// Every URL the blueprint's master plan calls P0 must exist and be indexable.
+// These are the pages carrying proven GSC demand; a refactor that quietly drops
+// one is the exact failure mode that put /en/fleet/scooters on a 404.
+const { rows: masterPlan } = JSON.parse(
+  await readFile(new URL("../docs/seo/blueprint/08_url_master_plan.json", import.meta.url), "utf8"),
+);
+const sitemapSet = new Set(sitemapPaths);
+const missingP0 = masterPlan
+  .filter((row) => row.Priority === "P0")
+  .map((row) => (row["Canonical URL"] ?? "").replace(CANONICAL, ""))
+  .filter((path) => path && !sitemapSet.has(path));
+for (const path of missingP0) {
+  check(false, `${path}: P0 URL from the blueprint master plan is not in the sitemap`);
 }
 
 const linkPaths = [...internalPaths];

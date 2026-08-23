@@ -1,0 +1,168 @@
+{
+  "sheet": "90-Day Plan",
+  "title": "90-Day Recovery + Growth Plan",
+  "note": "Sequence protects existing demand first, then expands bilingual authority and conversion.",
+  "columns": [
+    "Week",
+    "Priority",
+    "Workstream",
+    "Deliverable",
+    "Why now",
+    "Definition of done",
+    "Owner",
+    "Status"
+  ],
+  "rows": [
+    {
+      "Week": "1",
+      "Priority": "P0",
+      "Workstream": "Recovery",
+      "Deliverable": "Resolve /en/fleet/scooters",
+      "Why now": "If scooters are active, restore the exact URL with verified inventory; if not, 301 to a topical scooter-vs-car guide.",
+      "Definition of done": "Top GSC page no longer returns 200 · Target: 100 clicks / 2,800 impressions",
+      "Owner": "Owner inventory decision",
+      "Status": "Not started"
+    },
+    {
+      "Week": "1",
+      "Priority": "P0",
+      "Workstream": "Indexation",
+      "Deliverable": "Rebuild sitemap coverage",
+      "Why now": "Include every 200, canonical, indexable guide/location/company page; exclude redirects and 404s; submit split sitemaps.",
+      "Definition of done": "60 of 92 GSC pages missing from sitemap · Target: 0 high-value GSC URLs missing",
+      "Owner": "Developer",
+      "Status": "Not started"
+    },
+    {
+      "Week": "1",
+      "Priority": "P0",
+      "Workstream": "Metadata",
+      "Deliverable": "Remove duplicated brand suffix",
+      "Why now": "Change title template so page titles contain the brand once; replace generic short descriptions.",
+      "Definition of done": "93 audited URLs repeat the brand · Target: 0 duplicate-brand titles",
+      "Owner": "Developer + SEO",
+      "Status": "Not started"
+    },
+    {
+      "Week": "1",
+      "Priority": "P0",
+      "Workstream": "Redirects",
+      "Deliverable": "Restore mismatched winning guides",
+      "Why now": "Reviews→About and Port-vs-Airport→Airport are intent mismatches. Restore or redirect to a genuinely equivalent page.",
+      "Definition of done": "Legacy GSC demand lands on mismatched content · Target: All redirects topically equivalent",
+      "Owner": "SEO + Developer",
+      "Status": "Not started"
+    },
+    {
+      "Week": "2",
+      "Priority": "P0",
+      "Workstream": "CTR",
+      "Deliverable": "Rewrite top snippets",
+      "Why now": "Deploy the workbook titles/descriptions on pages with ≥25 impressions and positions ≤15.",
+      "Definition of done": "Strong position, weak CTR · Target: +1.0 percentage point organic CTR",
+      "Owner": "SEO",
+      "Status": "Not started"
+    },
+    {
+      "Week": "2",
+      "Priority": "P0",
+      "Workstream": "Greek",
+      "Deliverable": "Fix /el content leakage",
+      "Why now": "Replace English title/meta/body on Greek destination pages; enforce locale QA in build.",
+      "Definition of done": "Greek URLs show English metadata/content · Target: 100% Greek main content on /el",
+      "Owner": "Content + Developer",
+      "Status": "Not started"
+    },
+    {
+      "Week": "3",
+      "Priority": "P1",
+      "Workstream": "Architecture",
+      "Deliverable": "Publish Naxos guide cluster",
+      "Why now": "Pillar /naxos plus beaches, villages, road trip, parking and driving pages with reciprocal links.",
+      "Definition of done": "Guide demand is fragmented · Target: All P0/P1 guide pages live and linked",
+      "Owner": "Content",
+      "Status": "Not started"
+    },
+    {
+      "Week": "4",
+      "Priority": "P1",
+      "Workstream": "Conversion",
+      "Deliverable": "Ship premium booking-first homepage",
+      "Why now": "Desktop booking module above fold; mobile sticky availability CTA; evidence bar and clear inclusions.",
+      "Definition of done": "Current hero has only a generic CTA · Target: Booking-start rate baseline + uplift",
+      "Owner": "Design + Developer",
+      "Status": "Not started"
+    },
+    {
+      "Week": "5",
+      "Priority": "P1",
+      "Workstream": "Schema",
+      "Deliverable": "Deploy page-type JSON-LD",
+      "Why now": "Use the exact graph templates in this workbook; remove Offer when no visible live offer exists.",
+      "Definition of done": "Current schema exists but page specificity is inconsistent · Target: 0 critical validation errors",
+      "Owner": "Developer",
+      "Status": "Not started"
+    },
+    {
+      "Week": "6",
+      "Priority": "P1",
+      "Workstream": "Entity",
+      "Deliverable": "Complete business evidence",
+      "Why now": "Add legal name, address, map pin, registration, team, support hours and verified profiles after approval.",
+      "Definition of done": "Trust facts are incomplete · Target: NAP and entity fields consistent",
+      "Owner": "Owner",
+      "Status": "Not started"
+    },
+    {
+      "Week": "7",
+      "Priority": "P1",
+      "Workstream": "Content",
+      "Deliverable": "Restore comparison/payment/IDP guides",
+      "Why now": "Publish direct answers, evidence, exceptions and owner-verified terms on the original ranking URLs.",
+      "Definition of done": "Existing demand already proven in GSC · Target: Top 10 for priority long tails",
+      "Owner": "Content + Legal/Owner QA",
+      "Status": "Not started"
+    },
+    {
+      "Week": "8",
+      "Priority": "P1",
+      "Workstream": "Internal links",
+      "Deliverable": "Apply exact link map",
+      "Why now": "Add contextual links from guide→commercial and commercial→trust/booking pages without repetitive anchors.",
+      "Definition of done": "Orphan and weak commercial paths · Target: Every priority URL ≥3 contextual inbound links",
+      "Owner": "SEO",
+      "Status": "Not started"
+    },
+    {
+      "Week": "9",
+      "Priority": "P2",
+      "Workstream": "AI discovery",
+      "Deliverable": "Deploy llms files",
+      "Why now": "Replace current short file and 410 llms-full with the exact content in this workbook.",
+      "Definition of done": "llms-full returns 410 · Target: Both files return 200 text/plain",
+      "Owner": "Developer",
+      "Status": "Not started"
+    },
+    {
+      "Week": "10",
+      "Priority": "P1",
+      "Workstream": "Measurement",
+      "Deliverable": "Annotate and monitor releases",
+      "Why now": "Track deploy dates, page groups, CTR, clicks, booking starts and completed bookings by locale.",
+      "Definition of done": "Rankings alone do not prove commercial gain · Target: Weekly page-group readout",
+      "Owner": "Analytics",
+      "Status": "Not started"
+    },
+    {
+      "Week": "12",
+      "Priority": "P1",
+      "Workstream": "Authority",
+      "Deliverable": "Local evidence and links",
+      "Why now": "Original on-island photography, route observations, tourism partnerships and attributable press/resources.",
+      "Definition of done": "Guide SERPs reward authority and evidence · Target: 5–10 quality local/editorial mentions",
+      "Owner": "PR + Content",
+      "Status": "Not started"
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}

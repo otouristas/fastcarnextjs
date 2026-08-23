@@ -44,7 +44,7 @@ export const PLAN_ARTICLES: NaxosGuideArticle[] = [
     ],
     related: ["things-to-do-in-naxos", "naxos-itinerary", "best-time-to-visit-naxos", "how-to-get-to-naxos"],
     vehiclePicks: ["hyundai-i10", "peugeot-208", "dacia-duster"],
-    locationPicks: ["naxos-town", "agios-prokopios", "airport-pickup-jnx"],
+    locationPicks: ["naxos-town", "agios-prokopios", "airport-pickup"],
     sections: [
       {
         heading: ls(

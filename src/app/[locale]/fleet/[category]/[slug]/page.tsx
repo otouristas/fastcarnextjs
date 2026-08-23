@@ -15,6 +15,9 @@ import { breadcrumbSchema, graph, vehicleSchema, faqPageSchema } from "@/lib/sch
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
 import { TermsAndCancellation } from "@/components/legal/TermsAndCancellation";
 import { whatsappUrl, whatsappVehicleMessage } from "@/lib/whatsapp";
+import { REVIEWS_SOURCE_URL, REVIEW_AGGREGATE } from "@/content/reviews";
+import { reviewForVehicle } from "@/content/vehicle-reviews";
+import { Stars } from "@/components/reviews/Stars";
 import {
   ArrowRight, Check, Users, Fuel, Gauge, DoorOpen, Wallet,
   Sparkles, Star, Phone, ShieldCheck, MapPin, BadgeCheck, CalendarDays,
@@ -141,6 +144,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
   const navLabels = {
     cars: dict.nav.cars,
   } as const;
+  const vehicleReview = reviewForVehicle(v.slug);
   const wm = whatsappVehicleMessage(v.name[locale], locale);
 
   const weeklyPerDay = Math.round((v.priceWeekly / 7) * 10) / 10;
@@ -185,7 +189,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(15,37,51,0.55)] via-transparent to-transparent p-5">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md" style={{ boxShadow: '0 4px 12px rgba(7,27,42,0.25)' }}>
                       <BadgeCheck className="h-3.5 w-3.5" /> {navLabels[v.category]}
                     </span>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[var(--ink)] shadow-sm backdrop-blur dark:bg-[rgba(16,43,61,0.85)] dark:text-white">
@@ -251,7 +255,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                       href={SITE.bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.01]" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.01]" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
                     >
                       {dict.cta.bookCar} <ArrowRight className="h-4 w-4" />
                     </a>
@@ -271,6 +275,37 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                         <Phone className="h-4 w-4 text-[var(--brand-2)]" /> {dict.nav.call}
                       </a>
                     </div>
+                  </div>
+
+                  {/* Verified proof, directly under the booking action. The
+                      aggregate describes the business; the quote only appears
+                      on the three vehicles a reviewer actually named. */}
+                  <div className="mt-5 border-t border-border pt-4">
+                    <a
+                      href={REVIEWS_SOURCE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-[var(--link)]"
+                    >
+                      <Stars rating={REVIEW_AGGREGATE.rating} className="h-3.5 w-3.5" label={`${REVIEW_AGGREGATE.rating} ${dict.reviews.ofFive}`} />
+                      {REVIEW_AGGREGATE.rating} · {REVIEW_AGGREGATE.total} {dict.reviews.google}
+                    </a>
+                    {vehicleReview && (
+                      <figure className="mt-3">
+                        <blockquote className="whitespace-pre-line text-sm italic leading-relaxed text-[var(--prose-body)]">
+                          “{vehicleReview.review.text}”
+                        </blockquote>
+                        <figcaption className="mt-2 text-xs font-semibold text-muted-foreground">
+                          <cite className="not-italic">{vehicleReview.review.author}</cite>
+                          {" · "}
+                          <time dateTime={vehicleReview.review.date}>
+                            {new Intl.DateTimeFormat(locale, { year: "numeric", month: "short" }).format(
+                              new Date(vehicleReview.review.date),
+                            )}
+                          </time>
+                        </figcaption>
+                      </figure>
+                    )}
                   </div>
 
                   <ul className="mt-5 grid gap-1.5 text-sm">
@@ -486,7 +521,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
               <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
                 ⚓ Naxos Port Ferry Pickup
               </Link>
-              <Link href={localePath(locale, "locations/airport-pickup-jnx")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+              <Link href={localePath(locale, "locations/airport-pickup")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
                 ✈️ Naxos Airport (JNX) Terminal Pickup
               </Link>
               <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">

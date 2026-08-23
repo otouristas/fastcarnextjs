@@ -1,4 +1,4 @@
-import { DISCOVER_LABELS, discoverCycladesHome, getArticleDiscoverLinks } from "@/lib/discover-cyclades";
+import { DISCOVER_LABELS, discoverCycladesHome, getArticleDiscoverLinks, withUtm } from "@/lib/discover-cyclades";
 import type { Locale } from "@/lib/site";
 import { ArrowUpRight, Compass } from "lucide-react";
 
@@ -17,7 +17,7 @@ export function DiscoverCycladesBox({ locale, slug }: { locale: Locale; slug: st
           <Compass className="h-5 w-5" />
         </span>
         <a
-          href={discoverCycladesHome(locale)}
+          href={withUtm(discoverCycladesHome(locale), "guide-rail")}
           target="_blank"
           rel="noopener noreferrer"
           className="group"

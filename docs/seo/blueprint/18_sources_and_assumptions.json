@@ -1,0 +1,134 @@
+{
+  "sheet": "Sources & Assumptions",
+  "title": "Sources, Constraints and Verification Gates",
+  "note": "No prices, availability, review counts, legal terms or business credentials were invented. Complete placeholders before publishing.",
+  "columns": [
+    "Source / assumption",
+    "URL or file",
+    "Checked / period",
+    "Use in workbook"
+  ],
+  "rows": [
+    {
+      "Source / assumption": "Attached GSC workbook",
+      "URL or file": "https___naxos-carrentals.com_-Performance-on-Search-2026-08-22.xlsx",
+      "Checked / period": "Search type Web; last 3 months; daily data 2026-06-14 to 2026-08-20",
+      "Use in workbook": "Primary performance source"
+    },
+    {
+      "Source / assumption": "Live homepage",
+      "URL or file": "https://naxos-carrentals.com/en",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Content and visual inspection"
+    },
+    {
+      "Source / assumption": "robots.txt",
+      "URL or file": "https://naxos-carrentals.com/robots.txt",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "200; allows public site; points to current sitemap.xml"
+    },
+    {
+      "Source / assumption": "sitemap.xml",
+      "URL or file": "https://naxos-carrentals.com/sitemap.xml",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "105 URLs; many GSC pages absent"
+    },
+    {
+      "Source / assumption": "llms.txt",
+      "URL or file": "https://naxos-carrentals.com/llms.txt",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "200; very short; operational facts intentionally omitted"
+    },
+    {
+      "Source / assumption": "llms-full.txt",
+      "URL or file": "https://naxos-carrentals.com/llms-full.txt",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "410 Gone"
+    },
+    {
+      "Source / assumption": "Google sitemap guidance",
+      "URL or file": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Canonical, indexable URLs; meaningful lastmod"
+    },
+    {
+      "Source / assumption": "Google canonical guidance",
+      "URL or file": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Self-canonical and hreflang-compatible canonicalisation"
+    },
+    {
+      "Source / assumption": "Google multilingual guidance",
+      "URL or file": "https://developers.google.com/search/docs/advanced/crawling/managing-multi-regional-sites",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Separate URLs and reciprocal hreflang"
+    },
+    {
+      "Source / assumption": "Google LocalBusiness data",
+      "URL or file": "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Most specific visible business entity and validation"
+    },
+    {
+      "Source / assumption": "Google Product snippet data",
+      "URL or file": "https://developers.google.com/search/docs/appearance/structured-data/product-snippet",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Use Product + Car; offer/review must be visible and valid"
+    },
+    {
+      "Source / assumption": "Google Search updates",
+      "URL or file": "https://developers.google.com/search/updates#removing-faq-rich-result",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "FAQ rich results removed; llms.txt has no ranking effect"
+    },
+    {
+      "Source / assumption": "llms.txt proposal",
+      "URL or file": "https://llmstxt.org/",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Optional AI-readable discovery proposal"
+    },
+    {
+      "Source / assumption": "Cyclades keyword playbook",
+      "URL or file": "/Users/iconicgiorgio/Documents/Codex/2026-08-01/new-chat/outputs/cyclades_keyword_research_2026.xlsx",
+      "Checked / period": "2026-08-01",
+      "Use in workbook": "Workbook structure and fan-out operating model"
+    },
+    {
+      "Source / assumption": "Competitor: Naxos Auto Rent",
+      "URL or file": "https://naxos-car-rental.com/",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Booking form above fold; strong trust proof; clear inclusions; journal cluster"
+    },
+    {
+      "Source / assumption": "Competitor: Golden Dove",
+      "URL or file": "https://goldendove.gr/",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Above-fold booking; port/airport delivery message; visible Google review proof"
+    },
+    {
+      "Source / assumption": "Competitor: Naction Rent a Car",
+      "URL or file": "https://nactionrentacar.com/el/",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Strong Greek transactional page; booking module; payment/deposit explanations; reviews"
+    },
+    {
+      "Source / assumption": "Competitor: Wheelso Naxos",
+      "URL or file": "https://wheelso.gr/el/car-rental/naxos/",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Localized transactional landing; visible booking module; trust and FAQ coverage"
+    },
+    {
+      "Source / assumption": "Competitor: Discover Greece",
+      "URL or file": "https://www.discovergreece.com/cyclades/naxos",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Broad destination authority; deep things-to-do and beach coverage"
+    },
+    {
+      "Source / assumption": "Competitor: Naxos Insider",
+      "URL or file": "https://naxosinsider.com/",
+      "Checked / period": "2026-08-22",
+      "Use in workbook": "Distinctive on-island voice; six clear guide pillars; first-hand editorial positioning"
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}
