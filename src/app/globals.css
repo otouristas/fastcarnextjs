@@ -8,8 +8,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-heading-family);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -45,6 +45,14 @@
   --color-sea: var(--sea);
   --color-sea-2: var(--sea-2);
   --color-sand: var(--sand);
+  --color-navy: var(--navy);
+  --color-cyan: var(--cyan);
+  --color-orange: var(--orange);
+  --color-limestone: var(--limestone);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-urgent: var(--urgent);
+  --color-urgent-foreground: var(--urgent-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -55,46 +63,89 @@
 }
 
 :root {
-  /* ── Brand  -  ocean blue ── */
-  --brand-1: #0077b6;
-  --brand-2: #00b4d8;
-  --brand-3: #0096c7;
-  --brand-4: #023e8a;
-  --brand-5: #03045e;
-  --brand-gradient: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
-  --brand-text-gradient: var(--brand-gradient);
+  /* ── Blueprint palette anchors (Redesign System sheet) ──
+     Aegean Navy = authority · Electric Cyan = booking actions ·
+     Sunset Orange = urgency/highlights ONLY · Limestone = editorial calm. */
+  --navy: #071b2a;
+  --cyan: #12bceb;
+  --orange: #ff6b35;
+  --limestone: #f5f0e8;
+
+  /* ── Brand ramp ──
+     --brand-gradient carries white text in 28 places, so it stays dark:
+     white on #0a6c8a measures 5.96:1. Electric Cyan is a *fill*, never a
+     white-text surface — white on #12bceb is 2.23:1 and fails AA outright. */
+  --brand-1: #0a6c8a;
+  --brand-2: #12bceb;
+  --brand-3: #0e8fb5;
+  --brand-4: #071b2a;
+  --brand-5: #04101a;
+  --brand-gradient: linear-gradient(135deg, #071b2a 0%, #0a6c8a 100%);
+  --brand-text-gradient: linear-gradient(135deg, #071b2a 0%, #0a6c8a 100%);
+
+  /* ── Booking actions ──
+     Electric Cyan takes navy text (7.87:1), not white. */
+  --cta: #12bceb;
+  --cta-foreground: #071b2a;
+  --cta-gradient: linear-gradient(135deg, #12bceb 0%, #5fd8f7 100%);
+
+  /* ── Urgency ──
+     Sunset Orange is a fill with dark text (6.19:1). As text on Limestone it
+     measures 2.50:1, so it must never be used for copy. */
+  --urgent: #ff6b35;
+  --urgent-foreground: #071b2a;
 
   /* ── Sea / accent ── */
-  --sea: #0077b6;
-  --sea-2: #00b4d8;
-  --sea-soft: rgba(26, 143, 197, 0.08);
+  --sea: #0a6c8a;
+  --sea-2: #12bceb;
+  --sea-soft: rgba(10, 108, 138, 0.08);
+  /* Text-safe accent: 5.25:1 on Limestone, 5.96:1 on white. */
+  --link: #0a6c8a;
+  --link-hover: #064f66;
 
-  /* ── Surfaces  -  cool ice-blue ── */
-  --sand: color-mix(in oklab, #edf5fc 84%, #ffffff);
-  --sand-2: #dce8f4;
-  --ink: #0c2240;
-  --ink-2: #0e3358;
-  --ink-3: #1a4a6e;
+  /* ── Surfaces  -  Limestone ── */
+  --sand: #efe7da;
+  --sand-2: #e4d9c8;
+  --ink: #071b2a;
+  --ink-2: #0e3348;
+  --ink-3: #1b4a63;
 
   /* ── Semantic tokens ── */
-  --background: #edf5fc;
-  --foreground: #0c2240;
-  --card: rgba(248, 252, 255, 0.92);
-  --card-foreground: #0c2240;
-  --popover: rgba(248, 252, 255, 0.96);
-  --popover-foreground: #0c2240;
-  --primary: #0077b6;
+  --background: #f5f0e8;
+  --foreground: #071b2a;
+  --card: rgba(255, 255, 255, 0.92);
+  --card-foreground: #071b2a;
+  --popover: rgba(255, 255, 255, 0.96);
+  --popover-foreground: #071b2a;
+  --primary: #0a6c8a;
   --primary-foreground: #ffffff;
-  --secondary: rgba(26, 143, 197, 0.08);
-  --secondary-foreground: #0c2240;
-  --muted: #dce8f4;
-  --muted-foreground: #4a6a82;
-  --accent: rgba(0, 180, 216, 0.10);
-  --accent-foreground: #0077b6;
+  --secondary: rgba(10, 108, 138, 0.08);
+  --secondary-foreground: #071b2a;
+  --muted: #e8e0d3;
+  --muted-foreground: #4a5a66;
+  --accent: rgba(18, 188, 235, 0.12);
+  --accent-foreground: #0a6c8a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(26, 143, 197, 0.18);
-  --input: rgba(26, 143, 197, 0.18);
-  --ring: #00b4d8;
+  --border: rgba(7, 27, 42, 0.14);
+  --input: rgba(7, 27, 42, 0.14);
+  --ring: #12bceb;
+  /* ── Editorial layer ──
+     Long-form reading surfaces for the Naxos guide. Defined on bare :root so
+     every token has a light value before .dark overrides it — a colour whose
+     only definition lives in a dark block renders as nothing in light mode. */
+  --prose-body: #2a3b47;
+  --prose-heading: #071b2a;
+  --prose-lead: #354957;
+  --prose-rule: rgba(7, 27, 42, 0.14);
+  --answer-bg: rgba(18, 188, 235, 0.10);
+  --answer-border: #12bceb;
+  --table-head: rgba(7, 27, 42, 0.06);
+  --table-stripe: rgba(7, 27, 42, 0.03);
+  --pill-bg: rgba(255, 255, 255, 0.9);
+  --overlay-scrim: rgba(7, 27, 42, 0.62);
+  --shadow-card: 0 24px 70px rgba(7, 27, 42, 0.10);
+  --shadow-lift: 0 30px 80px rgba(7, 27, 42, 0.18);
+
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -112,37 +163,67 @@
 }
 
 .dark {
-  /* Brighter ocean accents and neutral-blue surfaces preserve hierarchy at night. */
-  --brand-1: #38bfe5;
-  --brand-2: #67d9f3;
-  --brand-3: #4ac9ec;
-  --brand-4: #168fbd;
-  --brand-5: #0b5578;
-  --brand-gradient: linear-gradient(135deg, #006b93 0%, #087da5 100%);
-  --brand-text-gradient: linear-gradient(135deg, #38bfe5 0%, #78def4 100%);
-  --sea: #44c7e9;
-  --sea-2: #78def4;
-  --sea-soft: rgba(68, 199, 233, 0.13);
-  --sand: #0a1f2e;
-  --sand-2: #102b3d;
-  --background: #061521;
-  --foreground: #f2f7fa;
-  --card: rgba(13, 36, 52, 0.94);
-  --card-foreground: #f2f7fa;
-  --popover: rgba(11, 31, 46, 0.98);
-  --popover-foreground: #f2f7fa;
-  --primary: #44c7e9;
-  --primary-foreground: #031119;
-  --secondary: rgba(79, 188, 224, 0.13);
-  --secondary-foreground: #edf6fa;
-  --muted: #142f41;
-  --muted-foreground: #abc0ce;
-  --accent: rgba(68, 199, 233, 0.16);
-  --accent-foreground: #78def4;
+  /* Aegean Navy becomes the page ground and Limestone the ink. Electric Cyan
+     reads 7.87:1 on navy, so at night it can carry text as well as fill. */
+  --navy: #071b2a;
+  --cyan: #12bceb;
+  --orange: #ff6b35;
+  --limestone: #f5f0e8;
+
+  --brand-1: #12bceb;
+  --brand-2: #5fd8f7;
+  --brand-3: #2fcbf2;
+  --brand-4: #0a6c8a;
+  --brand-5: #071b2a;
+  --brand-gradient: linear-gradient(135deg, #062333 0%, #0a6c8a 100%);
+  --brand-text-gradient: linear-gradient(135deg, #12bceb 0%, #7fe3fa 100%);
+
+  --cta: #12bceb;
+  --cta-foreground: #071b2a;
+  --cta-gradient: linear-gradient(135deg, #12bceb 0%, #5fd8f7 100%);
+  --urgent: #ff6b35;
+  --urgent-foreground: #071b2a;
+
+  --sea: #12bceb;
+  --sea-2: #5fd8f7;
+  --sea-soft: rgba(18, 188, 235, 0.14);
+  --link: #5fd8f7;
+  --link-hover: #9de9fb;
+  --sand: #0b2436;
+  --sand-2: #123044;
+  --background: #071b2a;
+  --foreground: #f5f0e8;
+  --card: rgba(13, 42, 60, 0.94);
+  --card-foreground: #f5f0e8;
+  --popover: rgba(10, 34, 50, 0.98);
+  --popover-foreground: #f5f0e8;
+  --primary: #12bceb;
+  --primary-foreground: #071b2a;
+  --secondary: rgba(18, 188, 235, 0.13);
+  --secondary-foreground: #f5f0e8;
+  --muted: #13303f;
+  --muted-foreground: #9db0bc;
+  --accent: rgba(18, 188, 235, 0.16);
+  --accent-foreground: #5fd8f7;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: rgba(129, 193, 218, 0.21);
-  --input: rgba(137, 202, 226, 0.28);
-  --ring: #67d9f3;
+  --border: rgba(157, 200, 220, 0.20);
+  --input: rgba(157, 200, 220, 0.26);
+  --ring: #5fd8f7;
+
+  /* Editorial layer — dark. Body text lifts to a readable neutral rather than
+     inheriting muted-foreground, which fails AA over the dark card surface. */
+  --prose-body: #c6d6e0;
+  --prose-heading: #f5f0e8;
+  --prose-lead: #dce7ee;
+  --prose-rule: rgba(157, 200, 220, 0.20);
+  --answer-bg: rgba(18, 188, 235, 0.10);
+  --answer-border: #12bceb;
+  --table-head: rgba(18, 188, 235, 0.12);
+  --table-stripe: rgba(157, 200, 220, 0.05);
+  --pill-bg: rgba(18, 48, 63, 0.7);
+  --overlay-scrim: rgba(3, 12, 19, 0.7);
+  --shadow-card: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --shadow-lift: 0 30px 90px rgba(0, 0, 0, 0.46);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -166,19 +247,32 @@
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     background:
-      radial-gradient(circle at top left, rgba(0, 119, 182, 0.10), transparent 34rem),
-      radial-gradient(circle at top right, rgba(0, 180, 216, 0.08), transparent 32rem),
+      radial-gradient(circle at top left, rgba(18, 188, 235, 0.10), transparent 34rem),
+      radial-gradient(circle at top right, rgba(255, 107, 53, 0.05), transparent 32rem),
       var(--background);
   }
   .dark body {
     background:
-      radial-gradient(circle at 12% -8%, rgba(35, 151, 194, 0.17), transparent 34rem),
-      radial-gradient(circle at 90% 8%, rgba(49, 192, 226, 0.10), transparent 30rem),
-      linear-gradient(180deg, #071824 0%, var(--background) 30rem);
+      radial-gradient(circle at 12% -8%, rgba(18, 188, 235, 0.14), transparent 34rem),
+      radial-gradient(circle at 90% 8%, rgba(255, 107, 53, 0.07), transparent 30rem),
+      linear-gradient(180deg, #04121d 0%, var(--background) 30rem);
   }
   html {
-    @apply font-sans;
+    /* Not `@apply font-sans`: Outfit has no Greek glyphs, so /el body copy has
+       been rendering in system-ui. Manrope carries the Greek subset and sits
+       next in the stack, which keeps Greek pages on a designed face. */
+    font-family: var(--font-sans), var(--font-heading-family), ui-sans-serif,
+      system-ui, sans-serif;
     scroll-behavior: smooth;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.022em;
   }
   ::selection {
     background: var(--brand-1);
@@ -186,7 +280,7 @@
   }
   .dark ::selection {
     background: var(--sea);
-    color: #031119;
+    color: #071b2a;
   }
   .dark {
     color-scheme: dark;
@@ -218,20 +312,20 @@
   .ring-brand { --tw-ring-color: var(--brand-2); }
 
   .glow-brand {
-    box-shadow: 0 0 0 0 rgba(0, 119, 182, 0.5);
+    box-shadow: 0 0 0 0 rgba(18, 188, 235, 0.5);
     animation: glow 2.4s ease-in-out infinite;
   }
   @keyframes glow {
-    0%, 100% { box-shadow: 0 4px 12px rgba(0, 119, 182, 0.18), 0 1px 4px rgba(0, 119, 182, 0.10); }
-    50% { box-shadow: 0 6px 28px rgba(0, 119, 182, 0.35), 0 2px 10px rgba(0, 119, 182, 0.20), 0 0 40px rgba(0, 180, 216, 0.12); }
+    0%, 100% { box-shadow: 0 4px 12px rgba(18, 188, 235, 0.18), 0 1px 4px rgba(18, 188, 235, 0.10); }
+    50% { box-shadow: 0 6px 28px rgba(18, 188, 235, 0.35), 0 2px 10px rgba(18, 188, 235, 0.20), 0 0 40px rgba(18, 188, 235, 0.12); }
   }
 
   /* ── Frosted-glass hero background ── */
   .ember-bg {
     background:
-      radial-gradient(60% 80% at 18% 100%, rgba(0, 119, 182, 0.12) 0%, transparent 62%),
-      radial-gradient(50% 70% at 84% 0%, rgba(0, 180, 216, 0.10) 0%, transparent 60%),
-      linear-gradient(180deg, #edf5fc 0%, #dce8f4 100%);
+      radial-gradient(60% 80% at 18% 100%, rgba(18, 188, 235, 0.12) 0%, transparent 62%),
+      radial-gradient(50% 70% at 84% 0%, rgba(18, 188, 235, 0.10) 0%, transparent 60%),
+      linear-gradient(180deg, #f5f0e8 0%, #e8e0d3 100%);
   }
   .dark .ember-bg {
     background:
@@ -243,15 +337,15 @@
   /* ── Grid background  -  subtle cool-tone ── */
   .grid-bg {
     background-image:
-      linear-gradient(rgba(0, 119, 182, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 119, 182, 0.05) 1px, transparent 1px);
+      linear-gradient(rgba(18, 188, 235, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(18, 188, 235, 0.05) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   /* ── Frosted glass card (replaces island-card) ── */
   .island-card {
     background: rgba(248, 252, 255, 0.92);
-    border: 1px solid rgba(26, 143, 197, 0.18);
+    border: 1px solid rgba(7, 27, 42, 0.18);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
     backdrop-filter: blur(8px);
   }
@@ -278,9 +372,9 @@
   /* ── Wave background  -  cool blue radials ── */
   .wave-bg {
     background:
-      radial-gradient(50% 70% at 8% 10%, rgba(0, 119, 182, 0.10), transparent 58%),
-      radial-gradient(44% 64% at 92% 18%, rgba(0, 180, 216, 0.08), transparent 58%),
-      linear-gradient(180deg, #edf5fc 0%, #dce8f4 48%, #edf5fc 100%);
+      radial-gradient(50% 70% at 8% 10%, rgba(18, 188, 235, 0.10), transparent 58%),
+      radial-gradient(44% 64% at 92% 18%, rgba(18, 188, 235, 0.08), transparent 58%),
+      linear-gradient(180deg, #f5f0e8 0%, #e8e0d3 48%, #f5f0e8 100%);
   }
   .dark .wave-bg {
     background:
@@ -305,7 +399,7 @@
     background: rgba(248, 252, 255, 0.82);
   }
   .site-mega-panel {
-    border-color: rgba(26, 143, 197, 0.18);
+    border-color: rgba(7, 27, 42, 0.18);
     background: rgba(248, 252, 255, 0.98);
     box-shadow: 0 40px 100px -30px rgba(0, 20, 60, 0.35);
   }
@@ -360,11 +454,11 @@
   /* ── Homepage trust strip ── */
   .trust-strip,
   .trust-strip-item {
-    background: color-mix(in oklab, #edf5fc 84%, #ffffff);
+    background: color-mix(in oklab, #f5f0e8 84%, #ffffff);
   }
   .trust-strip-grid {
     gap: 1px;
-    background: rgba(26, 143, 197, 0.10);
+    background: rgba(7, 27, 42, 0.10);
   }
   .dark .trust-strip {
     background: #081b29;
@@ -439,13 +533,13 @@
     top: 0;
     bottom: 0;
     width: 38%;
-    background: rgba(0, 119, 182, 0.06);
+    background: rgba(18, 188, 235, 0.06);
     transform: skewX(-9deg);
     z-index: 0;
     pointer-events: none;
   }
   .dark .diagonal-accent {
-    background: rgba(0, 180, 216, 0.06);
+    background: rgba(18, 188, 235, 0.06);
   }
 
   /* Shimmer effect for primary CTA */
@@ -456,5 +550,98 @@
   .mrc-shimmer {
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* ── Editorial: long-form article body ──
+     Applied to the guide article container. Measure is capped at ~68ch because
+     the full 5xl container is too wide to read comfortably at 18px. */
+  .editorial {
+    color: var(--prose-body);
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    /* Grid and flex children default to min-width:auto, so a child with a `ch`
+       max-width pushes the whole track to that intrinsic size and the page
+       scrolls sideways on mobile. */
+    min-width: 0;
+  }
+  .editorial h2 {
+    color: var(--prose-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin-top: 2.75rem;
+  }
+  .editorial h3 {
+    color: var(--prose-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+  }
+  .editorial p {
+    margin-top: 1rem;
+    max-width: min(68ch, 100%);
+  }
+  .editorial strong { color: var(--prose-heading); font-weight: 700; }
+  .editorial a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+  .editorial a:hover { color: var(--link-hover); }
+
+  /* A link inside a run of prose must not be distinguished by colour alone —
+     axe flags this as link-in-text-block, and it is a real WCAG 1.4.1 failure
+     for anyone who cannot separate the two hues. */
+  .prose-links a,
+  .reference-list a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose-links a:hover,
+  .reference-list a:hover { color: var(--link-hover); }
+  .editorial hr { border-color: var(--prose-rule); margin: 2.5rem 0; }
+
+  /* Lead paragraph — the first paragraph of a section reads one step larger. */
+  .editorial-lead {
+    color: var(--prose-lead);
+    font-size: 1.15rem;
+    line-height: 1.75;
+  }
+
+  /* ── Answer block ──
+     The 40–60 word direct answer under the H1. Also the `speakable` target, so
+     the class name is referenced from schema.ts — renaming it breaks that. */
+  .answer-block {
+    background: var(--answer-bg);
+    border-left: 4px solid var(--answer-border);
+  }
+
+  /* ── Editorial tables ── */
+  .editorial-table thead { background: var(--table-head); }
+  .editorial-table tbody tr:nth-child(even) { background: var(--table-stripe); }
+  .editorial-table th,
+  .editorial-table td { border-color: var(--border); }
+
+  /* ── Chips / pills used across guide rails ── */
+  .pill {
+    background: var(--pill-bg);
+    border: 1px solid var(--border);
+  }
+
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .lift-on-hover { transition: transform 220ms ease, box-shadow 220ms ease; }
+  .lift-on-hover:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+  /* Anyone who has asked their OS to reduce motion gets no transforms at all. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-kenburns,
+    .animate-scroll-cue,
+    .animate-float,
+    .reveal-up,
+    .glow-brand,
+    .mrc-shimmer {
+      animation: none !important;
+    }
+    .lift-on-hover { transition: none; }
+    .lift-on-hover:hover { transform: none; }
+    html { scroll-behavior: auto; }
   }
 }

@@ -73,9 +73,9 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                             </Link>
                             <div className="text-xs text-muted-foreground">{v.brand} {v.model}</div>
                           </td>
-                          <td className="px-4 py-3 text-[var(--brand-1)] font-semibold">€{v.priceShoulder}</td>
-                          <td className="px-4 py-3">€{v.priceHigh}</td>
-                          <td className="px-4 py-3">€{v.priceWeekly}</td>
+                          <td className="px-4 py-3 text-[var(--brand-1)] font-semibold">{v.priceShoulder != null ? `€${v.priceShoulder}` : "—"}</td>
+                          <td className="px-4 py-3">{v.priceHigh != null ? `€${v.priceHigh}` : "—"}</td>
+                          <td className="px-4 py-3">{v.priceWeekly != null ? `€${v.priceWeekly}` : "—"}</td>
                         </tr>
                       ))}
                     </tbody>

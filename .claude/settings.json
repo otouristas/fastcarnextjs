@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout *)",
+      "Bash(git show *)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://127.0.0.1:3000/en)",
+      "Bash(curl -s http://127.0.0.1:3000/en/fleet/cars/citroen-c3)",
+      "Bash(sed -i '' 's|check\\(body.includes\\(.hreflang=\"x-default\".\\), `${path}: missing x-default hreflang`\\);|check\\(/hreflang=\"x-default\"/i.test\\(body\\), `${path}: missing x-default hreflang`\\);|' scripts/validate-site.mjs)",
+      "Bash(sed -i '' 's|check\\(block.includes\\(`hreflang=\"${locale}\"`\\), `${loc}: missing ${locale} hreflang`\\);|check\\(new RegExp\\(`hreflang=\"${locale}\"`, \"i\"\\).test\\(block\\), `${loc}: missing ${locale} hreflang`\\);|' scripts/validate-site.mjs)",
+      "Bash(pkill -f \"next start\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s http://127.0.0.1:3000/en/fleet/cars/hyundai-i10)",
+      "Bash(node ./tmp-overflow.mjs)",
+      "Bash(ls /tmp/fastcar-visual/*.png 2>/dev/null | head -4)",
+      "Read(//private/tmp/fastcar-visual/**)",
+      "Read(//tmp/fastcar-visual/**)",
+      "Bash(git add *)",
+      "Bash(git reset *)",
+      "Bash(git commit *)"
+    ],
+    "additionalDirectories": [
+      "/tmp/claude-501/-Users-iconicgiorgio-Documents-FASTCARNEXTJSNEWFINAL-fastcarnextjs/ad70a46f-6c30-4eaa-8a79-cffe7111e132/scratchpad"
+    ]
+  }
+}

@@ -1,0 +1,629 @@
+{
+  "sheet": "GSC Daily",
+  "title": "GSC Daily Performance",
+  "note": "Attached Search Console export · Web · 2026-06-14 to 2026-08-20 · source CTR preserved and independently recalculated",
+  "columns": [
+    "Date",
+    "Clicks",
+    "Impressions",
+    "Source CTR",
+    "Position",
+    "Recalculated CTR",
+    "Data-quality flag"
+  ],
+  "rows": [
+    {
+      "Date": "46187",
+      "Clicks": "0",
+      "Impressions": "0",
+      "Source CTR": "6",
+      "Position": "6",
+      "Recalculated CTR": "0",
+      "Data-quality flag": "Source export anomaly: impossible CTR with zero impressions"
+    },
+    {
+      "Date": "46188",
+      "Clicks": "4",
+      "Impressions": "23",
+      "Source CTR": "0.1739",
+      "Position": "21",
+      "Recalculated CTR": "0.17391304347826086",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46189",
+      "Clicks": "3",
+      "Impressions": "51",
+      "Source CTR": "0.0588",
+      "Position": "8.9",
+      "Recalculated CTR": "0.058823529411764705",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46190",
+      "Clicks": "1",
+      "Impressions": "50",
+      "Source CTR": "0.02",
+      "Position": "11.7",
+      "Recalculated CTR": "0.02",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46191",
+      "Clicks": "1",
+      "Impressions": "39",
+      "Source CTR": "0.0256",
+      "Position": "14.1",
+      "Recalculated CTR": "0.02564102564102564",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46192",
+      "Clicks": "0",
+      "Impressions": "25",
+      "Source CTR": "0",
+      "Position": "6.1",
+      "Recalculated CTR": "0",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46193",
+      "Clicks": "1",
+      "Impressions": "46",
+      "Source CTR": "0.0217",
+      "Position": "12.3",
+      "Recalculated CTR": "0.021739130434782608",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46194",
+      "Clicks": "1",
+      "Impressions": "39",
+      "Source CTR": "0.0256",
+      "Position": "13.6",
+      "Recalculated CTR": "0.02564102564102564",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46195",
+      "Clicks": "0",
+      "Impressions": "39",
+      "Source CTR": "0",
+      "Position": "8.1",
+      "Recalculated CTR": "0",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46196",
+      "Clicks": "1",
+      "Impressions": "29",
+      "Source CTR": "0.0345",
+      "Position": "6.7",
+      "Recalculated CTR": "0.034482758620689655",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46197",
+      "Clicks": "2",
+      "Impressions": "45",
+      "Source CTR": "0.0444",
+      "Position": "6.7",
+      "Recalculated CTR": "0.044444444444444446",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46198",
+      "Clicks": "2",
+      "Impressions": "36",
+      "Source CTR": "0.0556",
+      "Position": "7.9",
+      "Recalculated CTR": "0.05555555555555555",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46199",
+      "Clicks": "0",
+      "Impressions": "30",
+      "Source CTR": "0",
+      "Position": "6.8",
+      "Recalculated CTR": "0",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46200",
+      "Clicks": "1",
+      "Impressions": "66",
+      "Source CTR": "0.0152",
+      "Position": "8.8",
+      "Recalculated CTR": "0.015151515151515152",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46201",
+      "Clicks": "2",
+      "Impressions": "149",
+      "Source CTR": "0.0134",
+      "Position": "7.1",
+      "Recalculated CTR": "0.013422818791946308",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46202",
+      "Clicks": "2",
+      "Impressions": "109",
+      "Source CTR": "0.0183",
+      "Position": "6.9",
+      "Recalculated CTR": "0.01834862385321101",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46203",
+      "Clicks": "1",
+      "Impressions": "94",
+      "Source CTR": "0.0106",
+      "Position": "8.2",
+      "Recalculated CTR": "0.010638297872340425",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46204",
+      "Clicks": "2",
+      "Impressions": "83",
+      "Source CTR": "0.0241",
+      "Position": "6.1",
+      "Recalculated CTR": "0.024096385542168676",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46205",
+      "Clicks": "1",
+      "Impressions": "104",
+      "Source CTR": "0.0096",
+      "Position": "10.5",
+      "Recalculated CTR": "0.009615384615384616",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46206",
+      "Clicks": "2",
+      "Impressions": "108",
+      "Source CTR": "0.018500000000000003",
+      "Position": "7.3",
+      "Recalculated CTR": "0.018518518518518517",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46207",
+      "Clicks": "1",
+      "Impressions": "92",
+      "Source CTR": "0.0109",
+      "Position": "5.7",
+      "Recalculated CTR": "0.010869565217391304",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46208",
+      "Clicks": "0",
+      "Impressions": "122",
+      "Source CTR": "0",
+      "Position": "8",
+      "Recalculated CTR": "0",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46209",
+      "Clicks": "0",
+      "Impressions": "107",
+      "Source CTR": "0",
+      "Position": "6.1",
+      "Recalculated CTR": "0",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46210",
+      "Clicks": "1",
+      "Impressions": "80",
+      "Source CTR": "0.0125",
+      "Position": "5.7",
+      "Recalculated CTR": "0.0125",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46211",
+      "Clicks": "1",
+      "Impressions": "123",
+      "Source CTR": "0.008100000000000001",
+      "Position": "6",
+      "Recalculated CTR": "0.008130081300813009",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46212",
+      "Clicks": "1",
+      "Impressions": "117",
+      "Source CTR": "0.0085",
+      "Position": "6",
+      "Recalculated CTR": "0.008547008547008548",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46213",
+      "Clicks": "4",
+      "Impressions": "84",
+      "Source CTR": "0.047599999999999996",
+      "Position": "8.5",
+      "Recalculated CTR": "0.047619047619047616",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46214",
+      "Clicks": "3",
+      "Impressions": "121",
+      "Source CTR": "0.0248",
+      "Position": "8.8",
+      "Recalculated CTR": "0.024793388429752067",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46215",
+      "Clicks": "2",
+      "Impressions": "186",
+      "Source CTR": "0.0108",
+      "Position": "11.5",
+      "Recalculated CTR": "0.010752688172043012",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46216",
+      "Clicks": "7",
+      "Impressions": "122",
+      "Source CTR": "0.0574",
+      "Position": "7.5",
+      "Recalculated CTR": "0.05737704918032787",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46217",
+      "Clicks": "2",
+      "Impressions": "128",
+      "Source CTR": "0.015600000000000001",
+      "Position": "9.2",
+      "Recalculated CTR": "0.015625",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46218",
+      "Clicks": "2",
+      "Impressions": "120",
+      "Source CTR": "0.0167",
+      "Position": "9.5",
+      "Recalculated CTR": "0.016666666666666666",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46219",
+      "Clicks": "5",
+      "Impressions": "111",
+      "Source CTR": "0.045",
+      "Position": "8.6",
+      "Recalculated CTR": "0.04504504504504504",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46220",
+      "Clicks": "2",
+      "Impressions": "139",
+      "Source CTR": "0.0144",
+      "Position": "11.8",
+      "Recalculated CTR": "0.014388489208633094",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46221",
+      "Clicks": "4",
+      "Impressions": "155",
+      "Source CTR": "0.0258",
+      "Position": "8.1",
+      "Recalculated CTR": "0.025806451612903226",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46222",
+      "Clicks": "10",
+      "Impressions": "184",
+      "Source CTR": "0.054299999999999994",
+      "Position": "11.3",
+      "Recalculated CTR": "0.05434782608695652",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46223",
+      "Clicks": "9",
+      "Impressions": "198",
+      "Source CTR": "0.0455",
+      "Position": "8.5",
+      "Recalculated CTR": "0.045454545454545456",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46224",
+      "Clicks": "3",
+      "Impressions": "198",
+      "Source CTR": "0.0152",
+      "Position": "9.2",
+      "Recalculated CTR": "0.015151515151515152",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46225",
+      "Clicks": "3",
+      "Impressions": "183",
+      "Source CTR": "0.016399999999999998",
+      "Position": "11.3",
+      "Recalculated CTR": "0.01639344262295082",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46226",
+      "Clicks": "4",
+      "Impressions": "187",
+      "Source CTR": "0.021400000000000002",
+      "Position": "8.2",
+      "Recalculated CTR": "0.0213903743315508",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46227",
+      "Clicks": "3",
+      "Impressions": "178",
+      "Source CTR": "0.0169",
+      "Position": "9.4",
+      "Recalculated CTR": "0.016853932584269662",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46228",
+      "Clicks": "1",
+      "Impressions": "166",
+      "Source CTR": "0.006",
+      "Position": "7.9",
+      "Recalculated CTR": "0.006024096385542169",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46229",
+      "Clicks": "4",
+      "Impressions": "204",
+      "Source CTR": "0.0196",
+      "Position": "8.3",
+      "Recalculated CTR": "0.0196078431372549",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46230",
+      "Clicks": "10",
+      "Impressions": "227",
+      "Source CTR": "0.0441",
+      "Position": "7.9",
+      "Recalculated CTR": "0.04405286343612335",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46231",
+      "Clicks": "12",
+      "Impressions": "226",
+      "Source CTR": "0.053099999999999994",
+      "Position": "8",
+      "Recalculated CTR": "0.05309734513274336",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46232",
+      "Clicks": "7",
+      "Impressions": "191",
+      "Source CTR": "0.0366",
+      "Position": "8.8",
+      "Recalculated CTR": "0.03664921465968586",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46233",
+      "Clicks": "8",
+      "Impressions": "226",
+      "Source CTR": "0.0354",
+      "Position": "9.2",
+      "Recalculated CTR": "0.035398230088495575",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46234",
+      "Clicks": "8",
+      "Impressions": "188",
+      "Source CTR": "0.0426",
+      "Position": "7.8",
+      "Recalculated CTR": "0.0425531914893617",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46235",
+      "Clicks": "7",
+      "Impressions": "208",
+      "Source CTR": "0.0337",
+      "Position": "10.3",
+      "Recalculated CTR": "0.03365384615384615",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46236",
+      "Clicks": "4",
+      "Impressions": "199",
+      "Source CTR": "0.020099999999999996",
+      "Position": "7.8",
+      "Recalculated CTR": "0.020100502512562814",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46237",
+      "Clicks": "12",
+      "Impressions": "222",
+      "Source CTR": "0.0541",
+      "Position": "8.2",
+      "Recalculated CTR": "0.05405405405405406",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46238",
+      "Clicks": "5",
+      "Impressions": "175",
+      "Source CTR": "0.0286",
+      "Position": "8.7",
+      "Recalculated CTR": "0.02857142857142857",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46239",
+      "Clicks": "5",
+      "Impressions": "250",
+      "Source CTR": "0.02",
+      "Position": "8.8",
+      "Recalculated CTR": "0.02",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46240",
+      "Clicks": "4",
+      "Impressions": "188",
+      "Source CTR": "0.0213",
+      "Position": "8.8",
+      "Recalculated CTR": "0.02127659574468085",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46241",
+      "Clicks": "7",
+      "Impressions": "163",
+      "Source CTR": "0.0429",
+      "Position": "7.8",
+      "Recalculated CTR": "0.04294478527607362",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46242",
+      "Clicks": "5",
+      "Impressions": "260",
+      "Source CTR": "0.0192",
+      "Position": "7.3",
+      "Recalculated CTR": "0.019230769230769232",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46243",
+      "Clicks": "6",
+      "Impressions": "347",
+      "Source CTR": "0.0173",
+      "Position": "8.2",
+      "Recalculated CTR": "0.01729106628242075",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46244",
+      "Clicks": "6",
+      "Impressions": "328",
+      "Source CTR": "0.0183",
+      "Position": "6.3",
+      "Recalculated CTR": "0.018292682926829267",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46245",
+      "Clicks": "7",
+      "Impressions": "382",
+      "Source CTR": "0.0183",
+      "Position": "10",
+      "Recalculated CTR": "0.01832460732984293",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46246",
+      "Clicks": "4",
+      "Impressions": "257",
+      "Source CTR": "0.015600000000000001",
+      "Position": "8.5",
+      "Recalculated CTR": "0.01556420233463035",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46247",
+      "Clicks": "7",
+      "Impressions": "238",
+      "Source CTR": "0.0294",
+      "Position": "7.8",
+      "Recalculated CTR": "0.029411764705882353",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46248",
+      "Clicks": "5",
+      "Impressions": "193",
+      "Source CTR": "0.0259",
+      "Position": "6.9",
+      "Recalculated CTR": "0.025906735751295335",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46249",
+      "Clicks": "2",
+      "Impressions": "225",
+      "Source CTR": "0.0089",
+      "Position": "8.1",
+      "Recalculated CTR": "0.008888888888888889",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46250",
+      "Clicks": "2",
+      "Impressions": "266",
+      "Source CTR": "0.0075",
+      "Position": "7.6",
+      "Recalculated CTR": "0.007518796992481203",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46251",
+      "Clicks": "6",
+      "Impressions": "189",
+      "Source CTR": "0.0317",
+      "Position": "7.3",
+      "Recalculated CTR": "0.031746031746031744",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46252",
+      "Clicks": "4",
+      "Impressions": "169",
+      "Source CTR": "0.023700000000000002",
+      "Position": "7.6",
+      "Recalculated CTR": "0.023668639053254437",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46253",
+      "Clicks": "4",
+      "Impressions": "128",
+      "Source CTR": "0.031200000000000002",
+      "Position": "8.4",
+      "Recalculated CTR": "0.03125",
+      "Data-quality flag": "OK"
+    },
+    {
+      "Date": "46254",
+      "Clicks": "7",
+      "Impressions": "117",
+      "Source CTR": "0.059800000000000006",
+      "Position": "8.8",
+      "Recalculated CTR": "0.05982905982905983",
+      "Data-quality flag": "OK"
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}

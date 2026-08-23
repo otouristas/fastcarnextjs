@@ -6,7 +6,7 @@ const ls = (en: string, el?: string, it?: string, fr?: string, de?: string) => (
 
 export const LOCATIONS: Location[] = [
   {
-    slug: "airport-pickup-jnx",
+    slug: "airport-pickup",
     type: "airport",
     name: ls("Naxos Airport (JNX) car rental & meet-and-greet", "Ενοικίαση αυτοκινήτου αεροδρόμιο Νάξου (JNX)", "Noleggio aeroporto di Naxos (JNX)", "Location voiture aéroport Naxos (JNX)", "Mietwagen Flughafen Naxos (JNX)"),
     shortName: "JNX Airport",

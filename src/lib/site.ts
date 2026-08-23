@@ -18,27 +18,44 @@ export const SITE = {
   phones: ["+306948820568"],
   whatsapp: "306948820568",
   email: "info@fmrnaxos.gr",
-  // Compatibility-only placeholders for templates removed by the next stacked
-  // branch. They are deliberately empty and must not be used as facts.
-  owners: [] as readonly string[],
-  founded: "",
-  geo: { lat: 0, lng: 0 },
+  // Presentation mirror of the verified facts in src/content/business-facts.ts,
+  // which holds the source references, reviewer and review date. Change a value
+  // there first, then here — never the other way round.
+  owners: ["Marios", "Ria"] as readonly string[],
+  founded: "2018",
+  geo: { lat: 37.1036, lng: 25.3771 },
   address: {
-    street: "",
+    street: "Chora",
     locality: "Naxos",
-    region: "",
-    postalCode: "",
+    region: "South Aegean",
+    postalCode: "84300",
     country: "GR",
   },
-  hours: { open: "", close: "", days: [] as readonly string[] },
-  priceRange: "",
+  hours: {
+    open: "08:00",
+    close: "22:00",
+    days: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"] as readonly string[],
+    season: "May–October",
+  },
+  priceRange: "€€",
   currency: "EUR",
-  areaServed: [] as readonly string[],
+  paymentAccepted: "Cash, Credit Card, Debit Card",
+  areaServed: [
+    "Naxos Airport",
+    "Naxos Port",
+    "Naxos Town",
+    "Agios Prokopios",
+    "Agia Anna",
+    "Plaka",
+    "Stelida",
+    "Mikri Vigla",
+  ] as readonly string[],
   social: {
     facebook: "https://www.facebook.com/fastmotorentalnaxos",
     instagram: "https://www.instagram.com/fastmotorentalnaxos",
   },
-  rating: { value: "", count: "" },
+  // Mirrors BUSINESS_FACTS.reputation.rating; see reviews-google.json.
+  rating: { value: "4.9", count: "222" },
   flags: {
     touristasEnabled: false,
     cookieBannerEnabled: true,

@@ -123,10 +123,114 @@ for (const entry of publishedEntries.filter((item) => item.data.locale === "el")
   }
 }
 
+// ---------------------------------------------------------------------------
+// Pass 2: the TypeScript content modules.
+//
+// content/editorial/ is the intended MDX workflow but holds no topics yet, so
+// every guard above currently runs over zero files while all shipped content
+// lives in src/content/*.ts. These checks cover what actually renders.
+// ---------------------------------------------------------------------------
+
+const CONTENT_TS = path.resolve("src/content");
+
+/**
+ * The fleet is cars-only. Pages may discuss scooters, ATVs, quads and buggies —
+ * /fleet/scooters exists precisely to answer that query — but nothing may imply
+ * that *we* rent them. This looks for first-person inventory claims only, not
+ * for the words themselves.
+ */
+const FIRST_PERSON_TWO_WHEELER =
+  /\b(?:we|our|us)\b[^.!?]{0,60}\b(?:rent|rents|renting|rental|hire|hires|hiring|fleet|offer|offers|available)\w*[^.!?]{0,40}\b(?:scooters?|mopeds?|motorbikes?|motorcycles?|atvs?|quads?|bugg(?:y|ies))\b|\b(?:scooters?|mopeds?|motorbikes?|motorcycles?|atvs?|quads?|bugg(?:y|ies))\b[^.!?]{0,40}\b(?:from|with)\s+us\b/i;
+
+/** Modules whose Greek must be real Greek, not an ls() fallback to English. */
+const STRICT_GREEK = new Set(["scooter-guide.ts"]);
+
+async function listTs(dir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const nested = await Promise.all(
+    entries.map(async (entry) => {
+      const target = path.join(dir, entry.name);
+      if (entry.isDirectory()) return listTs(target);
+      return entry.isFile() && entry.name.endsWith(".ts") ? [target] : [];
+    }),
+  );
+  return nested.flat();
+}
+
+/**
+ * Count ls() calls that pass only an English string. Those fall back to English
+ * for every other locale, so the page ships English under lang="el" while still
+ * claiming hreflang="el" — a duplicate-content and hreflang mismatch.
+ */
+function countEnglishOnlyLs(source) {
+  // Strip line comments so prose in comments cannot trip the scan.
+  const code = source.replace(/^\s*\/\/.*$/gm, "");
+  let total = 0;
+  let englishOnly = 0;
+  for (const match of code.matchAll(/\bls\(/g)) {
+    let i = match.index + match[0].length;
+    let depth = 1;
+    let quote = null;
+    let commas = 0;
+    while (i < code.length && depth > 0) {
+      const ch = code[i];
+      if (quote) {
+        if (ch === "\\") i++;
+        else if (ch === quote) quote = null;
+      } else if (ch === '"' || ch === "'" || ch === "`") {
+        quote = ch;
+      } else if (ch === "(" || ch === "[" || ch === "{") {
+        depth++;
+      } else if (ch === ")" || ch === "]" || ch === "}") {
+        depth--;
+      } else if (ch === "," && depth === 1) {
+        commas++;
+      }
+      i++;
+    }
+    total++;
+    if (commas === 0) englishOnly++;
+  }
+  return { total, englishOnly };
+}
+
+const tsFiles = await listTs(CONTENT_TS);
+const fallbackWarnings = [];
+
+for (const file of tsFiles) {
+  const source = await readFile(file, "utf8");
+  const rel = path.relative(process.cwd(), file);
+  const base = path.basename(file);
+
+  // Skip the block comment at the top of a module so explanatory prose about
+  // why we stopped renting two-wheelers is not read as an inventory claim.
+  const prose = source.replace(/\/\*[\s\S]*?\*\//g, "");
+  if (FIRST_PERSON_TWO_WHEELER.test(prose)) {
+    errors.push(`${rel}: implies the fleet rents two-wheelers or ATVs (cars only)`);
+  }
+
+  const { total, englishOnly } = countEnglishOnlyLs(source);
+  if (englishOnly === 0) continue;
+  if (STRICT_GREEK.has(base)) {
+    errors.push(
+      `${rel}: ${englishOnly}/${total} ls() entries are English-only, but this module must ship real Greek`,
+    );
+  } else {
+    fallbackWarnings.push(`${rel}: ${englishOnly}/${total} ls() entries fall back to English`);
+  }
+}
+
 if (errors.length > 0) {
   console.error(`Content validation failed with ${errors.length} issue(s):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`Content validation passed for ${files.length} editorial file(s).`);
+console.log(`Content validation passed for ${files.length} editorial file(s) and ${tsFiles.length} content module(s).`);
+
+if (fallbackWarnings.length > 0) {
+  // Not fatal yet: these pages are live and indexed. Tracked as the Greek
+  // quality gate — translate, or drop the hreflang alternate until translated.
+  console.warn(`\n${fallbackWarnings.length} module(s) serve English under non-English locales:`);
+  for (const warning of fallbackWarnings) console.warn(`- ${warning}`);
+}

@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Raw scraper output. src/content/reviews-google.json is the committed,
+# normalised dataset; this is the intermediate the scrape writes.
+.tmp/

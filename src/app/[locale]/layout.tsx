@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
+import { Manrope, Outfit } from "next/font/google";
 import Script from "next/script";
 import "../globals.css";
 import { LOCALES, isLocale, LOCALE_META } from "@/lib/site";
@@ -17,8 +17,22 @@ import { graph, organizationSchema, localBusinessSchema, websiteSchema } from "@
 import { ConsentAwareAnalytics } from "@/components/analytics/ConsentAwareAnalytics";
 
 const outfit = Outfit({
+  // Outfit ships no Greek subset, so Greek body copy falls through to the
+  // Manrope stack below rather than to a system face. See globals.css `html`.
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+/**
+ * Display face for headings. --font-heading used to be an alias of --font-sans,
+ * so `font-heading` was a no-op. The Greek subset is loaded because every H1 on
+ * /el is Greek and Outfit was carrying them alone.
+ */
+const manrope = Manrope({
+  subsets: ["latin", "greek"],
+  weight: ["700", "800"],
+  variable: "--font-heading-family",
   display: "swap",
 });
 
@@ -46,11 +60,10 @@ export const metadata: Metadata = {
   creator: SITE.brand,
   publisher: SITE.brand,
   formatDetection: { email: false, address: false, telephone: false },
-  icons: {
-    icon: SITE.favicon,
-    apple: SITE.favicon,
-    shortcut: SITE.favicon,
-  },
+  // No `icons` block: src/app/{favicon.ico,icon.png,apple-icon.png} are the
+  // file conventions, and Next emits the right rel/type/sizes for each. Setting
+  // metadata.icons here overrode all of them with a single 32px .ico, which is
+  // what an iOS home-screen shortcut was being handed.
   verification: {
     google: "pL-SeZBkk3W6jILNDB7fGwD_hJuVYmXNENO0DhFvYMo",
   },
@@ -58,8 +71,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#edf5fc" },
-    { media: "(prefers-color-scheme: dark)", color: "#061521" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f0e8" },
+    { media: "(prefers-color-scheme: dark)", color: "#071b2a" },
   ],
   colorScheme: "light dark",
 };
@@ -82,7 +95,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={LOCALE_META[locale].htmlLang}
-      className={`${outfit.variable} h-full antialiased`}
+      className={`${outfit.variable} ${manrope.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-foreground flex flex-col">
@@ -93,6 +106,10 @@ export default async function LocaleLayout({
           {consentModeScript}
         </Script>
         <div className="flex min-h-full flex-col">
+          {/* llms.txt discovery (llmstxt.org). React hoists this into <head>.
+              No markdown alternate is declared — no markdown equivalents exist,
+              and pointing at one that 404s is worse than omitting the hint. */}
+          <link rel="describedby" href={`${SITE.domain}/llms.txt`} type="text/plain" />
           <JsonLd data={graph([organizationSchema(), localBusinessSchema(locale), websiteSchema(locale)])} />
           <ScrollRestore />
           <Header locale={locale} dict={dict} />

@@ -1,0 +1,95 @@
+{
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx",
+  "sheets": [
+    {
+      "file": "01_command_center.json",
+      "sheet": "Command Center",
+      "rows": 19
+    },
+    {
+      "file": "02_gsc_daily.json",
+      "sheet": "GSC Daily",
+      "rows": 68
+    },
+    {
+      "file": "03_gsc_queries.json",
+      "sheet": "GSC Queries",
+      "rows": 258
+    },
+    {
+      "file": "04_gsc_pages.json",
+      "sheet": "GSC Pages",
+      "rows": 92
+    },
+    {
+      "file": "05_site_crawl.json",
+      "sheet": "Site Crawl",
+      "rows": 149
+    },
+    {
+      "file": "06_keyword_universe.json",
+      "sheet": "Keyword Universe",
+      "rows": 290
+    },
+    {
+      "file": "07_fanout_matrix.json",
+      "sheet": "Fanout Matrix",
+      "rows": 18
+    },
+    {
+      "file": "08_url_master_plan.json",
+      "sheet": "URL Master Plan",
+      "rows": 100
+    },
+    {
+      "file": "09_exact_content_en.json",
+      "sheet": "Exact Content EN",
+      "rows": 50
+    },
+    {
+      "file": "10_exact_content_el.json",
+      "sheet": "Exact Content EL",
+      "rows": 50
+    },
+    {
+      "file": "11_paa_and_answers.json",
+      "sheet": "PAA & Answers",
+      "rows": 24
+    },
+    {
+      "file": "12_schema_json_ld.json",
+      "sheet": "Schema JSON-LD",
+      "rows": 100
+    },
+    {
+      "file": "13_internal_links.json",
+      "sheet": "Internal Links",
+      "rows": 94
+    },
+    {
+      "file": "14_ai_and_crawl_files.json",
+      "sheet": "AI & Crawl Files",
+      "rows": 6
+    },
+    {
+      "file": "15_competitors.json",
+      "sheet": "Competitors",
+      "rows": 6
+    },
+    {
+      "file": "16_redesign_system.json",
+      "sheet": "Redesign System",
+      "rows": 34
+    },
+    {
+      "file": "17_90_day_plan.json",
+      "sheet": "90-Day Plan",
+      "rows": 15
+    },
+    {
+      "file": "18_sources_and_assumptions.json",
+      "sheet": "Sources & Assumptions",
+      "rows": 20
+    }
+  ]
+}

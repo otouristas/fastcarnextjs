@@ -6,6 +6,7 @@ import {
   VEHICLE_COLLECTION_SLUGS,
   vehiclesForCollection,
 } from "@/content/vehicle-collections";
+import { minShoulderPrice } from "@/content/fleet";
 import { getDict } from "@/i18n/dictionaries";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import {
@@ -46,11 +47,17 @@ export async function generateMetadata({
   if (!isLocale(locale) || !isCollectionSlug(slug)) return {};
   const dict = await getDict(locale);
   const title = collectionTitle(slug, dict);
+  const vehicles = vehiclesForCollection(slug);
+  const minPrice = minShoulderPrice(vehicles);
+  const pricePhrase = minPrice != null ? ` from €${minPrice}${dict.common.perDay}` : "";
+  const description = `${title} on Naxos: ${vehicles.length} vehicles${pricePhrase}, ${dict.trust.delivery.toLowerCase()}. ${dict.trust.unlimited}, ${dict.trust.transparent.toLowerCase()}.`;
+
   return buildMetadata({
     locale,
     path: `fleet/collections/${slug}`,
     title,
-    description: `${title} · ${SITE.tagline[locale]}`,
+    description,
+    keywords: [`${slug.replace(/-/g, " ")} car rental naxos`, "naxos car rental", "rent a car naxos"],
   });
 }
 

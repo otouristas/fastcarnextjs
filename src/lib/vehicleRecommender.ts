@@ -47,7 +47,7 @@ const RULES: SlugRule[] = [
     },
   },
   {
-    slugs: ["naxos-town", "airport-pickup-jnx", "port-pickup"],
+    slugs: ["naxos-town", "airport-pickup", "port-pickup"],
     preferred: ["hyundai-i10", "toyota-aygo", "fiat-panda"],
     reason: {
       en: "Compact and easy to park in Chora",

@@ -7,17 +7,22 @@ import { usePathname } from "next/navigation";
 import { SITE, type Locale, localePath, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
 import type { Dict } from "@/i18n/types";
 import { LOCATIONS } from "@/content/locations";
+import { NAXOS_GUIDE_ARTICLES } from "@/content/naxos-guide";
+import { VEHICLES, minShoulderPrice } from "@/content/fleet";
+import { vehiclesForCollection } from "@/content/vehicle-collections";
+import { ScooterIcon } from "@/components/fleet/CategoryIcons";
 import { whatsappUrl } from "@/lib/whatsapp";
 import {
-  Phone, ChevronDown, Mail, Clock, Star,
+  Phone, ChevronDown, Mail, Clock, Star, Car, Cog, LayoutGrid, Mountain, Users,
 } from "lucide-react";
 import { MobileMenu, type MenuLink } from "./MobileMenu";
 import { ThemeToggle } from "./ThemeToggle";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
-interface MegaLink extends MenuLink {
-  badge?: string;
-}
+// icon/meta/badge all live on MenuLink so the desktop mega-menu and the mobile
+// drawer render the same tiles from one config, instead of the mobile drawer
+// silently dropping half of every entry.
+type MegaLink = MenuLink;
 
 interface MegaGroup {
   title: string;
@@ -35,9 +40,22 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  // "From" prices are the real minimum shoulder-season rate in each collection,
+  // read from the fleet data rather than typed in, so a price change in
+  // src/content/fleet.ts can never leave a stale number in the navigation.
+  const fromPrice = (vehicles: typeof VEHICLES) => {
+    const min = minShoulderPrice(vehicles);
+    return min == null ? undefined : `${dict.common.from} €${min}${dict.common.perDay}`;
+  };
+
   const fleetLinks: MegaLink[] = [
-    { href: localePath(locale, "fleet/cars"), label: dict.nav.cars, description: dict.fleetHub.categoryCars },
-    { href: localePath(locale, "fleet"), label: dict.nav.fleet, description: dict.fleetHub.subtitle },
+    { href: localePath(locale, "fleet/cars"), label: dict.nav.cars, description: dict.fleetHub.categoryCars, icon: <Car className="h-5 w-5" />, meta: fromPrice(VEHICLES) },
+    { href: localePath(locale, "fleet"), label: dict.nav.fleet, description: dict.fleetHub.subtitle, icon: <LayoutGrid className="h-5 w-5" />, meta: `${VEHICLES.length} ${dict.nav.cars.toLowerCase()}` },
+    { href: localePath(locale, "fleet/collections/automatic"), label: "Automatic cars", description: "Automatic transmission across the fleet", icon: <Cog className="h-5 w-5" />, meta: fromPrice(vehiclesForCollection("automatic")) },
+    { href: localePath(locale, "fleet/collections/suv-4x4"), label: "SUV & 4x4", description: "For the mountain roads and unpaved tracks", icon: <Mountain className="h-5 w-5" />, meta: fromPrice(vehiclesForCollection("suv-4x4")) },
+    { href: localePath(locale, "fleet/collections/family-7-seater"), label: "Family & 7-seater", description: "Groups of five or more with luggage", icon: <Users className="h-5 w-5" />, meta: fromPrice(vehiclesForCollection("family-7-seater")) },
+    // No price: we do not rent these. The page is an honest answer, not a listing.
+    { href: localePath(locale, "fleet/scooters"), label: "Scooter rental in Naxos", description: "Why we rent cars, and when a scooter suits", icon: <ScooterIcon className="h-5 w-5" /> },
   ];
   const infoLinks: MegaLink[] = [
     { href: localePath(locale, "pricing"), label: dict.nav.pricing, description: dict.pricing.subtitle },
@@ -50,9 +68,14 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
   ];
   const exploreLinks: MegaLink[] = [
     { href: localePath(locale, "naxos"), label: dict.naxos.pageTitle, description: dict.naxos.pageSubtitle, badge: "Guide" },
+    ...NAXOS_GUIDE_ARTICLES.slice(0, 5).map((a) => ({
+      href: localePath(locale, `naxos/${a.slug}`),
+      label: a.title[locale],
+      description: a.excerpt[locale],
+    })),
     { href: localePath(locale, "naxos/beaches"), label: dict.naxos.beachesTitle, description: "Beaches, villages & best vehicle picks" },
     { href: localePath(locale, "locations"), label: dict.nav.locations, description: dict.locationsHub.subtitle },
-    ...LOCATIONS.slice(0, 4).map((l) => ({
+    ...LOCATIONS.slice(0, 3).map((l) => ({
       href: localePath(locale, `locations/${l.slug}`),
       label: l.shortName,
       description: l.hero[locale],
@@ -144,7 +167,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
           <div className="flex items-center gap-2">
             <a
               href={`tel:${SITE.phones[0]}`}
-              className="hidden h-10 w-10 items-center justify-center rounded-lg border text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] hover:text-[var(--sea)] dark:text-white sm:flex" style={{ borderColor: 'rgba(26,143,197,0.20)', background: 'transparent' }}
+              className="hidden h-10 w-10 items-center justify-center rounded-lg border text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] hover:text-[var(--sea)] dark:text-white sm:flex" style={{ borderColor: 'rgba(7,27,42,0.20)', background: 'transparent' }}
               aria-label={dict.nav.call}
             >
               <Phone className="h-4 w-4" />
@@ -154,7 +177,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
               href={whatsappUrl(dict.whatsAppFab.message)}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden h-10 w-10 items-center justify-center rounded-lg border shadow-sm hover:border-green-400 sm:flex" style={{ borderColor: 'rgba(26,143,197,0.20)', background: 'transparent' }}
+              className="hidden h-10 w-10 items-center justify-center rounded-lg border shadow-sm hover:border-green-400 sm:flex" style={{ borderColor: 'rgba(7,27,42,0.20)', background: 'transparent' }}
               aria-label="WhatsApp"
             >
               <WhatsAppIcon className="h-6 w-6" />
@@ -164,7 +187,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
               href={SITE.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-lg bg-brand-gradient px-6 py-3 text-[13px] font-bold uppercase tracking-[0.12em] text-white shadow-lg sm:inline-flex" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
+              className="hidden items-center gap-2 rounded-lg bg-brand-gradient px-6 py-3 text-[13px] font-bold uppercase tracking-[0.12em] text-white shadow-lg sm:inline-flex" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
             >
               {dict.nav.bookNow}
             </a>
@@ -214,6 +237,14 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
                       href={link.href}
                       className="flex h-full items-start gap-2 rounded-2xl border border-transparent p-3.5 transition-colors hover:border-border hover:bg-white dark:hover:border-white/10 dark:hover:bg-white/10"
                     >
+                      {link.icon && (
+                        <span
+                          aria-hidden="true"
+                          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]"
+                        >
+                          {link.icon}
+                        </span>
+                      )}
                       <span className="min-w-0">
                         <span className="flex items-center gap-1.5 text-sm font-bold text-[var(--ink)] dark:text-white">
                           {link.label}
@@ -224,6 +255,11 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
                           )}
                         </span>
                         <span className="mt-0.5 line-clamp-2 block text-xs leading-5 text-muted-foreground">{link.description}</span>
+                        {link.meta && (
+                          <span className="mt-1 block text-[11px] font-bold text-[var(--link)] dark:text-[var(--sea-2)]">
+                            {link.meta}
+                          </span>
+                        )}
                       </span>
                     </Link>
                   </li>
@@ -234,7 +270,7 @@ function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
             {group.cta && (
               <Link
                 href={group.cta.href}
-                className="relative flex min-h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-brand-gradient p-6 text-white shadow-xl" style={{ boxShadow: '0 20px 60px rgba(0,119,182,0.30)' }}
+                className="relative flex min-h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-brand-gradient p-6 text-white shadow-xl" style={{ boxShadow: '0 20px 60px rgba(7,27,42,0.30)' }}
               >
                 <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-white/15 blur-2xl" />
                 <div aria-hidden="true" className="pointer-events-none absolute -left-12 -bottom-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />

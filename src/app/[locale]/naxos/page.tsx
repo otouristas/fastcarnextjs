@@ -9,7 +9,27 @@ import { VEHICLES } from "@/content/fleet";
 import { recommendForLocation } from "@/lib/vehicleRecommender";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { ArrowRight, MapPin, Mountain, Droplets, Wheat, Info, ExternalLink } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { DiscoverCycladesBox } from "@/components/guide/DiscoverCycladesBox";
+import {
+  NAXOS_GUIDE_ARTICLES,
+  NAXOS_GUIDE_CLUSTERS,
+  articlesInCluster,
+} from "@/content/naxos-guide";
+import {
+  breadcrumbSchema,
+  graph,
+  itemListSchema,
+  touristDestinationSchema,
+} from "@/lib/schema";
+import { ArrowRight, MapPin, Mountain, Droplets, Wheat, Info, ExternalLink, BookOpen } from "lucide-react";
+
+const CLUSTER_LABELS: Record<(typeof NAXOS_GUIDE_CLUSTERS)[number], string> = {
+  plan: "Plan your trip",
+  explore: "Explore the island",
+  arrive: "Getting here",
+  "eat-stay": "Eat and sleep",
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -114,6 +134,25 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
+      <JsonLd
+        data={graph([
+          touristDestinationSchema(locale),
+          itemListSchema(
+            NAXOS_GUIDE_ARTICLES.map((a) => ({
+              name: a.title[locale],
+              url: `${SITE.domain}${localePath(locale, `naxos/${a.slug}`)}`,
+              image: a.hero,
+              description: a.excerpt[locale],
+            })),
+            { name: "Naxos island guide", id: `${SITE.domain}#naxos-guide` },
+          ),
+          breadcrumbSchema([
+            { name: dict.nav.home, url: `${SITE.domain}${localePath(locale)}` },
+            { name: "Naxos", url: `${SITE.domain}${localePath(locale, "naxos")}` },
+          ]),
+        ])}
+      />
+
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -164,7 +203,7 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
           <p className="mt-3 text-xs text-muted-foreground">
             <Info className="mr-1 inline h-3.5 w-3.5" />
             {nd.sourcedFrom}{" "}
-            <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer" className="text-[var(--sea)] underline-offset-2 hover:underline">
+            <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer" className="text-[var(--link)] underline underline-offset-2 hover:text-[var(--link-hover)]">
               Wikipedia  -  Naxos <ExternalLink className="inline h-3 w-3" />
             </a>
           </p>
@@ -232,7 +271,7 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
             </div>
             <div className="overflow-hidden rounded-3xl border border-border">
               <table className="w-full text-xs">
-                <thead className="bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
+                <thead className="bg-[var(--table-head)] text-[var(--prose-heading)]">
                   <tr>
                     {["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].map((m) => (
                       <th key={m} className="px-2 py-2 font-bold">{m}</th>
@@ -242,7 +281,7 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
                 <tbody>
                   <tr className="bg-white dark:bg-white/5">
                     {[14,14,16,19,23,27,29,29,26,22,18,15].map((t, i) => (
-                      <td key={i} className="px-2 py-2 text-center text-muted-foreground">{t}°</td>
+                      <td key={i} className="px-2 py-2 text-center text-[var(--prose-body)]">{t}°</td>
                     ))}
                   </tr>
                 </tbody>
@@ -313,7 +352,7 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
               <MapPin className="h-6 w-6 text-[var(--sea)]" />
               <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">{nd.beachesTitle}</h2>
             </div>
-            <Link href={localePath(locale, "naxos/beaches")} className="inline-flex items-center gap-1 text-sm font-bold text-[var(--sea)] hover:text-[var(--brand-2)]">
+            <Link href={localePath(locale, "naxos/beaches")} className="inline-flex items-center gap-1 text-sm font-bold text-[var(--link)] hover:text-[var(--link-hover)]">
               {nd.readMoreAbout} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -380,6 +419,71 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
         </section>
       )}
 
+      {/* ISLAND GUIDE — the editorial cluster that feeds the fleet pages */}
+      <section className="bg-background border-b border-border/70">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3">
+            <BookOpen className="h-6 w-6 text-[var(--sea)]" />
+            <h2 className="text-2xl font-extrabold text-foreground sm:text-3xl">
+              The complete Naxos guide
+            </h2>
+          </div>
+          <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            {NAXOS_GUIDE_ARTICLES.length} in-depth guides to the island, written by people
+            who drive it every day.
+          </p>
+
+          <div className="mt-10 space-y-12">
+            {NAXOS_GUIDE_CLUSTERS.map((cluster) => {
+              const articles = articlesInCluster(cluster);
+              if (articles.length === 0) return null;
+              return (
+                <div key={cluster}>
+                  <h3 className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--link)]">
+                    {CLUSTER_LABELS[cluster]}
+                  </h3>
+                  <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {articles.map((a) => (
+                      <Link
+                        key={a.slug}
+                        href={localePath(locale, `naxos/${a.slug}`)}
+                        className="island-card group flex flex-col overflow-hidden rounded-3xl transition-transform hover:-translate-y-1"
+                      >
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                          <Image
+                            src={a.hero}
+                            alt={a.title[locale]}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(6,21,33,0.55)] to-transparent" />
+                        </div>
+                        <div className="flex flex-1 flex-col gap-2 p-5">
+                          <h4 className="font-bold leading-tight text-[var(--ink)] group-hover:text-[var(--sea)] dark:text-white">
+                            {a.title[locale]}
+                          </h4>
+                          <p className="line-clamp-3 text-sm text-muted-foreground">
+                            {a.excerpt[locale]}
+                          </p>
+                          <span className="mt-auto inline-flex items-center gap-1 pt-2 text-xs font-bold text-[var(--sea)]">
+                            {dict.common.readArticle} <ArrowRight className="h-3 w-3" />
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mx-auto max-w-5xl">
+            <DiscoverCycladesBox locale={locale} slug="naxos-travel-guide" />
+          </div>
+        </div>
+      </section>
+
       {/* GALLERY */}
       <section className="bg-background border-b border-border/70">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -401,9 +505,9 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
       <section className="bg-sand dark:bg-[var(--background)]">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-foreground">{nd.referencesTitle}</h2>
-          <ol className="mt-4 space-y-2 text-xs text-muted-foreground">
-            <li>[1] Wikipedia contributors. “Naxos.” Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer" className="text-[var(--sea)] hover:underline">https://en.wikipedia.org/wiki/Naxos</a>. Accessed {new Date().getFullYear()}. Licensed under CC BY-SA 4.0.</li>
-            <li>[2] Wikipedia contributors. “Duchy of the Archipelago.” Wikipedia. <a href="https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago" target="_blank" rel="noopener noreferrer" className="text-[var(--sea)] hover:underline">https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago</a>. Accessed {new Date().getFullYear()}. CC BY-SA 4.0.</li>
+          <ol className="reference-list mt-4 space-y-2 text-xs text-muted-foreground">
+            <li>[1] Wikipedia contributors. “Naxos.” Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer" className="text-[var(--link)] underline underline-offset-2 hover:text-[var(--link-hover)]">https://en.wikipedia.org/wiki/Naxos</a>. Accessed {new Date().getFullYear()}. Licensed under CC BY-SA 4.0.</li>
+            <li>[2] Wikipedia contributors. “Duchy of the Archipelago.” Wikipedia. <a href="https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago" target="_blank" rel="noopener noreferrer" className="text-[var(--link)] underline underline-offset-2 hover:text-[var(--link-hover)]">https://en.wikipedia.org/wiki/Duchy_of_the_Archipelago</a>. Accessed {new Date().getFullYear()}. CC BY-SA 4.0.</li>
             <li>[3] Hellenic National Meteorological Service (HNMS) climate data, as cited in Wikipedia  -  Naxos. Licensed under CC BY-SA 4.0.</li>
             <li>[4] European Commission. “Arseniko Naxou” PDO registration. European Union geographical indications register.</li>
           </ol>

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { vehiclesByCategory } from "@/content/fleet";
+import { vehiclesByCategory, minShoulderPrice, maxHighPrice } from "@/content/fleet";
 import { FleetBrowser } from "@/components/fleet/FleetBrowser";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -47,8 +47,8 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
   const faqs = categoryFaqMap[cat]
     .map((slug) => FAQS.find((f) => f.slug === slug))
     .filter((f): f is (typeof FAQS)[number] => Boolean(f));
-  const minPrice = vehicles.length ? Math.min(...vehicles.map((v) => v.priceShoulder)) : 0;
-  const maxPrice = vehicles.length ? Math.max(...vehicles.map((v) => v.priceHigh)) : 0;
+  const minPrice = minShoulderPrice(vehicles);
+  const maxPrice = maxHighPrice(vehicles);
   const heroVehicle = vehicles[0];
   const categoryDetails = getCategoryDetails(cat, locale);
 
@@ -78,7 +78,7 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
               <h1 className="mt-5 max-w-4xl text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-6xl">{catLabels[cat]}</h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">{categoryDetails.description}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}>
+                <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}>
                   {dict.cta.bookCar} <ArrowRight className="h-4 w-4" />
                 </a>
                 <a href={`tel:${SITE.phones[0]}`} className="inline-flex items-center gap-2 rounded-full border border-border bg-white/75 px-6 py-3 text-sm font-bold text-[var(--ink)] shadow-sm dark:bg-white/10 dark:text-white">
@@ -91,7 +91,9 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
                 <div className="rounded-[1.5rem] sea-gradient p-6 text-white">
                   <Car className="h-9 w-9" />
                   <p className="mt-5 text-sm uppercase tracking-[0.2em] text-white/70">{navLabels[cat]}</p>
-                  <p className="mt-2 text-4xl font-extrabold">€{minPrice}–€{maxPrice}</p>
+                  <p className="mt-2 text-4xl font-extrabold">
+                    {minPrice != null && maxPrice != null ? `€${minPrice}–€${maxPrice}` : dict.cta.priceOnRequest}
+                  </p>
                   <p className="text-sm text-white/75">{dict.common.perDay}</p>
                 </div>
                 {heroVehicle && (

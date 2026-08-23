@@ -9,6 +9,7 @@ import { FAQS } from "@/content/faqs";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
+import { DiscoverCycladesBox } from "@/components/guide/DiscoverCycladesBox";
 import { articleSchema, breadcrumbSchema, faqPageSchema, graph } from "@/lib/schema";
 import { Clock, ArrowRight, Sparkles } from "lucide-react";
 
@@ -24,9 +25,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, slug } = await params;
   const g = GUIDES_BY_SLUG[slug];
   if (!isLocale(locale) || !g) return {};
+  // Several non-English excerpts are one-line summaries well under the ~155
+  // characters Google renders, which wastes most of the snippet. Top up from the
+  // opening section until the description is a usable length.
+  let description = g.excerpt[locale];
+  if (description.length < 110 && g.sections[0]) {
+    description = `${description} ${g.sections[0].body[locale]}`;
+  }
+
   return buildMetadata({
-    locale, path: `guides/${slug}`, title: g.title[locale], description: g.excerpt[locale],
-    image: g.hero, type: "article", publishedTime: g.publishedAt, modifiedTime: g.updatedAt,
+    locale,
+    path: `guides/${slug}`,
+    title: g.title[locale],
+    description,
+    image: g.hero,
+    type: "article",
+    publishedTime: g.publishedAt,
+    modifiedTime: g.updatedAt,
   });
 }
 
@@ -89,10 +104,10 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
           </article>
           <aside className="hidden lg:block">
             <div className="island-card sticky top-28 rounded-3xl p-4">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-2)]">{dict.toc}</p>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--link)]">{dict.toc}</p>
               <ul className="space-y-2 text-sm">
                 {g.sections.map((s, i) => (
-                  <li key={i}><a href={`#s${i}`} className="text-muted-foreground hover:text-[var(--sea)]">{s.heading[locale]}</a></li>
+                  <li key={i}><a href={`#s${i}`} className="text-[var(--prose-body)] hover:text-[var(--link)]">{s.heading[locale]}</a></li>
                 ))}
               </ul>
             </div>
@@ -101,6 +116,15 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
       </section>
 
       {faqs.length > 0 && <ContextualFaq faqs={faqs} locale={locale} dict={dict} />}
+
+      {/* Partner rail. This was rendering only on /naxos/* island articles, so
+          all 14 driving guides — the pages carrying the proven GSC demand —
+          shipped without it. Same component, same per-slug link selection. */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <DiscoverCycladesBox locale={locale} slug={slug} />
+        </div>
+      </section>
 
       {/* Internal Link Silo: Guide A -> Location B & Fleet C */}
       <section className="border-t border-border/70 bg-background/50 py-12">
@@ -114,7 +138,7 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
                 <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   ⚓ Rent a Car Naxos Port
                 </Link>
-                <Link href={localePath(locale, "locations/airport-pickup-jnx")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                <Link href={localePath(locale, "locations/airport-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
                   ✈️ Rent a Car Naxos Airport (JNX)
                 </Link>
                 <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">

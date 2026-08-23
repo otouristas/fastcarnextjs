@@ -12,36 +12,35 @@ const withMDX = createMDX({
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  // No guide redirects. Every guide here used to be 301'd into an unrelated page
+  // (the reviews comparison went to /about), which threw away ~65 clicks and
+  // ~4,600 impressions a quarter of already-earned ranking. They are live pages
+  // again. Locale-less paths are handled by the accept-language proxy in
+  // src/proxy.ts, so they do not need static redirect rules either.
+  //
+  // The one redirect that is genuinely topic-equivalent: the airport location
+  // slug. GSC, the URL master plan and both llms files all address it as
+  // /locations/airport-pickup, so the route moved to match and the old slug
+  // points at its exact counterpart rather than at a hub.
   async redirects() {
     return [
       {
-        source: "/:locale/guides/atv-vs-buggy-vs-car",
-        destination: "/:locale/guides/do-you-need-a-car-in-naxos",
+        source: "/:locale(en|el|it|fr|de)/locations/airport-pickup-jnx",
+        destination: "/:locale/locations/airport-pickup",
         permanent: true,
       },
       {
-        source: "/:locale/guides/best-car-rental-naxos-reviews-comparison",
-        destination: "/:locale/about",
+        source: "/locations/airport-pickup-jnx",
+        destination: "/en/locations/airport-pickup",
         permanent: true,
       },
+      // The single /sitemap.xml is now four group sitemaps behind an index.
+      // That URL is the one currently submitted in Search Console, so it keeps
+      // resolving — Google follows sitemap redirects — rather than 404ing and
+      // taking 345 URLs of reported coverage with it.
       {
-        source: "/:locale/guides/idp-greece-rules",
-        destination: "/:locale/guides/driving-in-naxos",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/new-greek-traffic-code-2026",
-        destination: "/:locale/guides/driving-in-naxos",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/naxos-car-rental-without-credit-card-insurance",
-        destination: "/:locale/guides/naxos-rent-a-car-prices-cost-breakdown",
-        permanent: true,
-      },
-      {
-        source: "/:locale/guides/rent-a-car-naxos-port-vs-airport-pickup-guide",
-        destination: "/:locale/guides/naxos-airport-jnx-guide",
+        source: "/sitemap.xml",
+        destination: "/sitemap-index.xml",
         permanent: true,
       },
     ];

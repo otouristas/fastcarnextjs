@@ -15,6 +15,9 @@ import { breadcrumbSchema, graph, vehicleSchema, faqPageSchema } from "@/lib/sch
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
 import { TermsAndCancellation } from "@/components/legal/TermsAndCancellation";
 import { whatsappUrl, whatsappVehicleMessage } from "@/lib/whatsapp";
+import { REVIEWS_SOURCE_URL, REVIEW_AGGREGATE } from "@/content/reviews";
+import { reviewForVehicle } from "@/content/vehicle-reviews";
+import { Stars } from "@/components/reviews/Stars";
 import {
   ArrowRight, Check, Users, Fuel, Gauge, DoorOpen, Wallet,
   Sparkles, Star, Phone, ShieldCheck, MapPin, BadgeCheck, CalendarDays,
@@ -102,14 +105,35 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const v = VEHICLES_BY_SLUG[slug];
   if (!isLocale(locale) || !v) return {};
   const dict = await getDict(locale);
+  // The tagline alone ran 40–60 characters, well under the ~155 Google renders,
+  // so the snippet was mostly empty space. Compose specs and the delivery offer
+  // into the description instead — the two things that actually earn the click.
+  const specs = [
+    v.seats ? `${v.seats} ${dict.common.seats}` : null,
+    v.transmission ? dict.common[v.transmission] : null,
+    v.fourByFour ? "4x4" : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+  const pricePart = v.priceShoulder != null ? `${dict.common.from} €${v.priceShoulder}${dict.common.perDay} — ` : "";
+  const description = `${v.tagline[locale]}. ${specs}. ${pricePart}${dict.trust.delivery}.`;
+
   return buildMetadata({
     locale,
     path: `fleet/${v.category}/${v.slug}`,
-    title: `${v.name[locale]}  -  ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`,
-    description: v.tagline[locale],
+    title:
+      v.priceShoulder != null
+        ? `${v.name[locale]}  -  ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`
+        : `${v.name[locale]}  -  ${dict.cta.priceOnRequest}`,
+    description,
     image: v.image,
     type: "product",
-    keywords: [`${v.brand} ${v.model} naxos`, `rent ${v.brand} ${v.model} naxos`, "naxos rental"],
+    keywords: [
+      `${v.brand} ${v.model} naxos`,
+      `rent ${v.brand} ${v.model} naxos`,
+      `${v.name[locale]} car rental naxos`,
+      "naxos car rental",
+    ],
   });
 }
 
@@ -124,10 +148,14 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
   const navLabels = {
     cars: dict.nav.cars,
   } as const;
+  const vehicleReview = reviewForVehicle(v.slug);
   const wm = whatsappVehicleMessage(v.name[locale], locale);
 
-  const weeklyPerDay = Math.round((v.priceWeekly / 7) * 10) / 10;
-  const savePct = v.priceShoulder > 0 ? Math.max(0, Math.round((1 - weeklyPerDay / v.priceShoulder) * 100)) : 0;
+  const weeklyPerDay = v.priceWeekly != null ? Math.round((v.priceWeekly / 7) * 10) / 10 : undefined;
+  const savePct =
+    weeklyPerDay != null && v.priceShoulder != null && v.priceShoulder > 0
+      ? Math.max(0, Math.round((1 - weeklyPerDay / v.priceShoulder) * 100))
+      : 0;
 
   return (
     <>
@@ -168,7 +196,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(15,37,51,0.55)] via-transparent to-transparent p-5">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md" style={{ boxShadow: '0 4px 12px rgba(0,119,182,0.25)' }}>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-md" style={{ boxShadow: '0 4px 12px rgba(7,27,42,0.25)' }}>
                       <BadgeCheck className="h-3.5 w-3.5" /> {navLabels[v.category]}
                     </span>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[var(--ink)] shadow-sm backdrop-blur dark:bg-[rgba(16,43,61,0.85)] dark:text-white">
@@ -205,36 +233,50 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 </div>
 
                 <div className="px-6 py-5">
-                  <div className="flex items-end justify-between gap-4">
-                    <div>
-                      <span className="text-xs uppercase tracking-wider text-muted-foreground">{dict.common.from}</span>
-                      <div className="text-5xl font-extrabold leading-none text-brand-gradient">€{v.priceShoulder}</div>
-                      <span className="text-sm text-muted-foreground">{dict.common.perDay}</span>
-                    </div>
-                    {savePct > 0 && (
-                      <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--accent-foreground)] dark:bg-white/10 dark:text-[var(--sea-2)]">
-                        {labels.saveBadge(savePct)}
-                      </span>
-                    )}
-                  </div>
+                  {/* Only vehicles with an owner-confirmed rate card show
+                      numbers. For the rest the booking engine is the only place
+                      a real price exists, and the panel says so. */}
+                  {v.priceShoulder != null ? (
+                    <>
+                      <div className="flex items-end justify-between gap-4">
+                        <div>
+                          <span className="text-xs uppercase tracking-wider text-muted-foreground">{dict.common.from}</span>
+                          <div className="text-5xl font-extrabold leading-none text-brand-gradient">€{v.priceShoulder}</div>
+                          <span className="text-sm text-muted-foreground">{dict.common.perDay}</span>
+                        </div>
+                        {savePct > 0 && (
+                          <span className="inline-flex items-center rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1 text-xs font-bold text-[var(--link)] dark:bg-white/10">
+                            {labels.saveBadge(savePct)}
+                          </span>
+                        )}
+                      </div>
 
-                  <dl className="mt-5 grid grid-cols-2 gap-2 rounded-2xl bg-secondary/60 p-3 text-sm dark:bg-white/5">
-                    <div>
-                      <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.high}</dt>
-                      <dd className="mt-0.5 font-semibold text-foreground">€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></dd>
+                      <dl className="mt-5 grid grid-cols-2 gap-2 rounded-2xl bg-secondary/60 p-3 text-sm dark:bg-white/5">
+                        <div>
+                          <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.high}</dt>
+                          <dd className="mt-0.5 font-semibold text-foreground">€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></dd>
+                        </div>
+                        <div>
+                          <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.weekly}</dt>
+                          <dd className="mt-0.5 font-semibold text-foreground">€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></dd>
+                        </div>
+                      </dl>
+                    </>
+                  ) : (
+                    <div className="rounded-2xl bg-secondary/60 p-4 dark:bg-white/5">
+                      <p className="text-2xl font-extrabold leading-tight text-brand-gradient">
+                        {dict.cta.priceOnRequest}
+                      </p>
+                      <p className="mt-1 text-sm text-muted-foreground">{dict.pricing.note}</p>
                     </div>
-                    <div>
-                      <dt className="text-xs uppercase tracking-wider text-muted-foreground">{dict.pricing.weekly}</dt>
-                      <dd className="mt-0.5 font-semibold text-foreground">€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></dd>
-                    </div>
-                  </dl>
+                  )}
 
                   <div className="mt-5 grid gap-2">
                     <a
                       href={SITE.bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.01]" style={{ boxShadow: '0 4px 20px rgba(0,119,182,0.25)' }}
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-[1.01]" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
                     >
                       {dict.cta.bookCar} <ArrowRight className="h-4 w-4" />
                     </a>
@@ -254,6 +296,37 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                         <Phone className="h-4 w-4 text-[var(--brand-2)]" /> {dict.nav.call}
                       </a>
                     </div>
+                  </div>
+
+                  {/* Verified proof, directly under the booking action. The
+                      aggregate describes the business; the quote only appears
+                      on the three vehicles a reviewer actually named. */}
+                  <div className="mt-5 border-t border-border pt-4">
+                    <a
+                      href={REVIEWS_SOURCE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-[var(--link)]"
+                    >
+                      <Stars rating={REVIEW_AGGREGATE.rating} className="h-3.5 w-3.5" label={`${REVIEW_AGGREGATE.rating} ${dict.reviews.ofFive}`} />
+                      {REVIEW_AGGREGATE.rating} · {REVIEW_AGGREGATE.total} {dict.reviews.google}
+                    </a>
+                    {vehicleReview && (
+                      <figure className="mt-3">
+                        <blockquote className="whitespace-pre-line text-sm italic leading-relaxed text-[var(--prose-body)]">
+                          “{vehicleReview.review.text}”
+                        </blockquote>
+                        <figcaption className="mt-2 text-xs font-semibold text-muted-foreground">
+                          <cite className="not-italic">{vehicleReview.review.author}</cite>
+                          {" · "}
+                          <time dateTime={vehicleReview.review.date}>
+                            {new Intl.DateTimeFormat(locale, { year: "numeric", month: "short" }).format(
+                              new Date(vehicleReview.review.date),
+                            )}
+                          </time>
+                        </figcaption>
+                      </figure>
+                    )}
                   </div>
 
                   <ul className="mt-5 grid gap-1.5 text-sm">
@@ -311,7 +384,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 {v.bestFor.map((b, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-[var(--accent-foreground)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-2)]/30 bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-[var(--link)] shadow-sm dark:bg-white/10"
                   >
                     <Sparkles className="h-3 w-3" />
                     {b[locale]}
@@ -349,9 +422,9 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                   </thead>
                   <tbody>
                     <tr className="border-t border-border dark:border-white/10">
-                      <td className="px-4 py-3 font-bold text-[var(--brand-2)]">€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></td>
-                      <td className="px-4 py-3 font-semibold text-foreground">€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></td>
-                      <td className="px-4 py-3 font-semibold text-foreground">€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></td>
+                      <td className="px-4 py-3 font-bold text-[var(--link)]">{v.priceShoulder != null ? <>€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></> : "—"}</td>
+                      <td className="px-4 py-3 font-semibold text-foreground">{v.priceHigh != null ? <>€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></> : "—"}</td>
+                      <td className="px-4 py-3 font-semibold text-foreground">{v.priceWeekly != null ? <>€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></> : "—"}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -469,7 +542,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
               <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
                 ⚓ Naxos Port Ferry Pickup
               </Link>
-              <Link href={localePath(locale, "locations/airport-pickup-jnx")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
+              <Link href={localePath(locale, "locations/airport-pickup")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
                 ✈️ Naxos Airport (JNX) Terminal Pickup
               </Link>
               <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border bg-card px-3.5 py-2 text-foreground hover:border-[var(--sea)] hover:text-[var(--sea)] shadow-sm">
@@ -519,7 +592,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
 
 function SectionEyebrow({ children, icon }: { children: React.ReactNode; icon: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--sea-2)]/30 bg-[var(--sea-soft)]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--sea-2)]/30 bg-[var(--sea-soft)]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--link)] shadow-sm dark:bg-white/10">
       {icon}
       {children}
     </span>

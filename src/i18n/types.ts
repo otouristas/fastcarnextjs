@@ -6,6 +6,7 @@ export interface Dict {
     book: string; bookNow: string; whatsapp: string; call: string; menu: string;
   };
   common: {
+    bags: string;
     perDay: string; from: string; week: string; days: string; seats: string;
     doors: string; transmission: string; fuel: string; automatic: string;
     manual: string; gasoline: string; diesel: string; hybrid: string;
@@ -21,11 +22,20 @@ export interface Dict {
   why: { title: string; subtitle: string; items: { title: string; body: string }[] };
   fleetTeaser: { title: string; cars: string; scooters: string; atvQuad: string; buggy: string };
   delivery: { title: string; subtitle: string; points: string[] };
-  reviews: { title: string; subtitle: string; google: string };
+  reviews: {
+    title: string; subtitle: string; google: string;
+    verified: string; sortLabel: string; sortNewest: string; sortOldest: string;
+    filterRating: string; allRatings: string; starsOnly: string; critical: string;
+    filterLanguage: string; allLanguages: string;
+    showingOf: string; loadMore: string; readMore: string; readLess: string;
+    viewOnGoogle: string; writeReview: string; ofFive: string; updated: string;
+    noneMatch: string;
+  };
   faqTeaser: { title: string; subtitle: string; cta: string };
   footer: {
     rights: string; description: string; fleet: string; company: string;
     legal: string; languages: string; contact: string; explore: string;
+    payWith: string;
   };
   fleetHub: {
     title: string; subtitle: string; categoryCars: string; categoryScooters: string;
@@ -51,7 +61,8 @@ export interface Dict {
   book: { title: string; subtitle: string; continue: string; talkToHuman: string };
   whatsAppFab: { label: string; message: string };
   toc: string;
-  cta: { bookCar: string; whatsappQuote: string; callNow: string; seeFleet: string };
+  cta: {
+    priceOnRequest: string; bookCar: string; whatsappQuote: string; callNow: string; seeFleet: string };
   theme: { light: string; dark: string; system: string; toggleLabel: string };
   a11y: { skipToContent: string; openMenu: string; closeMenu: string };
   trust: { delivery: string; unlimited: string; transparent: string; owner: string };

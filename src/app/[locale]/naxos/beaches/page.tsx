@@ -36,7 +36,7 @@ const LOCATION_IMAGES: Record<string, string> = {
   "apollonas": "/images/naxos/apollonas.jpg",
   "chalki": "/images/naxos/halki.jpg",
   "naxos-town": "/images/naxos/chora.jpg",
-  "airport-pickup-jnx": "/images/naxos/chora.jpg",
+  "airport-pickup": "/images/naxos/chora.jpg",
   "port-pickup": "/images/naxos/chora.jpg",
 };
 

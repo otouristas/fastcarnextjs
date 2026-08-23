@@ -41,6 +41,12 @@ function getVehiclePrice(v: Vehicle) {
   return v.priceShoulder;
 }
 
+/** Sort key for price. Unpriced vehicles sort last in both directions rather
+ *  than being treated as free. */
+function priceRank(v: Vehicle, desc = false) {
+  return v.priceShoulder ?? (desc ? -Infinity : Infinity);
+}
+
 const DEFAULT_FILTERS: Filters = {
   transmission: "any",
   seats: null,
@@ -55,8 +61,10 @@ function applyFilters(vehicles: Vehicle[], f: Filters): Vehicle[] {
   let result = vehicles.filter((v) => {
     if (f.transmission !== "any" && v.transmission !== f.transmission) return false;
     if (f.seats !== null && (v.seats ?? 0) < f.seats) return false;
+    // A vehicle with no published rate is never excluded by the price slider —
+    // filtering it out would hide it behind a number it does not have.
     const price = getVehiclePrice(v);
-    if (price < f.priceMin || price > f.priceMax) return false;
+    if (price != null && (price < f.priceMin || price > f.priceMax)) return false;
     if (f.fourByFour && !v.fourByFour) return false;
     if (f.bestFor.size > 0) {
       const anyMatch = Array.from(f.bestFor).some((key) => matchesBestFor(v, key));
@@ -65,8 +73,8 @@ function applyFilters(vehicles: Vehicle[], f: Filters): Vehicle[] {
     return true;
   });
 
-  if (f.sort === "price-asc") result = [...result].sort((a, b) => a.priceShoulder - b.priceShoulder);
-  else if (f.sort === "price-desc") result = [...result].sort((a, b) => b.priceShoulder - a.priceShoulder);
+  if (f.sort === "price-asc") result = [...result].sort((a, b) => priceRank(a) - priceRank(b));
+  else if (f.sort === "price-desc") result = [...result].sort((a, b) => priceRank(b, true) - priceRank(a, true));
   else if (f.sort === "largest") result = [...result].sort((a, b) => (b.seats ?? 0) - (a.seats ?? 0));
 
   return result;
@@ -208,9 +216,12 @@ export function FleetBrowser({
       {/* 4×4 toggle */}
       <FilterSection title="">
         <label className="flex cursor-pointer items-center gap-3">
+          {/* A wrapping <label> only names real form controls, so a div with
+              role="checkbox" needs its name stated explicitly. */}
           <div
             role="checkbox"
             aria-checked={filters.fourByFour}
+            aria-label={ff.fourByFourOnly}
             tabIndex={0}
             onClick={() => update("fourByFour", !filters.fourByFour)}
             onKeyDown={(e) => e.key === " " && update("fourByFour", !filters.fourByFour)}

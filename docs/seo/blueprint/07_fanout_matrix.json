@@ -1,0 +1,179 @@
+{
+  "sheet": "Fanout Matrix",
+  "title": "Query Fan-out Matrix",
+  "note": "One canonical URL per cluster. Expand modifiers inside the target page unless intent materially changes.",
+  "columns": [
+    "Parent",
+    "Modifier / sub-intent",
+    "English query",
+    "Greek query",
+    "Canonical URL template",
+    "Intent",
+    "Rule"
+  ],
+  "rows": [
+    {
+      "Parent": "Car rental",
+      "Modifier / sub-intent": "Core",
+      "English query": "car rental Naxos",
+      "Greek query": "ενοικίαση αυτοκινήτου Νάξος",
+      "Canonical URL template": "/{lang}",
+      "Intent": "Transactional",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Car rental",
+      "Modifier / sub-intent": "Price",
+      "English query": "Naxos car rental prices",
+      "Greek query": "τιμές ενοικίασης αυτοκινήτου Νάξος",
+      "Canonical URL template": "/{lang}/pricing",
+      "Intent": "Commercial",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Car rental",
+      "Modifier / sub-intent": "Reviews",
+      "English query": "best car rental Naxos reviews",
+      "Greek query": "καλύτερη ενοικίαση αυτοκινήτου Νάξος αξιολογήσεις",
+      "Canonical URL template": "/{lang}/guides/best-car-rental-naxos-reviews-comparison",
+      "Intent": "Commercial",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Car rental",
+      "Modifier / sub-intent": "Payment",
+      "English query": "Naxos car rental without credit card",
+      "Greek query": "ενοικίαση αυτοκινήτου Νάξος χωρίς πιστωτική",
+      "Canonical URL template": "/{lang}/guides/naxos-car-rental-without-credit-card-insurance",
+      "Intent": "Commercial",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Car rental",
+      "Modifier / sub-intent": "Insurance",
+      "English query": "Naxos car rental insurance",
+      "Greek query": "ασφάλεια ενοικιαζόμενου Νάξος",
+      "Canonical URL template": "/{lang}/insurance",
+      "Intent": "Commercial",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Pickup",
+      "Modifier / sub-intent": "Port",
+      "English query": "Naxos port car rental",
+      "Greek query": "ενοικίαση αυτοκινήτου λιμάνι Νάξου",
+      "Canonical URL template": "/{lang}/locations/port-pickup",
+      "Intent": "Transactional",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Pickup",
+      "Modifier / sub-intent": "Airport",
+      "English query": "Naxos airport car rental",
+      "Greek query": "ενοικίαση αυτοκινήτου αεροδρόμιο Νάξου",
+      "Canonical URL template": "/{lang}/locations/airport-pickup",
+      "Intent": "Transactional",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Fleet",
+      "Modifier / sub-intent": "Automatic",
+      "English query": "automatic car rental Naxos",
+      "Greek query": "αυτόματο αυτοκίνητο Νάξος",
+      "Canonical URL template": "/{lang}/fleet/collections/automatic",
+      "Intent": "Transactional",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Fleet",
+      "Modifier / sub-intent": "Family",
+      "English query": "7 seater car rental Naxos",
+      "Greek query": "7θέσιο αυτοκίνητο Νάξος",
+      "Canonical URL template": "/{lang}/fleet/collections/family-7-seater",
+      "Intent": "Transactional",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Fleet",
+      "Modifier / sub-intent": "SUV",
+      "English query": "SUV 4x4 rental Naxos",
+      "Greek query": "SUV 4x4 ενοικίαση Νάξος",
+      "Canonical URL template": "/{lang}/fleet/collections/suv-4x4",
+      "Intent": "Transactional",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Guide",
+      "Modifier / sub-intent": "Pillar",
+      "English query": "Naxos guide",
+      "Greek query": "οδηγός Νάξος",
+      "Canonical URL template": "/{lang}/naxos",
+      "Intent": "Informational",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Guide",
+      "Modifier / sub-intent": "Beaches",
+      "English query": "best beaches in Naxos",
+      "Greek query": "καλύτερες παραλίες Νάξος",
+      "Canonical URL template": "/{lang}/naxos/beaches",
+      "Intent": "Informational",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Guide",
+      "Modifier / sub-intent": "Villages",
+      "English query": "Naxos mountain villages by car",
+      "Greek query": "ορεινά χωριά Νάξος με αυτοκίνητο",
+      "Canonical URL template": "/{lang}/guides/naxos-mountain-villages-by-car",
+      "Intent": "Informational",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Guide",
+      "Modifier / sub-intent": "Road trip",
+      "English query": "Naxos road trip itinerary",
+      "Greek query": "road trip Νάξος",
+      "Canonical URL template": "/{lang}/guides/naxos-road-trip-itinerary",
+      "Intent": "Informational",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Guide",
+      "Modifier / sub-intent": "Parking",
+      "English query": "parking in Naxos",
+      "Greek query": "parking στη Νάξο",
+      "Canonical URL template": "/{lang}/guides/parking-in-naxos",
+      "Intent": "Informational",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Guide",
+      "Modifier / sub-intent": "Decision",
+      "English query": "do you need a car in Naxos",
+      "Greek query": "χρειάζεται αυτοκίνητο στη Νάξο",
+      "Canonical URL template": "/{lang}/guides/do-you-need-a-car-in-naxos",
+      "Intent": "Informational",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Guide",
+      "Modifier / sub-intent": "Licence",
+      "English query": "international driving permit Greece",
+      "Greek query": "διεθνές δίπλωμα οδήγησης Ελλάδα",
+      "Canonical URL template": "/{lang}/guides/idp-greece-rules",
+      "Intent": "Informational",
+      "Rule": "Do not create near-duplicate modifier pages"
+    },
+    {
+      "Parent": "Scooter",
+      "Modifier / sub-intent": "Inventory gate",
+      "English query": "Naxos scooter rental",
+      "Greek query": "ενοικίαση scooter Νάξος",
+      "Canonical URL template": "/{lang}/fleet/scooters",
+      "Intent": "Transactional",
+      "Rule": "Owner decision before indexation"
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}

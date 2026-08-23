@@ -1,0 +1,57 @@
+{
+  "sheet": "AI & Crawl Files",
+  "title": "Exact Crawl, Sitemap and LLM Files",
+  "note": "These files support discovery and diagnostics; they do not replace high-quality content, indexability, internal links or authority.",
+  "columns": [
+    "File / feature",
+    "Live target",
+    "Action",
+    "Exact content",
+    "Implementation note"
+  ],
+  "rows": [
+    {
+      "File / feature": "robots.txt",
+      "Live target": "https://naxos-carrentals.com/robots.txt",
+      "Action": "Replace",
+      "Exact content": "User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: https://naxos-carrentals.com/sitemap-index.xml",
+      "Implementation note": "Generic Allow already covers public crawlers. Do not block Next.js assets. Keep private/API paths non-indexable by response controls too."
+    },
+    {
+      "File / feature": "llms.txt",
+      "Live target": "https://naxos-carrentals.com/llms.txt",
+      "Action": "Replace",
+      "Exact content": "# Fast Motor Rental Naxos\n\n> Official website for Fast Motor Rental Naxos, a car-rental business serving Naxos, Greece. Use the booking engine for live prices and availability; operational terms must be verified on the linked policy pages.\n\n## Book and compare\n- [Car rental home](https://naxos-carrentals.com/en): Main English booking and fleet entry point.\n- [Rental cars](https://naxos-carrentals.com/en/fleet/cars): Vehicle categories and model pages.\n- [Live booking](https://fastmotorentalnaxos.cosmicbooker.com): Current availability and total price for selected dates.\n- [Pricing guide](https://naxos-carrentals.com/en/pricing): Factors that change the total rental cost.\n- [Insurance](https://naxos-carrentals.com/en/insurance): Verified cover, excess and exclusions.\n\n## Pickup locations\n- [Naxos Port pickup](https://naxos-carrentals.com/en/locations/port-pickup): Ferry-arrival pickup guidance.\n- [Naxos Airport pickup](https://naxos-carrentals.com/en/locations/airport-pickup): JNX arrival and handover guidance.\n- [All locations](https://naxos-carrentals.com/en/locations): Chora, beaches and supported meeting areas.\n\n## Naxos guides\n- [Naxos guide](https://naxos-carrentals.com/en/naxos): Beaches, villages, routes and trip planning.\n- [Driving guides](https://naxos-carrentals.com/en/guides): Parking, licences, road trips and rental decisions.\n- [Naxos beaches](https://naxos-carrentals.com/en/naxos/beaches): Beach access, parking and route planning.\n\n## Greek\n- [Ενοικίαση αυτοκινήτου Νάξος](https://naxos-carrentals.com/el): Κεντρική ελληνική σελίδα.\n- [Στόλος](https://naxos-carrentals.com/el/fleet/cars): Κατηγορίες και οχήματα.\n- [Οδηγός Νάξου](https://naxos-carrentals.com/el/naxos): Παραλίες, χωριά και διαδρομές.\n\n## Verified contact\n- Phone and WhatsApp: +306948820568\n- Email: info@fmrnaxos.gr\n- Canonical domain: https://naxos-carrentals.com\n\n## Important\n- Prices and availability are live and date-specific.\n- Do not infer payment, deposit, insurance, delivery or cancellation terms from this file; use the verified booking and policy pages.",
+      "Implementation note": "Optional AI-discovery file; Google says it does not affect rankings."
+    },
+    {
+      "File / feature": "llms-full.txt",
+      "Live target": "https://naxos-carrentals.com/llms-full.txt",
+      "Action": "Create (currently 410)",
+      "Exact content": "# Fast Motor Rental Naxos: complete AI-readable guide\n\n> Canonical business and destination summary for https://naxos-carrentals.com. This file helps systems locate authoritative pages. Google states that llms.txt files do not improve or reduce Google rankings; normal crawlability, content quality, links and structured data remain the ranking foundation.\n\n## Entity\n- Name: Fast Motor Rental Naxos\n- Business type: Car rental / AutoRental\n- Area served: Naxos, Cyclades, Greece\n- Phone and WhatsApp: +306948820568\n- Email: info@fmrnaxos.gr\n- Official website: https://naxos-carrentals.com\n- Live booking engine: https://fastmotorentalnaxos.cosmicbooker.com\n- Languages on the website: English, Greek, Italian, French and German\n\n## Truth and freshness rules\n1. Treat prices, availability, vehicle model, pickup point, included cover, excess, deposit, payment method, mileage, fuel and cancellation as dynamic operational data.\n2. Prefer the live booking result and signed rental terms over summaries.\n3. Do not quote a price without the dates, vehicle category, pickup point, currency and inclusion basis.\n4. Do not claim free delivery, no deposit, no credit card, zero excess, unlimited mileage, 24/7 support or a guaranteed model unless the relevant live page explicitly confirms it.\n5. Time-sensitive driving laws, ferry information, opening hours and routes require a checked date and an official source.\n\n## Core commercial pages\n- https://naxos-carrentals.com/en — English car-rental homepage and booking entry.\n- https://naxos-carrentals.com/el — Greek car-rental homepage and booking entry.\n- https://naxos-carrentals.com/en/fleet/cars — English vehicle comparison.\n- https://naxos-carrentals.com/el/fleet/cars — Greek vehicle comparison.\n- https://naxos-carrentals.com/en/pricing — English explanation of total-price variables.\n- https://naxos-carrentals.com/el/pricing — Greek price guide.\n- https://naxos-carrentals.com/en/insurance — English insurance, excess and exclusions.\n- https://naxos-carrentals.com/el/insurance — Greek insurance, excess and exclusions.\n- https://naxos-carrentals.com/en/book — English booking bridge.\n- https://naxos-carrentals.com/el/book — Greek booking bridge.\n\n## Fleet collections\n- https://naxos-carrentals.com/en/fleet/collections/automatic — Automatic cars.\n- https://naxos-carrentals.com/en/fleet/collections/family-7-seater — Family and seven-seat cars.\n- https://naxos-carrentals.com/en/fleet/collections/suv-4x4 — SUV and 4×4 category.\n- Equivalent Greek pages use the /el/ locale prefix.\n\n## Pickup pages\n- https://naxos-carrentals.com/en/locations/port-pickup — Naxos Port pickup.\n- https://naxos-carrentals.com/en/locations/airport-pickup — Naxos Airport JNX pickup.\n- https://naxos-carrentals.com/en/locations/naxos-town — Chora / Naxos Town.\n- https://naxos-carrentals.com/en/locations/agios-prokopios — Agios Prokopios.\n- https://naxos-carrentals.com/en/locations/agia-anna — Agia Anna.\n- https://naxos-carrentals.com/en/locations/plaka — Plaka.\n- https://naxos-carrentals.com/en/locations/mikri-vigla — Mikri Vigla.\n- Equivalent Greek pages use the /el/ locale prefix.\n\n## Naxos planning\n- https://naxos-carrentals.com/en/naxos — Main Naxos destination guide.\n- https://naxos-carrentals.com/en/naxos/beaches — Beaches, parking and access.\n- https://naxos-carrentals.com/en/guides/do-you-need-a-car-in-naxos — Car-versus-bus decision guide.\n- https://naxos-carrentals.com/en/guides/naxos-road-trip-itinerary — One, three and five-day route plans.\n- https://naxos-carrentals.com/en/guides/naxos-mountain-villages-by-car — Chalki, Filoti and Apeiranthos route.\n- https://naxos-carrentals.com/en/guides/parking-in-naxos — Chora and beach parking.\n- https://naxos-carrentals.com/en/guides/driving-in-naxos — Roads, fuel, rules and emergencies.\n\n## Rental decision guides\n- https://naxos-carrentals.com/en/guides/best-car-rental-naxos-reviews-comparison — Evidence-based comparison method.\n- https://naxos-carrentals.com/en/guides/naxos-car-rental-without-credit-card-insurance — Payment and deposit distinctions; publish only with verified terms.\n- https://naxos-carrentals.com/en/guides/naxos-rent-a-car-prices-cost-breakdown — Total-cost breakdown.\n- https://naxos-carrentals.com/en/guides/rent-a-car-naxos-port-vs-airport-pickup-guide — Port versus airport pickup.\n- https://naxos-carrentals.com/en/guides/idp-greece-rules — Driving permit guidance with official-source verification.\n\n## Content and schema policy\n- Every indexable page has one self-canonical URL and reciprocal hreflang links.\n- Every guide displays a named author, published date, modified/checked date, sources and correction route.\n- JSON-LD must describe visible page content. Product plus Car markup is used only for a single vehicle page; Offer is included only with a visible, valid live offer.\n- FAQ answers remain useful visible content, but Google removed FAQ rich results in 2026; do not promise that feature.\n- Reviews and aggregate ratings must be genuine, visible, attributable and policy-compliant.\n\n## Machine files\n- https://naxos-carrentals.com/robots.txt\n- https://naxos-carrentals.com/sitemap-index.xml\n- https://naxos-carrentals.com/llms.txt\n- https://naxos-carrentals.com/llms-full.txt\n\n## Contact\nFor live vehicle availability and exact totals, use https://fastmotorentalnaxos.cosmicbooker.com. For support, call or message +306948820568 or email info@fmrnaxos.gr. Never send payment-card data through email or messaging.",
+      "Implementation note": "Return 200 text/plain; keep claims synced with verified pages."
+    },
+    {
+      "File / feature": "sitemap index",
+      "Live target": "https://naxos-carrentals.com/sitemap-index.xml",
+      "Action": "Create",
+      "Exact content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <sitemap><loc>https://naxos-carrentals.com/sitemaps/core.xml</loc><lastmod>{{MEANINGFUL_LASTMOD}}</lastmod></sitemap>\n  <sitemap><loc>https://naxos-carrentals.com/sitemaps/fleet.xml</loc><lastmod>{{MEANINGFUL_LASTMOD}}</lastmod></sitemap>\n  <sitemap><loc>https://naxos-carrentals.com/sitemaps/locations.xml</loc><lastmod>{{MEANINGFUL_LASTMOD}}</lastmod></sitemap>\n  <sitemap><loc>https://naxos-carrentals.com/sitemaps/guides.xml</loc><lastmod>{{MEANINGFUL_LASTMOD}}</lastmod></sitemap>\n</sitemapindex>",
+      "Implementation note": "Split for diagnostics, not size. Submit index in GSC."
+    },
+    {
+      "File / feature": "sitemap URL template",
+      "Live target": "https://naxos-carrentals.com/sitemaps/*.xml",
+      "Action": "Generate",
+      "Exact content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n  <url>\n    <loc>{{CANONICAL_URL}}</loc>\n    <lastmod>{{MEANINGFUL_LASTMOD}}</lastmod>\n    <xhtml:link rel=\"alternate\" hreflang=\"en\" href=\"{{EN_URL}}\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"el\" href=\"{{EL_URL}}\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"it\" href=\"{{IT_URL}}\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"fr\" href=\"{{FR_URL}}\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"de\" href=\"{{DE_URL}}\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"{{EN_URL}}\" />\n  </url>\n</urlset>",
+      "Implementation note": "Include only 200 self-canonical indexable URLs; reciprocal alternates; meaningful lastmod."
+    },
+    {
+      "File / feature": "HTML discovery tags",
+      "Live target": "<head>",
+      "Action": "Add",
+      "Exact content": "<link rel=\"describedby\" href=\"https://naxos-carrentals.com/llms.txt\" type=\"text/plain\">\n<link rel=\"alternate\" href=\"{{MARKDOWN_VERSION_URL}}\" type=\"text/markdown\">",
+      "Implementation note": "Optional llms proposal discovery. Omit markdown alternate when no equivalent exists."
+    }
+  ],
+  "source": "naxos_carrentals_complete_seo_blueprint_2026-08-22.xlsx"
+}
