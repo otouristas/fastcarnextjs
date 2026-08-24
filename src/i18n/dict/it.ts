@@ -282,7 +282,7 @@ export const dict: Dict = {
   },
   cookie: {
     title: "Utilizziamo cookie per migliorare l'esperienza",
-    body: "I cookie essenziali fanno funzionare il sito. Con il tuo consenso usiamo anche cookie analitici per capire quali pagine aiutano di più i viaggiatori. Puoi cambiare idea in qualsiasi momento.",
+    body: "I cookie essenziali fanno funzionare il sito. Con il tuo consenso usiamo anche cookie analitici per capire quali pagine aiutano di più i viaggiatori, e cookie di Google Ads per misurare la pubblicità. Puoi cambiare idea in qualsiasi momento.",
     accept: "Accetta tutto",
     reject: "Rifiuta non essenziali",
     settings: "Impostazioni cookie",

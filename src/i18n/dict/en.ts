@@ -288,7 +288,7 @@ export const dict: Dict = {
   },
   cookie: {
     title: "We use cookies to make this site better",
-    body: "Essential cookies keep the site working. With your consent we also use analytics cookies to understand which pages help travellers most. You can change your mind any time.",
+    body: "Essential cookies keep the site working. With your consent we also use analytics cookies to understand which pages help travellers most, and Google Ads cookies to measure advertising. You can change your mind any time.",
     accept: "Accept all",
     reject: "Reject non-essential",
     settings: "Cookie settings",

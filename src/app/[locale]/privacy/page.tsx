@@ -41,6 +41,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li>Driver documents shown at pickup (licence, passport/ID, credit-card details for the deposit hold)  -  retained only as required by Greek tax law.</li>
           <li>Email exchanges and WhatsApp messages with our team.</li>
           <li>Anonymous site analytics if you consent (cookies, see Cookie Policy).</li>
+          <li>Advertising measurement data if you consent to marketing cookies (Google Ads).</li>
         </ul>
       ),
     },
@@ -62,7 +63,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li><strong>Contract</strong>  -  for booking, pickup and drop-off.</li>
           <li><strong>Legal obligation</strong>  -  tax records, rental registry, insurance records.</li>
           <li><strong>Legitimate interest</strong>  -  fraud prevention, replying to support enquiries.</li>
-          <li><strong>Consent</strong>  -  analytics and any future marketing communications.</li>
+          <li><strong>Consent</strong>  -  analytics cookies and Google Ads measurement cookies.</li>
         </ul>
       ),
     },
@@ -73,6 +74,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li><strong>Cosmic Booker</strong>  -  booking engine at fastmotorentalnaxos.cosmicbooker.com.</li>
           <li><strong>WhatsApp / Meta</strong>  -  when you message us via WhatsApp.</li>
           <li><strong>Google Analytics</strong>  -  only if you accept analytics cookies.</li>
+          <li><strong>Google Ads</strong>  -  conversion measurement only if you accept marketing cookies.</li>
           <li><strong>Hellenic tax authority (AADE)</strong>  -  invoices and rental records as legally required.</li>
         </ul>
       ),
