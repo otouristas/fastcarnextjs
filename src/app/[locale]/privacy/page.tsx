@@ -41,6 +41,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li>Driver documents shown at pickup (licence, passport/ID, credit-card details for the deposit hold)  -  retained only as required by Greek tax law.</li>
           <li>Email exchanges and WhatsApp messages with our team.</li>
           <li>Anonymous site analytics if you consent (cookies, see Cookie Policy).</li>
+          <li>Advertising measurement via Google Ads if you consent to marketing cookies.</li>
         </ul>
       ),
     },
@@ -52,6 +53,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li>Complying with Greek tax and rental-vehicle legal obligations.</li>
           <li>Replying to enquiries you send us.</li>
           <li>Improving the website (only with consent for analytics).</li>
+          <li>Measuring advertising effectiveness (only with consent for marketing cookies).</li>
         </ul>
       ),
     },
@@ -62,7 +64,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li><strong>Contract</strong>  -  for booking, pickup and drop-off.</li>
           <li><strong>Legal obligation</strong>  -  tax records, rental registry, insurance records.</li>
           <li><strong>Legitimate interest</strong>  -  fraud prevention, replying to support enquiries.</li>
-          <li><strong>Consent</strong>  -  analytics and any future marketing communications.</li>
+          <li><strong>Consent</strong>  -  analytics, Google Ads measurement, and any future marketing communications.</li>
         </ul>
       ),
     },
@@ -73,6 +75,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <li><strong>Cosmic Booker</strong>  -  booking engine at fastmotorentalnaxos.cosmicbooker.com.</li>
           <li><strong>WhatsApp / Meta</strong>  -  when you message us via WhatsApp.</li>
           <li><strong>Google Analytics</strong>  -  only if you accept analytics cookies.</li>
+          <li><strong>Google Ads</strong>  -  only if you accept marketing cookies (conversion measurement, tag AW-18405029812).</li>
           <li><strong>Hellenic tax authority (AADE)</strong>  -  invoices and rental records as legally required.</li>
         </ul>
       ),

@@ -50,6 +50,11 @@ export default async function GdprPage({ params }: { params: Promise<{ locale: s
       detail: "Only set after you click Accept on the cookie banner. Can be withdrawn at any time from cookie settings.",
     },
     {
+      activity: "Google Ads cookies",
+      basis: "Article 6(1)(a)  -  consent",
+      detail: "Conversion-measurement cookies (_gcl_au, _gcl_aw) are only set after you accept marketing cookies. Can be withdrawn at any time from cookie settings.",
+    },
+    {
       activity: "Marketing emails",
       basis: "Article 6(1)(a)  -  consent",
       detail: "We currently do not send marketing emails. If we ever start, an opt-in checkbox will appear at booking and any email will include an unsubscribe link.",

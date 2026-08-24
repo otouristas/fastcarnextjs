@@ -76,7 +76,10 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
   const analytics: CookieRow[] = [
     { name: "_ga, _ga_*", purpose: "Google Analytics 4  -  anonymous page-view stats. Only set after you accept analytics.", duration: "Up to 24 months" },
   ];
-  const marketing: CookieRow[] = [];
+  const marketing: CookieRow[] = [
+    { name: "_gcl_au", purpose: "Google Ads conversion linker  -  measures whether an ad led to a visit. Only set after you accept marketing cookies.", duration: "90 days" },
+    { name: "_gcl_aw", purpose: "Google Ads click identifier  -  attributes a visit to a Google Ads click. Only set after you accept marketing cookies.", duration: "90 days" },
+  ];
 
   return (
     <LegalPageShell
@@ -89,11 +92,7 @@ export default async function CookiesPage({ params }: { params: Promise<{ locale
       <div className="space-y-6">
         <CookieSection title="Strictly necessary cookies" rows={essential} />
         <CookieSection title="Analytics cookies" rows={analytics} />
-        <CookieSection
-          title="Marketing cookies"
-          rows={marketing}
-          emptyText="We do not currently use marketing cookies. If we ever introduce them, this page will be updated and your consent will be requested."
-        />
+        <CookieSection title="Marketing cookies" rows={marketing} />
 
         <div className="rounded-3xl border border-border bg-[var(--sea-soft)]/40 p-6 text-sm dark:bg-white/5">
           You can change your choices anytime from the cookie banner at the bottom-left of the site. See also{" "}
