@@ -6,15 +6,16 @@ declare global {
   }
 }
 
+let dark = false;
 try {
   const mode = window.localStorage.getItem("fmr-theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const dark = mode === "dark" || ((!mode || mode === "system") && prefersDark);
-  document.documentElement.classList.toggle("dark", dark);
-  document.documentElement.style.colorScheme = dark ? "dark" : "light";
+  dark = mode === "dark";
 } catch {
   // A browser that blocks storage must still initialize consent and the app.
 }
+// New visitors and legacy system preferences start light, regardless of OS.
+document.documentElement.classList.toggle("dark", dark);
+document.documentElement.style.colorScheme = dark ? "dark" : "light";
 
 // Fast Refresh must not reset an existing consent decision to denied.
 if (!window.__fmrConsentInitialized) {
