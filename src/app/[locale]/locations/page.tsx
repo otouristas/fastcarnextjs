@@ -90,7 +90,7 @@ export default async function LocationsHubPage({ params }: { params: Promise<{ l
       </section>
 
       <section className="wave-bg border-y border-border/70">
-        <div className="mx-auto max-w-5xl px-4 py-14 text-center sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl px-4 py-8 text-center sm:px-6 sm:py-14 lg:px-8">
           <h2 className="text-3xl font-extrabold text-[var(--ink)] dark:text-white sm:text-4xl">{dict.delivery.title}</h2>
           <p className="mx-auto mt-3 max-w-2xl text-lg text-muted-foreground">{dict.delivery.subtitle}</p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">

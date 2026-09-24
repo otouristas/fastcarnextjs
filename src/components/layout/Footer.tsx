@@ -251,7 +251,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
         </a>
       </div>
       <div className="footer-wordmark escape-wrap" aria-hidden="true">
-        NAXOS<span>↗</span>
+        NAXOS<ArrowUpRight className="footer-wordmark-arrow" aria-hidden="true" strokeWidth={1.5} />
       </div>
       <div className="footer-bottom escape-wrap">
         <p>
