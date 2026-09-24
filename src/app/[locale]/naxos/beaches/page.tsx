@@ -7,17 +7,18 @@ import { buildMetadata } from "@/lib/seo";
 import { LOCATIONS } from "@/content/locations";
 import { VEHICLES } from "@/content/fleet";
 import { recommendForLocation } from "@/lib/vehicleRecommender";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { ArrowRight, MapPin } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const dict = await getDict(locale);
   return buildMetadata({
     locale,
     path: "naxos/beaches",
-    title: "Naxos Beaches & Villages  -  Complete Guide with Vehicle Recommendations",
-    description: "Explore every beach and mountain village on Naxos with expert vehicle recommendations for each destination.",
+    title: dict.naxos.beachesTitle,
+    description: dict.naxos.pageSubtitle,
     keywords: ["Naxos beaches", "Naxos villages", "Agios Prokopios", "Agia Anna", "Plaka beach", "Filoti", "Apeiranthos"],
   });
 }
@@ -30,14 +31,14 @@ const LOCATION_IMAGES: Record<string, string> = {
   "agia-anna": "/images/naxos/agia-anna.jpg",
   "plaka": "/images/naxos/plaka-beach.jpg",
   "stelida": "/images/naxos/agios-prokopios.jpg",
-  "mikri-vigla": "/images/naxos/mikri-vigla.jpg",
+  "mikri-vigla": "/images/pexels/naxos-mikri-vigla.webp",
   "filoti": "/images/naxos/filoti.jpg",
   "apeiranthos": "/images/naxos/apiranthos.jpg",
   "apollonas": "/images/naxos/apollonas.jpg",
   "chalki": "/images/naxos/halki.jpg",
-  "naxos-town": "/images/naxos/chora.jpg",
-  "airport-pickup": "/images/naxos/chora.jpg",
-  "port-pickup": "/images/naxos/chora.jpg",
+  "naxos-town": "/images/pexels/naxos-chora-coast.webp",
+  "airport-pickup": "/images/pexels/naxos-chora-coast.webp",
+  "port-pickup": "/images/pexels/naxos-chora-coast.webp",
 };
 
 function LocationCard({ slug, locale, dict, image }: { slug: string; locale: Locale; dict: Awaited<ReturnType<typeof import("@/i18n/dictionaries").getDict>>; image: string }) {
@@ -102,29 +103,7 @@ export default async function NaxosBeachesPage({ params }: { params: Promise<{ l
 
   return (
     <>
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: nd.pageTitle, href: localePath(locale, "naxos") },
-            { label: nd.beachesTitle },
-          ]} />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-6xl">
-            {nd.beachesTitle}
-          </h1>
-          <p className="mt-5 max-w-3xl text-lg text-muted-foreground">
-            {locale === "el"
-              ? "Κάθε παραλία και ορεινό χωριό στη Νάξο  -  με προτεινόμενα οχήματα για τη μεγαλύτερη εμπειρία."
-              : locale === "it"
-              ? "Ogni spiaggia e villaggio di montagna a Naxos  -  con consigli sui veicoli per la migliore esperienza."
-              : locale === "fr"
-              ? "Chaque plage et village de montagne à Naxos  -  avec des recommandations de véhicules pour la meilleure expérience."
-              : locale === "de"
-              ? "Jeder Strand und jedes Bergdorf auf Naxos  -  mit Fahrzeugempfehlungen für das beste Erlebnis."
-              : "Every beach and mountain village on Naxos  -  with vehicle recommendations for the best experience."}
-          </p>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={nd.beachesTitle} subtitle={nd.pageSubtitle} label={nd.beachesTitle} image="/images/pexels/naxos-hawaii-beach.webp" />
 
       <section className="bg-background border-b border-border/70">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">

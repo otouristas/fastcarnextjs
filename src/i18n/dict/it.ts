@@ -114,6 +114,7 @@ export const dict: Dict = {
     google: "recensioni dei clienti",
     verified: "Recensione Google verificata",
     sortLabel: "Ordina",
+    sortHighest: "Valutazione più alta",
     sortNewest: "Più recenti",
     sortOldest: "Meno recenti",
     filterRating: "Valutazione",
@@ -246,7 +247,7 @@ export const dict: Dict = {
   },
   whatsAppFab: {
     label: "Chat su WhatsApp",
-    message: "Salve! Sto pianificando un viaggio a Naxos e vorrei un preventivo rapido.",
+    message: "Hi! I'm planning a trip to Naxos and would like a quick rental quote.",
   },
   toc: "In questa pagina",
   cta: {

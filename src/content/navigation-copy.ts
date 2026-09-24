@@ -1,0 +1,123 @@
+import type { Locale } from "@/lib/site";
+
+const copy = {
+  en: {
+    inventoryNote: "Model reference. Contact us for current alternatives.",
+    navigate: "Make room for Naxos.",
+    plan: "Your trip starts here",
+    direct: "Book with a local team",
+    welcome: "An island. A thousand possibilities.",
+    imageNote:
+      "AI-generated vehicle illustration. Model, colour and specification may vary; confirm your booking group.",
+    scooter: "Cars or scooters?",
+    scooterNote: "An honest guide to choosing your transport",
+    close: "Close navigation",
+    menu: "Explore",
+    back: "Back to top",
+    seasonal: "Seasonal guide prices",
+    choice: "Find your perfect fit",
+    vehicle: "Vehicle",
+    available: "Check dates",
+    pricingNote:
+      "Choose your dates for the final quote. Displayed rates are guidance, not live availability.",
+    footerLine: "Take the long way home.",
+    photo: "Vehicle illustration",
+    privacy: "Your privacy choices",
+  },
+  el: {
+    inventoryNote:
+      "Σελίδα αναφοράς μοντέλου. Ρώτησέ μας για διαθέσιμες εναλλακτικές.",
+    navigate: "Κάνε χώρο για τη Νάξο.",
+    plan: "Το ταξίδι σου ξεκινά εδώ",
+    direct: "Κράτηση με ντόπια ομάδα",
+    welcome: "Ένα νησί. Χίλιες δυνατότητες.",
+    imageNote:
+      "Εικόνα οχήματος δημιουργημένη με AI. Μοντέλο, χρώμα και εξοπλισμός μπορεί να διαφέρουν· επιβεβαίωσε την κατηγορία κράτησης.",
+    scooter: "Αυτοκίνητο ή scooter;",
+    scooterNote: "Ένας ειλικρινής οδηγός για τις μετακινήσεις σου",
+    close: "Κλείσιμο πλοήγησης",
+    menu: "Εξερεύνησε",
+    back: "Επιστροφή στην κορυφή",
+    seasonal: "Ενδεικτικές εποχικές τιμές",
+    choice: "Βρες αυτό που σου ταιριάζει",
+    vehicle: "Αυτοκίνητο",
+    available: "Δες ημερομηνίες",
+    pricingNote:
+      "Επίλεξε ημερομηνίες για την τελική προσφορά. Οι τιμές είναι ενδεικτικές και δεν αποτελούν ζωντανή διαθεσιμότητα.",
+    footerLine: "Διάλεξε τη μεγάλη διαδρομή.",
+    photo: "Ενδεικτική εικόνα οχήματος",
+    privacy: "Οι επιλογές απορρήτου σου",
+  },
+  it: {
+    inventoryNote:
+      "Modello di riferimento. Contattaci per le alternative attuali.",
+    navigate: "Lascia spazio a Naxos.",
+    plan: "Il tuo viaggio inizia qui",
+    direct: "Prenota con un team locale",
+    welcome: "Un’isola. Mille possibilità.",
+    imageNote:
+      "Illustrazione del veicolo generata con IA. Modello, colore e dotazioni possono variare; conferma il gruppo prenotato.",
+    scooter: "Auto o scooter?",
+    scooterNote: "Una guida pratica per scegliere come spostarti",
+    close: "Chiudi navigazione",
+    menu: "Esplora",
+    back: "Torna in alto",
+    seasonal: "Prezzi stagionali indicativi",
+    choice: "Trova l’auto adatta a te",
+    vehicle: "Auto",
+    available: "Verifica le date",
+    pricingNote:
+      "Scegli le date per il preventivo finale. Le tariffe sono indicative e non rappresentano disponibilità in tempo reale.",
+    footerLine: "Scegli la strada più lunga.",
+    photo: "Illustrazione del veicolo",
+    privacy: "Le tue scelte sulla privacy",
+  },
+  fr: {
+    inventoryNote:
+      "Modèle de référence. Contactez-nous pour les alternatives actuelles.",
+    navigate: "Faites une place à Naxos.",
+    plan: "Votre voyage commence ici",
+    direct: "Réservez avec une équipe locale",
+    welcome: "Une île. Mille possibilités.",
+    imageNote:
+      "Illustration du véhicule générée par IA. Le modèle, la couleur et les équipements peuvent varier ; confirmez la catégorie réservée.",
+    scooter: "Voiture ou scooter ?",
+    scooterNote: "Un guide pratique pour choisir vos déplacements",
+    close: "Fermer la navigation",
+    menu: "Explorez",
+    back: "Retour en haut",
+    seasonal: "Tarifs saisonniers indicatifs",
+    choice: "Trouvez la voiture qui vous convient",
+    vehicle: "Voiture",
+    available: "Vérifier les dates",
+    pricingNote:
+      "Choisissez vos dates pour le devis final. Les tarifs sont indicatifs et ne constituent pas une disponibilité en temps réel.",
+    footerLine: "Prenez le chemin des découvertes.",
+    photo: "Illustration du véhicule",
+    privacy: "Vos choix de confidentialité",
+  },
+  de: {
+    inventoryNote: "Modellreferenz. Frage uns nach aktuellen Alternativen.",
+    navigate: "Mach Platz für Naxos.",
+    plan: "Deine Reise beginnt hier",
+    direct: "Buche bei einem lokalen Team",
+    welcome: "Eine Insel. Tausend Möglichkeiten.",
+    imageNote:
+      "KI-generierte Fahrzeugillustration. Modell, Farbe und Ausstattung können abweichen. Bestätige die gebuchte Fahrzeuggruppe.",
+    scooter: "Auto oder Roller?",
+    scooterNote: "Ein ehrlicher Vergleich für deine Mobilität",
+    close: "Navigation schließen",
+    menu: "Entdecken",
+    back: "Nach oben",
+    seasonal: "Unverbindliche Saisonpreise",
+    choice: "Finde das passende Auto",
+    vehicle: "Fahrzeug",
+    available: "Reisedaten prüfen",
+    pricingNote:
+      "Wähle deine Reisedaten für das endgültige Angebot. Die Preise sind Richtwerte und keine Live-Verfügbarkeit.",
+    footerLine: "Nimm den Weg voller Entdeckungen.",
+    photo: "Fahrzeugillustration",
+    privacy: "Deine Datenschutzauswahl",
+  },
+} satisfies Record<Locale, Record<string, string>>;
+export const navigationCopy = (locale: Locale) => copy[locale];

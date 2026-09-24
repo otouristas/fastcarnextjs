@@ -5,10 +5,10 @@ import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
 import { GUIDES } from "@/content/guides";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
-import { Clock, ArrowRight, BookOpen } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -28,19 +28,7 @@ export default async function GuidesHubPage({ params }: { params: Promise<{ loca
         { name: dict.nav.guides, url: `${SITE.domain}${localePath(locale, "guides")}` },
       ])])} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: dict.nav.guides },
-          ]} />
-          <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
-            <BookOpen className="h-4 w-4" /> {dict.nav.guides}
-          </span>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">{dict.guidesHub.title}</h1>
-          <p className="mt-3 max-w-3xl text-lg text-muted-foreground">{dict.guidesHub.subtitle}</p>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={dict.guidesHub.title} subtitle={dict.guidesHub.subtitle} label={dict.nav.guides} image="/images/pexels/naxos-old-town.webp" />
 
       <section className="bg-background border-y border-border/70">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">

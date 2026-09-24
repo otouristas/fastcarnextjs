@@ -2,15 +2,15 @@ import { notFound } from "next/navigation";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { vehiclesByCategory, minShoulderPrice, maxHighPrice } from "@/content/fleet";
+import { vehiclesByCategory } from "@/content/fleet";
 import { FleetBrowser } from "@/components/fleet/FleetBrowser";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph, faqPageSchema } from "@/lib/schema";
 import { FAQS } from "@/content/faqs";
 import type { VehicleCategory } from "@/types/content";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
-import { ArrowRight, BadgeCheck, Car, KeyRound, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, BadgeCheck, KeyRound, MapPin, ShieldCheck } from "lucide-react";
 
 const VALID_CATEGORIES: VehicleCategory[] = ["cars"];
 
@@ -47,9 +47,6 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
   const faqs = categoryFaqMap[cat]
     .map((slug) => FAQS.find((f) => f.slug === slug))
     .filter((f): f is (typeof FAQS)[number] => Boolean(f));
-  const minPrice = minShoulderPrice(vehicles);
-  const maxPrice = maxHighPrice(vehicles);
-  const heroVehicle = vehicles[0];
   const categoryDetails = getCategoryDetails(cat, locale);
 
   return (
@@ -63,50 +60,9 @@ export default async function FleetCategoryPage({ params }: { params: Promise<{ 
         faqPageSchema(faqs, locale),
       ])} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              <Breadcrumbs label={dict.common.breadcrumb} items={[
-                { label: dict.nav.home, href: localePath(locale) },
-                { label: dict.nav.fleet, href: localePath(locale, "fleet") },
-                { label: navLabels[cat] },
-              ]} />
-              <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
-                <Sparkles className="h-4 w-4" /> {dict.hero.eyebrow}
-              </span>
-              <h1 className="mt-5 max-w-4xl text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-6xl">{catLabels[cat]}</h1>
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">{categoryDetails.description}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}>
-                  {dict.cta.bookCar} <ArrowRight className="h-4 w-4" />
-                </a>
-                <a href={`tel:${SITE.phones[0]}`} className="inline-flex items-center gap-2 rounded-full border border-border bg-white/75 px-6 py-3 text-sm font-bold text-[var(--ink)] shadow-sm dark:bg-white/10 dark:text-white">
-                  {dict.cta.callNow}
-                </a>
-              </div>
-            </div>
-            <div className="lg:col-span-5">
-              <div className="island-card rounded-[2rem] p-5">
-                <div className="rounded-[1.5rem] sea-gradient p-6 text-white">
-                  <Car className="h-9 w-9" />
-                  <p className="mt-5 text-sm uppercase tracking-[0.2em] text-white/70">{navLabels[cat]}</p>
-                  <p className="mt-2 text-4xl font-extrabold">
-                    {minPrice != null && maxPrice != null ? `€${minPrice}–€${maxPrice}` : dict.cta.priceOnRequest}
-                  </p>
-                  <p className="text-sm text-white/75">{dict.common.perDay}</p>
-                </div>
-                {heroVehicle && (
-                  <div className="mt-4 grid gap-3 rounded-3xl bg-white/70 p-4 text-sm dark:bg-white/10">
-                    <div className="font-bold text-[var(--ink)] dark:text-white">{heroVehicle.name[locale]}</div>
-                    <div className="text-muted-foreground">{heroVehicle.tagline[locale]}</div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={catLabels[cat]} subtitle={categoryDetails.description} label={navLabels[cat]} image="/images/fleet/studio/toyota-aygo.webp">
+        <a className="escape-button" href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer">{dict.cta.bookCar}<ArrowRight size={18}/></a>
+      </PageMasthead>
 
       <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -146,5 +102,10 @@ function getCategoryDetails(_category: VehicleCategory, locale: string) {
       faqIntro: "Χρήσιμες απαντήσεις για επιλογή, κράτηση και οδήγηση αυτοκινήτου στη Νάξο.",
     },
   } as const;
-  return copy[locale === "el" ? "el" : "en"];
+  const translated = {
+    it: {description:"Auto compatte, automatiche, cabrio, SUV e 7 posti per esplorare Naxos, da Chora ad Apeiranthos, Alyko e Apollonas.",highlights:["Per famiglie, coppie e gite nei borghi","Consegna gratuita in aeroporto, al porto e in hotel a Naxos","Chilometri illimitati, CDW base e secondo guidatore inclusi"],faqIntro:"Risposte pratiche per scegliere, prenotare e guidare un’auto a noleggio a Naxos."},
+    fr: {description:"Citadines, automatiques, cabriolets, SUV et 7 places pour découvrir Naxos, de Chora à Apeiranthos, Alyko et Apollonas.",highlights:["Pour les familles, les couples et les escapades dans les villages","Livraison gratuite à l’aéroport, au port et à votre hôtel à Naxos","Kilométrage illimité, CDW de base et second conducteur inclus"],faqIntro:"Des réponses pratiques pour choisir, réserver et conduire une voiture de location à Naxos."},
+    de: {description:"Kleinwagen, Automatikautos, Cabrios, SUVs und 7-Sitzer für entspannte Ausflüge auf Naxos – von Chora nach Apeiranthos, Alyko und Apollonas.",highlights:["Für Familien, Paare und Ausflüge in die Dörfer","Kostenlose Übergabe am Flughafen, Hafen oder Hotel auf Naxos","Unbegrenzte Kilometer, Basis-CDW und zweiter Fahrer inklusive"],faqIntro:"Praktische Antworten zur Auswahl, Buchung und Fahrt mit dem Mietwagen auf Naxos."},
+  };
+  return locale in translated ? translated[locale as keyof typeof translated] : copy[locale === "el" ? "el" : "en"];
 }

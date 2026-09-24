@@ -4,10 +4,10 @@ import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
 import { LOCATIONS } from "@/content/locations";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
-import { Plane, Anchor, MapPin, Mountain, ArrowRight, Sparkles, Clock } from "lucide-react";
+import { Plane, Anchor, MapPin, Mountain, ArrowRight, Clock } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -43,19 +43,7 @@ export default async function LocationsHubPage({ params }: { params: Promise<{ l
         ]),
       ])} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: dict.nav.locations },
-          ]} />
-          <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
-            <Sparkles className="h-4 w-4" /> {dict.trust.delivery}
-          </span>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">{dict.locationsHub.title}</h1>
-          <p className="mt-3 max-w-3xl text-lg text-muted-foreground">{dict.locationsHub.subtitle}</p>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={dict.locationsHub.title} subtitle={dict.locationsHub.subtitle} label={dict.nav.locations} image="/images/pexels/naxos-chora-coast.webp" />
 
       <section className="bg-background border-y border-border/70">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 space-y-14">

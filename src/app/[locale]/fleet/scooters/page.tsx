@@ -6,11 +6,11 @@ import { buildMetadata } from "@/lib/seo";
 import { VEHICLES } from "@/content/fleet";
 import { SCOOTER_GUIDE, SCOOTER_KEYWORDS } from "@/content/scooter-guide";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph, qaPageSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { ArrowRight, Info, Wind } from "lucide-react";
+import { ArrowRight, Wind } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 /**
@@ -72,29 +72,9 @@ export default async function ScooterRentalNaxosPage({
         ])}
       />
 
-      <section className="wave-bg border-b border-border">
-        <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            label={dict.common.breadcrumb}
-            items={[
-              { label: dict.nav.home, href: localePath(loc) },
-              { label: dict.nav.fleet, href: localePath(loc, "fleet") },
-              { label: g.breadcrumb[loc] },
-            ]}
-          />
-          <h1 className="mt-5 text-3xl font-extrabold leading-[1.1] tracking-tight text-[var(--prose-heading)] sm:text-4xl lg:text-5xl">
-            {g.h1[loc]}
-          </h1>
-
-          {/* The disclosure comes first, before any advice. */}
-          <div className="answer-block mt-6 flex gap-4 rounded-3xl p-6 sm:p-7">
-            <Info className="mt-0.5 h-5 w-5 flex-none text-[var(--sea)]" />
-            <p className="editorial-lead text-[var(--prose-heading)]">
-              <strong>{g.disclosureLead[loc]}</strong> {g.disclosureBody[loc]}
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageMasthead locale={loc} dict={dict} title={g.h1[loc]} subtitle={g.disclosureBody[loc]} label={g.breadcrumb[loc]} image="/images/pexels/naxos-mikri-vigla.webp">
+        <p className="scooter-disclosure"><strong>{g.disclosureLead[loc]}</strong></p>
+      </PageMasthead>
 
       <section className="bg-background">
         <div className="mx-auto max-w-4xl space-y-10 px-4 py-14 sm:px-6 lg:px-8">

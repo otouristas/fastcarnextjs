@@ -114,6 +114,7 @@ export const dict: Dict = {
     google: "κριτικές πελατών",
     verified: "Επιβεβαιωμένη κριτική Google",
     sortLabel: "Ταξινόμηση",
+    sortHighest: "Υψηλότερη βαθμολογία",
     sortNewest: "Νεότερες",
     sortOldest: "Παλαιότερες",
     filterRating: "Βαθμολογία",

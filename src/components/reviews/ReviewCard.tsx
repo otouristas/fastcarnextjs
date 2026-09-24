@@ -68,7 +68,7 @@ export function ReviewCard({
   }).format(new Date(review.date));
 
   return (
-    <article className="island-card flex flex-col rounded-3xl p-5">
+    <article className="island-card flex min-w-0 flex-col rounded-3xl p-5">
       <div className="flex items-start justify-between gap-3">
         <div className="flex min-w-0 items-center gap-3">
           <span

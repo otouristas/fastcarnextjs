@@ -1,3 +1,4 @@
+import { navigationCopy } from "@/content/navigation-copy";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -115,14 +116,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   ]
     .filter(Boolean)
     .join(" · ");
-  const pricePart = v.priceShoulder != null ? `${dict.common.from} €${v.priceShoulder}${dict.common.perDay} — ` : "";
+  const pricePart = v.bookable && v.priceShoulder != null ? `${dict.common.from} €${v.priceShoulder}${dict.common.perDay} — ` : "";
   const description = `${v.tagline[locale]}. ${specs}. ${pricePart}${dict.trust.delivery}.`;
 
   return buildMetadata({
     locale,
     path: `fleet/${v.category}/${v.slug}`,
     title:
-      v.priceShoulder != null
+      v.bookable && v.priceShoulder != null
         ? `${v.name[locale]}  -  ${dict.common.from} €${v.priceShoulder}${dict.common.perDay}`
         : `${v.name[locale]}  -  ${dict.cta.priceOnRequest}`,
     description,
@@ -149,7 +150,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
     cars: dict.nav.cars,
   } as const;
   const vehicleReview = reviewForVehicle(v.slug);
-  const wm = whatsappVehicleMessage(v.name[locale], locale);
+  const wm = whatsappVehicleMessage(v.name[locale === "el" ? "el" : "en"], locale);
 
   const weeklyPerDay = v.priceWeekly != null ? Math.round((v.priceWeekly / 7) * 10) / 10 : undefined;
   const savePct =
@@ -184,7 +185,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
             {/* Image */}
             <div className="lg:col-span-7">
               <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem] shadow-[0_30px_80px_-30px_rgba(15,37,51,0.45)] island-card">
-                <div className="absolute inset-0 animate-kenburns">
+                <div className="absolute inset-0">
                   <Image
                     src={v.image}
                     alt={v.name[locale]}
@@ -206,6 +207,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                 </div>
               </div>
 
+              <p className="vehicle-image-note">{navigationCopy(locale).imageNote}</p>
               {/* Quick spec strip  -  sits visually attached under the photo on large screens */}
               <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
                 {v.seats != null && <SpecTile icon={<Users className="h-4 w-4" />} label={dict.common.seats} value={String(v.seats)} />}
@@ -226,6 +228,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                     {v.name[locale]}
                   </h1>
                   <p className="mt-2 text-base text-muted-foreground">{v.tagline[locale]}</p>
+                  {!v.bookable && <p className="inventory-note">{navigationCopy(locale).inventoryNote}</p>}
                   <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-[var(--sea-soft)] px-3 py-1 text-xs font-semibold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
                     <Star className="h-3.5 w-3.5 fill-[var(--brand-1)] text-[var(--brand-1)]" />
                     {SITE.rating.value}/5 · {SITE.rating.count}+ Google reviews
@@ -236,7 +239,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                   {/* Only vehicles with an owner-confirmed rate card show
                       numbers. For the rest the booking engine is the only place
                       a real price exists, and the panel says so. */}
-                  {v.priceShoulder != null ? (
+                  {v.bookable && v.priceShoulder != null ? (
                     <>
                       <div className="flex items-end justify-between gap-4">
                         <div>
@@ -271,6 +274,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                     </div>
                   )}
 
+                  <p className="vehicle-image-note">{navigationCopy(locale).pricingNote}</p>
                   <div className="mt-5 grid gap-2">
                     <a
                       href={SITE.bookingUrl}
@@ -422,7 +426,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ locale
                   </thead>
                   <tbody>
                     <tr className="border-t border-border dark:border-white/10">
-                      <td className="px-4 py-3 font-bold text-[var(--link)]">{v.priceShoulder != null ? <>€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></> : "—"}</td>
+                      <td className="px-4 py-3 font-bold text-[var(--link)]">{v.bookable && v.priceShoulder != null ? <>€{v.priceShoulder}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></> : "—"}</td>
                       <td className="px-4 py-3 font-semibold text-foreground">{v.priceHigh != null ? <>€{v.priceHigh}<span className="text-xs text-muted-foreground">{dict.common.perDay}</span></> : "—"}</td>
                       <td className="px-4 py-3 font-semibold text-foreground">{v.priceWeekly != null ? <>€{v.priceWeekly}<span className="text-xs text-muted-foreground">/{dict.common.week}</span></> : "—"}</td>
                     </tr>

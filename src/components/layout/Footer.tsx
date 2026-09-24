@@ -1,283 +1,312 @@
+import { PHOTO_CREDITS } from "@/content/photo-credits";
 import Link from "next/link";
 import Image from "next/image";
-import { SITE, type Locale, localePath, LOCALES, LOCALE_META } from "@/lib/site";
-import type { Dict } from "@/i18n/types";
-import { LOCATIONS } from "@/content/locations";
-import { whatsappUrl } from "@/lib/whatsapp";
-import { DISCOVER_LABELS, discoverCycladesHome, getDiscoverHubLinks, tripPlannerUrl, withUtm } from "@/lib/discover-cyclades";
 import {
-  Mail, Phone, MapPin, ShieldCheck, Gauge, Baby, Route,
-  ChevronDown,
+  ArrowUpRight,
+  ArrowUp,
+  Phone,
+  Mail,
+  MapPin,
+  Star,
+  Check,
 } from "lucide-react";
-import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-      <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.7-1.6h1.7V4.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.4H8v3.2h2.5V22h3z" />
-    </svg>
-  );
-}
+import {
+  SITE,
+  LOCALES,
+  LOCALE_META,
+  localePath,
+  type Locale,
+} from "@/lib/site";
+import type { Dict } from "@/i18n/types";
+import { designCopy } from "@/content/design-copy";
+import { navigationCopy } from "@/content/navigation-copy";
+import { whatsappUrl } from "@/lib/whatsapp";
+import { getDiscoverHubLinks, DISCOVER_LABELS } from "@/lib/discover-cyclades";
 
 export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
-  const fleetLinks = [
-    { href: localePath(locale, "fleet/cars"), label: dict.nav.cars },
-    { href: localePath(locale, "fleet"), label: dict.nav.fleet },
+  const c = designCopy(locale),
+    n = navigationCopy(locale);
+  const groups = [
+    {
+      title: dict.nav.fleet,
+      links: [
+        ["fleet/cars", c.all],
+        ["fleet/collections/automatic", c.automatic],
+        ["fleet/collections/family-7-seater", c.family],
+        ["fleet/collections/suv-4x4", c.suv],
+        ["pricing", dict.nav.pricing],
+        ["book", dict.nav.bookNow],
+      ],
+    },
+    {
+      title: dict.footer.explore,
+      links: [
+        ["locations/airport-pickup", c.airport],
+        ["locations/port-pickup", c.port],
+        ["locations", c.stay],
+        ["naxos", dict.naxos.pageTitle],
+        ["naxos/beaches", dict.naxos.beachesTitle],
+        ["guides", dict.nav.guides],
+      ],
+    },
+    {
+      title: dict.footer.company,
+      links: [
+        ["about", dict.nav.about],
+        ["reviews", c.reviews],
+        ["insurance", dict.nav.insurance],
+        ["faq", dict.nav.faq],
+        ["contact", dict.nav.contact],
+        ["terms", c.terms],
+      ],
+    },
   ];
-  const infoLinks = [
-    { href: localePath(locale, "pricing"), label: dict.nav.pricing },
-    { href: localePath(locale, "insurance"), label: dict.nav.insurance },
-    { href: localePath(locale, "faq"), label: dict.nav.faq },
-    { href: localePath(locale, "guides"), label: dict.nav.guides },
-    { href: localePath(locale, "about"), label: dict.nav.about },
-    { href: localePath(locale, "contact"), label: dict.nav.contact },
+  const legal = [
+    ["privacy", dict.legal.privacyTitle],
+    ["cookies", dict.legal.cookiesTitle],
+    ["gdpr", dict.legal.gdprTitle],
+    ["cancellation", dict.legal.cancellationTitle],
   ];
-  const exploreLinks = [
-    { href: localePath(locale, "naxos"), label: "Naxos guide" },
-    { href: localePath(locale, "naxos/beaches"), label: "Naxos beaches" },
-    ...LOCATIONS.slice(0, 5).map((l) => ({
-      href: localePath(locale, `locations/${l.slug}`),
-      label: l.shortName,
-    })),
-  ];
-  // Deduped by href: several Discover Cyclades helpers alias to one destination,
-  // so building this list by hand renders the same URL twice under two labels.
-  const discoverLinks = getDiscoverHubLinks(locale).map((l) => ({
-    href: l.href,
-    label: DISCOVER_LABELS[l.labelKey],
-    external: true,
-  }));
-  discoverLinks.push({
-    href: withUtm(tripPlannerUrl(locale, "Plan a Naxos trip with a rental car"), "planner"),
-    label: DISCOVER_LABELS.planner,
-    external: true,
-  });
-  const legalLinks = [
-    { href: localePath(locale, "terms"), label: "Terms & Conditions" },
-    { href: localePath(locale, "cancellation"), label: "Cancellation Policy" },
-    { href: localePath(locale, "privacy"), label: "Privacy Policy" },
-    { href: localePath(locale, "cookies"), label: "Cookie Policy" },
-    { href: localePath(locale, "gdpr"), label: "GDPR Notice" },
-    { href: `${SITE.domain}/sitemap.xml`, label: "Sitemap", external: true },
-  ];
-
-  const trustItems = [
-    { icon: <MapPin className="h-5 w-5" />, title: dict.trust.delivery },
-    { icon: <Route className="h-5 w-5" />, title: dict.trust.unlimited },
-    { icon: <Gauge className="h-5 w-5" />, title: dict.trust.transparent },
-    { icon: <Baby className="h-5 w-5" />, title: dict.trust.owner },
-  ];
-
   return (
-    <footer className="relative overflow-hidden border-t bg-[#071b2a] text-white" style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
-      <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Trust strip */}
-        <div className="mb-12 grid gap-4 rounded-[2rem] p-4 sm:grid-cols-2 lg:grid-cols-4 border border-white/10 bg-[#0e2240]/40 backdrop-blur-md">
-          {trustItems.map((item) => (
-            <div key={item.title} className="flex items-center gap-3 rounded-3xl bg-[#071b2a]/60 border border-white/5 p-4 shadow-sm">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl sea-gradient text-white" style={{ boxShadow: '0 4px 12px rgba(7,27,42,0.25)' }}>{item.icon}</span>
-              <span className="text-sm font-bold leading-snug text-white">{item.title}</span>
-            </div>
-          ))}
+    <footer className="island-footer">
+      <div className="footer-top escape-wrap">
+        <div>
+          <p className="eyebrow">
+            <span className="sun-dot" />
+            {n.direct}
+          </p>
+          <h2>{n.footerLine}</h2>
         </div>
-
-        {/* Main grid  -  5 columns */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
-          {/* Brand block */}
-          <div className="lg:col-span-3">
-            {/* The logo is a dark charcoal banner with the wordmark knocked out
-                of it in white and orange. On the navy footer it needs a light
-                ground: a brightness/invert filter flattens every opaque pixel
-                to one colour and erases the wordmark entirely. */}
-            <Link
-              href={localePath(locale)}
-              className="inline-flex items-center rounded-2xl bg-white px-4 py-3 shadow-sm"
-              aria-label={SITE.brand}
-            >
-              <Image
-                src={SITE.logo}
-                alt={SITE.brand}
-                width={280}
-                height={84}
-                className="h-12 w-auto sm:h-14"
-                unoptimized
-              />
-            </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">{dict.footer.description}</p>
-
-            <div className="mt-5 rounded-3xl border border-white/10 bg-[#0e2240]/40 p-4 text-sm shadow-sm">
-              <a href={`tel:${SITE.phones[0]}`} className="flex items-center gap-2 py-1 font-semibold hover:text-[var(--sea-2)]">
-                <Phone className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.phones[0]}
-              </a>
-              <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 py-1 font-semibold hover:text-[var(--sea-2)]">
-                <Mail className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.email}
-              </a>
-              <span className="flex items-center gap-2 py-1 text-white/70">
-                <MapPin className="h-4 w-4 text-[var(--brand-2)]" /> {SITE.address.locality}, Greece
-              </span>
-              <a
-                href={whatsappUrl(dict.whatsAppFab.message)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-4 py-2 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
-              >
-                <WhatsAppIcon className="h-5 w-5" />
-                {dict.nav.whatsapp}
-              </a>
-            </div>
-
-            <div className="mt-5 flex items-center gap-2">
-              <SocialIcon href={SITE.social.instagram} label="Instagram"><InstagramIcon className="h-4 w-4" /></SocialIcon>
-              <SocialIcon href={SITE.social.facebook} label="Facebook"><FacebookIcon className="h-4 w-4" /></SocialIcon>
-            </div>
-          </div>
-
-          <FooterCol title={dict.footer.fleet} links={fleetLinks} className="lg:col-span-2" />
-          <FooterCol title={dict.footer.company} links={infoLinks} className="lg:col-span-2" />
-          <FooterCol title={dict.footer.explore} links={exploreLinks} className="lg:col-span-2" />
-          <FooterCol title="Discover Cyclades" links={discoverLinks} className="lg:col-span-2" />
-          <FooterCol title="Legal & Info" links={legalLinks} className="lg:col-span-2" />
-        </div>
-
-        {/* Credit / attribution row */}
-        <div className="mt-8 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center sm:flex-row sm:justify-center">
-          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-white/70">
-            <a href="https://anotherseoGuru.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--sea-2)] transition-colors group">
-              <span>Designed by</span>
-              <span className="font-semibold group-hover:underline">AnotherSEOGuru</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            </a>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <a href="https://touristas.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-[var(--sea-2)] transition-colors group">
-              <span>Powered by</span>
-              <span className="font-semibold group-hover:underline">Touristas AI</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            </a>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <a href={withUtm(discoverCycladesHome(locale), "credit")} target="_blank" rel="noopener noreferrer" className="group relative flex-shrink-0">
-              <div className="flex items-center gap-1.5 transition-transform duration-300 group-hover:-translate-y-0.5">
-                {/* The partner mark is a dark navy disc with pale islands on
-                    it — on this footer that is dark-on-dark, so it sits on a
-                    light chip to stay legible. */}
-                <span className="grid h-6 w-6 shrink-0 place-items-center overflow-hidden rounded-full bg-white">
-                  <Image
-                    src="/images/discover-cyclades-mark.png"
-                    alt=""
-                    width={48}
-                    height={48}
-                    className="h-6 w-6"
-                    aria-hidden="true"
-                    unoptimized
-                  />
-                </span>
-                <div className="flex flex-col text-left">
-                  <span className="text-xs font-bold leading-tight text-white group-hover:text-[var(--sea-2)] transition-colors">Discover Cyclades</span>
-                  <span className="text-[9px] uppercase tracking-wider text-white/70">Partner</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3 text-sm text-white/70">
-            <ShieldCheck className="h-4 w-4 text-[var(--sea-2)]" />
-            <span>© {new Date().getFullYear()} {SITE.brand}.</span>
-            <span>{dict.footer.rights}</span>
-          </div>
-
-          {/* Payment badges */}
-          <div className="flex flex-wrap items-center gap-3 text-xs text-white/70">
-            <span>{dict.footer.payWith}</span>
+        <a
+          href={SITE.bookingUrl}
+          className="footer-round-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ArrowUpRight size={40} />
+          <span>{c.available}</span>
+        </a>
+      </div>
+      <div className="footer-trust">
+        <span>
+          <Star size={15} fill="currentColor" />
+          {SITE.rating.value}/5 · {SITE.rating.count} Google
+        </span>
+        <span>
+          <Check size={17} />
+          {dict.trust.delivery}
+        </span>
+        <span>
+          <Check size={17} />
+          {dict.trust.unlimited}
+        </span>
+        <span>
+          <Check size={17} />
+          {dict.trust.owner}
+        </span>
+      </div>
+      <div className="footer-grid escape-wrap">
+        <div className="footer-brand">
+          <Link href={localePath(locale)} aria-label={SITE.brand}>
             <Image
-              src="/images/payment-methods.webp"
-              alt="Visa, Mastercard, Maestro, American Express"
-              width={871}
-              height={150}
-              className="h-8 w-auto rounded"
+              src={SITE.logo}
+              alt={SITE.brand}
+              width={220}
+              height={72}
               unoptimized
             />
+          </Link>
+          <p>{c.peopleText}</p>
+          <a href={`tel:${SITE.phones[0]}`}>
+            <Phone size={17} />
+            {SITE.phones[0]}
+          </a>
+          <a href={`mailto:${SITE.email}`}>
+            <Mail size={17} />
+            {SITE.email}
+          </a>
+          <span>
+            <MapPin size={17} />
+            {SITE.address.locality}, {SITE.address.region}
+          </span>
+          <a
+            className="footer-whatsapp"
+            href={whatsappUrl(dict.whatsAppFab.message)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+            <ArrowUpRight size={17} />
+          </a>
+        </div>
+        {groups.map((group) => (
+          <div className="footer-column" key={group.title}>
+            <h3>{group.title}</h3>
+            <ul>
+              {group.links.map(([p, label]) => (
+                <li key={p}>
+                  <Link href={localePath(locale, p)}>
+                    {label}
+                    <ArrowUpRight size={13} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="mr-1 text-white/70">{dict.footer.languages}:</span>
-            {LOCALES.map((l) => (
-              <Link
-                key={l}
-                href={localePath(l)}
-                hrefLang={LOCALE_META[l].htmlLang}
-                className={`rounded-full px-2 py-1 uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "border border-white/15 bg-white/10 text-white/80 hover:bg-white/20 hover:text-white"}`}
+        ))}
+      </div>
+      <div className="footer-network escape-wrap">
+        <div>
+          <span className="eyebrow">Discover Cyclades</span>
+          <div>
+            {getDiscoverHubLinks(locale).map((l) => (
+              <a
+                href={l.href}
+                key={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {LOCALE_META[l].flag} {l}
-              </Link>
+                {DISCOVER_LABELS[l.labelKey]}
+                <ArrowUpRight size={13} />
+              </a>
             ))}
           </div>
         </div>
+        <div className="footer-social">
+          <a
+            href={SITE.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+            <ArrowUpRight size={14} />
+          </a>
+          <a
+            href={SITE.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+            <ArrowUpRight size={14} />
+          </a>
+        </div>
+      </div>
+      <details className="footer-photo-credits escape-wrap">
+        <summary>
+          {
+            {
+              en: "Photography & film from Pexels",
+              el: "Φωτογραφίες και βίντεο από το Pexels",
+              it: "Fotografie e video da Pexels",
+              fr: "Photos et vidéos de Pexels",
+              de: "Fotografie und Film von Pexels",
+            }[locale]
+          }{" "}
+          <span>+</span>
+        </summary>
+        <div>
+          <a
+            href="https://www.pexels.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pexels ↗
+          </a>
+          {Object.values(PHOTO_CREDITS).map((p) => (
+            <a
+              key={p.id}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {p.photographer} · {p.id} ↗
+            </a>
+          ))}
+          <a
+            href="https://www.pexels.com/video/aerial-view-of-portara-and-naxos-town-29851806/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Jack Mulhern · Film ↗
+          </a>
+        </div>
+      </details>
+      <div className="footer-language-row escape-wrap">
+        <div>
+          <span>{dict.footer.languages}</span>
+          {LOCALES.map((l) => (
+            <Link
+              key={l}
+              href={localePath(l)}
+              hrefLang={l}
+              aria-current={l === locale ? "true" : undefined}
+            >
+              {LOCALE_META[l].name}
+            </Link>
+          ))}
+        </div>
+        <a href="#main">
+          {n.back}
+          <ArrowUp size={17} />
+        </a>
+      </div>
+      <div className="footer-wordmark escape-wrap" aria-hidden="true">
+        NAXOS<span>↗</span>
+      </div>
+      <div className="footer-bottom escape-wrap">
+        <p>
+          © {new Date().getFullYear()} {SITE.brand}
+        </p>
+        <nav aria-label={c.legal}>
+          {legal.map(([p, label]) => (
+            <Link key={p} href={localePath(locale, p)}>
+              {label}
+            </Link>
+          ))}
+          <a href="/sitemap.xml">Sitemap</a>
+        </nav>
+        <Image
+          src="/images/payment-methods.webp"
+          alt="Visa, Mastercard, Maestro, American Express"
+          width={260}
+          height={45}
+          unoptimized
+        />
+      </div>
+      <div className="footer-credits escape-wrap">
+        <a
+          href="https://anotherseoguru.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Designed by <span>AnotherSEOGuru</span>
+        </a>
+        <a
+          href="https://touristas.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by <span>Touristas AI</span>
+        </a>
+        <a
+          href="https://discovercyclades.gr/en"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-partner"
+        >
+          <Image
+            src="https://discovercyclades.gr/favicon.svg"
+            alt=""
+            width={20}
+            height={20}
+            unoptimized
+          />
+          <span>
+            <strong>Discover Cyclades</strong>
+            <small>Partner</small>
+          </span>
+        </a>
       </div>
     </footer>
-  );
-}
-
-function FooterCol({
-  title,
-  links,
-  className = "",
-}: {
-  title: string;
-  links: { href: string; label: string; external?: boolean }[];
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <details className="group" open>
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-bold text-white md:pointer-events-none md:cursor-default">
-          {title}
-          <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180 md:hidden" />
-        </summary>
-        <ul className="mt-3 space-y-2 text-sm">
-          {links.map((l) =>
-            l.external ? (
-              <li key={l.href}>
-                <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[var(--sea-2)]">
-                  {l.label}
-                </a>
-              </li>
-            ) : (
-              <li key={l.href}>
-                <Link href={l.href} className="text-white/70 hover:text-[var(--sea-2)]">
-                  {l.label}
-                </Link>
-              </li>
-            )
-          )}
-        </ul>
-      </details>
-    </div>
-  );
-}
-
-function SocialIcon({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-[#0e2240]/40 text-white shadow-sm transition-colors hover:border-[var(--sea-2)] hover:text-[var(--sea-2)]"
-    >
-      {children}
-    </a>
   );
 }

@@ -1,477 +1,396 @@
+import { PhotoCredit } from "@/components/media/PhotoCredit";
+import { IslandFilm } from "@/components/media/IslandFilm";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  ArrowUpRight,
+  ArrowRight,
+  Plane,
+  Anchor,
+  MapPin,
+  Check,
+} from "lucide-react";
 import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { VEHICLES, vehiclesByCategory } from "@/content/fleet";
-import { LOCATIONS } from "@/content/locations";
+import { designCopy } from "@/content/design-copy";
+import { VEHICLES } from "@/content/fleet";
 import { GUIDES } from "@/content/guides";
 import { FAQS } from "@/content/faqs";
 import { REVIEWS, REVIEW_AGGREGATE } from "@/content/reviews";
 import { ReviewCard } from "@/components/reviews/ReviewCard";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
-import { JsonLd } from "@/components/seo/JsonLd";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
-import { graph, faqPageSchema, breadcrumbSchema, itemListSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { graph, faqPageSchema, itemListSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/whatsapp";
-import {
-  ArrowRight, Star, MapPin, Plane, Anchor, MessageCircle, ShieldCheck, Wallet, Clock, Sparkles,
-  Car as CarIcon, Mountain, Zap, Truck, ThumbsUp, BadgeCheck, ChevronDown,
-} from "lucide-react";
-import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  return seoFor("home", locale, "");
+  return isLocale(locale) ? seoFor("home", locale, "") : {};
 }
 
-export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const dict = await getDict(locale);
-
-  const featuredCars = vehiclesByCategory("cars").slice(0, 8);
-  const heroFaqs = FAQS.slice(0, 10);
-
+  const c = designCopy(locale);
+  const cars = VEHICLES.filter((v) => v.bookable).slice(0, 4);
+  const faqs = FAQS.filter((f) =>
+    [
+      "airport-vs-port-pickup",
+      "automatic-availability",
+      "documents-needed",
+      "credit-card-required",
+      "4x4-needed",
+      "advance-vs-walkin",
+    ].includes(f.slug),
+  );
+  const arrival = [
+    {
+      label: c.airport,
+      code: "JNX",
+      path: "locations/airport-pickup",
+      Icon: Plane,
+    },
+    {
+      label: c.port,
+      code: "PORT",
+      path: "locations/port-pickup",
+      Icon: Anchor,
+    },
+    { label: c.stay, code: "NAXOS", path: "locations", Icon: MapPin },
+  ];
   return (
     <>
-      {/* Organization, LocalBusiness and WebSite are emitted once in the locale
-          layout. Repeating them here produced two @graph blocks with the same
-          @id nodes on every page load. Only page-specific types belong here. */}
       <JsonLd
         data={graph([
-          faqPageSchema(heroFaqs, locale),
+          faqPageSchema(faqs, locale),
           itemListSchema(
-            featuredCars.map((v) => ({
+            cars.map((v) => ({
               name: v.name[locale],
-              url: `${SITE.domain}${localePath(locale, `fleet/${v.category}/${v.slug}`)}`,
+              url: `${SITE.domain}${localePath(locale, `fleet/cars/${v.slug}`)}`,
               image: v.image,
               description: v.tagline[locale],
             })),
-            { name: "Rental cars on Naxos" },
+            { name: dict.nav.cars },
           ),
-          breadcrumbSchema([{ name: dict.nav.home, url: `${SITE.domain}${localePath(locale)}` }]),
         ])}
       />
-
-      {/* HERO  -  full-bleed background image */}
-      <section className="relative flex min-h-[100dvh] flex-col overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            // 2400px master. The original agia-anna.jpg is 1000x617, which
-            // capped next/image at 1000px on a full-bleed hero — roughly a 3x
-            // browser upscale on a retina 1440 display, and the reason it read
-            // soft. Regenerate with scripts/generate-hero.mjs. A genuinely
-            // sharp hero still needs an original photo at 2400px or wider;
-            // nothing in public/images currently exceeds 1600px.
-            src="/images/naxos/agia-anna-hero.webp"
-            alt="Naxos Chora and the causeway to the Portara islet, seen across the bay"
-            fill
-            priority
-            // The subject sits centre-right and the text column occupies the
-            // left third, so the crop holds the town and causeway in view as
-            // the viewport narrows.
-            sizes="100vw"
-            quality={82}
-            className="object-cover object-[center_40%]"
-          />
-        </div>
-        {/* Gradient overlays */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(7,27,42,0.68) 0%, rgba(7,27,42,0.50) 44%, rgba(7,27,42,0.28) 60%, rgba(7,27,42,0.08) 72%, rgba(7,27,42,0) 94%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(4,7,12,0.30) 0%, rgba(4,7,12,0.10) 42%, transparent 66%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(4,6,12,0.26) 0%, rgba(4,6,12,0.10) 52%, transparent 82%)' }} />
-
-        <div className="container relative z-10 mx-auto flex flex-1 flex-col px-4 sm:px-6 lg:px-8 pb-8 lg:pb-12 pt-40 lg:pt-52">
-          <div className="max-w-2xl">
-            {/* Eyebrow */}
-            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border px-5 py-2 backdrop-blur-sm" style={{ background: 'rgba(37,99,235,0.08)', borderColor: 'rgba(37,99,235,0.18)' }}>
-              <Star className="h-3.5 w-3.5 fill-blue-400 text-blue-400" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-blue-400">
-                {dict.hero.eyebrow}
-              </span>
-            </div>
-
-            {/* Title */}
-            <h1 className="mb-5 text-[2.8rem] sm:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] font-bold leading-[1.05]" style={{ color: 'rgba(245,250,255,0.98)' }}>
-              {dict.hero.title.split(" ").slice(0, -1).join(" ")}{" "}
-              <span className="text-brand-gradient" style={{ background: 'linear-gradient(135deg, #12bceb, #5fd8f7)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
-                {dict.hero.title.split(" ").slice(-1)[0]}
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p className="mb-4 max-w-xl text-[1rem] leading-[1.85]" style={{ color: 'rgba(233,242,255,0.92)' }}>
-              {dict.hero.subtitle}
-            </p>
-
-            {/* CTAs */}
-            <div className="mb-8 flex flex-wrap items-center gap-4">
-              <Link
-                href={localePath(locale, "fleet")}
-                className="inline-flex min-h-[60px] items-center gap-2.5 rounded-full border-none px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition-all duration-200 hover:brightness-110 glow-brand"
-                style={{ background: 'linear-gradient(135deg, #0a6c8a 0%, #12bceb 100%)', boxShadow: '0 4px 20px rgba(7,27,42,0.25), 0 2px 8px rgba(18,188,235,0.15)' }}
-              >
-                {dict.hero.ctaPrimary} <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href={whatsappUrl(dict.whatsAppFab.message)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[60px] items-center gap-2 rounded-full border px-7 py-3 text-sm font-bold uppercase tracking-[0.12em] backdrop-blur-sm transition-all duration-200 hover:brightness-110 hover:scale-105"
-                style={{ borderColor: 'rgba(20,184,166,0.18)', backgroundColor: 'rgba(255,255,255,0.88)', color: 'rgba(12,34,56,0.95)', boxShadow: '0 10px 24px rgba(5,20,35,0.16)' }}
-              >
-                <WhatsAppIcon className="h-5 w-5" />
-                {dict.hero.ctaSecondary}
-              </a>
-            </div>
-
-            {/* Trust badges inline */}
-            <div className="mb-8 inline-flex max-w-lg items-start gap-3 rounded-xl border px-5 py-3.5 backdrop-blur-sm" style={{ background: 'rgba(218,232,252,0.20)', borderColor: 'rgba(200,223,252,0.42)' }}>
-              <ShieldCheck className="mt-0.5 h-5 w-5 flex-none" style={{ color: 'rgba(244,251,255,0.98)' }} />
-              <div>
-                <p className="text-sm font-semibold" style={{ color: 'rgba(244,251,255,0.98)' }}>{dict.hero.badge1}</p>
-                <p className="mt-1 text-xs leading-relaxed" style={{ color: 'rgba(226,239,255,0.93)' }}>{dict.hero.badge2} · {dict.hero.badge3} · {dict.hero.badge4}</p>
-              </div>
-            </div>
-
-            {/* Stats row */}
-            <div className="flex flex-wrap items-center gap-6 sm:gap-8">
-              {[
-                { icon: <CarIcon className="h-4 w-4" />, value: `${VEHICLES.length}+`, label: "Vehicles" },
-                { icon: <Star className="h-4 w-4" />, value: String(SITE.rating.value), label: "Rating" },
-                { icon: <Clock className="h-4 w-4" />, value: `${SITE.hours.open}–${SITE.hours.close}`, label: "Support" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full" style={{ background: 'rgba(220,235,255,0.22)', border: '1px solid rgba(196,222,253,0.40)' }}>
-                    <span style={{ color: 'rgba(243,250,255,0.95)' }}>{stat.icon}</span>
-                  </div>
-                  <div>
-                    <p className="text-xl font-bold" style={{ color: 'rgba(246,252,255,0.98)' }}>{stat.value}</p>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: 'rgba(219,234,252,0.90)' }}>{stat.label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Scroll cue */}
-          <div className="mt-auto flex justify-center pt-8 lg:hidden">
-            <ChevronDown className="h-6 w-6 animate-scroll-cue" style={{ color: 'rgba(18,188,235,0.8)' }} />
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST STRIP */}
-      <section aria-label="Trust" className="trust-strip py-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-[28px] border island-card">
-            <div className="trust-strip-grid grid sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { Icon: Truck, text: dict.trust.delivery },
-                { Icon: BadgeCheck, text: dict.trust.unlimited },
-                { Icon: ShieldCheck, text: dict.trust.transparent },
-                { Icon: ThumbsUp, text: dict.trust.owner },
-              ].map(({ Icon, text }) => (
-                <div key={text} className="trust-strip-item flex items-start gap-3 p-4 md:p-5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[var(--sea-soft)] text-[var(--sea)]">
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <h3 className="text-sm font-extrabold uppercase tracking-[0.08em] text-[var(--ink)] dark:text-white">{text}</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY US */}
-      <section className="relative bg-background border-t border-border/70">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.why.title}</h2>
-            <p className="mt-3 text-muted-foreground">{dict.why.subtitle}</p>
-          </div>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {dict.why.items.map((item, i) => {
-              const Icon = [MapPin, Wallet, MessageCircle, Sparkles][i];
-              return (
-                <div key={item.title} className="island-card rounded-3xl p-6 transition-colors hover:border-[var(--sea-2)]">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--sea-soft)] text-[var(--sea)]">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-4 font-bold text-lg text-[var(--ink)] dark:text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.body}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* FLEET TEASER  -  CARS */}
-      <section className="bg-sand dark:bg-[var(--background)]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.fleetTeaser.title}</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.nav.cars}</h2>
-            </div>
-            <Link
-              href={localePath(locale, "fleet/cars")}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--sea)] hover:text-[var(--brand-2)]"
-            >
-              {dict.common.viewAll} <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {featuredCars.map((v) => (
-              <VehicleCard key={v.slug} vehicle={v} locale={locale} dict={dict} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CATEGORY GRID  -  Find Your Ride */}
-      <section className="bg-background border-y border-border/70">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.fleetTeaser.title}</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">
-              {dict.fleetHub.title}
-            </h2>
-            <p className="mt-3 text-muted-foreground">{dict.fleetHub.subtitle}</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { href: "fleet/cars", label: dict.fleetTeaser.cars, Icon: CarIcon },
-              { href: "fleet/cars?transmission=automatic", label: dict.common.automatic, Icon: Zap },
-              { href: "fleet/cars?transmission=manual", label: dict.common.manual, Icon: CarIcon },
-              { href: "fleet/cars?fourByFour=true", label: "Jeeps & 4×4", Icon: Mountain },
-              { href: "fleet/cars?seats=7", label: "7-Seater Vans", Icon: Truck },
-            ].map((c) => (
-              <Link
-                key={c.href}
-                href={localePath(locale, c.href)}
-                className="group island-card relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand-1)] hover:shadow-2xl"
-              >
-                <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-brand-gradient opacity-10 group-hover:opacity-30 transition-opacity duration-500" />
-                <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--sea-soft)] text-[var(--sea)] transition-all duration-500 group-hover:bg-brand-gradient group-hover:text-white group-hover:rotate-6 dark:bg-[var(--ink-3)] dark:text-[var(--sea-2)]">
-                  <c.Icon className="h-7 w-7" />
-                </span>
-                <h3 className="mt-5 text-xl font-bold text-[var(--ink)] dark:text-white group-hover:text-[var(--brand-2)] transition-colors">
-                  {c.label}
-                </h3>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[var(--brand-1)] group-hover:gap-2 transition-all">
-                  {dict.common.viewAll} <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DELIVERY ZONES */}
-      <section className="wave-bg border-y border-border/70">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.delivery.title}</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.delivery.subtitle}</h2>
-            <ul className="mt-6 space-y-3">
-              {dict.delivery.points.map((p) => (
-                <li key={p} className="flex items-start gap-3 text-muted-foreground">
-                  <MapPin className="mt-0.5 h-5 w-5 text-[var(--brand-1)] shrink-0" />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={localePath(locale, "locations/airport-pickup")}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-2 text-sm font-semibold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white"
-              >
-                <Plane className="h-4 w-4 text-[var(--brand-1)]" /> JNX Airport
-              </Link>
-              <Link
-                href={localePath(locale, "locations/port-pickup")}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-2 text-sm font-semibold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white"
-              >
-                <Anchor className="h-4 w-4 text-[var(--brand-1)]" /> Naxos Port
-              </Link>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {LOCATIONS.slice(2, 8).map((l) => (
-              <Link
-                key={l.slug}
-                href={localePath(locale, `locations/${l.slug}`)}
-                className="group island-card rounded-2xl p-4"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold">{l.shortName}</span>
-                  <Clock className="h-4 w-4 text-muted-foreground" />
-                </div>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {l.distanceFromChoraKm} km · ~{l.pickupTimeMinutes} min
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* NAXOS INFO TEASER */}
-      <section className="bg-background border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-sm uppercase tracking-widest text-[var(--link)]">Discover Naxos</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">
-              {dict.naxos.pageTitle}
-            </h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">{dict.naxos.pageSubtitle}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href={localePath(locale, "naxos")}
-                className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
-              >
-                {dict.naxos.readMoreAbout} Naxos <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href={localePath(locale, "naxos/beaches")}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-5 py-3 text-sm font-semibold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white"
-              >
-                {dict.naxos.beachesTitle} <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
-            <Image
-              src="/images/naxos/naxos-cta.jpg"
-              alt="Naxos Island"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* AI CHAT TEASER */}
-      <section className="relative overflow-hidden bg-[var(--ink)] text-white">
-        <div aria-hidden className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-[var(--brand-1)] opacity-10 blur-3xl" />
-        <div aria-hidden className="pointer-events-none absolute -right-40 -bottom-40 h-80 w-80 rounded-full bg-[var(--sea)] opacity-10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <p className="text-sm uppercase tracking-widest text-[var(--sea-2)]">{dict.ai.trigger}</p>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-bold">{dict.ai.title}</h2>
-          <p className="mt-4 max-w-xl mx-auto text-white/70 leading-relaxed">{dict.ai.subtitle}</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-            {dict.ai.suggestions.slice(0, 3).map((s) => (
-              <span key={s} className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80">
-                {s}
-              </span>
-            ))}
-          </div>
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-7 py-3.5 text-sm font-bold text-white shadow-lg cursor-pointer select-none" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.30)' }}>
-            <Sparkles className="h-4 w-4" /> {dict.ai.trigger}
-          </div>
-          <p className="mt-3 text-xs text-white/70">{dict.ai.placeholder}</p>
-        </div>
-      </section>
-
-      {/* REVIEWS */}
-      <section className="bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.reviews.title}</h2>
-            <p className="mt-3 text-muted-foreground">{dict.reviews.subtitle}</p>
-          </div>
-          {/* Same card as /reviews, with expansion off so the three teasers
-              stay the same height. */}
-          <div className="mt-12 grid items-start gap-5 md:grid-cols-3">
-            {REVIEWS.slice(0, 3).map((r) => (
-              <ReviewCard key={r.reviewId} review={r} locale={locale} dict={dict} expandable={false} />
-            ))}
-          </div>
-          <div className="mt-8 flex justify-center">
-            <Link
-              href={localePath(locale, "reviews")}
-              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-bold text-[var(--prose-heading)] transition hover:border-[var(--sea)] hover:text-[var(--link)]"
-            >
-              {REVIEW_AGGREGATE.rating} / 5 · {REVIEW_AGGREGATE.total} {dict.reviews.google}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* GUIDES TEASER */}
-      <section className="bg-sand border-y border-border/70 dark:bg-[var(--background)]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-[var(--link)]">{dict.nav.guides}</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)] dark:text-white">{dict.guidesHub.title}</h2>
-            </div>
-            <Link href={localePath(locale, "guides")} className="text-sm font-semibold text-[var(--sea)] hover:text-[var(--brand-2)] inline-flex items-center gap-2">
-              {dict.common.viewAll} <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="mt-8 grid md:grid-cols-3 gap-5">
-            {GUIDES.slice(0, 3).map((g) => (
-              <Link
-                key={g.slug}
-                href={localePath(locale, `guides/${g.slug}`)}
-                className="group island-card rounded-3xl p-6"
-              >
-                <h3 className="text-lg font-bold leading-tight group-hover:text-[var(--brand-1)] transition-colors">
-                  {g.title[locale]}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{g.excerpt[locale]}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-xs text-[var(--brand-1)]">
-                  {dict.common.readArticle} <ArrowRight className="h-3 w-3" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <ContextualFaq faqs={heroFaqs} locale={locale} dict={dict} />
-
-      {/* FINAL CTA */}
-      <section className="relative wave-bg border-y border-border/70 overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden />
-        <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold text-[var(--sea)] shadow-sm backdrop-blur dark:bg-white/10 dark:text-white">
-            <Sparkles className="h-3.5 w-3.5 text-[var(--brand-1)]" />
-            {dict.hero.eyebrow}
-          </span>
-          <h2 className="mt-5 text-3xl sm:text-5xl font-extrabold tracking-tight">
-            {dict.book.title}
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">{dict.book.subtitle}</p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <section className="escape-hero">
+        <div className="escape-hero-copy">
+          <p className="eyebrow">
+            <span className="sun-dot" /> {SITE.tagline[locale]}
+          </p>
+          <h1>
+            {c.headline}
+            <br />
+            <em>{c.accent}</em>
+          </h1>
+          <p className="escape-intro">{c.description}</p>
+          <div className="escape-actions">
             <a
+              className="escape-button"
               href={SITE.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-base font-bold text-white glow-brand shadow-2xl" style={{ boxShadow: '0 6px 28px rgba(7,27,42,0.35)' }}
             >
-              {dict.book.continue} <ArrowRight className="h-4 w-4" />
+              {c.available}
+              <ArrowUpRight size={20} />
+            </a>
+            <Link
+              className="escape-text-link"
+              href={localePath(locale, "fleet/cars")}
+            >
+              {c.explore}
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div className="escape-signature">
+            <span className="signature-line" />
+            <span>{c.intro}</span>
+            <span>37°06′N 25°22′E</span>
+          </div>
+        </div>
+        <div className="escape-hero-photo">
+          <Image
+            src="/images/pexels/naxos-hawaii-beach.webp"
+            alt={dict.naxos.beachesTitle}
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 55vw"
+            className="object-cover"
+          />
+          <div className="escape-photo-label">
+            <span>01 / NAXOS ISLAND</span>
+            <span>CYCLADES, GREECE ↗</span>
+          </div>
+          <span className="escape-wordmark" aria-hidden="true">
+            NAXOS.
+          </span>
+          <Link
+            href={localePath(locale, "naxos/beaches")}
+            className="escape-photo-note"
+          >
+            <span>{c.coast}</span>
+            <ArrowUpRight size={24} />
+          </Link>
+        </div>
+      </section>
+      <div className="hero-photo-credit escape-wrap">
+        <PhotoCredit
+          image="/images/pexels/naxos-hawaii-beach.webp"
+          locale={locale}
+        />
+      </div>
+      <section
+        className="arrival-section escape-wrap"
+        aria-labelledby="arrival-title"
+      >
+        <div className="arrival-heading">
+          <span className="eyebrow">01 — {dict.nav.locations}</span>
+          <h2 id="arrival-title">{c.arrival}</h2>
+          <p>{c.arrivalNote}</p>
+        </div>
+        <div className="arrival-options">
+          {arrival.map(({ label, code, path, Icon }) => (
+            <Link
+              className="arrival-ticket"
+              key={path}
+              href={localePath(locale, path)}
+            >
+              <div className="arrival-ticket-top">
+                <Icon size={25} strokeWidth={1.4} />
+                <span>{code}</span>
+              </div>
+              <h3>{label}</h3>
+              <span className="arrival-ticket-bottom">
+                {c.pickup}
+                <ArrowUpRight size={20} />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <div className="escape-benefits">
+        {[
+          dict.hero.badge1,
+          dict.hero.badge2,
+          dict.hero.badge3,
+          dict.hero.badge4,
+        ].map((x) => (
+          <span key={x}>
+            <Check size={15} />
+            {x}
+          </span>
+        ))}
+      </div>
+      <section className="escape-wrap escape-section" id="choose-car">
+        <div className="escape-section-heading">
+          <div>
+            <p className="eyebrow">02 — {dict.nav.fleet}</p>
+            <h2>{c.fleet}</h2>
+            <p>{c.fleetIntro}</p>
+          </div>
+          <Link
+            className="escape-text-link"
+            href={localePath(locale, "fleet/cars")}
+          >
+            {c.all}
+            <ArrowUpRight size={20} />
+          </Link>
+        </div>
+        <nav className="fleet-category-links" aria-label={dict.nav.fleet}>
+          {[
+            ["fleet/cars", c.all],
+            ["fleet/collections/automatic", c.automatic],
+            ["fleet/collections/family-7-seater", c.family],
+            ["fleet/collections/suv-4x4", c.suv],
+          ].map(([path, label]) => (
+            <Link href={localePath(locale, path)} key={path}>
+              {label}
+              <ArrowUpRight size={14} />
+            </Link>
+          ))}
+        </nav>
+        <div className="escape-fleet-grid">
+          {cars.map((v) => (
+            <VehicleCard vehicle={v} locale={locale} dict={dict} key={v.slug} />
+          ))}
+        </div>
+        <p className="escape-price-note">{c.seasonal}</p>
+      </section>
+      <section className="escape-island">
+        <div className="escape-wrap">
+          <div className="escape-section-heading">
+            <div>
+              <p className="eyebrow">03 — {dict.footer.explore}</p>
+              <h2>{c.island}</h2>
+            </div>
+            <p>{c.islandText}</p>
+          </div>
+          <IslandFilm locale={locale} />
+          <div className="escape-destinations">
+            {[
+              {
+                image: "naxos-hawaii-beach.webp",
+                title: c.coast,
+                path: "naxos/beaches",
+                number: "01",
+                place: "AEGEAN BLUE",
+              },
+              {
+                image: "naxos-turquoise-door.webp",
+                title: c.villages,
+                path: "naxos",
+                number: "02",
+                place: "ISLAND LIFE",
+              },
+              {
+                image: "naxos-chora-sunset.webp",
+                title: c.sunset,
+                path: "naxos",
+                number: "03",
+                place: "GOLDEN HOUR",
+              },
+            ].map((x) => (
+              <div className="destination-frame" key={x.number}>
+                <Link
+                  href={localePath(locale, x.path)}
+                  className="escape-destination"
+                >
+                  <Image
+                    src={`/images/pexels/${x.image}`}
+                    alt={x.title}
+                    fill
+                    sizes="(max-width: 700px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                  <span className="destination-number">{x.number}</span>
+                  <div>
+                    <p>{x.place}</p>
+                    <h3>{x.title}</h3>
+                    <ArrowUpRight size={25} />
+                  </div>
+                </Link>
+                <PhotoCredit
+                  image={`/images/pexels/${x.image}`}
+                  locale={locale}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="escape-wrap escape-people">
+        <div className="escape-people-heading">
+          <p className="eyebrow">FAST MOTOR RENTAL NAXOS</p>
+          <h2>{c.people}</h2>
+          <p>{c.peopleText}</p>
+          <Link className="escape-text-link" href={localePath(locale, "about")}>
+            {dict.nav.about}
+            <ArrowUpRight size={20} />
+          </Link>
+        </div>
+        <div className="escape-stat">
+          <strong>{SITE.founded}</strong>
+          <span>{c.since}</span>
+        </div>
+        <div className="escape-stat">
+          <strong>
+            {VEHICLES.length}
+            <span> /</span>
+          </strong>
+          <span>{c.cars}</span>
+        </div>
+      </section>
+      <section className="escape-wrap escape-section escape-journal">
+        <div className="escape-section-heading">
+          <div>
+            <p className="eyebrow">04 — {dict.nav.guides}</p>
+            <h2>{c.journal}</h2>
+          </div>
+          <Link
+            className="escape-text-link"
+            href={localePath(locale, "guides")}
+          >
+            {dict.common.viewAll}
+            <ArrowUpRight size={20} />
+          </Link>
+        </div>
+        <div className="escape-journal-grid">
+          {GUIDES.slice(0, 3).map((g, i) => (
+            <Link key={g.slug} href={localePath(locale, `guides/${g.slug}`)}>
+              <span className="journal-index">0{i + 1}</span>
+              <h3>{g.title[locale]}</h3>
+              <p>{g.excerpt[locale]}</p>
+              <span className="escape-text-link">
+                {dict.common.readArticle}
+                <ArrowUpRight size={18} />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="escape-wrap escape-section">
+        <div className="escape-section-heading">
+          <div>
+            <p className="eyebrow">05 — {c.reviews}</p>
+            <h2>{dict.reviews.title}</h2>
+          </div>
+          <Link
+            className="escape-text-link"
+            href={localePath(locale, "reviews")}
+          >
+            {REVIEW_AGGREGATE.rating} / 5 · {REVIEW_AGGREGATE.total}{" "}
+            {dict.reviews.google}
+            <ArrowUpRight size={20} />
+          </Link>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {REVIEWS.slice(0, 3).map((r, i) => (
+            <ReviewCard key={i} review={r} dict={dict} locale={locale} />
+          ))}
+        </div>
+      </section>
+      <ContextualFaq faqs={faqs} locale={locale} dict={dict} />
+      <section className="escape-finale">
+        <div className="escape-wrap">
+          <p className="eyebrow">NAXOS IS CALLING</p>
+          <h2>{c.final}</h2>
+          <p>{c.finalText}</p>
+          <div className="escape-actions">
+            <a
+              className="escape-button"
+              href={SITE.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {c.available}
+              <ArrowUpRight size={21} />
             </a>
             <a
+              className="escape-text-link"
               href={whatsappUrl(dict.whatsAppFab.message)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-6 py-3 text-sm font-bold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] hover:-translate-y-0.5 transition-all dark:bg-white/10 dark:text-white"
             >
-              <WhatsAppIcon className="h-5 w-5" />
-              {dict.book.talkToHuman}
+              WhatsApp
+              <ArrowUpRight size={20} />
             </a>
           </div>
+          <span className="finale-word" aria-hidden="true">
+            LET’S GO.
+          </span>
         </div>
       </section>
     </>

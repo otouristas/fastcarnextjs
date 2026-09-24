@@ -1,292 +1,320 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { SITE, type Locale, localePath, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
+import {
+  SITE,
+  LOCALES,
+  LOCALE_META,
+  localePath,
+  swapLocalePath,
+  type Locale,
+} from "@/lib/site";
 import type { Dict } from "@/i18n/types";
+import { designCopy } from "@/content/design-copy";
+import { navigationCopy } from "@/content/navigation-copy";
 import { LOCATIONS } from "@/content/locations";
 import { NAXOS_GUIDE_ARTICLES } from "@/content/naxos-guide";
-import { VEHICLES, minShoulderPrice } from "@/content/fleet";
-import { vehiclesForCollection } from "@/content/vehicle-collections";
-import { ScooterIcon } from "@/components/fleet/CategoryIcons";
-import { whatsappUrl } from "@/lib/whatsapp";
 import {
-  Phone, ChevronDown, Mail, Clock, Star, Car, Cog, LayoutGrid, Mountain, Users,
+  ArrowUpRight,
+  ChevronDown,
+  X,
+  Star,
+  Check,
+  Plane,
+  Anchor,
 } from "lucide-react";
 import { MobileMenu, type MenuLink } from "./MobileMenu";
 import { ThemeToggle } from "./ThemeToggle";
-import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-
-// icon/meta/badge all live on MenuLink so the desktop mega-menu and the mobile
-// drawer render the same tiles from one config, instead of the mobile drawer
-// silently dropping half of every entry.
-type MegaLink = MenuLink;
-
-interface MegaGroup {
-  title: string;
-  links: MegaLink[];
-  cta?: { label: string; href: string; description: string };
-}
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dict }) {
-  const [scrolled, setScrolled] = useState(false);
-  const currentPath = usePathname();
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  // "From" prices are the real minimum shoulder-season rate in each collection,
-  // read from the fleet data rather than typed in, so a price change in
-  // src/content/fleet.ts can never leave a stale number in the navigation.
-  const fromPrice = (vehicles: typeof VEHICLES) => {
-    const min = minShoulderPrice(vehicles);
-    return min == null ? undefined : `${dict.common.from} €${min}${dict.common.perDay}`;
-  };
-
-  const fleetLinks: MegaLink[] = [
-    { href: localePath(locale, "fleet/cars"), label: dict.nav.cars, description: dict.fleetHub.categoryCars, icon: <Car className="h-5 w-5" />, meta: fromPrice(VEHICLES) },
-    { href: localePath(locale, "fleet"), label: dict.nav.fleet, description: dict.fleetHub.subtitle, icon: <LayoutGrid className="h-5 w-5" />, meta: `${VEHICLES.length} ${dict.nav.cars.toLowerCase()}` },
-    { href: localePath(locale, "fleet/collections/automatic"), label: "Automatic cars", description: "Automatic transmission across the fleet", icon: <Cog className="h-5 w-5" />, meta: fromPrice(vehiclesForCollection("automatic")) },
-    { href: localePath(locale, "fleet/collections/suv-4x4"), label: "SUV & 4x4", description: "For the mountain roads and unpaved tracks", icon: <Mountain className="h-5 w-5" />, meta: fromPrice(vehiclesForCollection("suv-4x4")) },
-    { href: localePath(locale, "fleet/collections/family-7-seater"), label: "Family & 7-seater", description: "Groups of five or more with luggage", icon: <Users className="h-5 w-5" />, meta: fromPrice(vehiclesForCollection("family-7-seater")) },
-    // No price: we do not rent these. The page is an honest answer, not a listing.
-    { href: localePath(locale, "fleet/scooters"), label: "Scooter rental in Naxos", description: "Why we rent cars, and when a scooter suits", icon: <ScooterIcon className="h-5 w-5" /> },
+  const c = designCopy(locale),
+    n = navigationCopy(locale),
+    currentPath = usePathname();
+  const [active, setActive] = useState<number | null>(null);
+  const header = useRef<HTMLElement>(null);
+  const triggers = useRef<(HTMLButtonElement | null)[]>([]);
+  const link = (
+    path: string,
+    label: string,
+    description: string,
+  ): MenuLink => ({ href: localePath(locale, path), label, description });
+  const fleetLinks = [
+    link("fleet/cars", c.all, c.fleetIntro),
+    link("fleet/collections/automatic", c.automatic, c.automaticDesc),
+    link("fleet/collections/family-7-seater", c.family, c.familyDesc),
+    link("fleet/collections/suv-4x4", c.suv, c.suvDesc),
+    link("fleet", dict.nav.fleet, dict.fleetHub.subtitle),
+    link("fleet/scooters", n.scooter, n.scooterNote),
   ];
-  const infoLinks: MegaLink[] = [
-    { href: localePath(locale, "pricing"), label: dict.nav.pricing, description: dict.pricing.subtitle },
-    { href: localePath(locale, "insurance"), label: dict.nav.insurance, description: dict.insurance.subtitle },
-    { href: localePath(locale, "faq"), label: dict.nav.faq, description: dict.faqHub.subtitle },
-    { href: localePath(locale, "about"), label: dict.nav.about, description: dict.about.subtitle },
-    { href: localePath(locale, "contact"), label: dict.nav.contact, description: dict.contact.subtitle },
-    { href: localePath(locale, "terms"), label: "Terms", description: "Rental terms & conditions" },
-    { href: localePath(locale, "reviews"), label: "Reviews", description: `${SITE.rating.value}★ · ${SITE.rating.count}+ verified Google reviews` },
+  const infoLinks = [
+    link("pricing", dict.nav.pricing, dict.pricing.subtitle),
+    link("insurance", dict.nav.insurance, dict.insurance.subtitle),
+    link(
+      "reviews",
+      c.reviews,
+      `${SITE.rating.value}/5 · ${SITE.rating.count} Google`,
+    ),
+    link("about", dict.nav.about, c.peopleText),
+    link("faq", dict.nav.faq, dict.faqHub.subtitle),
+    link("contact", dict.nav.contact, dict.contact.subtitle),
+    link("terms", c.terms, c.legal),
   ];
-  const exploreLinks: MegaLink[] = [
-    { href: localePath(locale, "naxos"), label: dict.naxos.pageTitle, description: dict.naxos.pageSubtitle, badge: "Guide" },
-    ...NAXOS_GUIDE_ARTICLES.slice(0, 5).map((a) => ({
-      href: localePath(locale, `naxos/${a.slug}`),
-      label: a.title[locale],
-      description: a.excerpt[locale],
-    })),
-    { href: localePath(locale, "naxos/beaches"), label: dict.naxos.beachesTitle, description: "Beaches, villages & best vehicle picks" },
-    { href: localePath(locale, "locations"), label: dict.nav.locations, description: dict.locationsHub.subtitle },
-    ...LOCATIONS.slice(0, 3).map((l) => ({
-      href: localePath(locale, `locations/${l.slug}`),
-      label: l.shortName,
-      description: l.hero[locale],
-    })),
-    { href: localePath(locale, "guides"), label: dict.nav.guides, description: dict.guidesHub.subtitle },
+  const exploreLinks = [
+    link("locations/airport-pickup", c.airport, c.pickup),
+    link("locations/port-pickup", c.port, c.pickup),
+    link("locations", c.stay, dict.locationsHub.subtitle),
+    link("naxos", dict.naxos.pageTitle, c.islandText),
+    link("naxos/beaches", dict.naxos.beachesTitle, c.coast),
+    link("guides", dict.nav.guides, c.journal),
+    ...NAXOS_GUIDE_ARTICLES.slice(0, 3).map((a) =>
+      link(`naxos/${a.slug}`, a.title[locale], a.excerpt[locale]),
+    ),
+    ...LOCATIONS.slice(2, 5).map((l) =>
+      link(`locations/${l.slug}`, l.name[locale], l.hero[locale]),
+    ),
   ];
-
-  const megaGroups: MegaGroup[] = [
+  const groups = [
     {
       title: dict.nav.fleet,
       links: fleetLinks,
-      cta: { label: dict.cta.bookCar, href: SITE.bookingUrl, description: dict.book.subtitle },
+      image: "/images/fleet/studio/fiat-500-cabrio.webp",
+      heading: c.fleet,
     },
     {
       title: dict.footer.company,
       links: infoLinks,
-      cta: { label: dict.cta.whatsappQuote, href: whatsappUrl(dict.whatsAppFab.message), description: dict.contact.subtitle },
+      image: "/images/pexels/naxos-portara-sunset.webp",
+      heading: c.people,
     },
     {
       title: dict.footer.explore,
       links: exploreLinks,
-      cta: { label: dict.cta.seeFleet, href: localePath(locale, "fleet"), description: dict.fleetHub.subtitle },
+      image: "/images/naxos/plaka-beach.jpg",
+      heading: c.island,
     },
   ];
-
+  useEffect(() => {
+    if (active === null) return;
+    const key = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActive(null);
+        triggers.current[active]?.focus();
+      }
+    };
+    const outside = (e: PointerEvent) => {
+      if (!header.current?.contains(e.target as Node)) setActive(null);
+    };
+    document.addEventListener("keydown", key);
+    document.addEventListener("pointerdown", outside);
+    return () => {
+      document.removeEventListener("keydown", key);
+      document.removeEventListener("pointerdown", outside);
+    };
+  }, [active]);
+  const close = () => setActive(null);
   return (
-    <header className="site-header sticky top-0 z-[80] w-full border-b backdrop-blur-xl">
-      {/* Utility bar */}
-      <div className="site-header-utility hidden border-b text-xs text-muted-foreground sm:block">
-        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
-            <a href={`tel:${SITE.phones[0]}`} className="inline-flex items-center gap-1.5 font-medium hover:text-[var(--sea)]">
-              <Phone className="h-3.5 w-3.5" /> {SITE.phones[0]}
-            </a>
-            <a href={`mailto:${SITE.email}`} className="hidden items-center gap-1.5 font-medium hover:text-[var(--sea)] md:inline-flex">
-              <Mail className="h-3.5 w-3.5" /> {SITE.email}
-            </a>
-            <span className="hidden items-center gap-1.5 md:inline-flex">
-              <Clock className="h-3.5 w-3.5" /> {SITE.hours.open}–{SITE.hours.close}
-            </span>
+    <header
+      ref={header}
+      className="island-header"
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) close();
+      }}
+    >
+      <a href="#main" className="skip-navigation">
+        {dict.a11y.skipToContent}
+      </a>
+      <div className="header-indicators">
+        <div>
+          <span>
+            <Star size={12} fill="currentColor" />
+            {SITE.rating.value}/5 · {SITE.rating.count} Google
+          </span>
+          <span className="header-indicator-extra">
+            <Check size={13} />
+            {n.direct}
+          </span>
+        </div>
+        <div>
+          <a href={`tel:${SITE.phones[0]}`}>{SITE.phones[0]}</a>
+          <span className="header-indicator-extra">
+            {SITE.hours.open}—{SITE.hours.close}
+          </span>
+        </div>
+      </div>
+      <div className="header-main">
+        <Link
+          onClick={close}
+          className="header-logo"
+          href={localePath(locale)}
+          aria-label={SITE.brand}
+        >
+          <Image
+            src={SITE.logo}
+            alt={SITE.brand}
+            width={220}
+            height={72}
+            unoptimized
+            priority
+          />
+        </Link>
+        <nav className="desktop-navigation" aria-label={dict.nav.menu}>
+          {groups.map((g, i) => (
+            <button
+              ref={(el) => {
+                triggers.current[i] = el;
+              }}
+              key={g.title}
+              className={active === i ? "is-active" : ""}
+              aria-expanded={active === i}
+              aria-controls={`mega-${i}`}
+              onClick={() => setActive(active === i ? null : i)}
+            >
+              {g.title}
+              <ChevronDown size={14} />
+            </button>
+          ))}
+        </nav>
+        <div className="header-tools">
+          <div className="header-languages">
+            {LOCALES.map((l) => (
+              <Link
+                onClick={close}
+                href={swapLocalePath(currentPath, l)}
+                hrefLang={l}
+                aria-label={LOCALE_META[l].name}
+                aria-current={l === locale ? "true" : undefined}
+                key={l}
+              >
+                {l}
+              </Link>
+            ))}
           </div>
-          <div className="flex items-center gap-3">
-            <span className="hidden items-center gap-1 font-semibold text-[var(--ink)] dark:text-white md:inline-flex">
-              <Star className="h-3.5 w-3.5 fill-[var(--brand-1)] text-[var(--brand-1)]" /> {SITE.rating.value}/5
-            </span>
-            <div className="site-language-switcher flex items-center gap-1 rounded-full border px-2 py-0.5">
-              {LOCALES.map((l) => (
+          <ThemeToggle labels={dict.theme} className="header-theme" />
+          <a
+            className="header-book"
+            href={SITE.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {dict.nav.bookNow}
+            <ArrowUpRight size={17} />
+          </a>
+          <MobileMenu
+            locale={locale}
+            dict={dict}
+            currentPath={currentPath}
+            fleetLinks={fleetLinks}
+            infoLinks={infoLinks}
+            exploreLinks={exploreLinks}
+          />
+        </div>
+      </div>
+      {groups.map((g, i) => (
+        <div
+          id={`mega-${i}`}
+          key={g.title}
+          className="island-mega"
+          hidden={active !== i}
+        >
+          <div className="mega-heading">
+            <p className="eyebrow">
+              <span className="sun-dot" />0{i + 1} — {n.plan}
+            </p>
+            <button
+              onClick={() => {
+                close();
+                triggers.current[i]?.focus();
+              }}
+              aria-label={n.close}
+            >
+              <X size={23} />
+            </button>
+          </div>
+          <div className="mega-body">
+            <div className="mega-index">
+              <h2>
+                {g.title}
+                <span>.</span>
+              </h2>
+              <p>{n.navigate}</p>
+              <div className="mega-pickup">
                 <Link
-                  key={l}
-                  href={swapLocalePath(currentPath, l)}
-                  aria-label={LOCALE_META[l].name}
-                  hrefLang={LOCALE_META[l].htmlLang}
-                  className={`rounded-full px-1.5 py-0.5 uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "hover:text-[var(--ink)] dark:hover:text-white"}`}
+                  onClick={close}
+                  href={localePath(locale, "locations/airport-pickup")}
                 >
-                  {l}
+                  <Plane size={18} />
+                  {c.airport}
+                  <ArrowUpRight size={16} />
+                </Link>
+                <Link
+                  onClick={close}
+                  href={localePath(locale, "locations/port-pickup")}
+                >
+                  <Anchor size={18} />
+                  {c.port}
+                  <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </div>
+            <div className="mega-link-grid">
+              {g.links.map((l, j) => (
+                <Link onClick={close} href={l.href} key={l.href}>
+                  <span className="mega-link-index">
+                    {String(j + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <strong>{l.label}</strong>
+                    <p>{l.description}</p>
+                  </div>
+                  <ArrowUpRight size={18} />
                 </Link>
               ))}
             </div>
-            <ThemeToggle labels={dict.theme} className="h-7 w-7" />
+            <Link
+              onClick={close}
+              href={localePath(
+                locale,
+                i === 0 ? "fleet/cars" : i === 1 ? "about" : "naxos",
+              )}
+              className="mega-feature"
+            >
+              <Image
+                src={g.image}
+                alt={g.heading}
+                fill
+                sizes="30vw"
+                className="object-cover"
+              />
+              <div>
+                <span>{n.welcome}</span>
+                <h3>{g.heading}</h3>
+                <ArrowUpRight size={25} />
+              </div>
+            </Link>
+          </div>
+          <div className="mega-bottom">
+            <span>
+              <Star size={14} fill="currentColor" />
+              {SITE.rating.value}/5 · {SITE.rating.count} {dict.reviews.google}
+            </span>
+            <span>
+              <Check size={14} />
+              {dict.trust.delivery}
+            </span>
+            <span>
+              <Check size={14} />
+              {dict.trust.unlimited}
+            </span>
+            <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer">
+              {c.available}
+              <ArrowUpRight size={16} />
+            </a>
           </div>
         </div>
-      </div>
-
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded-full focus:bg-brand-gradient focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white">
-        {dict.a11y.skipToContent}
-      </a>
-
-      {/* Main bar */}
-      <div className="group/header relative">
-        <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${scrolled ? "h-16" : "h-[72px]"}`}>
-          <Link href={localePath(locale)} className="flex items-center gap-3" aria-label={SITE.brand}>
-            <Image
-              src={SITE.logo}
-              alt={SITE.brand}
-              width={260}
-              height={80}
-              priority
-              unoptimized
-              className={`w-auto transition-all duration-300 ${scrolled ? "h-10 sm:h-11" : "h-12 sm:h-14 lg:h-16"}`}
-            />
-          </Link>
-
-          <nav className="hidden items-center gap-1 lg:flex h-full" aria-label="Primary">
-            {megaGroups.map((g) => (
-              <MegaMenu key={g.title} group={g} dict={dict} />
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <a
-              href={`tel:${SITE.phones[0]}`}
-              className="hidden h-10 w-10 items-center justify-center rounded-lg border text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] hover:text-[var(--sea)] dark:text-white sm:flex" style={{ borderColor: 'rgba(7,27,42,0.20)', background: 'transparent' }}
-              aria-label={dict.nav.call}
-            >
-              <Phone className="h-4 w-4" />
-            </a>
-
-            <a
-              href={whatsappUrl(dict.whatsAppFab.message)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden h-10 w-10 items-center justify-center rounded-lg border shadow-sm hover:border-green-400 sm:flex" style={{ borderColor: 'rgba(7,27,42,0.20)', background: 'transparent' }}
-              aria-label="WhatsApp"
-            >
-              <WhatsAppIcon className="h-6 w-6" />
-            </a>
-
-            <a
-              href={SITE.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-lg bg-brand-gradient px-6 py-3 text-[13px] font-bold uppercase tracking-[0.12em] text-white shadow-lg sm:inline-flex" style={{ boxShadow: '0 4px 20px rgba(7,27,42,0.25)' }}
-            >
-              {dict.nav.bookNow}
-            </a>
-
-            <MobileMenu
-              locale={locale}
-              dict={dict}
-              currentPath={currentPath}
-              fleetLinks={fleetLinks}
-              infoLinks={infoLinks}
-              exploreLinks={exploreLinks}
-            />
-          </div>
-        </div>
-      </div>
+      ))}
     </header>
-  );
-}
-
-function MegaMenu({ group, dict }: { group: MegaGroup; dict: Dict }) {
-  return (
-    <div className="group/mega self-stretch flex items-center">
-      <button
-        type="button"
-        className="inline-flex h-10 items-center gap-1 rounded-lg px-2 text-[12px] font-semibold uppercase tracking-[0.10em] whitespace-nowrap transition-all duration-200 text-[var(--ink)]/75 hover:bg-[var(--sea)]/[0.06] hover:text-[var(--ink)] dark:text-white/80 dark:hover:text-white"
-        aria-haspopup="true"
-      >
-        {group.title}
-        <ChevronDown className="h-4 w-4 transition-transform group-hover/mega:rotate-180 group-focus-within/mega:rotate-180" />
-      </button>
-
-      <div className="invisible absolute left-1/2 top-full -translate-x-1/2 opacity-0 transition-all duration-200 group-hover/mega:visible group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:opacity-100">
-        <div aria-hidden="true" className="h-3 w-full" />
-        <div
-          className="site-mega-panel rounded-[2rem] border p-6 backdrop-blur-xl"
-          style={{ width: "min(76rem, calc(100vw - 2rem))" }}
-        >
-          <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
-            <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-[var(--sea)] dark:text-[var(--sea-2)]">
-                {group.title}
-              </p>
-              <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                {group.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="flex h-full items-start gap-2 rounded-2xl border border-transparent p-3.5 transition-colors hover:border-border hover:bg-white dark:hover:border-white/10 dark:hover:bg-white/10"
-                    >
-                      {link.icon && (
-                        <span
-                          aria-hidden="true"
-                          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]"
-                        >
-                          {link.icon}
-                        </span>
-                      )}
-                      <span className="min-w-0">
-                        <span className="flex items-center gap-1.5 text-sm font-bold text-[var(--ink)] dark:text-white">
-                          {link.label}
-                          {link.badge && (
-                            <span className="rounded-full bg-[var(--sea-soft)] px-1.5 py-0.5 text-[10px] font-bold text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]">
-                              {link.badge}
-                            </span>
-                          )}
-                        </span>
-                        <span className="mt-0.5 line-clamp-2 block text-xs leading-5 text-muted-foreground">{link.description}</span>
-                        {link.meta && (
-                          <span className="mt-1 block text-[11px] font-bold text-[var(--link)] dark:text-[var(--sea-2)]">
-                            {link.meta}
-                          </span>
-                        )}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {group.cta && (
-              <Link
-                href={group.cta.href}
-                className="relative flex min-h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-brand-gradient p-6 text-white shadow-xl" style={{ boxShadow: '0 20px 60px rgba(7,27,42,0.30)' }}
-              >
-                <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-white/15 blur-2xl" />
-                <div aria-hidden="true" className="pointer-events-none absolute -left-12 -bottom-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-                <div className="relative">
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/85">{dict.nav.bookNow}</p>
-                  <p className="mt-3 text-2xl font-extrabold leading-tight">{group.cta.label}</p>
-                  <p className="mt-3 text-sm leading-6 text-white/90">{group.cta.description}</p>
-                </div>
-                <span className="relative mt-5 inline-flex items-center gap-2 text-sm font-bold">
-                  {dict.common.readMore} →
-                </span>
-              </Link>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }

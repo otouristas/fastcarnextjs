@@ -12,7 +12,7 @@ import {
 } from "@/content/reviews";
 import { RatingSummary } from "@/components/reviews/RatingSummary";
 import { ReviewsList } from "@/components/reviews/ReviewsList";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import { ArrowRight } from "lucide-react";
@@ -57,29 +57,9 @@ export default async function ReviewsPage({ params }: { params: Promise<{ locale
         ])}
       />
 
-      <section className="wave-bg border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            label={dict.common.breadcrumb}
-            items={[{ label: dict.nav.home, href: localePath(locale) }, { label: dict.reviews.title }]}
-          />
-          <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <h1 className="max-w-3xl font-heading text-4xl font-extrabold tracking-tight text-[var(--prose-heading)] md:text-5xl">
-                {dict.reviews.title}
-              </h1>
-              <p className="mt-3 max-w-2xl text-muted-foreground">{dict.reviews.subtitle}</p>
-            </div>
-            <RatingSummary
-              aggregate={REVIEW_AGGREGATE}
-              sourceUrl={REVIEWS_SOURCE_URL}
-              dict={dict}
-              locale={locale}
-              updatedAt={REVIEWS_UPDATED_AT}
-            />
-          </div>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={dict.reviews.title} subtitle={dict.reviews.subtitle} label={dict.reviews.title} image="/images/pexels/naxos-chora-sunset.webp">
+        <RatingSummary aggregate={REVIEW_AGGREGATE} sourceUrl={REVIEWS_SOURCE_URL} dict={dict} locale={locale} updatedAt={REVIEWS_UPDATED_AT}/>
+      </PageMasthead>
 
       <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">

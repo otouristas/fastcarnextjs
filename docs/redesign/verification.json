@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-24",
+  "scope": "Local preview only",
+  "checks": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "production_build": "PASS",
+    "sitemap_urls": 410,
+    "internal_paths": 450,
+    "workbook_sheets": 24,
+    "cached_excel_errors": [],
+    "fleet_studio_images": 24,
+    "whatsapp_defaults": [
+      {
+        "locale": "en",
+        "messages": [
+          "Hi! I'm planning a trip to Naxos and would like a quick rental quote."
+        ],
+        "passed": true
+      },
+      {
+        "locale": "el",
+        "messages": [
+          "Καλησπέρα σας! Σχεδιάζω ταξίδι στη Νάξο και θα ήθελα προσφορά ενοικίασης."
+        ],
+        "passed": true
+      },
+      {
+        "locale": "it",
+        "messages": [
+          "Hi! I'm planning a trip to Naxos and would like a quick rental quote."
+        ],
+        "passed": true
+      },
+      {
+        "locale": "fr",
+        "messages": [
+          "Hi! I'm planning a trip to Naxos and would like a quick rental quote."
+        ],
+        "passed": true
+      },
+      {
+        "locale": "de",
+        "messages": [
+          "Hi! I'm planning a trip to Naxos and would like a quick rental quote."
+        ],
+        "passed": true
+      }
+    ],
+    "review_order": {
+      "default": "Highest rating, then newest date",
+      "homepage_first_three": [
+        5,
+        5,
+        5
+      ],
+      "reviews_first_page": "12 five-star reviews",
+      "critical_filter": "Four one-star reviews remain accessible",
+      "vehicle_quotes": "Three model-specific quotes, all five-star",
+      "locale_default": "English and Greek browser-verified; all five labels typechecked"
+    },
+    "client_startup": {
+      "entry": "src/instrumentation-client.ts",
+      "browser": "No console errors on fresh dev page, theme reload or client navigation",
+      "theme": "Stored dark preference survives reload; restored light after check",
+      "consent": "Five VM scenarios cover denied defaults, storage failure isolation and refresh idempotence; analytics remains consent gated"
+    }
+  },
+  "not_tested": [
+    "Production deployment",
+    "Current search rankings",
+    "Current field Core Web Vitals",
+    "Live analytics events",
+    "Completed external booking",
+    "ChatGPT answer cohort"
+  ],
+  "known_gaps": [
+    "English fallback values remain in five inherited island-guide modules",
+    "Native-language editorial review",
+    "Operator confirmation of current commercial policies and exact inventory"
+  ]
+}

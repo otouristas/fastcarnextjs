@@ -28,17 +28,17 @@ export const LOCATIONS: Location[] = [
     distanceFromChoraKm: 3.6,
     pickupTimeMinutes: 5,
     highlights: [
-      ls("Free meet-and-greet (no desk fee)"),
-      ls("Flight tracking  -  we know if you're delayed"),
-      ls("Under 5 minutes from arrival to keys"),
-      ls("Open whenever your flight lands"),
+      ls("Free meet-and-greet (no desk fee)", "Δωρεάν υποδοχή και παράδοση (χωρίς χρέωση γραφείου)", "Accoglienza gratuita (nessun costo di sportello)", "Accueil gratuit (sans frais de comptoir)", "Kostenlose persönliche Übergabe (keine Schaltergebühr)"),
+      ls("Flight tracking  -  we know if you're delayed", "Παρακολούθηση πτήσης για πιθανές καθυστερήσεις", "Monitoraggio del volo in caso di ritardo", "Suivi de votre vol en cas de retard", "Flugverfolgung bei Verspätungen"),
+      ls("Under 5 minutes from arrival to keys", "Παραλαβή κλειδιών σε λιγότερο από 5 λεπτά", "Chiavi in meno di 5 minuti dall’arrivo", "Les clés en moins de 5 minutes après l’arrivée", "Schlüsselübergabe in weniger als 5 Minuten nach Ankunft"),
+      ls("Open whenever your flight lands", "Εξυπηρέτηση την ώρα άφιξης της πτήσης σου", "Assistenza all’arrivo del tuo volo", "Accueil à l’arrivée de votre vol", "Übergabe bei Ankunft deines Fluges"),
     ],
     nearbyVehicles: ["cars"],
   },
   {
     slug: "port-pickup",
     type: "port",
-    name: ls("Naxos Port car rental & ferry pickup", "Ενοικίαση λιμάνι Νάξου", "Noleggio porto di Naxos", "Location port Naxos", "Mietwagen Hafen Naxos"),
+    name: ls("Naxos Port car rental & ferry pickup", "Ενοικίαση λιμάνι Νάξου", "Noleggio auto al porto di Naxos", "Location de voiture au port de Naxos", "Mietwagen Hafen Naxos"),
     shortName: "Naxos Port",
     hero: ls(
       "2-minute walk from the ferry  -  keys ready when you step off",
@@ -57,7 +57,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.1075, lng: 25.3801 },
     distanceFromChoraKm: 0.2,
     pickupTimeMinutes: 2,
-    highlights: [ls("2-minute walk from ferry"), ls("Drop-off as easy as walking back"), ls("WhatsApp ETA  -  keys ready"), ls("Free parking right outside")],
+    highlights: [ls("2-minute walk from ferry", "2 λεπτά με τα πόδια από το πλοίο", "2 minuti a piedi dal traghetto", "À 2 minutes à pied du ferry", "2 Gehminuten von der Fähre"), ls("Drop-off as easy as walking back", "Εύκολη επιστροφή κοντά στο πλοίο", "Riconsegna comoda vicino al traghetto", "Retour facile près du ferry", "Einfache Rückgabe nahe der Fähre"), ls("WhatsApp ETA  -  keys ready", "Στείλε ώρα άφιξης στο WhatsApp — ετοιμάζουμε τα κλειδιά", "Invia l’orario di arrivo su WhatsApp: prepariamo le chiavi", "Envoyez votre heure d’arrivée sur WhatsApp : nous préparons les clés", "Ankunftszeit per WhatsApp senden – wir bereiten die Schlüssel vor"), ls("Free parking right outside", "Δωρεάν στάθμευση ακριβώς έξω", "Parcheggio gratuito davanti all’ufficio", "Stationnement gratuit juste devant", "Kostenloses Parken direkt davor")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -82,7 +82,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.1036, lng: 25.3771 },
     distanceFromChoraKm: 0,
     pickupTimeMinutes: 5,
-    highlights: [ls("Free delivery to any Chora address"), ls("Office walk-in welcome"), ls("Best beach base"), ls("Closest to the ferry & airport")],
+    highlights: [ls("Free delivery to any Chora address", "Δωρεάν παράδοση σε κάθε διεύθυνση στη Χώρα", "Consegna gratuita a qualsiasi indirizzo di Chora", "Livraison gratuite à toute adresse de Chora", "Kostenlose Lieferung an jede Adresse in Chora"), ls("Office walk-in welcome", "Εξυπηρέτηση και χωρίς ραντεβού στο γραφείο", "Ti aspettiamo anche senza appuntamento", "Accueil au bureau sans rendez-vous", "Besuch im Büro auch ohne Termin"), ls("Best beach base", "Πρακτική βάση για τις παραλίες", "Una base ideale per le spiagge", "Un point de départ idéal pour les plages", "Praktischer Ausgangspunkt für die Strände"), ls("Closest to the ferry & airport", "Κοντά στο λιμάνι και το αεροδρόμιο", "Vicino al porto e all’aeroporto", "À proximité du port et de l’aéroport", "Nahe am Hafen und Flughafen")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -107,7 +107,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0728, lng: 25.3647 },
     distanceFromChoraKm: 5,
     pickupTimeMinutes: 10,
-    highlights: [ls("Free hotel delivery"), ls("Perfect beaches"), ls("10 mins from Chora")],
+    highlights: [ls("Free hotel delivery", "Δωρεάν παράδοση στο ξενοδοχείο", "Consegna gratuita in hotel", "Livraison gratuite à l’hôtel", "Kostenlose Lieferung zum Hotel"), ls("Perfect beaches", "Υπέροχες παραλίες", "Spiagge splendide", "Des plages magnifiques", "Wunderschöne Strände"), ls("10 mins from Chora", "10 λεπτά από τη Χώρα", "10 minuti da Chora", "À 10 minutes de Chora", "10 Minuten von Chora")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -126,7 +126,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.063, lng: 25.366 },
     distanceFromChoraKm: 6,
     pickupTimeMinutes: 12,
-    highlights: [ls("Quieter than Prokopios"), ls("Fishing harbour"), ls("Free delivery")],
+    highlights: [ls("Quieter than Prokopios", "Πιο ήσυχη από τον Άγιο Προκόπιο", "Più tranquilla di Agios Prokopios", "Plus calme qu’Agios Prokopios", "Ruhiger als Agios Prokopios"), ls("Fishing harbour", "Ψαρολίμανο", "Porticciolo di pescatori", "Petit port de pêche", "Kleiner Fischerhafen"), ls("Free delivery", "Δωρεάν παράδοση", "Consegna gratuita", "Livraison gratuite", "Kostenlose Lieferung")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -145,7 +145,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0517, lng: 25.3631 },
     distanceFromChoraKm: 8,
     pickupTimeMinutes: 15,
-    highlights: [ls("Quietest of the main beaches"), ls("Beachfront tavernas"), ls("Easy parking")],
+    highlights: [ls("Quietest of the main beaches", "Από τις πιο ήσυχες κύριες παραλίες", "Tra le spiagge principali più tranquille", "Parmi les grandes plages les plus calmes", "Einer der ruhigeren Hauptstrände"), ls("Beachfront tavernas", "Ταβέρνες δίπλα στη θάλασσα", "Taverne sul mare", "Tavernes en bord de mer", "Tavernen direkt am Meer"), ls("Easy parking", "Εύκολη στάθμευση", "Parcheggio facile", "Stationnement facile", "Einfaches Parken")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -164,7 +164,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0848, lng: 25.3578 },
     distanceFromChoraKm: 4,
     pickupTimeMinutes: 10,
-    highlights: [ls("Steep streets  -  auto recommended"), ls("5 min from beaches"), ls("Best sunsets")],
+    highlights: [ls("Steep streets  -  auto recommended", "Απότομοι δρόμοι — προτείνεται αυτόματο", "Strade ripide: consigliata un’automatica", "Routes pentues : boîte automatique conseillée", "Steile Straßen – Automatik empfohlen"), ls("5 min from beaches", "5 λεπτά από τις παραλίες", "5 minuti dalle spiagge", "À 5 minutes des plages", "5 Minuten von den Stränden"), ls("Best sunsets", "Υπέροχα ηλιοβασιλέματα", "Tramonti spettacolari", "De superbes couchers de soleil", "Wunderschöne Sonnenuntergänge")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -183,7 +183,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0259, lng: 25.4123 },
     distanceFromChoraKm: 17,
     pickupTimeMinutes: 25,
-    highlights: [ls("Kitesurf paradise"), ls("4x4 recommended"), ls("Sunset over the dunes")],
+    highlights: [ls("Kitesurf paradise", "Παράδεισος για kitesurf", "Paradiso del kitesurf", "Paradis du kitesurf", "Paradies zum Kitesurfen"), ls("Discuss your route with us", "Συζήτησε τη διαδρομή σου μαζί μας", "Parla con noi del tuo itinerario", "Parlez-nous de votre itinéraire", "Besprich deine Route mit uns"), ls("Sunset over the dunes", "Ηλιοβασίλεμα στους αμμόλοφους", "Tramonto sulle dune", "Coucher de soleil sur les dunes", "Sonnenuntergang über den Dünen")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -202,7 +202,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.1739, lng: 25.5603 },
     distanceFromChoraKm: 35,
     pickupTimeMinutes: 60,
-    highlights: [ls("Famous Kouros"), ls("Quiet seafood lunch"), ls("Best north-coast village")],
+    highlights: [ls("Famous Kouros", "Ο διάσημος Κούρος", "Il famoso Kouros", "Le célèbre Kouros", "Der berühmte Kouros"), ls("Quiet seafood lunch", "Ήσυχο γεύμα με θαλασσινά", "Pranzo tranquillo a base di pesce", "Déjeuner tranquille de fruits de mer", "Entspanntes Mittagessen mit Fisch"), ls("Best north-coast village", "Χωριό στη βόρεια ακτή", "Un borgo sulla costa nord", "Un village sur la côte nord", "Ein Dorf an der Nordküste")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -221,7 +221,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0508, lng: 25.4836 },
     distanceFromChoraKm: 19,
     pickupTimeMinutes: 30,
-    highlights: [ls("Mt Zas trailhead"), ls("Tragea olive valley"), ls("Tavernas under plane trees")],
+    highlights: [ls("Mt Zas trailhead", "Αφετηρία μονοπατιού για τον Ζα", "Inizio del sentiero per il Monte Zas", "Départ du sentier du mont Zas", "Ausgangspunkt für den Wanderweg zum Zas"), ls("Tragea olive valley", "Οι ελαιώνες της Τραγαίας", "Gli uliveti della Tragea", "Les oliveraies de Tragea", "Die Olivenhaine von Tragea"), ls("Tavernas under plane trees", "Ταβέρνες κάτω από τα πλατάνια", "Taverne sotto i platani", "Tavernes sous les platanes", "Tavernen unter Platanen")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -240,7 +240,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.072, lng: 25.526 },
     distanceFromChoraKm: 28,
     pickupTimeMinutes: 45,
-    highlights: [ls("Marble streets"), ls("Mountain views"), ls("Iconic drive")],
+    highlights: [ls("Marble streets", "Μαρμάρινα σοκάκια", "Vicoli di marmo", "Ruelles de marbre", "Marmorgassen"), ls("Mountain views", "Θέα στα βουνά", "Vista sulle montagne", "Vue sur les montagnes", "Bergblick"), ls("Iconic drive", "Χαρακτηριστική διαδρομή του νησιού", "Un itinerario caratteristico dell’isola", "Un itinéraire emblématique de l’île", "Eine typische Inselroute")],
     nearbyVehicles: ["cars"],
   },
   {
@@ -259,7 +259,7 @@ export const LOCATIONS: Location[] = [
     geo: { lat: 37.0566, lng: 25.4708 },
     distanceFromChoraKm: 16,
     pickupTimeMinutes: 25,
-    highlights: [ls("Neoclassical mansions"), ls("Kitron tasting"), ls("Tragea base")],
+    highlights: [ls("Neoclassical mansions", "Νεοκλασικά αρχοντικά", "Dimore neoclassiche", "Demeures néoclassiques", "Neoklassizistische Herrenhäuser"), ls("Kitron tasting", "Δοκιμή κίτρου", "Degustazione di kitron", "Dégustation de kitron", "Kitron-Verkostung"), ls("Tragea base", "Βάση για την Τραγαία", "Base per esplorare la Tragea", "Point de départ pour Tragea", "Ausgangspunkt für Tragea")],
     nearbyVehicles: ["cars"],
   },
 ];

@@ -1,3 +1,4 @@
+import { GUIDES_BY_SLUG } from "@/content/guides";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
@@ -8,12 +9,12 @@ import { VEHICLES } from "@/content/fleet";
 import { recommendForLocation } from "@/lib/vehicleRecommender";
 import { FAQS } from "@/content/faqs";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqPageSchema, graph, locationPlaceSchema } from "@/lib/schema";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { ArrowRight, MapPin, Clock, Check, Plane, Anchor, Mountain, Sparkles } from "lucide-react";
+import { ArrowRight, MapPin, Clock, Check } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export function generateStaticParams() {
@@ -24,12 +25,11 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
-const TYPE_ICON = {
-  airport: <Plane className="h-6 w-6" />,
-  port: <Anchor className="h-6 w-6" />,
-  beach: <MapPin className="h-6 w-6" />,
-  village: <Mountain className="h-6 w-6" />,
-} as const;
+function locationImage(slug:string){
+ const images:Record<string,string>={"port-pickup":"/images/pexels/naxos-chora-coast.webp","naxos-town":"/images/pexels/naxos-old-town.webp","agios-prokopios":"/images/naxos/agios-prokopios.jpg","agia-anna":"/images/naxos/agia-anna.jpg","plaka":"/images/naxos/plaka-beach.jpg","mikri-vigla":"/images/pexels/naxos-mikri-vigla.webp","apollonas":"/images/naxos/apollonas.jpg","filoti":"/images/naxos/filoti.jpg","apeiranthos":"/images/naxos/apiranthos.jpg","chalki":"/images/naxos/halki.jpg"};
+ return images[slug]??"/images/naxos/landscape.jpg";
+}
+
 
 const TYPE_FAQ_SLUGS: Record<string, string[]> = {
   airport: ["airport-vs-port-pickup", "drop-off-different", "advance-vs-walkin", "delivery-zones", "documents-needed", "credit-card-required"],
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const dict = await getDict(locale);
   // Several location heroes are under 60 characters, which leaves the SERP
   // snippet mostly blank. Append the distance and the free-delivery offer.
-  const description = `${loc.hero[locale]} ${loc.distanceFromChoraKm} km from Chora, about ${loc.pickupTimeMinutes} min. ${dict.trust.delivery}.`;
+  const description = `${loc.hero[locale]}. ${dict.trust.delivery}. ${dict.cta.bookCar}.`;
 
   return buildMetadata({
     locale,
@@ -84,61 +84,10 @@ export default async function LocationPage({ params }: { params: Promise<{ local
         faqPageSchema(faqs, locale),
       ])} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: dict.nav.locations, href: localePath(locale, "locations") },
-            { label: loc.shortName },
-          ]} />
-          <div className="mt-6 grid items-end gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-8">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
-                <Sparkles className="h-4 w-4" /> {dict.hero.eyebrow}
-              </span>
-              <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">
-                {loc.name[locale]}
-              </h1>
-              <p className="mt-3 max-w-3xl text-lg text-muted-foreground">{loc.hero[locale]}</p>
-              <div className="mt-5 flex flex-wrap items-center gap-2 text-sm">
-                <span className="inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 font-semibold text-[var(--ink)] shadow-sm dark:bg-white/10 dark:text-white">
-                  <MapPin className="h-4 w-4 text-[var(--brand-2)]" /> {loc.distanceFromChoraKm} km
-                </span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 font-semibold text-[var(--ink)] shadow-sm dark:bg-white/10 dark:text-white">
-                  <Clock className="h-4 w-4 text-[var(--brand-2)]" /> ~{loc.pickupTimeMinutes} min
-                </span>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20">
-                  {dict.nav.bookNow} <ArrowRight className="h-4 w-4" />
-                </a>
-                <a href={whatsappUrl(dict.whatsAppFab.message)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-6 py-3 text-sm font-bold text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white">
-                  <WhatsAppIcon className="h-5 w-5" /> {dict.cta.whatsappQuote}
-                </a>
-              </div>
-            </div>
-            <div className="lg:col-span-4">
-              <div className="island-card rounded-[2rem] p-5">
-                <div className="rounded-[1.5rem] sea-gradient p-6 text-white">
-                  {TYPE_ICON[loc.type]}
-                  <p className="mt-4 text-sm uppercase tracking-[0.2em] text-white/80">{loc.shortName}</p>
-                  <p className="mt-1 text-3xl font-extrabold leading-tight">{loc.distanceFromChoraKm} km</p>
-                  <p className="text-sm text-white/85">~{loc.pickupTimeMinutes} {dict.common.days === "ημέρες" ? "λεπτά" : "min"}</p>
-                </div>
-                <ul className="mt-4 grid gap-2 rounded-3xl bg-white/70 p-4 text-sm dark:bg-white/10">
-                  {loc.highlights.slice(0, 4).map((h, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[var(--ink)] dark:text-white">
-                      <Check className="mt-0.5 h-4 w-4 text-[var(--sea)]" />
-                      <span>{h[locale]}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={loc.name[locale]} subtitle={loc.hero[locale]} label={loc.shortName} image={locationImage(loc.slug)}>
+        <div className="location-facts"><span><MapPin size={16}/>{loc.distanceFromChoraKm} km</span><span><Clock size={16}/>~{loc.pickupTimeMinutes} min</span></div>
+        <div className="escape-actions"><a className="escape-button" href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer">{dict.nav.bookNow}<ArrowRight size={18}/></a><a className="escape-text-link" href={whatsappUrl(dict.whatsAppFab.message)} target="_blank" rel="noopener noreferrer"><WhatsAppIcon className="h-5 w-5"/>{dict.cta.whatsappQuote}</a></div>
+      </PageMasthead>
 
       <section className="bg-background border-y border-border/70">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-10">
@@ -168,26 +117,26 @@ export default async function LocationPage({ params }: { params: Promise<{ local
             </div>
 
             <div className="island-card rounded-3xl p-6">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--link)]">Naxos Driving & Planning Guides</h3>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--link)]">{dict.nav.guides}</h3>
               <ul className="mt-3 space-y-2 text-xs font-semibold">
                 <li>
                   <Link href={localePath(locale, "guides/naxos-rent-a-car-prices-cost-breakdown")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
-                    📖 Naxos Rent a Car Prices (2026 Costs)
+                    {GUIDES_BY_SLUG["naxos-rent-a-car-prices-cost-breakdown"].title[locale]}
                   </Link>
                 </li>
                 <li>
                   <Link href={localePath(locale, "guides/naxos-car-rental-without-credit-card-insurance")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
-                    💳 No Credit Card & Insurance Options
+                    {GUIDES_BY_SLUG["naxos-car-rental-without-credit-card-insurance"].title[locale]}
                   </Link>
                 </li>
                 <li>
                   <Link href={localePath(locale, "guides/rent-a-car-naxos-port-vs-airport-pickup-guide")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
-                    ⚓ Port vs Airport Pickup Guide
+                    {GUIDES_BY_SLUG["rent-a-car-naxos-port-vs-airport-pickup-guide"].title[locale]}
                   </Link>
                 </li>
                 <li>
                   <Link href={localePath(locale, "guides/best-car-rental-naxos-reviews-comparison")} className="text-[var(--ink)] hover:text-[var(--link)] dark:text-white">
-                    ⭐ Best Car Rental Naxos Reviews & Comparison
+                    {GUIDES_BY_SLUG["best-car-rental-naxos-reviews-comparison"].title[locale]}
                   </Link>
                 </li>
               </ul>
@@ -205,9 +154,7 @@ export default async function LocationPage({ params }: { params: Promise<{ local
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {recommended.map(({ vehicle, reason }) => (
                 <div key={vehicle.slug} className="relative">
-                  <span className="absolute -top-3 left-4 z-10 inline-flex items-center gap-1 rounded-full bg-[var(--sea)] px-3 py-1 text-[11px] font-bold text-[var(--primary-foreground)] shadow">
-                    {reason[locale]}
-                  </span>
+                  <div className="recommendation-note">{reason[locale]}</div>
                   <VehicleCard vehicle={vehicle} locale={locale} dict={dict} />
                 </div>
               ))}
