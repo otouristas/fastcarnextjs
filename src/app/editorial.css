@@ -457,6 +457,10 @@ summary {
   padding: 16px 22px;
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
+  gap: 12px;
+}
+.mobile-dialog-top > .theme-switch {
+  margin-left: auto;
 }
 .mobile-dialog-top > img {
   height: 46px;
@@ -469,6 +473,7 @@ summary {
   height: 44px;
   display: grid;
   place-items: center;
+  flex-shrink: 0;
 }
 .mobile-dialog-scroll {
   flex: 1;
@@ -805,6 +810,9 @@ summary {
   flex-shrink: 0;
 }
 .footer-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.07em;
   font-size: clamp(110px, 20.2vw, 320px);
   font-weight: 500;
   line-height: 0.85;
@@ -814,12 +822,10 @@ summary {
   color: #c0d0b2;
   white-space: nowrap;
 }
-.footer-wordmark > span {
-  font-family: Arial, sans-serif;
-  font-size: 0.65em;
-  display: inline-block;
-  margin-left: 0.07em;
-  vertical-align: top;
+.footer-wordmark-arrow {
+  width: 0.65em;
+  height: 0.65em;
+  flex-shrink: 0;
   line-height: 1.15;
   color: #f08b60;
 }
@@ -1975,4 +1981,32 @@ summary {
   .header-theme > button { width: 36px; height: 36px; }
   .mobile-dialog-top { padding-inline: 16px; gap: 8px; }
   .mobile-dialog-top > img { width: 110px; }
+}
+
+@media (max-width: 760px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding-block: 28px;
+    text-align: center;
+  }
+  .footer-top .eyebrow { justify-content: center; }
+  .footer-top h2 { margin-top: 12px; font-size: 34px; }
+  .footer-round-cta {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 50px;
+    padding: 12px 18px;
+    flex-direction: row;
+    gap: 12px;
+    border-radius: 999px;
+    border-color: #f6a57d;
+    background: #f6a57d;
+    color: #22372e;
+  }
+  .footer-round-cta span { font-size: 13px; font-weight: 600; padding: 0; }
+  .footer-round-cta > svg { width: 22px; height: 22px; order: 1; }
+  .footer-wordmark { padding-block: 12px 24px; }
 }
