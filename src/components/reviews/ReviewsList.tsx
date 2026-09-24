@@ -5,10 +5,11 @@ import type { Review } from "@/types/content";
 import type { Dict } from "@/i18n/types";
 import type { Locale } from "@/lib/site";
 import { ReviewCard } from "./ReviewCard";
+import { highestRatedFirst } from "@/lib/review-order";
 
 const PAGE_SIZE = 12;
 
-type Order = "newest" | "oldest";
+type Order = "highest" | "newest" | "oldest";
 type RatingFilter = "all" | "5" | "critical";
 
 function Chip({
@@ -42,13 +43,13 @@ export function ReviewsList({
   locale,
   dict,
 }: {
-  /** Pre-sorted newest-first at import time. */
+  /** Defaults to highest rating first, then newest within each rating. */
   reviews: Review[];
   languages: string[];
   locale: Locale;
   dict: Dict;
 }) {
-  const [order, setOrder] = useState<Order>("newest");
+  const [order, setOrder] = useState<Order>("highest");
   const [rating, setRating] = useState<RatingFilter>("all");
   const [lang, setLang] = useState<string>("all");
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -74,8 +75,9 @@ export function ReviewsList({
     if (rating === "5") list = list.filter((r) => r.rating === 5);
     else if (rating === "critical") list = list.filter((r) => r.rating <= 3);
     if (showLanguageFilter && lang !== "all") list = list.filter((r) => r.lang === lang);
-    // `reviews` arrives newest-first, so oldest is simply the reverse.
-    return order === "newest" ? list : [...list].reverse();
+    return [...list].sort(order === "highest" ? highestRatedFirst : (a, b) =>
+      order === "newest" ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)
+    );
   }, [reviews, rating, lang, order, showLanguageFilter]);
 
   // Any change to the result set restarts paging, otherwise a narrow filter
@@ -97,6 +99,9 @@ export function ReviewsList({
           <span className="text-xs font-bold uppercase tracking-wide text-muted-foreground">
             {dict.reviews.sortLabel}
           </span>
+          <Chip active={order === "highest"} onClick={() => update(setOrder)("highest")}>
+            {dict.reviews.sortHighest}
+          </Chip>
           <Chip active={order === "newest"} onClick={() => update(setOrder)("newest")}>
             {dict.reviews.sortNewest}
           </Chip>

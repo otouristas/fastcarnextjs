@@ -1,5 +1,6 @@
 import type { Review, ReviewAggregate } from "@/types/content";
 import dataset from "./reviews-google.json";
+import { highestRatedFirst } from "@/lib/review-order";
 
 /**
  * Real Google reviews for Fast Motor Rental Naxos.
@@ -19,8 +20,8 @@ import dataset from "./reviews-google.json";
  */
 export const REVIEW_AGGREGATE: ReviewAggregate = dataset.aggregate;
 
-/** Newest first. Ordering is fixed at import time so SSR and client agree. */
-export const REVIEWS: Review[] = dataset.reviews as Review[];
+/** Shared default for every review surface, including vehicle quote selection. */
+export const REVIEWS: Review[] = [...(dataset.reviews as Review[])].sort(highestRatedFirst);
 
 /** Link to the profile these came from, for the "See on Google" affordance. */
 export const REVIEWS_SOURCE_URL = `https://www.google.com/maps?cid=${dataset.cid}`;

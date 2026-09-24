@@ -60,8 +60,14 @@ export function buildMetadata(input: SeoInput): Metadata {
   // clamp (a hard "…" in the source is worse than a title Google truncates
   // visually, and these were counted before they were written). Locales the
   // workbook never audited fall through to the derived copy untouched.
-  const exactTitle = blueprintTitle(input.path, input.locale);
-  const exactDescription = blueprintDescription(input.path, input.locale);
+  const exactTitle = input.path.startsWith("fleet/cars/")
+    ? undefined
+    : blueprintTitle(input.path, input.locale);
+  // Fleet specifications are maintained in the inventory. The historic
+  // workbook copy contains superseded transmissions and must not override it.
+  const exactDescription = input.path.startsWith("fleet/cars/")
+    ? undefined
+    : blueprintDescription(input.path, input.locale);
 
   // The brand is appended only when it still fits. Blindly suffixing and then
   // clamping to 65 amputated the meaningful half of long titles — /reviews

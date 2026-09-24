@@ -5,11 +5,10 @@ import { seoFor } from "@/lib/seo";
 import { VEHICLES } from "@/content/fleet";
 import { FAQS } from "@/content/faqs";
 import { FleetBrowser } from "@/components/fleet/FleetBrowser";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqPageSchema, graph } from "@/lib/schema";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
-import { Sparkles } from "lucide-react";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -33,21 +32,7 @@ export default async function FleetHubPage({ params }: { params: Promise<{ local
         faqPageSchema(faqs, locale),
       ])} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: dict.nav.fleet },
-          ]} />
-          <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
-            <Sparkles className="h-4 w-4" /> {dict.hero.eyebrow}
-          </span>
-          <h1 className="mt-5 max-w-4xl text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-6xl">
-            {dict.fleetHub.title}
-          </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">{dict.fleetHub.subtitle}</p>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={dict.fleetHub.title} subtitle={dict.fleetHub.subtitle} label={dict.nav.fleet} image="/images/fleet/studio/fiat-500-cabrio.webp" />
 
       <section className="bg-background border-b border-border/70">
         <FleetBrowser vehicles={VEHICLES} locale={locale} dict={dict} />

@@ -1,12 +1,14 @@
 import { notFound } from "next/navigation";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import Link from "next/link";
+import { collectionCopy } from "@/content/collection-copy";
+import { PageMasthead } from "@/components/layout/PageMasthead";
+import { navigationCopy } from "@/content/navigation-copy";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   VEHICLE_COLLECTION_SLUGS,
   vehiclesForCollection,
 } from "@/content/vehicle-collections";
-import { minShoulderPrice } from "@/content/fleet";
 import { getDict } from "@/i18n/dictionaries";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import {
@@ -22,13 +24,6 @@ function isCollectionSlug(value: string): value is VehicleCollectionSlug {
   return VEHICLE_COLLECTION_SLUGS.includes(value as VehicleCollectionSlug);
 }
 
-function collectionTitle(slug: VehicleCollectionSlug, dict: Awaited<ReturnType<typeof getDict>>) {
-  if (slug === "automatic") return `${dict.common.automatic} ${dict.nav.cars}`;
-  if (slug === "family-7-seater") {
-    return `${dict.fleetFilter.bestForOptions.families} · 7 ${dict.common.seats}`;
-  }
-  return "SUV & 4×4";
-}
 
 export function generateStaticParams() {
   return LOCALES.flatMap((locale) =>
@@ -45,12 +40,7 @@ export async function generateMetadata({
 }) {
   const { locale, slug } = await params;
   if (!isLocale(locale) || !isCollectionSlug(slug)) return {};
-  const dict = await getDict(locale);
-  const title = collectionTitle(slug, dict);
-  const vehicles = vehiclesForCollection(slug);
-  const minPrice = minShoulderPrice(vehicles);
-  const pricePhrase = minPrice != null ? ` from €${minPrice}${dict.common.perDay}` : "";
-  const description = `${title} on Naxos: ${vehicles.length} vehicles${pricePhrase}, ${dict.trust.delivery.toLowerCase()}. ${dict.trust.unlimited}, ${dict.trust.transparent.toLowerCase()}.`;
+  const { title, intro: description } = collectionCopy(locale, slug);
 
   return buildMetadata({
     locale,
@@ -69,7 +59,7 @@ export default async function VehicleCollectionPage({
   const { locale, slug } = await params;
   if (!isLocale(locale) || !isCollectionSlug(slug)) notFound();
   const dict = await getDict(locale);
-  const title = collectionTitle(slug, dict);
+  const { title, intro, heading, advice } = collectionCopy(locale, slug);
   const vehicles = vehiclesForCollection(slug);
 
   return (
@@ -86,19 +76,15 @@ export default async function VehicleCollectionPage({
           ]),
         ])}
       />
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            label={dict.common.breadcrumb}
-            items={[
-              { label: dict.nav.home, href: localePath(locale) },
-              { label: dict.nav.fleet, href: localePath(locale, "fleet") },
-              { label: title },
-            ]}
-          />
-          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-            {title}
-          </h1>
+      <PageMasthead locale={locale} dict={dict} title={title} subtitle={intro} label={title} image={vehicles[0]?.image ?? "/images/naxos/landscape.jpg"} imageAlt={navigationCopy(locale).photo} />
+
+      <section className="escape-wrap escape-section">
+        <h2 className="text-3xl tracking-tight">{heading}</h2>
+        <p className="mt-5 max-w-3xl leading-8 text-muted-foreground">{advice}</p>
+        <div className="escape-actions">
+          <Link className="escape-text-link" href={localePath(locale, "insurance")}>{dict.nav.insurance} ↗</Link>
+          <Link className="escape-text-link" href={localePath(locale, "locations/port-pickup")}>{dict.nav.locations} ↗</Link>
+          <Link className="escape-button" href={localePath(locale, "book")}>{dict.cta.bookCar} ↗</Link>
         </div>
       </section>
       <section className="bg-background">

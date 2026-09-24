@@ -11,7 +11,7 @@ import {
 } from "@/content/naxos-guide";
 import { VEHICLES } from "@/content/fleet";
 import { LOCATIONS_BY_SLUG } from "@/content/locations";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { DiscoverCycladesBox } from "@/components/guide/DiscoverCycladesBox";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
@@ -23,7 +23,7 @@ import {
   qaPageSchema,
 } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { ArrowRight, Clock, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export function generateStaticParams() {
@@ -118,51 +118,9 @@ export default async function NaxosGuideArticlePage({
       />
 
       {/* Hero */}
-      <section className="relative">
-        <div className="relative h-[46vh] min-h-[320px] w-full overflow-hidden md:h-[56vh]">
-          <Image
-            src={a.hero}
-            alt={a.title[loc]}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            unoptimized
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--overlay-scrim)] via-[color-mix(in_oklab,var(--overlay-scrim)_55%,transparent)] to-transparent" />
-        </div>
-        <div className="mx-auto -mt-40 max-w-4xl px-4 pb-2 sm:px-6 lg:px-8">
-          <div className="relative">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
-              <Sparkles className="h-3.5 w-3.5" /> Naxos guide
-            </span>
-            <h1 className="mt-4 text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">
-              {a.title[loc]}
-            </h1>
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-white/80">
-              <span className="inline-flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5" /> {a.readingTime} min read
-              </span>
-              <time dateTime={a.updatedAt}>
-                Updated {new Date(a.updatedAt).toLocaleDateString(loc, { year: "numeric", month: "long" })}
-              </time>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-background">
-        <div className="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            label={dict.common.breadcrumb}
-            items={[
-              { label: dict.nav.home, href: localePath(loc) },
-              { label: "Naxos", href: localePath(loc, "naxos") },
-              { label: a.title[loc] },
-            ]}
-          />
-        </div>
-      </section>
+      <PageMasthead locale={loc} dict={dict} title={a.title[loc]} subtitle={a.excerpt[loc]} label={dict.naxos.pageTitle} image={a.hero}>
+        <p className="article-byline">{a.readingTime} min · <time dateTime={a.updatedAt}>{new Date(a.updatedAt).toLocaleDateString(loc)}</time></p>
+      </PageMasthead>
 
       {/* Answer block — the featured-snippet and AI Overview target. */}
       <section className="bg-background">

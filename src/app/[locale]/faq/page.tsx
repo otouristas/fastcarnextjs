@@ -3,7 +3,7 @@ import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
 import { FAQS } from "@/content/faqs";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph, faqPageSchema } from "@/lib/schema";
 
@@ -38,16 +38,7 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: st
         ]),
       ])} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: dict.nav.faq },
-          ]} />
-          <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white">{dict.faqHub.title}</h1>
-          <p className="mt-3 text-lg text-muted-foreground max-w-3xl">{dict.faqHub.subtitle}</p>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={dict.faqHub.title} subtitle={dict.faqHub.subtitle} label={dict.nav.faq} image="/images/naxos/halki.jpg" />
 
       <section className="bg-background border-y border-border/70">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-14 space-y-12">

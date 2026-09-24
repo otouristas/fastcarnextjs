@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { seoFor } from "@/lib/seo";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -39,16 +39,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
       ])} />
 
       {/* Header */}
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: dict.nav.contact },
-          ]} />
-          <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white">{dict.contact.title}</h1>
-          <p className="mt-3 text-lg text-muted-foreground max-w-3xl">{dict.contact.subtitle}</p>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={dict.contact.title} subtitle={dict.contact.subtitle} label={dict.nav.contact} image="/images/pexels/naxos-portara-sunset.webp" />
 
       {/* Main contact section */}
       <section className="bg-background">

@@ -1,17 +1,18 @@
+import { designCopy } from "@/content/design-copy";
+import { LOCATIONS_BY_SLUG } from "@/content/locations";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { isLocale, LOCALES, localePath, SITE } from "@/lib/site";
 import { getDict } from "@/i18n/dictionaries";
 import { buildMetadata } from "@/lib/seo";
 import { GUIDES, GUIDES_BY_SLUG } from "@/content/guides";
 import { FAQS } from "@/content/faqs";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ContextualFaq } from "@/components/faq/ContextualFaq";
 import { DiscoverCycladesBox } from "@/components/guide/DiscoverCycladesBox";
 import { articleSchema, breadcrumbSchema, faqPageSchema, graph } from "@/lib/schema";
-import { Clock, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
@@ -65,32 +66,9 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
         ...(faqs.length ? [faqPageSchema(faqs, locale)] : []),
       ])} />
 
-      <section className="wave-bg border-b border-border/70">
-        <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: dict.nav.guides, href: localePath(locale, "guides") },
-            { label: g.title[locale] },
-          ]} />
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--sea-2)]/30 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[var(--sea)] shadow-sm dark:bg-white/10 dark:text-[var(--sea-2)]">
-            <Sparkles className="h-3.5 w-3.5" /> {dict.nav.guides}
-          </div>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-[var(--ink)] dark:text-white sm:text-5xl">{g.title[locale]}</h1>
-          <p className="mt-3 text-lg text-muted-foreground">{g.excerpt[locale]}</p>
-          <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
-            <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3" /> {g.readingTime} min</span>
-            <time dateTime={g.updatedAt}>{new Date(g.updatedAt).toLocaleDateString(locale)}</time>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-background">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="island-card relative -mt-10 aspect-[16/8] overflow-hidden rounded-[2rem] shadow-2xl">
-            <Image src={g.hero} alt={g.title[locale]} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" unoptimized />
-          </div>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={g.title[locale]} subtitle={g.excerpt[locale]} label={dict.nav.guides} image={g.hero}>
+        <p className="article-byline">{g.readingTime} min · <time dateTime={g.updatedAt}>{new Date(g.updatedAt).toLocaleDateString(locale)}</time></p>
+      </PageMasthead>
 
       <section className="bg-background">
         <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8 grid gap-10 lg:grid-cols-[1fr_240px]">
@@ -132,46 +110,46 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
           <div className="grid gap-8 md:grid-cols-2">
             {/* Location Hubs (Page B) */}
             <div className="island-card rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Popular Naxos Car Rental Pickup Hubs</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Free delivery & meet-and-greet at all major arrival locations</p>
+              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">{dict.nav.locations}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{dict.trust.delivery}</p>
               <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
                 <Link href={localePath(locale, "locations/port-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  ⚓ Rent a Car Naxos Port
+                  {LOCATIONS_BY_SLUG["port-pickup"].name[locale]}
                 </Link>
                 <Link href={localePath(locale, "locations/airport-pickup")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  ✈️ Rent a Car Naxos Airport (JNX)
+                  {LOCATIONS_BY_SLUG["airport-pickup"].name[locale]}
                 </Link>
                 <Link href={localePath(locale, "locations/naxos-town")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🏛️ Car Rental Naxos Town (Chora)
+                  {LOCATIONS_BY_SLUG["naxos-town"].name[locale]}
                 </Link>
                 <Link href={localePath(locale, "locations/agios-prokopios")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🏖️ Rent a Car Agios Prokopios
+                  {LOCATIONS_BY_SLUG["agios-prokopios"].name[locale]}
                 </Link>
                 <Link href={localePath(locale, "locations/plaka")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🌅 Rent a Car Plaka Beach
+                  {LOCATIONS_BY_SLUG["plaka"].name[locale]}
                 </Link>
                 <Link href={localePath(locale, "locations/mikri-vigla")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🪁 Rent a Car Mikri Vigla
+                  {LOCATIONS_BY_SLUG["mikri-vigla"].name[locale]}
                 </Link>
               </div>
             </div>
 
             {/* Fleet Categories (Page C) */}
             <div className="island-card rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">Naxos Rental Car Options</h3>
-              <p className="mt-1 text-xs text-muted-foreground">Choose a rental car for your route, group size and preferred transmission</p>
+              <h3 className="text-lg font-bold text-[var(--ink)] dark:text-white">{dict.nav.fleet}</h3>
+              <p className="mt-1 text-xs text-muted-foreground">{dict.fleetHub.subtitle}</p>
               <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
                 <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🚗 Economy & Compact Cars
+                  {designCopy(locale).all}
                 </Link>
-                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  ⚡ Automatic Rental Cars
+                <Link href={localePath(locale, "fleet/collections/automatic")}  className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  {designCopy(locale).automatic}
                 </Link>
-                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  🚙 SUVs & 4x4 Off-Road
+                <Link href={localePath(locale, "fleet/collections/suv-4x4")}  className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  {designCopy(locale).suv}
                 </Link>
-                <Link href={localePath(locale, "fleet/cars")} className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
-                  👨‍👩‍👧‍👦 Family & 7-Seater Cars
+                <Link href={localePath(locale, "fleet/collections/family-7-seater")}  className="rounded-xl border border-border/60 bg-white/70 p-3 font-semibold text-[var(--ink)] hover:border-[var(--sea)] hover:text-[var(--sea)] dark:bg-white/10 dark:text-white">
+                  {designCopy(locale).family}
                 </Link>
               </div>
             </div>

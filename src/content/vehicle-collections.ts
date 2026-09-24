@@ -13,6 +13,9 @@ const SUV_SLUGS = new Set([
   "dacia-duster",
   "toyota-rav4",
   "kia-sportage",
+  "renault-captur",
+  "hyundai-kona",
+  "opel-frontera",
 ]);
 
 export function vehiclesForCollection(slug: VehicleCollectionSlug): Vehicle[] {

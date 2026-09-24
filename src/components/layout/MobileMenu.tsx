@@ -1,11 +1,28 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
-import { SITE, viberUrl, type Locale, LOCALES, LOCALE_META, swapLocalePath } from "@/lib/site";
+import Image from "next/image";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Menu,
+  X,
+  Star,
+  Check,
+  Phone,
+} from "lucide-react";
+import {
+  SITE,
+  LOCALES,
+  LOCALE_META,
+  swapLocalePath,
+  type Locale,
+} from "@/lib/site";
 import type { Dict } from "@/i18n/types";
+import { designCopy } from "@/content/design-copy";
+import { navigationCopy } from "@/content/navigation-copy";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { Menu, X, Phone, Car, MapPin, BookOpen, ShieldCheck, ChevronDown } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -14,235 +31,193 @@ export interface MenuLink {
   label: string;
   description: string;
   badge?: string;
-  /** Category glyph, rendered in a tile ahead of the label. */
   icon?: React.ReactNode;
-  /** Short factual line — a real "from" price, never a marketing claim. */
   meta?: string;
 }
-
-export function MobileMenu({
-  locale,
-  dict,
-  currentPath,
-  fleetLinks,
-  infoLinks,
-  exploreLinks,
-}: {
+type Props = {
   locale: Locale;
   dict: Dict;
   currentPath: string;
   fleetLinks: MenuLink[];
   infoLinks: MenuLink[];
   exploreLinks: MenuLink[];
-}) {
+};
+export function MobileMenu(props: Props) {
   const [open, setOpen] = useState(false);
-
+  const trigger = useRef<HTMLButtonElement>(null),
+    wasOpen = useRef(false);
   useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
+    if (!open && wasOpen.current) trigger.current?.focus();
+    wasOpen.current = open;
   }, [open]);
-
   return (
-    <div className="lg:hidden">
+    <div className="mobile-navigation">
       <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white/80 text-[var(--ink)] shadow-sm backdrop-blur transition-colors hover:border-[var(--sea-2)] dark:bg-white/10 dark:text-white"
-        aria-label={dict.a11y.openMenu}
+        ref={trigger}
+        className="mobile-menu-trigger"
+        aria-label={props.dict.a11y.openMenu}
         aria-expanded={open}
         aria-controls="mobile-menu-panel"
+        onClick={() => setOpen(true)}
       >
-        <Menu className="h-5 w-5" />
+        <Menu size={25} />
       </button>
-
-      {/* Backdrop */}
-      <div
-        className={`fixed inset-0 z-[60] bg-[rgba(3,12,20,0.68)] backdrop-blur-sm transition-opacity duration-200 ${open ? "opacity-100" : "pointer-events-none opacity-0"}`}
-        onClick={() => setOpen(false)}
-        aria-hidden="true"
-      />
-
-      {/* Slide-down panel */}
-      <div
-        id="mobile-menu-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-label={dict.nav.menu}
-        className={`mobile-menu-surface fixed inset-x-0 top-0 z-[70] flex h-dvh max-h-[100dvh] origin-top flex-col overflow-hidden border-b shadow-2xl transition-transform duration-300 ${open ? "translate-y-0" : "-translate-y-full"}`}
-      >
-        {/* Header row */}
-        <div className="shrink-0 border-b border-border bg-white/70 px-4 py-3 dark:border-white/10 dark:bg-white/5 sm:px-6">
-          <div className="flex items-center justify-between gap-3">
-            <div className="min-w-0">
-              <p className="truncate text-xs font-bold uppercase tracking-[0.22em] text-[var(--sea)]">{SITE.shortBrand}</p>
-              <p className="truncate text-sm text-muted-foreground">{SITE.tagline[locale]}</p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-border bg-white text-[var(--ink)] shadow-sm hover:border-[var(--sea-2)] dark:border-white/10 dark:bg-white/10 dark:text-white"
-              aria-label={dict.a11y.closeMenu}
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto">
-          <div className="mx-auto max-w-7xl px-4 pb-4 pt-5 sm:px-6">
-            {/* Primary CTAs */}
-            <div className="grid grid-cols-2 gap-2">
-              <a
-                href={SITE.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-gradient px-4 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20"
-              >
-                <Car className="h-4 w-4" /> {dict.nav.bookNow}
-              </a>
-              <a
-                href={`tel:${SITE.phones[0]}`}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-white px-4 py-3 text-sm font-bold text-[var(--ink)] shadow-sm dark:bg-white/10 dark:text-white"
-              >
-                <Phone className="h-4 w-4" /> {dict.nav.call}
-              </a>
-            </div>
-
-            <MobileSection icon={<Car className="h-4 w-4" />} title={dict.nav.fleet} links={fleetLinks} onNavigate={() => setOpen(false)} defaultOpen />
-            <MobileSection icon={<ShieldCheck className="h-4 w-4" />} title={dict.footer.company} links={infoLinks} onNavigate={() => setOpen(false)} />
-            <MobileSection icon={<MapPin className="h-4 w-4" />} title={dict.footer.explore} links={exploreLinks} onNavigate={() => setOpen(false)} />
-
-            {/* Settings row */}
-            <div className="mt-5 rounded-3xl border border-border bg-white/70 p-3 dark:bg-white/10">
-              <div className="mb-2 flex items-center justify-between gap-2 text-sm font-bold text-[var(--ink)] dark:text-white">
-                <span className="inline-flex items-center gap-2">
-                  <BookOpen className="h-4 w-4 text-[var(--sea)]" /> {dict.footer.languages}
-                </span>
-                <ThemeToggle labels={dict.theme} className="h-8 w-8" />
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {LOCALES.map((l) => (
-                  <Link
-                    key={l}
-                    href={swapLocalePath(currentPath, l)}
-                    onClick={() => setOpen(false)}
-                    hrefLang={LOCALE_META[l].htmlLang}
-                    className={`rounded-full px-3 py-2 text-xs font-bold uppercase tracking-wider ${l === locale ? "bg-brand-gradient text-white" : "bg-white text-muted-foreground shadow-sm hover:text-[var(--ink)] dark:bg-white/10 dark:hover:text-white"}`}
-                  >
-                    {LOCALE_META[l].flag} {l}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Sticky bottom CTA bar */}
-        <div className="mobile-menu-actions shrink-0 border-t border-border px-4 py-3">
-          <div className="grid grid-cols-4 gap-2">
-            <a
-              href={whatsappUrl(dict.whatsAppFab.message)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-1 rounded-2xl bg-white/80 p-3 hover:bg-white dark:bg-white/10 dark:hover:bg-white/20"
-            >
-              <WhatsAppIcon className="h-6 w-6" />
-              <span className="text-[10px] font-bold text-[#25D366]">WhatsApp</span>
-            </a>
-            <a
-              href={viberUrl()}
-              className="flex flex-col items-center gap-1 rounded-2xl bg-purple-700 p-3 text-white hover:bg-purple-600"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="text-[10px] font-bold">Viber</span>
-            </a>
-            <a
-              href={`tel:${SITE.phones[0]}`}
-              className="flex flex-col items-center gap-1 rounded-2xl border border-border bg-white/80 p-3 text-[var(--ink)] hover:bg-white dark:bg-white/10 dark:text-white"
-            >
-              <Phone className="h-5 w-5" />
-              <span className="text-[10px] font-bold">Call</span>
-            </a>
-            <a
-              href={SITE.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-1 rounded-2xl bg-brand-gradient p-3 text-white shadow-md shadow-orange-500/20"
-            >
-              <Car className="h-5 w-5" />
-              <span className="text-[10px] font-bold">Book</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      {open &&
+        createPortal(
+          <MobileDialog {...props} close={() => setOpen(false)} />,
+          document.body,
+        )}
     </div>
   );
 }
-
-function MobileSection({
-  icon,
-  title,
-  links,
-  onNavigate,
-  defaultOpen = false,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  links: MenuLink[];
-  onNavigate: () => void;
-  defaultOpen?: boolean;
-}) {
+function MobileDialog({
+  locale,
+  dict,
+  currentPath,
+  fleetLinks,
+  infoLinks,
+  exploreLinks,
+  close,
+}: Props & { close: () => void }) {
+  const dialog = useRef<HTMLDialogElement>(null),
+    c = designCopy(locale),
+    n = navigationCopy(locale);
+  useEffect(() => {
+    const el = dialog.current;
+    const old = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    el?.showModal();
+    return () => {
+      document.body.style.overflow = old;
+    };
+  }, []);
   return (
-    <details open={defaultOpen} className="mobile-menu-section group mt-3 rounded-3xl border border-border">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-4 py-3 text-sm font-bold text-[var(--ink)] dark:text-white">
-        <span className="inline-flex items-center gap-2">
-          <span className="text-[var(--sea)]">{icon}</span> {title}
-        </span>
-        <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
-      </summary>
-      <div className="grid gap-1 px-2 pb-3">
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            onClick={onNavigate}
-            className="flex items-start gap-2 rounded-2xl px-3 py-2.5 transition-colors hover:bg-[var(--sea-soft)] dark:hover:bg-white/10"
-          >
-            {link.icon && (
-              <span
-                aria-hidden="true"
-                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--sea-soft)] text-[var(--sea)] dark:bg-white/10 dark:text-[var(--sea-2)]"
-              >
-                {link.icon}
-              </span>
-            )}
-            <span className="min-w-0">
-              <span className="flex items-center gap-1.5 text-sm font-semibold text-[var(--ink)] dark:text-white">
-                {link.label}
-                {link.badge && (
-                  <span className="rounded-full bg-[var(--sea-soft)] px-1.5 py-0.5 text-[10px] font-bold text-[var(--sea)] dark:bg-white/10">
-                    {link.badge}
-                  </span>
-                )}
-              </span>
-              <span className="mt-0.5 line-clamp-2 block text-xs leading-5 text-muted-foreground">{link.description}</span>
-              {link.meta && (
-                <span className="mt-1 block text-[11px] font-bold text-[var(--link)] dark:text-[var(--sea-2)]">
-                  {link.meta}
-                </span>
-              )}
-            </span>
-          </Link>
-        ))}
+    <dialog
+      ref={dialog}
+      id="mobile-menu-panel"
+      className="island-mobile-dialog"
+      aria-label={dict.nav.menu}
+      onCancel={close}
+      onClose={close}
+    >
+      <div className="mobile-dialog-top">
+        <Image
+          src={SITE.logo}
+          alt={SITE.brand}
+          width={180}
+          height={60}
+          unoptimized
+        />
+        <button onClick={close} aria-label={dict.a11y.closeMenu} autoFocus>
+          <X size={26} />
+        </button>
       </div>
-    </details>
+      <div className="mobile-dialog-scroll">
+        <div className="mobile-menu-intro">
+          <span className="eyebrow">
+            <span className="sun-dot" />
+            {n.plan}
+          </span>
+          <p>{n.navigate}</p>
+        </div>
+        <div className="mobile-marketing">
+          <Link onClick={close} href={`/${locale}/reviews`}>
+            <Star size={17} fill="currentColor" />
+            <strong>
+              {SITE.rating.value}
+              <small>/5</small>
+            </strong>
+            <span>{SITE.rating.count} Google</span>
+          </Link>
+          <span>
+            <Check size={18} />
+            {n.direct}
+          </span>
+          <span>
+            <Check size={18} />
+            {dict.trust.delivery}
+          </span>
+        </div>
+        <nav aria-label={dict.nav.menu}>
+          {[
+            { title: dict.nav.fleet, links: fleetLinks },
+            { title: dict.footer.company, links: infoLinks },
+            { title: dict.footer.explore, links: exploreLinks },
+          ].map((group, i) => (
+            <details
+              key={group.title}
+              className="mobile-nav-group"
+              open={i === 0}
+            >
+              <summary>
+                <span className="mobile-nav-number">0{i + 1}</span>
+                <span>{group.title}</span>
+                <ChevronDown size={23} />
+              </summary>
+              <div className="mobile-nav-links">
+                {group.links.map((l) => (
+                  <Link href={l.href} key={l.href} onClick={close}>
+                    <span>
+                      {l.label}
+                      <small>{l.description}</small>
+                    </span>
+                    <ArrowUpRight size={20} />
+                  </Link>
+                ))}
+              </div>
+            </details>
+          ))}
+        </nav>
+        <div className="mobile-settings">
+          <div>
+            <span className="eyebrow">{dict.footer.languages}</span>
+            <ThemeToggle labels={dict.theme} />
+          </div>
+          <div className="mobile-languages">
+            {LOCALES.map((l) => (
+              <Link
+                key={l}
+                href={swapLocalePath(currentPath, l)}
+                hrefLang={l}
+                onClick={close}
+                aria-current={l === locale ? "true" : undefined}
+              >
+                {LOCALE_META[l].name}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="mobile-contact">
+          <a href={`tel:${SITE.phones[0]}`}>
+            <Phone size={17} />
+            {SITE.phones[0]}
+          </a>
+          <a href={`mailto:${SITE.email}`}>
+            {SITE.email}
+            <ArrowUpRight size={16} />
+          </a>
+        </div>
+      </div>
+      <div className="mobile-dialog-bottom">
+        <a
+          className="escape-button"
+          href={SITE.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {c.available}
+          <ArrowUpRight size={22} />
+        </a>
+        <a
+          className="mobile-whatsapp"
+          href={whatsappUrl(dict.whatsAppFab.message)}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
+          <WhatsAppIcon className="h-7 w-7" />
+        </a>
+      </div>
+    </dialog>
   );
 }

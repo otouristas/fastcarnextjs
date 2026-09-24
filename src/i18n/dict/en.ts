@@ -114,6 +114,7 @@ export const dict: Dict = {
     google: "customer reviews",
     verified: "Verified Google review",
     sortLabel: "Sort",
+    sortHighest: "Highest rated",
     sortNewest: "Newest",
     sortOldest: "Oldest",
     filterRating: "Rating",

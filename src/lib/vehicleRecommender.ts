@@ -37,13 +37,13 @@ const RULES: SlugRule[] = [
   },
   {
     slugs: ["mikri-vigla"],
-    preferred: ["suzuki-jimny"],
+    preferred: ["hyundai-kona", "renault-captur"],
     reason: {
-      en: "Handles dunes and off-road tracks",
-      el: "Για αμμόλοφους και χωματόδρομους",
-      it: "Per dune e piste sterrate",
-      fr: "Pour les dunes et les pistes off-road",
-      de: "Für Dünen und Offroad-Strecken",
+      en: "For paved coastal routes",
+      el: "Για ασφαλτοστρωμένες παραλιακές διαδρομές",
+      it: "Per gli itinerari costieri asfaltati",
+      fr: "Pour les routes côtières goudronnées",
+      de: "Für asphaltierte Küstenstraßen",
     },
   },
   {
@@ -72,12 +72,12 @@ export function recommendForLocation(slug: string, vehicles: Vehicle[], count = 
 
   if (!rule) {
     return vehicles
-      .filter((v) => v.category === "cars")
+      .filter((v) => v.category === "cars" && v.bookable)
       .slice(0, count)
       .map((vehicle) => ({ vehicle, score: 1, reason: FALLBACK_REASON }));
   }
 
-  const scored: ScoredVehicle[] = vehicles.map((vehicle) => {
+  const scored: ScoredVehicle[] = vehicles.filter(v => v.bookable).map((vehicle) => {
     const prefIndex = rule.preferred.indexOf(vehicle.slug);
     const score = prefIndex >= 0 ? rule.preferred.length - prefIndex : 0;
     return { vehicle, score, reason: prefIndex >= 0 ? rule.reason : FALLBACK_REASON };

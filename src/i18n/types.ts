@@ -24,7 +24,7 @@ export interface Dict {
   delivery: { title: string; subtitle: string; points: string[] };
   reviews: {
     title: string; subtitle: string; google: string;
-    verified: string; sortLabel: string; sortNewest: string; sortOldest: string;
+    verified: string; sortLabel: string; sortHighest: string; sortNewest: string; sortOldest: string;
     filterRating: string; allRatings: string; starsOnly: string; critical: string;
     filterLanguage: string; allLanguages: string;
     showingOf: string; loadMore: string; readMore: string; readLess: string;

@@ -8,7 +8,7 @@ import { LOCATIONS } from "@/content/locations";
 import { VEHICLES } from "@/content/fleet";
 import { recommendForLocation } from "@/lib/vehicleRecommender";
 import { VehicleCard } from "@/components/fleet/VehicleCard";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { PageMasthead } from "@/components/layout/PageMasthead";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { DiscoverCycladesBox } from "@/components/guide/DiscoverCycladesBox";
 import {
@@ -104,7 +104,7 @@ const BEACHES = [
   { slug: "agios-prokopios", image: "/images/naxos/agios-prokopios.jpg", name: "Agios Prokopios" },
   { slug: "agia-anna", image: "/images/naxos/agia-anna.jpg", name: "Agia Anna" },
   { slug: "plaka", image: "/images/naxos/plaka-beach.jpg", name: "Plaka" },
-  { slug: "mikri-vigla", image: "/images/naxos/mikri-vigla.jpg", name: "Mikri Vigla" },
+  { slug: "mikri-vigla", image: "/images/pexels/naxos-mikri-vigla.webp", name: "Mikri Vigla" },
 ];
 
 const VILLAGES = [
@@ -154,35 +154,10 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
       />
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src="/images/naxos-island.jpg" alt="Naxos island aerial" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-background" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-36">
-          <Breadcrumbs label={dict.common.breadcrumb} items={[
-            { label: dict.nav.home, href: localePath(locale) },
-            { label: nd.pageTitle },
-          ]} />
-          <h1 className="mt-6 text-5xl font-extrabold tracking-tight text-white sm:text-7xl">{nd.pageTitle}</h1>
-          <p className="mt-5 max-w-2xl text-lg text-white/85">{nd.pageSubtitle}</p>
-          <p className="mt-3 text-xs text-white/50">
-            {nd.sourcedFrom}{" "}
-            <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
-              Wikipedia  -  Naxos
-            </a>{" "}
-            (CC BY-SA 4.0)
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={localePath(locale, "naxos/beaches")} className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/20">
-              {nd.beachesTitle} <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a href={SITE.bookingUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur hover:bg-white/20">
-              {dict.nav.bookNow} <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageMasthead locale={locale} dict={dict} title={nd.pageTitle} subtitle={nd.pageSubtitle} label={nd.pageTitle} image="/images/pexels/naxos-chora-coast.webp">
+        <div className="escape-actions"><Link className="escape-button" href={localePath(locale,"naxos/beaches")}>{nd.beachesTitle}<ArrowRight size={18}/></Link></div>
+        <p className="article-byline">{nd.sourcedFrom} <a href="https://en.wikipedia.org/wiki/Naxos" target="_blank" rel="noopener noreferrer">Wikipedia – Naxos</a> (CC BY-SA 4.0)</p>
+      </PageMasthead>
 
       {/* QUICK FACTS */}
       <section className="bg-background border-b border-border/70">
@@ -408,9 +383,7 @@ export default async function NaxosPage({ params }: { params: Promise<{ locale: 
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {naxosTownRec.map(({ vehicle, reason }) => (
                 <div key={vehicle.slug} className="relative">
-                  <span className="absolute -top-3 left-4 z-10 inline-flex rounded-full bg-[var(--sea)] px-3 py-1 text-[11px] font-bold text-[var(--primary-foreground)] shadow">
-                    {reason[locale]}
-                  </span>
+                  <div className="recommendation-note">{reason[locale]}</div>
                   <VehicleCard vehicle={vehicle} locale={locale} dict={dict} />
                 </div>
               ))}

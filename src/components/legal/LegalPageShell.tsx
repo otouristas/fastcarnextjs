@@ -31,8 +31,8 @@ export function LegalPageShell({
       ])} />
 
       {/* Hero band */}
-      <section className="relative wave-bg border-b border-border/70">
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" aria-hidden />
+      <section className="legal-masthead">
+
         <div className="relative mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
           <Breadcrumbs
             label={dict.common.breadcrumb}
@@ -51,7 +51,7 @@ export function LegalPageShell({
         </div>
       </section>
 
-      <section className="bg-background">
+      <section className="legal-document">
         <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">{children}</div>
       </section>
     </>
