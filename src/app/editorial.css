@@ -225,13 +225,40 @@ summary {
   font-weight: 600;
   white-space: nowrap;
 }
-.header-theme {
-  width: 28px !important;
-  height: 28px !important;
-  border: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
+/* Two explicit choices; light is the initial selection. */
+.theme-switch {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #e7e8df;
 }
+.theme-switch > button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  color: #536257;
+  background: transparent;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.theme-switch > button[aria-pressed="true"] {
+  background: #294536;
+  color: #fff6df;
+}
+.theme-switch > button:focus-visible {
+  outline: 2px solid #d46736;
+  outline-offset: 2px;
+}
+.dark .theme-switch { background: #273f33; }
+.dark .theme-switch > button { color: #d4decf; }
+.dark .theme-switch > button[aria-pressed="true"] { background: #f2a371; color: #1c3327; }
+
 .island-mega {
   position: absolute;
   top: 100%;
@@ -1220,9 +1247,6 @@ summary {
   .header-book {
     padding: 13px 18px;
   }
-  .header-theme {
-    display: none !important;
-  }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 45px;
@@ -1944,4 +1968,11 @@ summary {
 @media (max-width: 440px) {
   .dock-whatsapp > span { display: none; }
   .dock-whatsapp { flex-shrink: 0; padding-inline: 10px; }
+}
+
+@media (max-width: 600px) {
+  .header-book { display: none; }
+  .header-theme > button { width: 36px; height: 36px; }
+  .mobile-dialog-top { padding-inline: 16px; gap: 8px; }
+  .mobile-dialog-top > img { width: 110px; }
 }

@@ -108,6 +108,7 @@ function MobileDialog({
           height={60}
           unoptimized
         />
+        <ThemeToggle labels={dict.theme} />
         <button onClick={close} aria-label={dict.a11y.closeMenu} autoFocus>
           <X size={26} />
         </button>
@@ -171,7 +172,6 @@ function MobileDialog({
         <div className="mobile-settings">
           <div>
             <span className="eyebrow">{dict.footer.languages}</span>
-            <ThemeToggle labels={dict.theme} />
           </div>
           <div className="mobile-languages">
             {LOCALES.map((l) => (

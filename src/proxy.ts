@@ -2,15 +2,6 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { LOCALES, DEFAULT_LOCALE } from "@/lib/site";
 
-function getLocale(request: NextRequest): string {
-  const accept = request.headers.get("accept-language") ?? "";
-  const preferred = accept
-    .split(",")
-    .map((p) => p.trim().split(";")[0].slice(0, 2).toLowerCase())
-    .find((p) => (LOCALES as readonly string[]).includes(p));
-  return preferred ?? DEFAULT_LOCALE;
-}
-
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -38,9 +29,9 @@ export function proxy(request: NextRequest) {
   );
   if (hasLocale) return;
 
-  const locale = getLocale(request);
+  // English is the entry default; explicit language URLs remain selectable.
   const url = request.nextUrl.clone();
-  url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
+  url.pathname = `/${DEFAULT_LOCALE}${pathname === "/" ? "" : pathname}`;
   return NextResponse.redirect(url);
 }
 
