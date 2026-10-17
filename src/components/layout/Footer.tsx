@@ -279,14 +279,16 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Designed by <span>AnotherSEOGuru</span>
+          Designed by{" "}
+          <Image className="footer-credit-logo" src="/images/brand/credits/anotherseoguru.svg" alt="AnotherSEOGuru" width={106} height={24} unoptimized />
         </a>
         <a
           href="https://touristas.ai"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by <span>Touristas AI</span>
+          Powered by{" "}
+          <Image className="footer-credit-logo footer-credit-touristas" src="/images/brand/credits/touristas-ai-white.png" alt="Touristas AI" width={92} height={19} unoptimized />
         </a>
         <a
           href="https://discovercyclades.gr/en"
@@ -295,7 +297,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
           className="footer-partner"
         >
           <Image
-            src="https://discovercyclades.gr/favicon.svg"
+            src="/images/brand/credits/discover-cyclades.png"
             alt=""
             width={20}
             height={20}

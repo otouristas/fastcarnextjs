@@ -2010,3 +2010,8 @@ summary {
   .footer-round-cta > svg { width: 22px; height: 22px; order: 1; }
   .footer-wordmark { padding-block: 12px 24px; }
 }
+
+.footer-credits > a { gap: 8px; }
+.footer-credit-logo { height: 22px; width: auto; flex: none; }
+.footer-credit-touristas { height: 18px; }
+.footer-partner img { width: 24px; height: 24px; border-radius: 999px; background: #fff; object-fit: contain; }
