@@ -288,7 +288,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dict }) {
           rel="noopener noreferrer"
         >
           Powered by{" "}
-          <Image className="footer-credit-logo footer-credit-touristas" src="/images/brand/credits/touristas-ai-white.png" alt="Touristas AI" width={92} height={19} unoptimized />
+          <Image className="footer-credit-logo footer-credit-touristas" src="/images/brand/credits/touristas-ai-white.png" alt="Touristas AI" width={123} height={19} unoptimized />
         </a>
         <a
           href="https://discovercyclades.gr/en"
