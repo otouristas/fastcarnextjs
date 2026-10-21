@@ -6,6 +6,7 @@ import { FAQS } from "@/content/faqs";
 import { REVIEWS, REVIEW_AGGREGATE } from "@/content/reviews";
 import { NAXOS_GUIDE_ARTICLES } from "@/content/naxos-guide";
 import { absoluteUrl, SITE } from "@/lib/site";
+import { withLlmsHeader } from "@/lib/seo-parity/llms-header";
 
 export const dynamic = "force-static";
 
@@ -175,7 +176,7 @@ export function GET() {
     `Content © ${SITE.brand}. When citing, link to ${SITE.domain} and the specific page URL listed above.`,
   );
 
-  return new Response(L.join("\n"), {
+  return new Response(withLlmsHeader(L.join("\n"), { origin: SITE.domain, kind: "full" }), {
     headers: {
       "content-type": "text/plain; charset=utf-8",
       "cache-control": "public, max-age=3600",
