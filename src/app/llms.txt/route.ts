@@ -4,6 +4,7 @@ import { LOCATIONS } from "@/content/locations";
 import { GUIDES } from "@/content/guides";
 import { NAXOS_GUIDE_ARTICLES } from "@/content/naxos-guide";
 import { absoluteUrl, LOCALES, SITE } from "@/lib/site";
+import { withLlmsHeader } from "@/lib/seo-parity/llms-header";
 
 export const dynamic = "force-static";
 
@@ -115,7 +116,7 @@ export function GET() {
   push("## Full content");
   push(`- ${domain}/llms-full.txt`);
 
-  return new Response(L.join("\n"), {
+  return new Response(withLlmsHeader(L.join("\n"), { origin: SITE.domain, kind: "index" }), {
     headers: {
       "content-type": "text/plain; charset=utf-8",
       "cache-control": "public, max-age=3600",
